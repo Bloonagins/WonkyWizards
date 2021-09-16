@@ -1,0 +1,182 @@
+Important Notes:
+	- The view angle of the game is going to be old pokemon style, so mostly top down but tilted at a slight angle backwards
+	- The cutscenes in this game are going to look like old pokemon cutscenes too and use speech bubbles to display dialogue
+
+Intro
+	- An old, alcoholic, infamously unwise wizard named Wonk lives in an isolated tower that is built into the side of a mountain
+	- One day, Wonk gets the most brilliant idea for a new type of magic hallucination inducing vodka that would be the best drink to ever be created
+	- He tries to create a new formula for the drink with shroom-tatoes (potatoes that grow off of mushrooms)
+	- Wonk messes it up while experimenting and accidentally causes a spew of fire to instantly burn up his whole shroom-tato farm
+	- This makes him extremely upset, because that shroom-tato farm was one of the only ones in the land
+	- The only other one in existance is owned by an enchanter named Tim that lives a short journey away, but Wonk knows that Tim will not give him any to restart his garden
+	- This is because Tim looks down on Wonk for being an alcoholic, and since shroom-tatoes have dangerous magic properties Tim doesn't trust Wonk to own any
+	- Wonk then decides to make an invisibility potion and use it to sneak into Tim's garden to steal some shroom-tatoes to get his own garden restarted
+	- He needs to acquire a tome that contains an invisibility potion recipe in it in order to make the potion, and he thinks that a library in a nearby city might have one
+	- While drunk, he writes a note that reads:
+		"Dear Libary of Farenhold,
+			
+			Do you have a copy of a tome?
+			I need it to make a poton of
+			invincibility so I can take
+			something from this great, 
+			big, mean, goblin that I know.
+			Do you know if you have this?
+			If you don't, can you tell me
+			where I can acuire one?
+		
+		Thank you :)
+		- Wonk the Wizard"
+	
+	- Wonk then attatches this letter to a pigeon and enchants the pigeon to deliver it to the Library of Farenhold
+	- Not long after the pigeon begins its journey, it gets shot down by a pair of goblins hunting for food
+	- The goblins find the letter attacthed to the piegon and read it
+	- They aren't very smart and don't notice any of the spelling errors
+	- They then assume that this message means that Wonk is going to try to make a potion to make himself invincible and try to steal treasure from their leader, the Great Gob
+	- They bring the letter back to their pact's cave and show it to the Great Gob
+	- The Great Gob becomes angry and dispatches out a full military assault on Wonk to try to prevent him from getting a potion of invincibility
+
+Level 1
+	- Wonk is waiting in his tower for a reply from the Library of Farenhold and wondering what is taking them so long to reply
+	- All of a sudden, a bunch of magic tripwires that Wonk has placed around the forest nearby get activated and telepathically notify him that an army of goblins is approaching
+	- Level 1 then takes place
+		- Setting: area surrounding Wonk's tower
+		- General look of setting: huge front yard that's walled off with a few small gardens of various plants scattered around
+		- Enemy's target: Wonk's tower
+	- After each wave, Wonk drinks a magic alcoholic potion that puts him to sleep for a bit, but fully heals him when he awakes
+	- After Wonk beats the last wave and wakes up from his healing nap, he decides to travel directly to the Library of Farenhold on his pet pig to ask them about the tome
+	- Wonk has no idea why the goblins attacked his tower, so he fortifies it with a bunch of summons before he leaves
+
+Level 2
+	- Wonk arrives at Farenhold and goes to the library
+	- He asks a librarian if he can borrow a tome that contains the recipe for a potion of invisibility
+	- Wonk is denied any information about a tome like that since the librarian recognizes Wonk from stories that he had heard about him and his drunk behavior
+	- Wonk is kicked out of the library after revealing that he lacks a library card and some dumb dialogue exchanges, but all of a sudden the city's alarm bells start ringing
+	- Wonk hears a guard yell that there is an army of goblins approaching
+	- Level 2 then takes place
+		- Setting: Plaza and streets in front of the Library of Farenhold
+		- General look of setting: medieval looking streets that lead to a plaza with a fountain at the base of some stairs that lead up to a large library
+		- Enemy's target: the Library of Farenhold
+	- When Wonk wakes up from his last healing nap of the level after defending the library, the librarian is grateful and offers to tell Wonk about a tome with an invisibility potion recipe
+	- He says that the library lent an invisibility potion tome to an alchemist named Slimp a few weeks ago, and the librarian tells Wonk where Slimp lives
+	- Wonk continues on to Slimp still having no idea why he's been caught up in 2 goblin raids in such a short amount of time, and assumes it's just a coincidence
+
+Level 3
+	- Wonk arrives at Slimp's labratory in a town called Brookwood
+	- Wonk greets Slimp, but she finds him annoying due to his drunkenness and tells him to leave
+	- Wonk then hears the town's alarm bells ring and hears the guards yelling about a goblin raid again
+	- Level 3 then takes place
+		- Setting: Part of Brookwood
+		- General look of setting: small snowy town
+		- Enemy's target: Slimp's Lab
+	- After Wonk wakes up from his healing nap after the last wave, he returns to Slimp's lab and tries asking her for the tome again
+	- Slimp agrees to tell him where it is if he agrees to go away since he saved her lab from the goblins
+	- Slimp says that she was comissioned to brew an invisibility potion for a man named Strobenord
+	- She thought that Strobenord might be a thief, but wasn't certain about it so she didn't refuse the commission
+	- When Strobenord came to her lab to pick up his potion, he stole the invisibility tome while he was there
+	- Slimp said that she met Strobenord at a tavern in another town and assumes he goes there regularly
+	- Wonk heads onto the tavern continuing to assume that all of the goblin attacks have just been coincidences
+
+Level 4
+	- Wonk arrives at the 'Dragon of the West' Tavern in the town of Crookstead
+	- Wonk goes in and asks the bartender if he knows of a man named Strobenord
+	- The bartender says that it's against the tavern's policy to point people to patrons of the place
+	- After some drunk bickering, Wonk hears the town's alarm bells ring and the guards yell of another goblin attack
+	- Level 4 then takes place
+		- Setting: Part of Crookstead
+		- General look of setting: small, dry, deserty looking town
+		- Enemy's target: The Dragon of The West Tavern
+	- After waking up from his heal nap after the last wave, the bartender comes outside and thanks Wonk for defending the tavern
+	- The bartender agrees to gives Wonk some information about where to find Strobenord
+	- The bartender says that he's heard that Strobenord's hideout is in a treehouse at the top of a cliff
+	- Wonk carries on continuing to derpily assume that the goblin attacks are just a coincidence
+
+Level 5
+	- Wonk arrives at Strobenord's treehouse at the top of a cliff
+	- Wonk calls up to Strobenord, but Strobenord, being a recluse, is angry at the prescence of a visitor
+	- Strobenord threatens to attack Wonk if he doesn't leave
+	- Just as Wonk is about to leave, Strobenord asks Wonk if he was followed here
+	- Wonk says he doesn't think so
+	- Strobenord then asks why he can hear an army of goblins approaching through the vibrations in the trees
+	- Level 5 then takes place
+		- Setting: Forest area around Strobenord's Treehouse
+		- General look of setting: heavily forested area with little river that has bridges going over it that act as chokepoints
+		- Enemy's target: Strobenord's Treehouse
+	- After Wonk wakes up from his healing nap after the last wave, Strobenord comes down and thanks Wonk for defending his treehouse
+	- Wonk then asks Strobenord if he knows where the invisibility tome he stole is
+	- Strobenord agrees to tell him and says that he was hired by a noblewoman named Jarine Cordinial to steal as much as he could from a nobleman named Flouton Emberstall
+	- Strobenord was promised that after Jarine sold all of the items he stole for her, he would recieve a share of the earnings
+	- Strobenord then commissioned Slimp the Alchemist to make an invisibility potion for him so he could steal from Flouton's estate easily
+	- When Strobenord went to go pick up the potion, he decided to swipe the invisibility tome on the way out, give it to Jarine, and say it was from Flouton so he could get a bit more money
+	- Strobenord then tells Wonk where to find the noblewoman's estate
+	- Wonk carries on continuing to derpily and stupidly assume that all of the goblin attacks are just a coincidence
+
+Level 6
+	- Once Wonk reaches Cordinial Estate, he goes to greet Jarine
+	- Wonk asks her if she knew who she sold the invisibility tome to, but Jarine becomes frightened that he knows about the items and threatens to have him arrested
+	- All of a sudden, Jarine and Wonk both spot a pair of goblin scouts who were watching them while hiding nearby
+	- Wonk knocks one out with a fireball and the other one escapes
+	- When the captured goblin wakes up, Wonk interrogates it and asks why it was spying on them
+	- The goblin reveals that the goblins had been attacking every place Wonk went to in order to prevent him from finding out how to make an invincibility potion
+	- The goblin also reveals that they didn't want him to use the invincibility potion to defeat the Great Gob and take treasure from him
+	- Wonk sets the goblin free and tells it to tell the other goblins that he's trying to make an invisibility potion, not an invincibility potion
+	- The goblin says that he doesn't believe Wonk and runs off
+	- Level 6 then takes place
+		- Setting: Gardens around Cordinial Estate
+		- General look of setting: huge, fancy looking garden that is walled off on all sides with hedges and stone walkways everywhere
+		- Enemy's Target: Cordinial Estate
+	- After Wonk wakes up from his healing nap Jarine thanks him for saving the esate
+	- Wonk asks her to tell him about the invisibility tome and she agrees
+	- She says that this estate used to belong to her husband and they were very proud of it
+	- She then says that another nobleman named Flouton Emberstall had a long running hatred toward her husband and had always been jealous of the estate that he inherited
+	- She then says that one day, her husband died of food poisoning, and she was devastated
+	- Later she found out that Flouton had a plan to swipe the estate from her
+	- Flouton's plan was to use his wealth to bribe the king of the land to allow him to forcefully purchase the estate from her since it was a common belief among nobles that women shouldn't own land
+	- Jarine assumed that Flouton had poisoned her husband so that he would be able to take the estate from her, and she was furious
+	- Jarine decided to take revenge on Flouton by hiring one of the best thieves in the land to steal so much from Flouton that he wouldn't have enough to bribe the king or purchase her estate
+	- Wonk doesn't care about any of this and just asks her where the tome is
+	- She says that she sold it to an enchanter named Tim
+
+Level 7
+	- Wonk is in disbelief that the tome he needed ended up in the place he was going to use it to steal from
+	- Wonk decides to head to Tim's Lair anyways to ask for some shroom-tatoes just for the off-chance that he actually allows him to borrow some to restart his garden
+	- Wonk arrives at Tim's Lair and asks him for some shroom-tatoes to restart his farm
+	- After some conversation Tim denies Wonk's request for shroom-tatoes
+	- Wonk then tries asking Tim for the invisibility Tome and Tim gets angry at Wonk for resorting to trying to steal from him
+	- All of a sudden, Tim and Wonk catch a goblin tryinig to sneak into Tim's Lair
+	- Tim immediately explodes the goblin, and Wonk warns that the goblin was likely trying to steal the tome and that more are coming
+	- Level 7 then takes place
+		- Setting: Outside of Tim's Lair
+		- General look of setting: rocky, mountainous terrain (kind of like that place with Tim the enchanter from Monty Python and the Holy Grail)
+		- Enemy's Target: Tim's Lair
+		- Special Events: throughout the whole level, there will be occasional random explosions on enemies being cast from Tim who is inside his lair
+							there will also be a boss fight on the final wave of the level
+							it will be The Great Gob, who decided to take matters into his own hands after his armies kept failing to prevent Wonk from obtaining the tome
+							The Great Gob will have a ranged spitball attack that can target Wonk through walls, as well as a standard long ranged melee attack, and will move slowly
+	- Between each wave, Wonk gets healed by Tim instead of taking a healing potion that puts him to sleep
+	- After Wonk and Tim defeat the level, Tim asks Wonk how the goblins knew about the tome and came to attack
+	- Wonk explains how his letter was intercepted and misread by the goblins and that they'd been chasing him around the land for his whole journey
+	- Tim becomes furious with Wonk that he still decided to come to his lair even after he knew that the goblins had been sending armies after him everywhere
+	- Tim then yells about how the tome actually did have the recipe for a potion of invincibility, not a potion of invisibility
+	- Apparently the person who wrote the tome wrote it in an encrypted script a long time ago, and the person who found it in some ruins and gave it to the library mistranslated it
+	- Tim then threatens to kill Wonk and destroy his tower due to him being too stupidly dangerous of a wizard to be kept alive
+	- Just before Tim summons an explosion on Wonk, Wonk pulls his ace out of his sleeve: casting a fireball on himself to rocket jump away
+
+Level 8
+	- After pogo-rocket jumping with fireballs to safety, Wonk drinks a healing potion and immediately passes out from the pain before the potion even puts him to sleep
+	- When Wonk wakes up, he realizes he needs to immediately get back to his tower to defend it from Tim
+	- Level 8 then takes place
+		- Setting: area surrounding Wonk's tower
+		- General look of setting: huge front yard that's walled off with a few small gardens of various plants scattered around
+		- Enemy's target: Wonk's tower
+		- Special Events: the enemies for this level will be reanimated zombie goblins that Tim resurrected from the attack on his lair
+							all zombie enemies on this level will have double health, but move and attack ever-so-slightly slower
+							this level will be 3 long and enemy dense waves that each have their own boss fight at the end
+							the first wave's boss fight will be The Great Zombie Gob
+							the second wave's boss fight will be The Beast of Caerbannog, which will be a tiny, but super fast, hard to hit, and high damaging rabbit
+							The Beast of Caerbannog will exclusively target the player, and have an on-touch melee attack combined with a dash ability (similar to the goblin assasin)
+							the last wave's boss will be Tim after drinking the potion of invincibility
+							Tim will blow up a random summon / barrier that is still in front of him every few seconds and have massive HP, but will move slowly
+							Tim's attacks will be a mild bullet hell of explosive missiles and an on-touch melee attack
+	- After Wonk wakes up from his healing nap, he's kind of in shock for a minute, but just drinks it off
+	- He then goes back to Tim's Lair and takes a few shroom-tatoes, but he can't find the tome of invincibility anywhere
+	- Wonk assumes that Tim must have destroyed it, so he shrugs it off and heads back home to make magic vodka

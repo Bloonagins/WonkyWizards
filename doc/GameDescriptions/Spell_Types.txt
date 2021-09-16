@@ -1,0 +1,72 @@
+Spell Types:
+	Glossary:
+		- Travel time:
+			- Hitscan: immediately hits where you aimed when you click
+			- Projectile: has a travel time to get to where you shot (slow, medium, or fast for now)
+		- Damage per hit:
+			- Self explanatory, either very low, low, medium, high, or very high for now
+		- Firing speed:
+			- The amount of time before the spell can shoot again
+			- IMPORTANT NOTE: whoever ends up coding the spells, make sure you avoid a weapon switching bug
+				this is a bug where the player can shoot a weapon, quickly switch to a different weapon and then back to the original to 
+				reset the weapon's shot cooldown, thus bypassing the weapon's firing speed limitation
+		- Range:
+			- The distance the weapon can travel before it has no more effect / disipates / explodes
+		- Charge up time:
+			- The amount of time the player has to hold down click before the spell can fire
+		- Hitbox size / shape:
+			- The size / shape of the hitbox that the spell uses to check collisions with enemies
+		- Effect:
+			- How the spell functions / what it looks like on screen
+		- Color theme:
+			- The main color of the spell to make each one more distinguishable to the player both when fired and in the UI
+	
+	- Magic Missile
+		- Travel time: Either hitscan or fast
+		- Damage per hit: very high (shouldn't be able to 1-shot any enemies without any special effects though)
+		- Firing speed: very slow
+		- Range: unlimited (until it hits a tile with collision, eg tower, edge of map, or unbuildable tile)
+		- Charge up time: none
+		- Hitbox size / shape: straight line, basically a very skinny retangle
+		- Effect: A missile that fires in a straight line and can penetrate through unlimited enemies. It cannot travel through tiles with collision (summons (towers), non buildable tiles, etc.)
+		- Color theme: yellow
+	- Fireball
+		- Travel time: slow
+		- Damage per hit: high to medium (does more damage the closer to the center of the explosion the target is)
+		- Firing speed: slow
+		- Range: unlimited (explodes on hit with anything)
+		- Charge up time: none
+		- Hitbox size / shape: medium sized circle
+		- Effect: A ball of fire that explodes on the first thing it hits, which can be either an enemy, a summon (tower), an non buildable tile, the edge of the map, or anything else with collision.
+					When the fireball explodes, it checks to see if any enemies are withing a certain radius of the center of the explosion. Any enemies that are take damage.
+					The closer to the center of the explosion the enemy is, the more damage they take.
+		- Color theme: red
+	- Ice Beam
+		- Travel time: hitscan
+		- Damage per hit: very low
+		- Firing speed: very fast (continuous beam)
+		- Range: medium
+		- Charge up time: none
+		- Hitbox size / shape: straight line, basically a very skinny retangle
+		- Effect: A beam of ice that fires continuously in a straight line, but cuts off after a certain range.
+					When an enemy is hit with the ice beam, a force coming directly from the player is applied to them.
+					The force should not be strong enough to stop or reverse an enemy's movement, just slow them down
+		- Color theme: light blue
+	Slimeball
+		- Travel time: medium
+		- Damage per hit: medium
+		- Firing speed: medium
+		- Range: disipates after a certain amount of time (a few seconds or so)
+		- Charge up time: short
+		- Hitbox size / shape: small circle
+		- Effect: After the chargeup time is over and the slimeball shoots, it can bounce off walls and penetrate through an unlimited number of enemies. It disipates after a few seconds though.
+		- Color theme: bright green
+	Acid Spray
+		- Travel time: hitscan
+		- Damage per hit: high
+		- Firing speed: medium
+		- Range: short
+		- Charge up time: none
+		- Hitbox size / shape: wide cone that sprays out in front of the player
+		- Effect: Sprays out a high damage, short range, purple cone of acid. Deals full damage to any enemy that touches the acid.
+		- Color theme: purple
