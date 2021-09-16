@@ -1,0 +1,165 @@
+Summon Types (tower types):
+	- Note: I'm just calling towers 'summons' now since all of the towers will be things that the wizard summons to help him defend, so it fits with the game's lore
+			plus i just think it sounds a bit cooler
+			if you guys prefer just calling them towers lmk and we'll probably go with that
+	
+	- Summon Mechanics Reminder:
+		- Summons are placed down during the setup phase before waves
+		- They cost the player mana to place down
+		- The player places them by selecting a tile for it to be on, and then it takes up the whole tile and gives that tile collision
+		- If a player wants to take a summon off of a tile, they can do so during the setup phase
+			- Removing a summon gives the player back full mana if the player removed the summon in the same setup phase it was placed
+			- Removing a summon gives the player back 80% of the mana it cost to place it down if the player removed the summon on a different wave than the one it was placed in
+			- In other words, you are encouraged to move around new summons as much as you want, but once a wave starts, then you are discouraged from removing that summon later on
+			- This will help make levels more challenging
+			- NOTE: update for tile sizes, try to imagine them being the size of a small room relative to the player and enemies. Summons should take up about that much space as well (big).
+		- For most summons, when enemies come within a certain range, they begin targeting the enemies and attacking them
+			- Most summons will not be able to target enemies that are being blocked by a collidable tile though (eg. another summon, a non-buildable tile, etc)
+			- Note: "enemy within range checks" should be done on the center of each side of the tile that the summon is on to prevent the summon from being blocked by adjacent summons (because squares)
+			- Note2: ranges will be circle shaped and radius based, not square shaped or tile based
+		- The player can give the summons multiple targeting modes for when there are multiple enemies within the summon's range:
+			1. First: targets the enemy with the least distance remaining in its path to the target
+			2. Strong: targets the enemy with the most HP
+			3. Close: targets the enemy that is the closest to the summon
+			4. Last: targets the enemy with the most distance remaining in its path to the target
+			IMPORTANT NOTE: David will need to have each enemy constantly be calculating how much distance it has left until it reaches the target in order for
+							targeting modes 1 and 4 to work.
+		- The player can edit these targeting modes during setup phase, or during the wave if they find the time to
+		- Most summons will also block movement through them, so the player will be encouraged to build a time maximizing maze out of barriers and other summons for the enemies to traverse through.
+		- (Optional?) The summons might also have HP (health points)
+			- This may or may not be used depending on whether or not we decide to make enemies that can damage and destroy summons
+			- Summon get destroyed and disappear for the rest of the wave when HP drops to 0.
+			- Players can choose to spend time to resummon a summon, which brings it back to full HP, re-enables collision on that tile, and restores all other functionalities of the summon, BUT
+				- while players are resummoning, they need to stand still for a few seconds, leaving them exposed
+				- cancelling a resummon attempt resets its progress, so if the player tries to resummon again, they will have to start over
+			- Destroyed summons are guaranteed to respawn at the end of the wave if the player doesn't resummon them before then
+	
+	Glossary:
+		- Cost:
+			- The amount of mana that the player has to spend to place down the summon during setup
+			- The better the summon, the more expensive it is
+		- Travel time:
+			- Hitscan: immediately hits when it fires
+			- Projectile: has a travel time to get to where it shot (slow, medium, or fast for now)
+			- IMPORTANT NOTE: most summons should probably be hitscan so that they don't are less likely to frustrate the player due to them missing. If they are a projectile, then they should be fast.
+								Summons that are projectiles should also be programmed to aim ahead where their target is going.
+		- Damage per hit:
+			- Self explanatory, either very low, low, medium, high, or very high for now
+		- Firing speed:
+			- The amount of time before the summon can shoot again
+		- Range:
+			- The max distance the summon can detect enemies to shoot at from
+		- Hitbox size / shape:
+			- The size / shape of the hitbox that the shot the summon fires uses to check collisions with enemies
+		- HP:
+			- This may or may not be used depending on whether or not we decide to make enemies that can damage and destroy summons
+			- Health points
+			- The amount of damage it takes enemies to destroy a summon
+		- Effect:
+			- How the summon functions / what it looks like on screen
+	
+	Barrier
+		- Cost: very cheap
+		- Travel time: None
+		- Damage per hit: None
+		- Firing speed: None
+		- Range: None
+		- Hitbox size / shape: None
+		- HP: 
+		- Effect: only serves to block enemies from reaching their target directly. They can look like part of a castle wall unless someone has a cooler idea.
+	Ghost Pepper
+		- Cost: ?
+		- Travel time: hitscan
+		- Damage per hit: low
+		- Firing speed: very fast (continuous)
+		- Range: short - medium
+		- Hitbox size / shape: cone that shoots out from the dragon
+		- HP: 
+		- Effect: A dragon that breathes fire at enemies that come within range.
+					good for short range high dps
+	Enchanted Swords
+		- Cost: ? 
+		- Travel time: hitscan
+		- Damage per hit: high
+		- Firing speed: fast
+		- Range: very short
+		- Hitbox size / shape: 2 slim swords
+		- HP: 
+		- Effect: 2 swords spin around very quickly like a rotor. Enemies takes damage each time a sword hits them. Swords magicaly pass through nearby summons and the player without harming them.
+					good for even higher dps but even shorter range
+	Astral Crossbow
+		- Cost: ?
+		- Travel time: hitscan
+		- Damage per hit: high
+		- Firing speed: slow
+		- Range: Very long
+		- Hitbox size / shape: straight line, basically a very skinny retangle
+		- HP: 
+		- Effect: A crossbow that fires a magic beam of light at enemies. It can also target enemies through tiles with collision. In other words, it can shoot through walls.
+					good for long range
+	Portal
+		- Cost: expensive
+		- Travel time: none
+		- Damage per hit: none
+		- Firing speed: none
+		- Range: none
+		- Hitbox size / shape: none
+		- HP: 
+		- Effect: It is a tile that only the player can enter, and when the player touches the center of the tile then they are teleported to the center of another portal tile.
+					The player cannot shoot through the portal tile though. This makes it so that players can't just sit inside a portal tile to attack enemies while enemies can't attack back.
+					Enemies should not be able to target players inside of a portal tile either.
+						Otherwise, enemies could lock onto a player sitting inside a portal block as they pass by, making them press up against the wall forever until they die.
+						Or, a player that is overwhelmed with enemies near the target could get all of the enemies to lock onto them, and then take a portal back to the start, drawing them all back.
+					Portals can look like a small room with magic force fields as walls and a bright, spiraling pit in the center
+	Empowering Crystal
+		- Cost: Expensive
+		- Travel time: none
+		- Damage per hit: none
+		- Firing speed: none
+		- Range: short
+		- Hitbox size / shape: none
+		- HP: 
+		- Effect: This summon increases the firing speed of all other summons within range by a percentage amount
+					good support
+					could look like a giant floating crystal that pulses energy
+	Shrubbery from the Realm of NI!
+		- Cost: ?
+		- Travel time: very fast
+		- Damage per hit: low
+		- Firing speed: slow - medium
+		- Range: medium
+		- Hitbox size / shape: circle
+		- HP: 
+		- Effect: A giant plant that shoots out slimeballs. Enemies hit with a slimeball from this plant get slowed down temporarily.
+					(I'm imagining that this looks kinda like the peashooter from plants vs zombies)
+	Sven
+		- Cost: ?
+		- Travel time: very fast
+		- Damage per hit: high to medium (distance from center of explosion determines damage)
+		- Firing speed: medium
+		- Range: medium
+		- Hitbox size / shape: circle
+		- HP: 
+		- Effect: A snowman that shoots giant snowballs at enemies. When a snowball collides with something, it explodes into ice shards. Enemies within the snowball's explosion radius take damage.
+					the amount of damage enemies take from the snowball is determined by their distance from the center of the explosion.
+	Mysterious Futuristic Wind Manipulation Device
+		- Cost: ?
+		- Travel time: none
+		- Damage per hit: none
+		- Firing speed: constant
+		- Range: short
+		- Hitbox size / shape: a 1 tile wide rectangle that has a length of a few tiles
+		- HP: 
+		- Effect: A fan that blows in 1 direction, slowing down enemies and players that walk upwind, speeding up enemies and players that walk downwind
+					Player can rotate the fan when placing it down
+					Useful for holding enemies in a certain area for a longer period of time
+	Big Chunk
+		- Cost: expensive
+		- Travel time: Very fast
+		- Damage per hit: high
+		- Firing speed: medium
+		- Range: long
+		- Hitbox size / shape: big circular stones
+		- HP: 
+		- Effect: Big, fat troll that hurls stones at enemies that come within range
+					just overall good damage and range

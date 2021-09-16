@@ -1,0 +1,124 @@
+General Overview
+
+	- Tower defense game where you place down towers and you actively take part in shooting the enemies yourself as a player moving around the map as well
+	- Enemies try to flood in and make it past the player and their towers to get to a target on the other side of the map and destroy it
+	- There will be a set number of levels with predetermined enemies for each one
+	- There will be different types of towers (including just plain barriers) and different types of weapons that the player can use to prevent the enemies from getting to the target
+	- Will be 2D top down pixel art style (so it will be easy to create our own assets)
+	- Levels wil be made up of squares and towers will be able to be placed in squares
+
+What will happen in a typical playthrough of a wave of this game
+
+	1. The player will spawn into the level in a setup phase with a certain amount of an in game resource and weapons that either they choose or were given to them for the level
+	2. The player will then spend their in game resource to place down towers and barriers to create as slow and dangerous of a path as possible for the enemies
+	3. Once the player is ready, they can start the wave
+	4. Enemies will come out of designated spawn points and try to run to the target and try to destroy it
+	5. The towers will automatically damage the enemies as they run by while the player tries to damage the enemies with their own weapons as well
+	6. If the enemies reach the target and damage it enouch or damage the player enough then the player loses
+	7. If the player defeats all of the enemies in a wave before the target is destroyed and without losing all of their health, then they win the wave
+
+Tower Mechanics
+
+	- Player will be able to place down different types of towers in each square, including barriers (1 tower per square)
+	- Game will have pathfinding through the squares to make it so players aren't allowed to place down towers that would make it impossible for the enemies to reach their target
+		- Example: if the player tries to encircle an enemy spawn point in towers / barriers, they would not be allowed to place the last tower so that there would be at least 1 square that the enemies could exit through to get to the target
+	- Player will have a certain amount of a resource for each level, and placing towers will cost the player different amounts of that resource
+	- Different types of towers will cost different amounts of the resource
+	- Once a player places a tower / barrier, nothing can walk through it
+
+Level Design
+
+	- Levels will have set enemy spawn points (or a single enemy spawn point (maybe for the first level))
+		- Each spawn point for each level will have a predetermined set of enemies and set times for each enemy to come out
+	- Levels will have a target for the enemy to attack in a certain location
+	- Levels will be shaped differently and have different sizes
+	- Levels will also have different blocked off squares (like to represent a tree or a building or something)
+	- Each level can give the player a different amout of resources to spend on towers as well
+	- The squares will be huge in comparison to the size of the player and enemies so that if the player builds a path for the enemies to go down with barriers, they won't just have to aim in one place to hit all their shots easily
+	
+	- Optional idea 1: if we're behind on the game, we could make it so that the levels have preset barriers with predetermined enemy paths making it so the player will only be able to place normal towers
+		- This would make it so we don't have to spend as much time on pathfinding and other things, but it would take the fun of building your own path for the enemies to follow out of the game
+	- Optional idea 2: if we're ahead on the game, we could make it so each level has multiple waves / different amounts of waves
+		- After the player beats each wave, they will get another setup phase and maybe a few more resources to build more towers to prepare for the next and most likely harder wave
+		- The player will also get all of their health back (and maybe ammo too if we decide to make that limited) once a wave is completed
+		- Beating the level requires beating all of the waves in that level
+	- Optional idea 3: we could make a random level generator for fun if we're rolling along through the project and have spare time
+	
+	---
+	Coding design ideas:
+		- Levels could be a 2D array of square objects, and each square object can hold data about what it's holding (tower, empty, tree / building to make it nonbuildable, etc.)
+
+Enemy Mechanics
+
+	- Before the level starts, the game will have calculated a fastest path through the squares for each enemy spawn point
+		- The game will display this path to the player during setup as they place their towers
+	- Enemies will come out of their designated spawn points at their designated time
+	- Enemies will then follow the path that the game calculated until they are either defeated or reach their target
+		- Once an enemy reaches a square, it will pick a random point in the next square it needs to go to and then travel there, then repeat for each next square until it is defeated or it reaches the end
+	- If an enemy reaches the target, it will begine attacking the target
+	- If an enemy gets within a certain range of the player, they will try to chase after the player instead of the target
+	- If an enemy touches the player, the player will take damage
+	- There will be different types of enemies with different stats and abilities
+		- Examples:
+			-different amounts of health
+			-different speeds
+			-deals different amounts of damage
+			-some can shoot at the player
+			-some have a dash ability that they will use within a certain distance from the player to dash at them
+			-some can give buffs to nearby enemies
+			-etc.
+	
+	---
+	Coding design ideas:
+		- Enemy spawn points can be a linked list where each node is a enemy
+		- Once an enemy spawns, the linked list increments
+		- Each enemy node contains data on how long to wait to spawn it once it is on deck
+
+Player Mechanics
+
+	- The player moves at a certain speed around the map with WASD
+	- The player has a certain amount of health
+		- Losing all of that health means that the player loses the game
+	- The player can have different types of weapons that they can equip that behave differently
+	- The player will use the mouse cursor to aim where they want to shoot their weapons
+		- The player will shoot in the direction that their cursor is pointed
+		- We could also make it so the player has a limited amount of ammo per weapon (up for discussion, need to take game balance into account)
+	- The player will have a limited area of vision around
+		- Could have it where the player has more vision in the direction they're aiming at, so if you're aiming to the left the screen shifts to the left so they can see a bit farther that way but see less to the right
+		- The screen could be centered on a point somewhere between the cursor and the player (probably leaning closer to the player)
+		- The camera could zoom farther out the farther the cursor is from the player, with the zoom out being centered on the cursor so it doesn't mess up the player's aim
+
+Tower Type Ideas
+
+	- Barrier
+		- Doesn't do anything except make it so the enemies have to take a longer route to the target
+		- Should be very cheap to build
+	- Portal
+		- When player places 2 portals down, they can link them together
+		- Is the only tower that the player can walk inside of, but enemies cannot
+		- If the player touches the middle of the portal square, they are teleported to the middle of the portal square it was linked to, and vice versa
+		- Not sure how expensive portals would be, we'd have to test for balancing
+	- 
+
+Weapon Type Ideas
+
+	- 
+
+Enemy Type Ideas
+
+	- Minion
+		- Weakest enemy, low health, medium - high speed, low - medium damage, no abilities, melee damage only
+	- Tower Buster
+		- Medium - high health, slow speed, medium - high damage, can damage towers to destroy them to make it easier for other enemies to get through, melee damage only
+	- 
+
+Theme Possiblities
+
+	- This game idea was designed to be modifiable to be compatible with any kind of theme for the game
+	- This makes it so that the game can be about anything, in case anyone wants the game to be about something specific (like space, fantasy, a war between monkeys and frogs, etc.)
+	- Could be based on DOOM where the player is doom guy, the enemies are demons, the towers are futuristic turrets, all the levels are in hell, and the player has to defend a giant crystal or something
+	- The game could be about a cowboy in a desert trying to defend a gold mine entrance from bandits with steam powered sentries and his own guns
+	- The game could be about an astronaut defending their ship that's being repaired from aliens
+	- The game could be about a wizard defending their tower from goblins with magic spells
+	- The game could be about a crazy-ass pissed-off old guy defending his lawn from kids with towers made from parts in his garage
+	- Suggestions for the game's theme are wide open and up for discussion lol

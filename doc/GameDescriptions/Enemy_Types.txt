@@ -1,0 +1,105 @@
+Enemy Types:
+	Glossary:
+		- HP: Health Points
+		- Speed: Just the speed
+		- Damage: Damage dealt per shot for basic attack
+		- Attack Speed: Time between when attacks can be done
+		- Range: 
+			- On-touch: Damage is dealth when the enemy touches the target
+			- Melee: Damage is dealth when the target comes within a certain range of the enemy
+			- Ranged: Target has unlimited range on the target and can shoot projectiles (cannot target through walls though)
+		- Size: the amount of space that the enemy takes up (hitbox size)
+		- Knockback: How much the player gets bounced away when an attack from this enemy hits them
+		- Abilities: Any special actions or traits that the enemy posesses
+		- Appearance Idea: An idea for how the enemy can look
+	
+	Goblin Grunt
+		- HP: low
+		- Speed: medium
+		- Damage: low
+		- Attack Speed: fast
+		- Range: on-touch
+		- Size: small
+		- Knockback: low
+		- Abilities: none (they should usually spawn in large masses though in order to swarm the player)
+		- Appearance Idea: scrungy looking goblins that aren't very well equiped or strong appearing
+	
+	Goblin Warrior
+		- HP: medium
+		- Speed: medium
+		- Damage: medium
+		- Attack Speed: medium
+		- Range: short melee
+		- Size: medium
+		- Knockback: low
+		- Abilities: for every other goblin warrior that this enemy is within range of, this enemy's damage increases by a linear amount
+		- Appearance Idea: Bulky, well equiped goblins with armor, swords / axes, and shields
+	
+	Goblin Archer
+		- HP: medium
+		- Speed: slow
+		- Damage: medium
+		- Attack Speed: medium
+		- Range: ranged
+		- Size: medium
+		- Knockback: low
+		- Abilities: can shoot arrows at the player if the player is not being blocked by anything
+		- Appearance Idea: Lightly equiped, athletic looking goblins with bows / crossbows and arrows
+	
+	Goblin Assassin
+		- HP: medium - high
+		- Speed: fast
+		- Damage: high
+		- Attack Speed: slow
+		- Range: on-touch
+		- Size: medium
+		- Knockback: none
+		- Abilities: when this enemy comes within targeting range of the player, it continually dashes at them to attack
+						the dash should be dodgable, and when the enemy misses the player, they fly by them for a bit of a distance (matador style)
+		- Appearance Idea: Hooded / masked and lightly equiped goblins with daggers
+	
+	Goblin Giant
+		- HP: high
+		- Speed: slow - medium
+		- Damage: high
+		- Attack Speed: slow
+		- Range: long melee
+		- Size: big
+		- Knockback: high
+		- Abilities: explodes on death, explosion only deals damage to the player if the player is within range of the explosion
+		- Appearance: a huge, brutish, bulky, goblin with a big club
+	
+	Goblin Slime-caster
+		- HP: medium
+		- Speed: slow
+		- Damage: medium
+		- Attack Speed: medium
+		- Range: ranged
+		- Size: small
+		- Knockback: medium
+		- Abilities: shoots 5 bouncing slimeballs in a wide cone at the target on every shot
+		- Appearance Idea: these enemies should be dressed in wizardy looking robes
+	
+	Goblin Alchemist
+		- HP: low
+		- Speed: slow
+		- Damage: low (over time)
+		- Attack Speed: very slow
+		- Range: ranged
+		- Size: small
+		- Knockback: none
+		- Abilities: this enemy can throw potion bottles at their target, and if the potion hits something, or it misses the target to the side by a bit, then the potion bottle explodes
+						when the potion bottle explodes, it leaves acid all over the ground in a large area that deals damage to the player over time as long as they are standing in it
+						the acid only lasts for a few seconds, but can be burned up immediately if the player shoots it with a fireball spell, or if a fireball spell explodes nearby
+		- Appearance Idea: these enemies should be dressed like medieval mad scientists (goggles, old fashioned lab coat, carrying potions on it's clothes)
+	
+	Goblin Priest
+		- HP: medium
+		- Speed: slow
+		- Damage: none
+		- Attack Speed: very slow
+		- Range: ranged
+		- Size: medium
+		- Knockback: none
+		- Abilities: this enemy can shoot hitscan spells at other enemies to heal them for a static amount
+		- Appearance Idea: this enemy can be dressed like a cultist
