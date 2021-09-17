@@ -1,0 +1,96 @@
+=====================================================================================
+  Text Tools 1.0.19.06 - Manual
+=====================================================================================
+
+Thank you for choosing Text Tools! 
+The Text Tools is a plug-in for Unity that you can use to generate 3D Text from 
+truetype fonts(.ttf or .otf).
+
+
+-------------------------------------------------------------------------------------
+Installation
+-------------------------------------------------------------------------------------
+Once you have downloaded Text Tools from Unity’s Asset Store, go to:
+“Assets->Import Package->Custom Package...”. In the Import Asset window, find
+and select the Text Tools.unitypackage file. After the “Importing package” window
+appears in Unity, verify that all items to import are selected and then click
+the Import button in the bottom right of the window.
+
+
+-------------------------------------------------------------------------------------
+Creating TextTools Font
+-------------------------------------------------------------------------------------
+1. Put he font in your assets folder.
+2. To create a new TextTools Font, use Assets->Create->TextTools Font from the main 
+   menu or the Project View context menu.
+
+
+-------------------------------------------------------------------------------------
+Font Settings
+-------------------------------------------------------------------------------------
+
+Font Source      - the font face we were created from.
+					 					 
+Character Ranges - determines what characters will be included in the TextTools 
+                   Font.
+
+Curve Quality    - approximation level of curves. Value ranges from zero to
+                   infinity. The higher the value is the lower the quality.
+
+Extrude          - sets the extrusion depth.
+
+Outline Width    - sets the width of the outlined area.
+
+Outline Join     - specifies the shape to be used at the corners of outline.
+
+Bevel Segments   - specifies the number of segments created in the beveled text.
+
+Miter Limit      - When two line segments meet at a sharp angle and miter joins 
+                   have been specified for Outline Join, it is possible for the 
+                   miter to extend far beyond the thick ness of the line stroking 
+                   the path. The Miter Limit imposes a limit on the ratio of the 
+                   miter length to the Outline Width. When the limit is exceeded, 
+                   the join is converted from a miter to a bevel.
+
+
+-------------------------------------------------------------------------------------
+Actor Settings
+-------------------------------------------------------------------------------------
+
+Text              - allows for multiple lines of text. Press Shift + Enter to start 
+                    a new line.
+
+Font              - this is the TextTools Font asset that will be used to render 
+                    the text.
+
+Font Size         - the point size of the characters.
+
+Character Space   - sets the space between characters.
+
+Word Space        - sets the space between words.
+
+Line Space        - sets the space between lines.
+
+Text Alignment    - set the text alignment.
+
+Reflect           - reflected text.
+
+Vertical          - major text layout direction. Horizontal text layout if disabled.
+
+Path Offset       - sets the offset along the curve path that will be used as the 
+                    start of text placement.
+
+Text Path         - placing an text using a quadratic curve as a path. You can move 
+                    the object along the path.
+
+Vertical Path     - vertical path text placement.
+
+Cast Shadow       - controls whether the text should cast a shadow or not..
+
+Simulate Physics  - sets whether or not a text should use physics simulation, 
+                    or should be 'fixed' (kinematic).
+
+Collider          - controls what kind of collision is enabled for this text.
+
+
+

@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b3a980b3839cb48bb41ac2e00984b3, type: 3}
+  m_Name: TextToolsFont
+  m_EditorClassIdentifier: 
+  glyphList: []
+  kerningPairList: []
+  faceMaterial: {fileID: 0}
+  sideMaterial: {fileID: 0}
+  outlineMaterial: {fileID: 0}
+  wordSpace: {x: 0, y: 0}
+  lineSpace: {x: 0, y: 0}
+  extrude: 0
+  outlineWidth: 0
+  unitsPerEm: 1
+  missingGlyph: 127
+  characterRangeList: []
+  meshCompression: 0
+  outlineJoin: 0
+  topLeftColor:
+    serializedVersion: 2
+    rgba: 4278190080
+  topRightColor:
+    serializedVersion: 2
+    rgba: 4278190080
+  bottomLeftColor:
+    serializedVersion: 2
+    rgba: 4278190080
+  bottomRightColor:
+    serializedVersion: 2
+    rgba: 4278190080
+  assetPath: 
+  fontName: 
+  curveQuality: 1
+  miterLimit: 4
+  bevelSegments: 0
+  optimizeMesh: 0
+  useTangents: 0
+  useColors: 0
+  uvCorrection: 0
