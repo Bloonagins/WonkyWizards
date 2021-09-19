@@ -1,0 +1,8 @@
+Ethan - music / towers 
+Chandler - Player / camera movement 
+Gabe - UI / goal tower 
+Zach - Game Manager / cutscenes 
+Chase - animation and sprites / spells 
+David - Enemies 
+Gage - tile maps/ levels
+
