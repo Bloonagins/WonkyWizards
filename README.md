@@ -1,9 +1,9 @@
-# WhackyWizards
+# WonkyWizards
 
 ## Company Name: Bloonagins
-## Game Name: Whacky Wizards
+## Game Name: Wonky Wizards
 
-## Logo: ![Logo](WhackyWizardsLogo.png)
+## Logo: ![Logo](WonkyWizardsLogo.png)
 
 ## Gantt Chart
 [Gantt Chart Link]()
