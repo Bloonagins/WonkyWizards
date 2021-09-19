@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Crosshair : MonoBehaviour
 {
-    // mouse position
-    public static Vector3 mousePoint;
+    // cursor coordinates
+    private Vector3 mousePoint;
 
     // Start is called before the first frame update
     void Start()
@@ -16,15 +16,9 @@ public class Crosshair : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // gets the coordinates of the mouse cursor
+        // gets the coordinates of the cursor
         mousePoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        // teleports the crosshair to the mouse's current position
+        // teleports the crosshair to the cursor's current position
         transform.position = new Vector3(mousePoint.x, mousePoint.y, transform.position.z);
-    }
-
-    // returns the mouse cursor's current coordinates
-    public static Vector3 getMousePoint()
-    {
-        return mousePoint;
     }
 }
