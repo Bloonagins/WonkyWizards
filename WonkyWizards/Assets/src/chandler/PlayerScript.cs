@@ -24,6 +24,8 @@ public class PlayerScript : MonoBehaviour
         controls = new PlayerControls();
         // gets a link to this game object's rigid body component
         rb = GetComponent<Rigidbody2D>();
+        // Confines the cursor to within the screen (NOTE: send this to Zach to put in GameManager)
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
     // handles enabling unity input package scheme
@@ -53,7 +55,6 @@ public class PlayerScript : MonoBehaviour
         Vector3 difference = worldCursorPoint - transform.position;
         float angle = (float) ((180 / Math.PI) * Math.Atan((double)(difference.y / difference.x)));
         transform.eulerAngles = Vector3.forward * angle;
-        Debug.Log(Mouse.current.position.ReadValue());
     }
 
     void FixedUpdate()
