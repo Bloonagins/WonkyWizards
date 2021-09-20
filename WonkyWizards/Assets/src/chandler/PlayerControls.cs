@@ -25,6 +25,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""MousePosition"",
+                    ""type"": ""Value"",
+                    ""id"": ""932f82b4-aa99-45ae-ad15-87b06d32637b"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -82,6 +90,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""BasicMovement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bee3b5be-838f-4d42-abb2-42d90e6d34b0"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MousePosition"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -91,6 +110,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         // PlayerDefault
         m_PlayerDefault = asset.FindActionMap("PlayerDefault", throwIfNotFound: true);
         m_PlayerDefault_BasicMovement = m_PlayerDefault.FindAction("BasicMovement", throwIfNotFound: true);
+        m_PlayerDefault_MousePosition = m_PlayerDefault.FindAction("MousePosition", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -141,11 +161,13 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputActionMap m_PlayerDefault;
     private IPlayerDefaultActions m_PlayerDefaultActionsCallbackInterface;
     private readonly InputAction m_PlayerDefault_BasicMovement;
+    private readonly InputAction m_PlayerDefault_MousePosition;
     public struct PlayerDefaultActions
     {
         private @PlayerControls m_Wrapper;
         public PlayerDefaultActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @BasicMovement => m_Wrapper.m_PlayerDefault_BasicMovement;
+        public InputAction @MousePosition => m_Wrapper.m_PlayerDefault_MousePosition;
         public InputActionMap Get() { return m_Wrapper.m_PlayerDefault; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -158,6 +180,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @BasicMovement.started -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnBasicMovement;
                 @BasicMovement.performed -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnBasicMovement;
                 @BasicMovement.canceled -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnBasicMovement;
+                @MousePosition.started -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnMousePosition;
+                @MousePosition.performed -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnMousePosition;
+                @MousePosition.canceled -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnMousePosition;
             }
             m_Wrapper.m_PlayerDefaultActionsCallbackInterface = instance;
             if (instance != null)
@@ -165,6 +190,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @BasicMovement.started += instance.OnBasicMovement;
                 @BasicMovement.performed += instance.OnBasicMovement;
                 @BasicMovement.canceled += instance.OnBasicMovement;
+                @MousePosition.started += instance.OnMousePosition;
+                @MousePosition.performed += instance.OnMousePosition;
+                @MousePosition.canceled += instance.OnMousePosition;
             }
         }
     }
@@ -172,5 +200,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     public interface IPlayerDefaultActions
     {
         void OnBasicMovement(InputAction.CallbackContext context);
+        void OnMousePosition(InputAction.CallbackContext context);
     }
 }

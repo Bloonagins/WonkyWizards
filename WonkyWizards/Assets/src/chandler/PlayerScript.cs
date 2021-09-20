@@ -7,10 +7,12 @@ using UnityEngine.InputSystem;
 public class PlayerScript : MonoBehaviour
 {
     // links to inputs / controls
-    private InputAction movement;
     private PlayerControls controls;
+    private InputAction movement;
+    private InputAction cursor;
     // cursor coordinates
-    private Vector3 mousePoint;
+    public static Vector3 screenCursorPoint;
+    public static Vector3 worldCursorPoint;
     // player's rigidbody component
     public Rigidbody2D rb;
     // speed of the player
@@ -27,9 +29,11 @@ public class PlayerScript : MonoBehaviour
     // handles enabling unity input package scheme
     void OnEnable()
     {
-        // gets a link to the movement controls
+        // gets a link to the movement and mouse inputs
         movement = controls.PlayerDefault.BasicMovement;
+        cursor = controls.PlayerDefault.MousePosition;
         movement.Enable();
+        cursor.Enable();
     }
 
     // Start is called before the first frame update
@@ -42,11 +46,14 @@ public class PlayerScript : MonoBehaviour
     void Update()
     {
         // gets the coordinates of the cursor
-        mousePoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        screenCursorPoint = cursor.ReadValue<Vector2>();
+        worldCursorPoint = Camera.main.ScreenToWorldPoint(screenCursorPoint);
+
         // calculates the angle between the cursor and the player and turns the player towards the cursor
-        Vector3 difference = mousePoint - transform.position;
+        Vector3 difference = worldCursorPoint - transform.position;
         float angle = (float) ((180 / Math.PI) * Math.Atan((double)(difference.y / difference.x)));
         transform.eulerAngles = Vector3.forward * angle;
+        Debug.Log(Mouse.current.position.ReadValue());
     }
 
     void FixedUpdate()
