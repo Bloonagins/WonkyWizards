@@ -13,6 +13,12 @@ public class MenuManager : MonoBehaviour
         Debug.Log("Exiting Game\n");
         Application.Quit();
     }
+
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene("MainMenuScene");
+    }
+
     public void LoadFirstLevel()
     {
         SceneManager.LoadScene("PlayerTestLevel");
