@@ -1,8 +1,7 @@
-Ethan - music / towers 
-Chandler - Player / camera movement 
-Gabe - UI / goal tower 
-Zach - Game Manager / cutscenes 
-Chase - animation and sprites / spells 
-David - Enemies 
-Gage - tile maps/ levels
-
+1 Ethan - Music		CF - Towers 
+2 Chandler - Player	CF - Camera Movement 
+2 Gabe - UI		CF - Goal Tower 
+3 Zach - Game Manager	CF - Spells 
+4 Chase - Anim/Sprites	CF - Cutscenes 
+5 David - Enemy AI	CF - Enemies 
+6 Gage - Tile Maps	CF - levels

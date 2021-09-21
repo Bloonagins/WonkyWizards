@@ -2622,7 +2622,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1752859199}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: MousePositionZero
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -9,7 +9,7 @@ public class MainCamera : MonoBehaviour
     // this camera's camera component
     private Camera mainCam;
     // cursor coordinates
-    private Vector3 mousePoint;
+    private Vector3 cursorPoint;
     // width and height of the screen
     public static float screenWidth;
     public static float screenHeight;
@@ -37,35 +37,35 @@ public class MainCamera : MonoBehaviour
         screenHeight = Screen.height;
 
         // gets coordinates of the cursor
-        mousePoint = Input.mousePosition;
+        cursorPoint = PlayerScript.screenCursorPoint;
 
         // keeps the cursor's x coordinates within the bounds of the screen
-        if (mousePoint.x < 0)
+        if (cursorPoint.x < 0)
         {
-            mousePoint.x = 0;
+            cursorPoint.x = 0;
         }
-        else if (mousePoint.x > screenWidth)
+        else if (cursorPoint.x > screenWidth)
         {
-            mousePoint.x = screenWidth;
+            cursorPoint.x = screenWidth;
         }
         // keeps the cursor's y coordinates within the bounds of the screen
-        if (mousePoint.y < 0)
+        if (cursorPoint.y < 0)
         {
-            mousePoint.y = 0;
+            cursorPoint.y = 0;
         }
-        else if (mousePoint.y > screenHeight)
+        else if (cursorPoint.y > screenHeight)
         {
-            mousePoint.y = screenHeight;
+            cursorPoint.y = screenHeight;
         }
 
         // transforms the cursor's coordinates to usable points
-        mousePoint = Camera.main.ScreenToWorldPoint(mousePoint);
+        cursorPoint = Camera.main.ScreenToWorldPoint(cursorPoint);
 
         // calculates where the camera should shift based on where the cursor is relative to the player
-        float xScale = playerPosition.position.x + (mousePoint.x - playerPosition.position.x) / 5;
-        float yScale = playerPosition.position.y + (mousePoint.y - playerPosition.position.y) / 5;
+        float xScale = playerPosition.position.x + (cursorPoint.x - playerPosition.position.x) / 5;
+        float yScale = playerPosition.position.y + (cursorPoint.y - playerPosition.position.y) / 5;
         // calculates the amount the camera should zoom out based on how far away the cursor is from the player
-        float zScale = Vector3.Distance(mousePoint, playerPosition.position) / 5;
+        float zScale = Vector3.Distance(cursorPoint, playerPosition.position) / 5;
 
         // shifts the camera 1/10th of the way towards the location of the cursor from the player
         transform.position = new Vector3(xScale, yScale, transform.position.z);
