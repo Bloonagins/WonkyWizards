@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 public class MenuManager : MonoBehaviour
 {
-
+    
 
     public void ExitGame()
     {

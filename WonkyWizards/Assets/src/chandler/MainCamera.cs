@@ -11,16 +11,16 @@ public class MainCamera : MonoBehaviour
     // cursor coordinates
     private Vector3 cursorPoint;
     // width and height of the screen
-    public static float screenWidth;
-    public static float screenHeight;
+    //public static float screenWidth;
+    //public static float screenHeight;
 
     void Awake()
     {
         // gets a link to this camera's camera component
         mainCam = GetComponent<Camera>();
         // initializes the variables to hold the size of the screen
-        screenWidth = Screen.width;
-        screenHeight = Screen.height;
+        //screenWidth = Screen.width;
+        //screenHeight = Screen.height;
     }
 
     // Start is called before the first frame update
@@ -32,10 +32,6 @@ public class MainCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // updates the size of the screen every frame in case the size of the window gets changed
-        screenWidth = Screen.width;
-        screenHeight = Screen.height;
-
         // gets coordinates of the cursor
         cursorPoint = PlayerScript.screenCursorPoint;
 
@@ -44,18 +40,18 @@ public class MainCamera : MonoBehaviour
         {
             cursorPoint.x = 0;
         }
-        else if (cursorPoint.x > screenWidth)
+        else if (cursorPoint.x > Screen.width)
         {
-            cursorPoint.x = screenWidth;
+            cursorPoint.x = Screen.width;
         }
         // keeps the cursor's y coordinates within the bounds of the screen
         if (cursorPoint.y < 0)
         {
             cursorPoint.y = 0;
         }
-        else if (cursorPoint.y > screenHeight)
+        else if (cursorPoint.y > Screen.height)
         {
-            cursorPoint.y = screenHeight;
+            cursorPoint.y = Screen.height;
         }
 
         // transforms the cursor's coordinates to usable points

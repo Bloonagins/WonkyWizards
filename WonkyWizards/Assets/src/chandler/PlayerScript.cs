@@ -67,5 +67,6 @@ public class PlayerScript : MonoBehaviour
     void OnDisable()
     {
         movement.Disable();
+        cursor.Disable();
     }
 }
