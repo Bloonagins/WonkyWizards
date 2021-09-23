@@ -20,6 +20,8 @@ Spell Types:
 			- How the spell functions / what it looks like on screen
 		- Color theme:
 			- The main color of the spell to make each one more distinguishable to the player both when fired and in the UI
+		- Inspiration:
+			- The quake weapon that I based this spell off of. Can be useful for getting a reference for how to design the spell.
 	
 	- Magic Missile
 		- Travel time: Either hitscan or fast
@@ -30,6 +32,7 @@ Spell Types:
 		- Hitbox size / shape: straight line, basically a very skinny retangle
 		- Effect: A missile that fires in a straight line and can penetrate through unlimited enemies. It cannot travel through tiles with collision (summons (towers), non buildable tiles, etc.)
 		- Color theme: yellow
+		- Inspiration: Railgun
 	- Fireball
 		- Travel time: slow
 		- Damage per hit: high to medium (does more damage the closer to the center of the explosion the target is)
@@ -41,6 +44,7 @@ Spell Types:
 					When the fireball explodes, it checks to see if any enemies are withing a certain radius of the center of the explosion. Any enemies that are take damage.
 					The closer to the center of the explosion the enemy is, the more damage they take.
 		- Color theme: red
+		- Inspiration: Rocket Launcher
 	- Ice Beam
 		- Travel time: hitscan
 		- Damage per hit: very low
@@ -52,6 +56,7 @@ Spell Types:
 					When an enemy is hit with the ice beam, a force coming directly from the player is applied to them.
 					The force should not be strong enough to stop or reverse an enemy's movement, just slow them down
 		- Color theme: light blue
+		- Inspiration: Lightning Gun
 	Slimeball
 		- Travel time: medium
 		- Damage per hit: medium
@@ -61,6 +66,7 @@ Spell Types:
 		- Hitbox size / shape: small circle
 		- Effect: After the chargeup time is over and the slimeball shoots, it can bounce off walls and penetrate through an unlimited number of enemies. It disipates after a few seconds though.
 		- Color theme: bright green
+		- Inspiration: Grenade Launcher
 	Acid Spray
 		- Travel time: hitscan
 		- Damage per hit: high
@@ -70,3 +76,4 @@ Spell Types:
 		- Hitbox size / shape: wide cone that sprays out in front of the player
 		- Effect: Sprays out a high damage, short range, purple cone of acid. Deals full damage to any enemy that touches the acid.
 		- Color theme: purple
+		- Inspiration: Shotgun
