@@ -336,7 +336,7 @@ public class PlayerControls : MonoBehaviour
         }
         else
         {
-            Debug.Log("Error: Misuse of updateHotbarIndex function from PlayerScript.cs");
+            Debug.Log("Error: Misuse of updateHotbarIndex() function from PlayerScript.cs");
         }
     }
 }
