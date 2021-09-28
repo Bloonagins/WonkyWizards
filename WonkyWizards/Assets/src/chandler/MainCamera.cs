@@ -66,6 +66,6 @@ public class MainCamera : MonoBehaviour
         // shifts the camera 1/10th of the way towards the location of the cursor from the player
         transform.position = new Vector3(xScale, yScale, transform.position.z);
         // zooms out the camera based on how far away the cursor is from the player
-        mainCam.orthographicSize = 5 + zScale;
+        mainCam.orthographicSize = 10 + zScale;
     }
 }

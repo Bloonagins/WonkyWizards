@@ -1,72 +1,53 @@
+/*
+ * PlayerScript.cs
+ * This script contains all relevant information about the player that other people may need
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using UnityEngine.InputSystem;
 
 public class PlayerScript : MonoBehaviour
 {
-    // links to inputs / controls
-    private PlayerControls controls;
-    private InputAction movement;
-    private InputAction cursor;
     // cursor coordinates
     public static Vector3 screenCursorPoint;
     public static Vector3 worldCursorPoint;
+    // angle between cursor and player
+    public static float cursorAngle;
     // player's rigidbody component
     public Rigidbody2D rb;
     // speed of the player
     public float movementspeed;
+    // player's health and mana point values
+    public static int hp = 100;
+    public static int mana = 0;
+    // index number of which item is currently selected in the hotbar
+    public static int spellIndex;
+    public static int summonIndex;
+    // determines whether the player places summons or casts spells with click
+    public static bool inBuildMode;
 
+    // called when the game loads up
     void Awake()
     {
-        // gets a link to the control scheme
-        controls = new PlayerControls();
         // gets a link to this game object's rigid body component
         rb = GetComponent<Rigidbody2D>();
         // Confines the cursor to within the screen (NOTE: send this to Zach to put in GameManager)
         Cursor.lockState = CursorLockMode.Confined;
     }
 
-    // handles enabling unity input package scheme
-    void OnEnable()
-    {
-        // gets a link to the movement and mouse inputs
-        movement = controls.PlayerDefault.BasicMovement;
-        cursor = controls.PlayerDefault.MousePosition;
-        movement.Enable();
-        cursor.Enable();
-    }
-
     // Start is called before the first frame update
     void Start()
     {
-        
+        spellIndex = 0;
+        summonIndex = 0;
     }
 
-    // Update is called once per frame
-    void Update()
+    // moves the camera to the middle of the screen when the game is alt-tabbed out
+    void OnApplicationPause()
     {
-        // gets the coordinates of the cursor
-        screenCursorPoint = cursor.ReadValue<Vector2>();
-        worldCursorPoint = Camera.main.ScreenToWorldPoint(screenCursorPoint);
-
-        // calculates the angle between the cursor and the player and turns the player towards the cursor
-        Vector3 difference = worldCursorPoint - transform.position;
-        float angle = (float) ((180 / Math.PI) * Math.Atan((double)(difference.y / difference.x)));
-        transform.eulerAngles = Vector3.forward * angle;
-    }
-
-    void FixedUpdate()
-    {
-        // reads WASD input from the player, multiplies that input by the movement speed, and moves the player that direction
-        rb.AddForce(movement.ReadValue<Vector2>() * movementspeed, ForceMode2D.Impulse);
-    }
-
-    // handles disabling unity input package scheme
-    void OnDisable()
-    {
-        movement.Disable();
-        cursor.Disable();
+        worldCursorPoint = transform.position;
+        screenCursorPoint = Camera.main.WorldToScreenPoint(worldCursorPoint);
     }
 }

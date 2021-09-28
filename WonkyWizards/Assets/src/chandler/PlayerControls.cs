@@ -1,205 +1,342 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/src/chandler/PlayerControls.inputactions'
+/*
+ * PlayerControls.cs
+ * This script handles user inputs and updates player data based on inputs
+ * 
+ * Current Input Map:
+ * 
+ * Movement: WASD
+ * Casting Spells: Left Mouse
+ * Placing Summons: Left Mouse
+ * Switching between spellcasting and summoning mode: Tab
+ * Changing Selected Spell / Summon in Hotbar: Scroll wheel
+ *                                             OR
+ *                                             Alpha Number keys on keyboard
+ * Changing Summon Targetting Mode: Right Mouse (TODO)
+ * Dash: Spacebar (TODO) (Might not add)
+ */
 
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.Utilities;
 
-public class @PlayerControls : IInputActionCollection, IDisposable
+public class PlayerControls : MonoBehaviour
 {
-    public InputActionAsset asset { get; }
-    public @PlayerControls()
+    // links to inputs / controls
+    private ControlScheme controls;
+    private InputAction movement;
+    private InputAction shoot;
+    private InputAction mode;
+    private InputAction hotbar1;
+    private InputAction hotbar2;
+    private InputAction hotbar3;
+    private InputAction hotbar4;
+    private InputAction hotbar5;
+    private InputAction hotbar6;
+    private InputAction hotbar7;
+    private InputAction hotbar8;
+    private InputAction hotbar9;
+    private InputAction hotbar0;
+    // player's rigidbody component
+    private Rigidbody2D rb;
+    // speed of the player
+    public float movementspeed;
+
+    void Awake()
     {
-        asset = InputActionAsset.FromJson(@"{
-    ""name"": ""PlayerControls"",
-    ""maps"": [
+        // gets a link to the control scheme
+        controls = new ControlScheme();
+        // gets a link to this game object's rigid body component
+        rb = GetComponent<Rigidbody2D>();
+    }
+
+    // handles enabling unity input package scheme
+    void OnEnable()
+    {
+        // gets a link to the movement and mouse inputs
+        movement = controls.PlayerDefault.Move;
+        shoot = controls.PlayerDefault.Cast;
+        mode = controls.PlayerDefault.SwitchMagicMode;
+
+        mode.performed += OnSwitchMagicMode;
+        controls.PlayerDefault.Hotbar1.performed += OnHotbar1;
+        controls.PlayerDefault.Hotbar2.performed += OnHotbar2;
+        controls.PlayerDefault.Hotbar3.performed += OnHotbar3;
+        controls.PlayerDefault.Hotbar4.performed += OnHotbar4;
+        controls.PlayerDefault.Hotbar5.performed += OnHotbar5;
+        controls.PlayerDefault.Hotbar6.performed += OnHotbar6;
+        controls.PlayerDefault.Hotbar7.performed += OnHotbar7;
+        controls.PlayerDefault.Hotbar8.performed += OnHotbar8;
+        controls.PlayerDefault.Hotbar9.performed += OnHotbar9;
+        controls.PlayerDefault.Hotbar0.performed += OnHotbar0;
+
+        movement.Enable();
+        shoot.Enable();
+        mode.Enable();
+        controls.PlayerDefault.Hotbar1.Enable();
+        controls.PlayerDefault.Hotbar2.Enable();
+        controls.PlayerDefault.Hotbar3.Enable();
+        controls.PlayerDefault.Hotbar4.Enable();
+        controls.PlayerDefault.Hotbar5.Enable();
+        controls.PlayerDefault.Hotbar6.Enable();
+        controls.PlayerDefault.Hotbar7.Enable();
+        controls.PlayerDefault.Hotbar8.Enable();
+        controls.PlayerDefault.Hotbar9.Enable();
+        controls.PlayerDefault.Hotbar0.Enable();
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        PlayerScript.inBuildMode = true;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        // gets the coordinates of the cursor
+        PlayerScript.screenCursorPoint = Mouse.current.position.ReadValue();
+        PlayerScript.worldCursorPoint = Camera.main.ScreenToWorldPoint(PlayerScript.screenCursorPoint);
+
+        // updates the angle between the cursor and the player
+        PlayerScript.cursorAngle = getCursorAngle();
+        // rotates the player towards the cursor
+        transform.eulerAngles = Vector3.forward * PlayerScript.cursorAngle;
+
+        // when scroll wheel is inputted, change hotbar index
+        if (Mouse.current.scroll.ReadValue().normalized.y > 0)
         {
-            ""name"": ""PlayerDefault"",
-            ""id"": ""367c3de2-ebd3-4a9c-8368-63ff62a0582a"",
-            ""actions"": [
-                {
-                    ""name"": ""BasicMovement"",
-                    ""type"": ""Button"",
-                    ""id"": ""b7cb41a3-a531-474b-b923-f1c39d77a496"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""MousePosition"",
-                    ""type"": ""Value"",
-                    ""id"": ""932f82b4-aa99-45ae-ad15-87b06d32637b"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                }
-            ],
-            ""bindings"": [
-                {
-                    ""name"": ""BasicMovement"",
-                    ""id"": ""8903b530-7463-42de-b7f5-2ca24e2ee121"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""BasicMovement"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""5b87da94-86ac-4a52-aab0-a02fbedd9386"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""BasicMovement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""8316d142-38ab-4ed3-aa87-f88aef406128"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""BasicMovement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""6cbc8067-980e-43b6-95aa-141292b9372d"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""BasicMovement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""b778293b-7420-4862-8a5f-66b7219dae5e"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""BasicMovement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""bee3b5be-838f-4d42-abb2-42d90e6d34b0"",
-                    ""path"": ""<Mouse>/position"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""MousePosition"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                }
-            ]
+            updateHotbarIndex(1);
         }
-    ],
-    ""controlSchemes"": []
-}");
-        // PlayerDefault
-        m_PlayerDefault = asset.FindActionMap("PlayerDefault", throwIfNotFound: true);
-        m_PlayerDefault_BasicMovement = m_PlayerDefault.FindAction("BasicMovement", throwIfNotFound: true);
-        m_PlayerDefault_MousePosition = m_PlayerDefault.FindAction("MousePosition", throwIfNotFound: true);
-    }
-
-    public void Dispose()
-    {
-        UnityEngine.Object.Destroy(asset);
-    }
-
-    public InputBinding? bindingMask
-    {
-        get => asset.bindingMask;
-        set => asset.bindingMask = value;
-    }
-
-    public ReadOnlyArray<InputDevice>? devices
-    {
-        get => asset.devices;
-        set => asset.devices = value;
-    }
-
-    public ReadOnlyArray<InputControlScheme> controlSchemes => asset.controlSchemes;
-
-    public bool Contains(InputAction action)
-    {
-        return asset.Contains(action);
-    }
-
-    public IEnumerator<InputAction> GetEnumerator()
-    {
-        return asset.GetEnumerator();
-    }
-
-    IEnumerator IEnumerable.GetEnumerator()
-    {
-        return GetEnumerator();
-    }
-
-    public void Enable()
-    {
-        asset.Enable();
-    }
-
-    public void Disable()
-    {
-        asset.Disable();
-    }
-
-    // PlayerDefault
-    private readonly InputActionMap m_PlayerDefault;
-    private IPlayerDefaultActions m_PlayerDefaultActionsCallbackInterface;
-    private readonly InputAction m_PlayerDefault_BasicMovement;
-    private readonly InputAction m_PlayerDefault_MousePosition;
-    public struct PlayerDefaultActions
-    {
-        private @PlayerControls m_Wrapper;
-        public PlayerDefaultActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @BasicMovement => m_Wrapper.m_PlayerDefault_BasicMovement;
-        public InputAction @MousePosition => m_Wrapper.m_PlayerDefault_MousePosition;
-        public InputActionMap Get() { return m_Wrapper.m_PlayerDefault; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(PlayerDefaultActions set) { return set.Get(); }
-        public void SetCallbacks(IPlayerDefaultActions instance)
+        else if (Mouse.current.scroll.ReadValue().normalized.y < 0)
         {
-            if (m_Wrapper.m_PlayerDefaultActionsCallbackInterface != null)
+            updateHotbarIndex(-1);
+        }
+
+        // when click is pressed, either summon a tower or cast a spell
+        if (shoot.ReadValue<float>() > 0.0f)
+        {
+            // if in build mode AND game is in setup mode, the create a summon
+            if (PlayerScript.inBuildMode)
             {
-                @BasicMovement.started -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnBasicMovement;
-                @BasicMovement.performed -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnBasicMovement;
-                @BasicMovement.canceled -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnBasicMovement;
-                @MousePosition.started -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnMousePosition;
-                @MousePosition.performed -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnMousePosition;
-                @MousePosition.canceled -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnMousePosition;
+                // place summon
             }
-            m_Wrapper.m_PlayerDefaultActionsCallbackInterface = instance;
-            if (instance != null)
+            // if in casting mode, then cast a spell
+            else
             {
-                @BasicMovement.started += instance.OnBasicMovement;
-                @BasicMovement.performed += instance.OnBasicMovement;
-                @BasicMovement.canceled += instance.OnBasicMovement;
-                @MousePosition.started += instance.OnMousePosition;
-                @MousePosition.performed += instance.OnMousePosition;
-                @MousePosition.canceled += instance.OnMousePosition;
+                // shoot spell
             }
         }
     }
-    public PlayerDefaultActions @PlayerDefault => new PlayerDefaultActions(this);
-    public interface IPlayerDefaultActions
+
+    // Called a set amount of times per second (60 by default)
+    void FixedUpdate()
     {
-        void OnBasicMovement(InputAction.CallbackContext context);
-        void OnMousePosition(InputAction.CallbackContext context);
+        // reads WASD input from the player, multiplies that input by the movement speed, and moves the player that direction
+        rb.AddForce(movement.ReadValue<Vector2>() * movementspeed, ForceMode2D.Impulse);
+    }
+
+    // returns the angle between the cursor and the player
+    private float getCursorAngle()
+    {
+        Vector3 difference = PlayerScript.worldCursorPoint - transform.position;
+        float angle = (float)((180 / Math.PI) * Math.Atan((double)(difference.y / difference.x)));
+        if (difference.x < 0.0f && difference.y > 0.0f)
+        {
+            angle += 180.0f;
+        }
+        else if (difference.x < 0.0f && difference.y < 0.0f)
+        {
+            angle -= 180.0f;
+        }
+        return angle;
+    }
+
+    // when tab is pressed, switch from summon building mode to spell casting mode and vice versa
+    private void OnSwitchMagicMode(InputAction.CallbackContext obj)
+    {
+        PlayerScript.inBuildMode = !PlayerScript.inBuildMode;
+    }
+
+    // when one of the alpha number keys is pressed, change the hotbar index to that number
+    // when 1 is pressed
+    private void OnHotbar1(InputAction.CallbackContext obj)
+    {
+        if (PlayerScript.inBuildMode)
+        {
+            PlayerScript.summonIndex = 0;
+        }
+        else
+        {
+            PlayerScript.spellIndex = 0;
+        }
+    }
+    // when 2 is pressed
+    private void OnHotbar2(InputAction.CallbackContext obj)
+    {
+        if (PlayerScript.inBuildMode)
+        {
+            PlayerScript.summonIndex = 1;
+        }
+        else
+        {
+            PlayerScript.spellIndex = 1;
+        }
+    }
+    // when 3 is pressed
+    private void OnHotbar3(InputAction.CallbackContext obj)
+    {
+        if (PlayerScript.inBuildMode)
+        {
+            PlayerScript.summonIndex = 2;
+        }
+        else
+        {
+            PlayerScript.spellIndex = 2;
+        }
+    }
+    // when 4 is pressed
+    private void OnHotbar4(InputAction.CallbackContext obj)
+    {
+        if (PlayerScript.inBuildMode)
+        {
+            PlayerScript.summonIndex = 3;
+        }
+        else
+        {
+            PlayerScript.spellIndex = 3;
+        }
+    }
+    // when 5 is pressed
+    private void OnHotbar5(InputAction.CallbackContext obj)
+    {
+        if (PlayerScript.inBuildMode)
+        {
+            PlayerScript.summonIndex = 4;
+        }
+        else
+        {
+            PlayerScript.spellIndex = 4;
+        }
+    }
+    // when 6 is pressed
+    private void OnHotbar6(InputAction.CallbackContext obj)
+    {
+        if (PlayerScript.inBuildMode)
+        {
+            PlayerScript.summonIndex = 5;
+        }
+    }
+    // when 7 is pressed
+    private void OnHotbar7(InputAction.CallbackContext obj)
+    {
+        if (PlayerScript.inBuildMode)
+        {
+            PlayerScript.summonIndex = 6;
+        }
+    }
+    // when 8 is pressed
+    private void OnHotbar8(InputAction.CallbackContext obj)
+    {
+        if (PlayerScript.inBuildMode)
+        {
+            PlayerScript.summonIndex = 7;
+        }
+    }
+    // when 9 is pressed
+    private void OnHotbar9(InputAction.CallbackContext obj)
+    {
+        if (PlayerScript.inBuildMode)
+        {
+            PlayerScript.summonIndex = 8;
+        }
+    }
+    // when 0 is pressed
+    private void OnHotbar0(InputAction.CallbackContext obj)
+    {
+        if (PlayerScript.inBuildMode)
+        {
+            PlayerScript.summonIndex = 9;
+        }
+    }
+
+    // handles disabling unity input package scheme
+    void OnDisable()
+    {
+        mode.performed -= OnSwitchMagicMode;
+
+        movement.Disable();
+        shoot.Disable();
+        mode.Disable();
+        controls.PlayerDefault.Hotbar1.Disable();
+        controls.PlayerDefault.Hotbar2.Disable();
+        controls.PlayerDefault.Hotbar3.Disable();
+        controls.PlayerDefault.Hotbar4.Disable();
+        controls.PlayerDefault.Hotbar5.Disable();
+        controls.PlayerDefault.Hotbar6.Disable();
+        controls.PlayerDefault.Hotbar7.Disable();
+        controls.PlayerDefault.Hotbar8.Disable();
+        controls.PlayerDefault.Hotbar9.Disable();
+        controls.PlayerDefault.Hotbar0.Disable();
+    }
+
+    // changes the spell / summon index on the hotbar when a scroll is inputted
+    private void updateHotbarIndex(int change)
+    {
+        if (change > 0)
+        {
+            if (PlayerScript.inBuildMode)
+            {
+                if (PlayerScript.summonIndex >= 9)
+                {
+                    PlayerScript.summonIndex = 0;
+                }
+                else
+                {
+                    PlayerScript.summonIndex++;
+                }
+            }
+            else
+            {
+                if (PlayerScript.spellIndex >= 4)
+                {
+                    PlayerScript.spellIndex = 0;
+                }
+                else
+                {
+                    PlayerScript.spellIndex++;
+                }
+            }
+        }
+        else if (change < 0)
+        {
+            if (PlayerScript.inBuildMode)
+            {
+                if (PlayerScript.summonIndex <= 0)
+                {
+                    PlayerScript.summonIndex = 9;
+                }
+                else
+                {
+                    PlayerScript.summonIndex--;
+                }
+            }
+            else
+            {
+                if (PlayerScript.spellIndex <= 0)
+                {
+                    PlayerScript.spellIndex = 4;
+                }
+                else
+                {
+                    PlayerScript.spellIndex--;
+                }
+            }
+        }
+        else
+        {
+            Debug.Log("Error: Misuse of updateHotbarIndex function from PlayerScript.cs");
+        }
     }
 }
