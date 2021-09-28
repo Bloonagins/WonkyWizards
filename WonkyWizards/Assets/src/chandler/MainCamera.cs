@@ -10,17 +10,11 @@ public class MainCamera : MonoBehaviour
     private Camera mainCam;
     // cursor coordinates
     private Vector3 cursorPoint;
-    // width and height of the screen
-    //public static float screenWidth;
-    //public static float screenHeight;
 
     void Awake()
     {
         // gets a link to this camera's camera component
         mainCam = GetComponent<Camera>();
-        // initializes the variables to hold the size of the screen
-        //screenWidth = Screen.width;
-        //screenHeight = Screen.height;
     }
 
     // Start is called before the first frame update
