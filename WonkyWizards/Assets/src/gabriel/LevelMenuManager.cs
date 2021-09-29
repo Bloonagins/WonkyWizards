@@ -6,12 +6,12 @@ public class LevelMenuManager : MonoBehaviour
 {
 
 
-    private bool bIsPaused = false;
-    public GameObject PauseMenuObject;
+    private static bool bIsPaused = false;
+    public static GameObject PauseMenuObject;
 
 
     //Calling this func will attempt to pause/resume the game
-    public void PauseOrResumeGame()
+    public static void PauseOrResumeGame()
     {
         if(bIsPaused == false)
         {
