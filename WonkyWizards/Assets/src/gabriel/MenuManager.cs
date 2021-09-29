@@ -6,8 +6,9 @@ using UnityEngine.InputSystem;
 
 public class MenuManager : MonoBehaviour
 {
-    
 
+
+    //Calling this function will close the application
     public void ExitGame()
     {
         Debug.Log("Exiting Game\n");
