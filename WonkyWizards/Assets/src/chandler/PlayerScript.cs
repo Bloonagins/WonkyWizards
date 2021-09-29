@@ -20,7 +20,7 @@ public class PlayerScript : MonoBehaviour
     // speed of the player
     public float movementspeed;
     // player's health and mana point values
-    public static int hp = 100;
+    public static int hp = 1000;
     public static int mana = 0;
     // index number of which item is currently selected in the hotbar
     public static int spellIndex;
