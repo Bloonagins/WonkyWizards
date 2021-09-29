@@ -154,6 +154,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 2118370602}
   enemyPrefab: {fileID: 2395928544616812009, guid: 397b14497f575d04e8ba3c0e9c73fec9, type: 3}
+  toggleKey: 0
+  spawnDelay: 0.5
 --- !u!4 &176256686
 Transform:
   m_ObjectHideFlags: 0

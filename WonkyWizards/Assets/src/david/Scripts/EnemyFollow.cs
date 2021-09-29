@@ -28,6 +28,14 @@ public class EnemyFollow : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
         }
         else { // Self destructs when too close to player
+            //Destroy(self);
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D other) 
+    {
+        if (other.transform.tag == "Spell")
+        {
             Destroy(self);
         }
     }
