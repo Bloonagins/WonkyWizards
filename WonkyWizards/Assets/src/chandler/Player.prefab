@@ -160,3 +160,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementspeed: 30
+  barrier: {fileID: 2725990468511589311, guid: e9aad49c3fc09ae4f826f408d1209952, type: 3}

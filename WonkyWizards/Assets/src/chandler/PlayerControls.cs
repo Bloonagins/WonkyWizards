@@ -27,6 +27,7 @@ public class PlayerControls : MonoBehaviour
     private ControlScheme controls;
     private InputAction movement;
     private InputAction shoot;
+    private InputAction summon;
     private InputAction mode;
     private InputAction hotbar1;
     private InputAction hotbar2;
@@ -42,6 +43,8 @@ public class PlayerControls : MonoBehaviour
     private Rigidbody2D rb;
     // speed of the player
     public float movementspeed;
+    // links to summon prefabs
+    public GameObject barrier;
 
     void Awake()
     {
@@ -57,8 +60,10 @@ public class PlayerControls : MonoBehaviour
         // gets a link to the movement and mouse inputs
         movement = controls.PlayerDefault.Move;
         shoot = controls.PlayerDefault.Cast;
+        summon = controls.PlayerDefault.Summon;
         mode = controls.PlayerDefault.SwitchMagicMode;
 
+        summon.performed += OnSummon;
         mode.performed += OnSwitchMagicMode;
         controls.PlayerDefault.Hotbar1.performed += OnHotbar1;
         controls.PlayerDefault.Hotbar2.performed += OnHotbar2;
@@ -73,6 +78,7 @@ public class PlayerControls : MonoBehaviour
 
         movement.Enable();
         shoot.Enable();
+        summon.Enable();
         mode.Enable();
         controls.PlayerDefault.Hotbar1.Enable();
         controls.PlayerDefault.Hotbar2.Enable();
@@ -115,16 +121,10 @@ public class PlayerControls : MonoBehaviour
             updateHotbarIndex(-1);
         }
 
-        // when click is pressed, either summon a tower or cast a spell
-        if (shoot.ReadValue<float>() > 0.0f)
+        // if player is in cast mode and click is pressed, cast spell
+        if (!PlayerScript.inBuildMode)
         {
-            // if in build mode AND game is in setup mode, the create a summon
-            if (PlayerScript.inBuildMode)
-            {
-                // place summon
-            }
-            // if in casting mode, then cast a spell
-            else
+            if (shoot.ReadValue<float>() > 0.0f)
             {
                 // shoot spell
             }
@@ -152,6 +152,15 @@ public class PlayerControls : MonoBehaviour
             angle -= 180.0f;
         }
         return angle;
+    }
+
+    // when click is pressed and player is in build mode, place a summon
+    private void OnSummon(InputAction.CallbackContext obj)
+    {
+        if (PlayerScript.inBuildMode)
+        {
+            Instantiate(barrier);
+        }
     }
 
     // when tab is pressed, switch from summon building mode to spell casting mode and vice versa
@@ -269,6 +278,7 @@ public class PlayerControls : MonoBehaviour
 
         movement.Disable();
         shoot.Disable();
+        summon.Disable();
         mode.Disable();
         controls.PlayerDefault.Hotbar1.Disable();
         controls.PlayerDefault.Hotbar2.Disable();

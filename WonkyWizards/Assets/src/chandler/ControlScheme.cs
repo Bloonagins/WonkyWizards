@@ -35,6 +35,14 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
+                    ""name"": ""Summon"",
+                    ""type"": ""Button"",
+                    ""id"": ""73cc0ef1-bad0-4e09-907d-9f73a7c074aa"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
                     ""name"": ""SwitchMagicMode"",
                     ""type"": ""Button"",
                     ""id"": ""6d21ec47-28e6-4dbb-83e1-5c74e6382adc"",
@@ -329,6 +337,17 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6d2699ea-d4ab-4af0-8faf-9150d3895038"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Summon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -339,6 +358,7 @@ public class @ControlScheme : IInputActionCollection, IDisposable
         m_PlayerDefault = asset.FindActionMap("PlayerDefault", throwIfNotFound: true);
         m_PlayerDefault_Move = m_PlayerDefault.FindAction("Move", throwIfNotFound: true);
         m_PlayerDefault_Cast = m_PlayerDefault.FindAction("Cast", throwIfNotFound: true);
+        m_PlayerDefault_Summon = m_PlayerDefault.FindAction("Summon", throwIfNotFound: true);
         m_PlayerDefault_SwitchMagicMode = m_PlayerDefault.FindAction("SwitchMagicMode", throwIfNotFound: true);
         m_PlayerDefault_Hotbar1 = m_PlayerDefault.FindAction("Hotbar1", throwIfNotFound: true);
         m_PlayerDefault_Hotbar2 = m_PlayerDefault.FindAction("Hotbar2", throwIfNotFound: true);
@@ -402,6 +422,7 @@ public class @ControlScheme : IInputActionCollection, IDisposable
     private IPlayerDefaultActions m_PlayerDefaultActionsCallbackInterface;
     private readonly InputAction m_PlayerDefault_Move;
     private readonly InputAction m_PlayerDefault_Cast;
+    private readonly InputAction m_PlayerDefault_Summon;
     private readonly InputAction m_PlayerDefault_SwitchMagicMode;
     private readonly InputAction m_PlayerDefault_Hotbar1;
     private readonly InputAction m_PlayerDefault_Hotbar2;
@@ -420,6 +441,7 @@ public class @ControlScheme : IInputActionCollection, IDisposable
         public PlayerDefaultActions(@ControlScheme wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_PlayerDefault_Move;
         public InputAction @Cast => m_Wrapper.m_PlayerDefault_Cast;
+        public InputAction @Summon => m_Wrapper.m_PlayerDefault_Summon;
         public InputAction @SwitchMagicMode => m_Wrapper.m_PlayerDefault_SwitchMagicMode;
         public InputAction @Hotbar1 => m_Wrapper.m_PlayerDefault_Hotbar1;
         public InputAction @Hotbar2 => m_Wrapper.m_PlayerDefault_Hotbar2;
@@ -447,6 +469,9 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                 @Cast.started -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnCast;
                 @Cast.performed -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnCast;
                 @Cast.canceled -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnCast;
+                @Summon.started -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnSummon;
+                @Summon.performed -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnSummon;
+                @Summon.canceled -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnSummon;
                 @SwitchMagicMode.started -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnSwitchMagicMode;
                 @SwitchMagicMode.performed -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnSwitchMagicMode;
                 @SwitchMagicMode.canceled -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnSwitchMagicMode;
@@ -493,6 +518,9 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                 @Cast.started += instance.OnCast;
                 @Cast.performed += instance.OnCast;
                 @Cast.canceled += instance.OnCast;
+                @Summon.started += instance.OnSummon;
+                @Summon.performed += instance.OnSummon;
+                @Summon.canceled += instance.OnSummon;
                 @SwitchMagicMode.started += instance.OnSwitchMagicMode;
                 @SwitchMagicMode.performed += instance.OnSwitchMagicMode;
                 @SwitchMagicMode.canceled += instance.OnSwitchMagicMode;
@@ -537,6 +565,7 @@ public class @ControlScheme : IInputActionCollection, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnCast(InputAction.CallbackContext context);
+        void OnSummon(InputAction.CallbackContext context);
         void OnSwitchMagicMode(InputAction.CallbackContext context);
         void OnHotbar1(InputAction.CallbackContext context);
         void OnHotbar2(InputAction.CallbackContext context);

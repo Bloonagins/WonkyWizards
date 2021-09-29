@@ -22,6 +22,14 @@
                     "interactions": ""
                 },
                 {
+                    "name": "Summon",
+                    "type": "Button",
+                    "id": "73cc0ef1-bad0-4e09-907d-9f73a7c074aa",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
                     "name": "SwitchMagicMode",
                     "type": "Button",
                     "id": "6d21ec47-28e6-4dbb-83e1-5c74e6382adc",
@@ -314,6 +322,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6d2699ea-d4ab-4af0-8faf-9150d3895038",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Summon",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
