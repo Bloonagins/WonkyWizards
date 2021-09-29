@@ -110,7 +110,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Pause (ESC)",
+                    "name": "Pause",
                     "type": "Button",
                     "id": "330e3230-eb9f-424b-8de2-dd20fd3d7832",
                     "expectedControlType": "Button",
@@ -313,7 +313,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Pause (ESC)",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

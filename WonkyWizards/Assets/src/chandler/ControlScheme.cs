@@ -123,7 +123,7 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Pause (ESC)"",
+                    ""name"": ""Pause"",
                     ""type"": ""Button"",
                     ""id"": ""330e3230-eb9f-424b-8de2-dd20fd3d7832"",
                     ""expectedControlType"": ""Button"",
@@ -326,7 +326,7 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Pause (ESC)"",
+                    ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -350,7 +350,7 @@ public class @ControlScheme : IInputActionCollection, IDisposable
         m_PlayerDefault_Hotbar8 = m_PlayerDefault.FindAction("Hotbar8", throwIfNotFound: true);
         m_PlayerDefault_Hotbar9 = m_PlayerDefault.FindAction("Hotbar9", throwIfNotFound: true);
         m_PlayerDefault_Hotbar0 = m_PlayerDefault.FindAction("Hotbar0", throwIfNotFound: true);
-        m_PlayerDefault_PauseESC = m_PlayerDefault.FindAction("Pause (ESC)", throwIfNotFound: true);
+        m_PlayerDefault_Pause = m_PlayerDefault.FindAction("Pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -413,7 +413,7 @@ public class @ControlScheme : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerDefault_Hotbar8;
     private readonly InputAction m_PlayerDefault_Hotbar9;
     private readonly InputAction m_PlayerDefault_Hotbar0;
-    private readonly InputAction m_PlayerDefault_PauseESC;
+    private readonly InputAction m_PlayerDefault_Pause;
     public struct PlayerDefaultActions
     {
         private @ControlScheme m_Wrapper;
@@ -431,7 +431,7 @@ public class @ControlScheme : IInputActionCollection, IDisposable
         public InputAction @Hotbar8 => m_Wrapper.m_PlayerDefault_Hotbar8;
         public InputAction @Hotbar9 => m_Wrapper.m_PlayerDefault_Hotbar9;
         public InputAction @Hotbar0 => m_Wrapper.m_PlayerDefault_Hotbar0;
-        public InputAction @PauseESC => m_Wrapper.m_PlayerDefault_PauseESC;
+        public InputAction @Pause => m_Wrapper.m_PlayerDefault_Pause;
         public InputActionMap Get() { return m_Wrapper.m_PlayerDefault; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -480,9 +480,9 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                 @Hotbar0.started -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnHotbar0;
                 @Hotbar0.performed -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnHotbar0;
                 @Hotbar0.canceled -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnHotbar0;
-                @PauseESC.started -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnPauseESC;
-                @PauseESC.performed -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnPauseESC;
-                @PauseESC.canceled -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnPauseESC;
+                @Pause.started -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnPause;
             }
             m_Wrapper.m_PlayerDefaultActionsCallbackInterface = instance;
             if (instance != null)
@@ -526,9 +526,9 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                 @Hotbar0.started += instance.OnHotbar0;
                 @Hotbar0.performed += instance.OnHotbar0;
                 @Hotbar0.canceled += instance.OnHotbar0;
-                @PauseESC.started += instance.OnPauseESC;
-                @PauseESC.performed += instance.OnPauseESC;
-                @PauseESC.canceled += instance.OnPauseESC;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
         }
     }
@@ -548,6 +548,6 @@ public class @ControlScheme : IInputActionCollection, IDisposable
         void OnHotbar8(InputAction.CallbackContext context);
         void OnHotbar9(InputAction.CallbackContext context);
         void OnHotbar0(InputAction.CallbackContext context);
-        void OnPauseESC(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
 }
