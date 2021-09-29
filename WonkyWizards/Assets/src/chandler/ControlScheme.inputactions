@@ -1,5 +1,5 @@
 {
-    "name": "PlayerControls",
+    "name": "ControlScheme",
     "maps": [
         {
             "name": "PlayerDefault",
@@ -105,6 +105,14 @@
                     "name": "Hotbar0",
                     "type": "Button",
                     "id": "8b1f6193-83c1-44d9-9bf4-8c0ed54d8618",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Pause (ESC)",
+                    "type": "Button",
+                    "id": "330e3230-eb9f-424b-8de2-dd20fd3d7832",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -295,6 +303,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Hotbar0",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "60e32346-d9ec-4c86-b67a-5259775da7d5",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause (ESC)",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
