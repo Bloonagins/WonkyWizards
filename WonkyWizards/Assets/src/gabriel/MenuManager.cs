@@ -25,7 +25,7 @@ public class MenuManager : MonoBehaviour
         SceneManager.LoadScene("PlayerTestLevel");
     }
 
-    //CALL THIS FUNC WHENEVER SWITCHING SCENES TO AVOID DISORIENTATION
+    //Calling this func will return the mouse to the center of screen width and height
     public void MousePositionZero()
     {
         Vector2 ScreenMiddle = new Vector2();
