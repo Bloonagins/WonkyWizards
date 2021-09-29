@@ -27,6 +27,8 @@ public class PlayerScript : MonoBehaviour
     public static int summonIndex;
     // determines whether the player places summons or casts spells with click
     public static bool inBuildMode;
+    // temp variable that determines whether or not enemies are allowed to be spawned
+    public static bool allowSpawn;
 
     // called when the game loads up
     void Awake()

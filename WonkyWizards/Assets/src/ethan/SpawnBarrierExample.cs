@@ -18,7 +18,7 @@ public class SpawnBarrierExample : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Instantiate(summon, PlayerScript.worldCursorPoint, Quaternion.identity);
+            Instantiate(summon);//, PlayerScript.worldCursorPoint, Quaternion.identity);
             Debug.Log(PlayerScript.worldCursorPoint);
         }
     }
