@@ -98,6 +98,7 @@ public class PlayerControls : MonoBehaviour
         // gets the coordinates of the cursor
         PlayerScript.screenCursorPoint = Mouse.current.position.ReadValue();
         PlayerScript.worldCursorPoint = Camera.main.ScreenToWorldPoint(PlayerScript.screenCursorPoint);
+        PlayerScript.worldCursorPoint.z = 0.0f;
 
         // updates the angle between the cursor and the player
         PlayerScript.cursorAngle = getCursorAngle();
