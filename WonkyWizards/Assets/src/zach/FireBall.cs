@@ -31,14 +31,12 @@ public class FireBall: Spells
     void OnTriggerEnter2D(Collider2D collision)
     {
         //this.on_hit();
-        if(collision.gameObject.tag !="Player"){
-            Destroy(gameObject);
+        if(collision.gameObject.tag !="Player" && collision.gameObject.tag != "Spell")
+        {
+            Destroy(projectile);
         }
     }
 
-    //destroy prefab when it leaves the screen
-    void OnBecameInvisible()
-    {
-        Destroy(gameObject);
-    }
+
+
 }
