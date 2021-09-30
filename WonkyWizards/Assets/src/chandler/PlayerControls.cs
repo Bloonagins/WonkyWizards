@@ -191,7 +191,7 @@ public class PlayerControls : MonoBehaviour
     private void OnSwitchMagicMode(InputAction.CallbackContext obj)
     {
         PlayerScript.inBuildMode = !PlayerScript.inBuildMode;
-        
+        lmo.GetComponent<UIManager>().UpdatePlayerModeUI();
     }
 
     // when one of the alpha number keys is pressed, change the hotbar index to that number

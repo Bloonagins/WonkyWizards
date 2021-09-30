@@ -47843,6 +47843,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1480262405}
     m_Modifications:
     - target: {fileID: 5876367107654672497, guid: 116c664f4b9485d46b46984aceed659f, type: 3}
+      propertyPath: lmo
+      value: 
+      objectReference: {fileID: 1480262404}
+    - target: {fileID: 5876367107654672497, guid: 116c664f4b9485d46b46984aceed659f, type: 3}
       propertyPath: test
       value: 
       objectReference: {fileID: 1480262404}
