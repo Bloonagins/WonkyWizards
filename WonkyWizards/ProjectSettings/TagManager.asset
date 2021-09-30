@@ -8,6 +8,7 @@ TagManager:
   - Spell
   - Border
   - Enemy
+  - Goal
   layers:
   - Default
   - TransparentFX
