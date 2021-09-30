@@ -12,19 +12,19 @@ public class UIManager : MonoBehaviour
 
     private void Awake()
     {
-        BuildMode = true;
-        CastMode = false;
+        
     }
 
     //Calling this funtion will set cast/build bools and set UI text to correspond to those values
     public void UpdatePlayerModeUI()
     {
-        if(CastMode)
+        if(BuildMode)
         {
             CastMode = true;
             BuildMode = false;
             PlayerMode.text = "Cast Mode";
-            PlayerMode.color = new Color(209, 73, 30, 255);
+            PlayerMode.color = new Color32(209, 73, 30, 255);
+            //Debug.Log("changed to cast mode");
             //D1491E
 
         }
@@ -32,7 +32,8 @@ public class UIManager : MonoBehaviour
             CastMode = false;
             BuildMode = true;
             PlayerMode.text = "Build Mode";
-            PlayerMode.color = new Color(52, 209, 30, 255);
+            PlayerMode.color = new Color32(52, 209, 30, 255);
+            //Debug.Log("changed to build mode");
             //34D11E
         }
 

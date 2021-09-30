@@ -41888,7 +41888,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerMode: {fileID: 272278017}
   CastMode: 0
-  BuildMode: 1
+  BuildMode: 0
 --- !u!1 &1540631071
 GameObject:
   m_ObjectHideFlags: 0
