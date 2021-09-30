@@ -53,7 +53,7 @@ public class MainCamera : MonoBehaviour
 
         // calculates where the camera should shift based on where the cursor is relative to the player
         float xScale = playerPosition.position.x + (cursorPoint.x - playerPosition.position.x) / 5;
-        float yScale = playerPosition.position.y + (cursorPoint.y - playerPosition.position.y) / 5;
+        float yScale = playerPosition.position.y + (cursorPoint.y - playerPosition.position.y) / 3;
         // calculates the amount the camera should zoom out based on how far away the cursor is from the player
         float zScale = Vector3.Distance(cursorPoint, playerPosition.position) / 5;
 
