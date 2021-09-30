@@ -39,10 +39,13 @@ public class PlayerControls : MonoBehaviour
     private InputAction hotbar8;
     private InputAction hotbar9;
     private InputAction hotbar0;
+    private InputAction spawner;
     // player's rigidbody component
     private Rigidbody2D rb;
     // speed of the player
     public float movementspeed;
+    // links to spell prefabs
+    public GameObject testSpell;
     // links to summon prefabs
     public GameObject barrier;
 
@@ -62,6 +65,7 @@ public class PlayerControls : MonoBehaviour
         shoot = controls.PlayerDefault.Cast;
         summon = controls.PlayerDefault.Summon;
         mode = controls.PlayerDefault.SwitchMagicMode;
+        spawner = controls.PlayerDefault.FlipSpawner;
 
         summon.performed += OnSummon;
         mode.performed += OnSwitchMagicMode;
@@ -75,6 +79,7 @@ public class PlayerControls : MonoBehaviour
         controls.PlayerDefault.Hotbar8.performed += OnHotbar8;
         controls.PlayerDefault.Hotbar9.performed += OnHotbar9;
         controls.PlayerDefault.Hotbar0.performed += OnHotbar0;
+        spawner.performed += OnFlipSpawner;
 
         movement.Enable();
         shoot.Enable();
@@ -90,6 +95,12 @@ public class PlayerControls : MonoBehaviour
         controls.PlayerDefault.Hotbar8.Enable();
         controls.PlayerDefault.Hotbar9.Enable();
         controls.PlayerDefault.Hotbar0.Enable();
+        spawner.Enable();
+    }
+
+    private void OnFlipSpawner(InputAction.CallbackContext obj)
+    {
+        PlayerScript.allowSpawn = !PlayerScript.allowSpawn;
     }
 
     // Start is called before the first frame update
@@ -126,7 +137,7 @@ public class PlayerControls : MonoBehaviour
         {
             if (shoot.ReadValue<float>() > 0.0f)
             {
-                // shoot spell
+                Instantiate(testSpell, transform.position, transform.rotation);
             }
         }
     }
@@ -290,6 +301,7 @@ public class PlayerControls : MonoBehaviour
         controls.PlayerDefault.Hotbar8.Disable();
         controls.PlayerDefault.Hotbar9.Disable();
         controls.PlayerDefault.Hotbar0.Disable();
+        spawner.Disable();
     }
 
     // changes the spell / summon index on the hotbar when a scroll is inputted
