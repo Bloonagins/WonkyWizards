@@ -140,6 +140,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Dash",
+                    "type": "Button",
+                    "id": "e5613a02-fd59-41b4-b743-16dd14f8bd91",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -212,7 +220,7 @@
                 {
                     "name": "",
                     "id": "01f95a50-a424-43aa-9565-0ef446cf22da",
-                    "path": "<Keyboard>/tab",
+                    "path": "<Keyboard>/r",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -371,6 +379,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "BossSpawn",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d503ac19-aca2-4b4f-bb4e-4f2d33e5eec6",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dash",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

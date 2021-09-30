@@ -153,6 +153,14 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Dash"",
+                    ""type"": ""Button"",
+                    ""id"": ""e5613a02-fd59-41b4-b743-16dd14f8bd91"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -225,7 +233,7 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""01f95a50-a424-43aa-9565-0ef446cf22da"",
-                    ""path"": ""<Keyboard>/tab"",
+                    ""path"": ""<Keyboard>/r"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -386,6 +394,17 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                     ""action"": ""BossSpawn"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d503ac19-aca2-4b4f-bb4e-4f2d33e5eec6"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -411,6 +430,7 @@ public class @ControlScheme : IInputActionCollection, IDisposable
         m_PlayerDefault_Pause = m_PlayerDefault.FindAction("Pause", throwIfNotFound: true);
         m_PlayerDefault_FlipSpawner = m_PlayerDefault.FindAction("FlipSpawner", throwIfNotFound: true);
         m_PlayerDefault_BossSpawn = m_PlayerDefault.FindAction("BossSpawn", throwIfNotFound: true);
+        m_PlayerDefault_Dash = m_PlayerDefault.FindAction("Dash", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -477,6 +497,7 @@ public class @ControlScheme : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerDefault_Pause;
     private readonly InputAction m_PlayerDefault_FlipSpawner;
     private readonly InputAction m_PlayerDefault_BossSpawn;
+    private readonly InputAction m_PlayerDefault_Dash;
     public struct PlayerDefaultActions
     {
         private @ControlScheme m_Wrapper;
@@ -498,6 +519,7 @@ public class @ControlScheme : IInputActionCollection, IDisposable
         public InputAction @Pause => m_Wrapper.m_PlayerDefault_Pause;
         public InputAction @FlipSpawner => m_Wrapper.m_PlayerDefault_FlipSpawner;
         public InputAction @BossSpawn => m_Wrapper.m_PlayerDefault_BossSpawn;
+        public InputAction @Dash => m_Wrapper.m_PlayerDefault_Dash;
         public InputActionMap Get() { return m_Wrapper.m_PlayerDefault; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -558,6 +580,9 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                 @BossSpawn.started -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnBossSpawn;
                 @BossSpawn.performed -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnBossSpawn;
                 @BossSpawn.canceled -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnBossSpawn;
+                @Dash.started -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnDash;
+                @Dash.performed -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnDash;
+                @Dash.canceled -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnDash;
             }
             m_Wrapper.m_PlayerDefaultActionsCallbackInterface = instance;
             if (instance != null)
@@ -613,6 +638,9 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                 @BossSpawn.started += instance.OnBossSpawn;
                 @BossSpawn.performed += instance.OnBossSpawn;
                 @BossSpawn.canceled += instance.OnBossSpawn;
+                @Dash.started += instance.OnDash;
+                @Dash.performed += instance.OnDash;
+                @Dash.canceled += instance.OnDash;
             }
         }
     }
@@ -636,5 +664,6 @@ public class @ControlScheme : IInputActionCollection, IDisposable
         void OnPause(InputAction.CallbackContext context);
         void OnFlipSpawner(InputAction.CallbackContext context);
         void OnBossSpawn(InputAction.CallbackContext context);
+        void OnDash(InputAction.CallbackContext context);
     }
 }

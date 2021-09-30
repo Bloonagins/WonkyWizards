@@ -24,12 +24,13 @@ using UnityEngine.InputSystem;
 public class PlayerControls : MonoBehaviour
 {
     // links to inputs / controls
-    private ControlScheme controls;
-    private InputAction movement;
-    private InputAction shoot;
-    private InputAction summon;
-    private InputAction mode;
-    private InputAction hotbar1;
+    private ControlScheme controls; // overall input scheme
+    private InputAction movement; // WASD movement
+    private InputAction dash; // spacebar to dash
+    private InputAction shoot; // left mouse to cast spell
+    private InputAction summon; // left mouse to place summon
+    private InputAction mode; // R to switch between build mode and cast mode
+    private InputAction hotbar1; // alpha number keys to select items from hotbar
     private InputAction hotbar2;
     private InputAction hotbar3;
     private InputAction hotbar4;
@@ -39,18 +40,25 @@ public class PlayerControls : MonoBehaviour
     private InputAction hotbar8;
     private InputAction hotbar9;
     private InputAction hotbar0;
-    private InputAction spawner;
-    private InputAction bossB;
+    private InputAction spawner; // q to enable / disable test enemy spawner
+    private InputAction bossB; // b to spawn a boss on the cursor
     // player's rigidbody component
     private Rigidbody2D rb;
-    // speed of the player
+    // speed of the player (30)
     public float movementspeed;
+    // dash speed of the player (600)
+    public float dashspeed;
+    // time allowed until player is allowed to dash again
+    public float dashreset;
+    // keeps track of how long until the player is allowed to dash again
+    private float dashtimer;
     // links to spell prefabs
     public GameObject testSpell;
     // links to summon prefabs
     public GameObject barrier;
     // link to boss prefab
     public GameObject boss;
+    // link to the level main object (might get rid of it since it'll probably overlap with the game manager a lot)
     public GameObject lmo;
 
     void Awake()
@@ -64,14 +72,17 @@ public class PlayerControls : MonoBehaviour
     // handles enabling unity input package scheme
     void OnEnable()
     {
-        // gets a link to the movement and mouse inputs
+        // gets a link to the inputs
         movement = controls.PlayerDefault.Move;
+        dash = controls.PlayerDefault.Dash;
         shoot = controls.PlayerDefault.Cast;
         summon = controls.PlayerDefault.Summon;
         mode = controls.PlayerDefault.SwitchMagicMode;
         spawner = controls.PlayerDefault.FlipSpawner;
         bossB = controls.PlayerDefault.BossSpawn;
 
+        // binds certain inputs to a function to be called when that input is activated
+        dash.performed += OnDash;
         summon.performed += OnSummon;
         mode.performed += OnSwitchMagicMode;
         controls.PlayerDefault.Hotbar1.performed += OnHotbar1;
@@ -88,6 +99,7 @@ public class PlayerControls : MonoBehaviour
         bossB.performed += OnBossSpawn;
 
         movement.Enable();
+        dash.Enable();
         shoot.Enable();
         summon.Enable();
         mode.Enable();
@@ -105,21 +117,25 @@ public class PlayerControls : MonoBehaviour
         bossB.Enable();
     }
 
+    // REMOVE AFTER DONE TESTING
+    // when b is pressed, spawn a boss object on the cursor
     private void OnBossSpawn(InputAction.CallbackContext obj)
     {
         Instantiate(boss);
     }
 
+    // REMOVE AFTER DONE TESTING
+    // when q is pressed, activate / deactivate the enemy spawner
     private void OnFlipSpawner(InputAction.CallbackContext obj)
     {
         PlayerScript.allowSpawn = !PlayerScript.allowSpawn;
-        Debug.Log(PlayerScript.allowSpawn);
     }
 
     // Start is called before the first frame update
     void Start()
     {
         PlayerScript.inBuildMode = true;
+        dashtimer = dashreset;
     }
 
     // Update is called once per frame
@@ -155,11 +171,15 @@ public class PlayerControls : MonoBehaviour
         }
     }
 
-    // Called a set amount of times per second (60 by default)
+    // Called a set amount of times per second (50 by default)
     void FixedUpdate()
     {
         // reads WASD input from the player, multiplies that input by the movement speed, and moves the player that direction
         rb.AddForce(movement.ReadValue<Vector2>() * movementspeed, ForceMode2D.Impulse);
+        if (dashtimer < dashreset)
+        {
+            dashtimer += Time.fixedDeltaTime;
+        }
     }
 
     // returns the angle between the cursor and the player
@@ -178,6 +198,16 @@ public class PlayerControls : MonoBehaviour
         return angle;
     }
 
+    // when space is pressed, add a big force to the player to make them dash
+    private void OnDash(InputAction.CallbackContext obj)
+    {
+        if (dashtimer >= dashreset)
+        {
+            rb.AddForce(movement.ReadValue<Vector2>() * dashspeed, ForceMode2D.Impulse);
+            dashtimer = 0.0f;
+        }
+    }
+
     // when click is pressed and player is in build mode, place a summon
     private void OnSummon(InputAction.CallbackContext obj)
     {
@@ -191,6 +221,7 @@ public class PlayerControls : MonoBehaviour
     private void OnSwitchMagicMode(InputAction.CallbackContext obj)
     {
         PlayerScript.inBuildMode = !PlayerScript.inBuildMode;
+        // tells ui to update what mode to display
         lmo.GetComponent<UIManager>().UpdatePlayerModeUI();
     }
 
@@ -302,6 +333,7 @@ public class PlayerControls : MonoBehaviour
         mode.performed -= OnSwitchMagicMode;
 
         movement.Disable();
+        dash.Disable();
         shoot.Disable();
         summon.Disable();
         mode.Disable();
