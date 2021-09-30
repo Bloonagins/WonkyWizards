@@ -6,7 +6,7 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
-    public TextMeshPro PlayerMode;
+    public TextMeshProUGUI PlayerMode;
     public bool CastMode;
     public bool BuildMode;
 
