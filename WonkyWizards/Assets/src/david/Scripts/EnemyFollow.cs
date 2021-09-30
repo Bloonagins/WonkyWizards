@@ -32,12 +32,11 @@ public class EnemyFollow : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision) 
+
+void OnTriggerEnter2D(Collider2D collision)
     {
-        // Check if collided with spell
-        if (collision.gameObject.tag == "Spell")
+        if(collision.gameObject.tag !="Player" && collision.gameObject.tag != "Enemy" && collision.gameObject.tag != "Block")
         {
-            // Destroy unit
             Destroy(self);
         }
     }
