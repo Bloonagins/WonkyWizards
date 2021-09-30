@@ -3,10 +3,7 @@
 | Author: Zach Heimbigner, T3                 |
 | Description: This program manages the state |
 | of the game based on player action. The     |
-| Program manages 7 states:                   |
-| - Main menu                                 | 
-| - Settings                                  |
-| - level select                              |
+| Program manages 5 states:                   | 
 | - cutscene                                  |
 | - setup mode                                |
 | - play mode                                 |
@@ -20,42 +17,71 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum GameState {
-    MAIN_MENU,
-    SETTINGS,
-    LEVEL_SELECT,
+public enum GameState{
     CUTSCENE,
-    SETUP_MODE,
-    PLAY_MODE,
+    SETUP,
+    PLAY,
     LOSE,
-    WIN
+    WIN,
+    PAUSE
 }
-
-public delegate void OnStateChangeHandler();
 
 public class GameManager : MonoBehaviour
 {
-    protected GameManager() {}
-    private static GameManager instance = null;
-    public event OnStateChangeHandler OnStateChange;
-    public GameState gameState { get; private set; }
+    public GameState state;
+    public static GameManager instance;
 
-    public static GameManager Instance{
-        get {
-            if (GameManager.instance == null){
-                DontDestroyOnLoad(GameManager.instance);
-                GameManager.instance = new GameManager();
-            }
-            return GameManager.instance;
+    //---------SINGLETON PATTERN-------------
+    void Awake()
+    {
+        MakeSingleton();
+    }
+
+    void MakeSingleton()
+    {
+        if(instance == null)
+        {
+            instance = this;
         }
     }
 
-    public void SetGameState(GameState state){
-        this.gameState = state;
-        OnStateChange();
+    //--------STATE HANDLING-----------------
+
+    //change states
+    public void ChangeState(GameState newState)
+    {
+        this.state = newState;
+        Game();
     }
 
-    public void OnApplicationQuit(){
-        GameManager.instance = null;
+    //change game
+    private void Game()
+    {
+        switch(this.state)
+        {
+            case GameState.PLAY:
+                Play();
+                break;
+
+            case GameState.SETUP:
+                Setup();
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    //-------------PLAY----------------
+    private void Play()
+    {
+        Debug.Log("STATE1 " + this.state);
+    }
+
+    //-------------SETUP---------------
+    private void Setup()
+    {
+        Debug.Log("STATE2 " + this.state);
     }
 }
+

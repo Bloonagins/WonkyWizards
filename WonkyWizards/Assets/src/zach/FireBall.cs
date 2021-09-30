@@ -36,7 +36,4 @@ public class FireBall: Spells
             Destroy(projectile);
         }
     }
-
-
-
 }
