@@ -12,12 +12,16 @@ public class UIManager : MonoBehaviour
 
     private void Awake()
     {
-        
+        CastMode = false;
+        BuildMode = true;
     }
 
     //Calling this funtion will set cast/build bools and set UI text to correspond to those values
     public void UpdatePlayerModeUI()
     {
+
+    
+
         if(BuildMode)
         {
             CastMode = true;
