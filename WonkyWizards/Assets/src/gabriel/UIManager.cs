@@ -37,6 +37,15 @@ public class UIManager : MonoBehaviour
         }
 
     }
+    public void ChangeCastMode()
+    {
+        CastMode = !CastMode;
+    }
+    public void ChangeBuildMode()
+    {
+        BuildMode = !BuildMode;
+    }
+
 
 
 

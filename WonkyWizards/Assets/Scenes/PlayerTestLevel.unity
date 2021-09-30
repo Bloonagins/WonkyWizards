@@ -613,7 +613,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Cast
+  m_text: 'Build
 
     Mode'
   m_isRightToLeft: 0
@@ -624,8 +624,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4280175057
-  m_fontColor: {r: 0.81960785, g: 0.28627452, b: 0.11764707, a: 1}
+    rgba: 4280209716
+  m_fontColor: {r: 0.20392157, g: 0.81960785, b: 0.11764707, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -41887,6 +41887,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerMode: {fileID: 0}
+  CastMode: 0
+  BuildMode: 0
 --- !u!1 &1540631071
 GameObject:
   m_ObjectHideFlags: 0
@@ -47840,6 +47842,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1480262405}
     m_Modifications:
+    - target: {fileID: 5876367107654672497, guid: 116c664f4b9485d46b46984aceed659f, type: 3}
+      propertyPath: test
+      value: 
+      objectReference: {fileID: 1480262404}
     - target: {fileID: 6288506958427422210, guid: 116c664f4b9485d46b46984aceed659f, type: 3}
       propertyPath: m_Name
       value: SquarePlayer
