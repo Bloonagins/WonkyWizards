@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 4218536481201120451}
   - component: {fileID: -3175613513743590097}
   - component: {fileID: 671515419373804146}
-  - component: {fileID: -8495617166496632211}
+  - component: {fileID: 6781392509395917272}
   m_Layer: 0
   m_Name: Projectile
-  m_TagString: Untagged
+  m_TagString: Spell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -69,11 +69,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  DPS: 0
-  FIRE_RATE: 0
+  DAMAGE:
+  - 0
+  - 0
   RANGE: 0
   CHARGE_TIME: 0
-  HITBOX: 0
   COOL_DOWN: 0
   projectile: {fileID: 2819576702667748300}
 --- !u!212 &671515419373804146
@@ -127,8 +127,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &-8495617166496632211
-BoxCollider2D:
+--- !u!58 &6781392509395917272
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -141,18 +141,8 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.0001, y: 0.0001}
-  m_EdgeRadius: 0
+  m_Radius: 0.5
 --- !u!1 &7567789612944230211
 GameObject:
   m_ObjectHideFlags: 0

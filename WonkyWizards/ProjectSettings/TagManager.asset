@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - TestPlayer
+  - Spell
   layers:
   - Default
   - TransparentFX

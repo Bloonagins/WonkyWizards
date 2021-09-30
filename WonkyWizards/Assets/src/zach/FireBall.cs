@@ -28,10 +28,12 @@ public class FireBall: Spells
     }
 
     //detect collision between anything that is collidable
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         //this.on_hit();
-        Destroy(gameObject);
+        if(collision.gameObject.tag !="Player"){
+            Destroy(gameObject);
+        }
     }
 
     //destroy prefab when it leaves the screen

@@ -160,4 +160,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementspeed: 30
+  testSpell: {fileID: 2819576702667748300, guid: f5efe1bbc982ab94a88e55ba914c628d, type: 3}
   barrier: {fileID: 2725990468511589311, guid: e9aad49c3fc09ae4f826f408d1209952, type: 3}

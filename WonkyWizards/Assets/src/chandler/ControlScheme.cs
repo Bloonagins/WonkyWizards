@@ -137,6 +137,14 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""FlipSpawner"",
+                    ""type"": ""Button"",
+                    ""id"": ""094ec46e-b694-4586-a8e9-568f6dd21a0c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -348,6 +356,17 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                     ""action"": ""Summon"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0bbf5400-f3e4-456e-b552-adde26415cb3"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""FlipSpawner"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -371,6 +390,7 @@ public class @ControlScheme : IInputActionCollection, IDisposable
         m_PlayerDefault_Hotbar9 = m_PlayerDefault.FindAction("Hotbar9", throwIfNotFound: true);
         m_PlayerDefault_Hotbar0 = m_PlayerDefault.FindAction("Hotbar0", throwIfNotFound: true);
         m_PlayerDefault_Pause = m_PlayerDefault.FindAction("Pause", throwIfNotFound: true);
+        m_PlayerDefault_FlipSpawner = m_PlayerDefault.FindAction("FlipSpawner", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -435,6 +455,7 @@ public class @ControlScheme : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerDefault_Hotbar9;
     private readonly InputAction m_PlayerDefault_Hotbar0;
     private readonly InputAction m_PlayerDefault_Pause;
+    private readonly InputAction m_PlayerDefault_FlipSpawner;
     public struct PlayerDefaultActions
     {
         private @ControlScheme m_Wrapper;
@@ -454,6 +475,7 @@ public class @ControlScheme : IInputActionCollection, IDisposable
         public InputAction @Hotbar9 => m_Wrapper.m_PlayerDefault_Hotbar9;
         public InputAction @Hotbar0 => m_Wrapper.m_PlayerDefault_Hotbar0;
         public InputAction @Pause => m_Wrapper.m_PlayerDefault_Pause;
+        public InputAction @FlipSpawner => m_Wrapper.m_PlayerDefault_FlipSpawner;
         public InputActionMap Get() { return m_Wrapper.m_PlayerDefault; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -508,6 +530,9 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                 @Pause.started -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnPause;
                 @Pause.performed -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnPause;
                 @Pause.canceled -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnPause;
+                @FlipSpawner.started -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnFlipSpawner;
+                @FlipSpawner.performed -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnFlipSpawner;
+                @FlipSpawner.canceled -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnFlipSpawner;
             }
             m_Wrapper.m_PlayerDefaultActionsCallbackInterface = instance;
             if (instance != null)
@@ -557,6 +582,9 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
+                @FlipSpawner.started += instance.OnFlipSpawner;
+                @FlipSpawner.performed += instance.OnFlipSpawner;
+                @FlipSpawner.canceled += instance.OnFlipSpawner;
             }
         }
     }
@@ -578,5 +606,6 @@ public class @ControlScheme : IInputActionCollection, IDisposable
         void OnHotbar9(InputAction.CallbackContext context);
         void OnHotbar0(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
+        void OnFlipSpawner(InputAction.CallbackContext context);
     }
 }
