@@ -31,9 +31,7 @@ public class FireBall: Spells
     void OnTriggerEnter2D(Collider2D collision)
     {
         //this.on_hit();
-        if(collision.gameObject.tag =="Player"){
-            return;
-        }else{ 
+        if(collision.gameObject.tag !="Player"){
             Destroy(gameObject);
         }
     }
