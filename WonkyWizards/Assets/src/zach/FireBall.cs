@@ -28,7 +28,7 @@ public class FireBall: Spells
     }
 
     //detect collision between anything that is collidable
-    void OnTriggerEnter2D(Collisider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         //this.on_hit();
         if(collision.gameObject.tag =="Player"){
