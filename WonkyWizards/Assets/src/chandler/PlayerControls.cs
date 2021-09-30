@@ -51,6 +51,7 @@ public class PlayerControls : MonoBehaviour
     public GameObject barrier;
     // link to boss prefab
     public GameObject boss;
+    public GameObject test;
 
     void Awake()
     {
