@@ -28,15 +28,16 @@ public class EnemyFollow : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
         }
         else { // Self destructs when too close to player
-            //Destroy(self);
+            Destroy(self);
         }
     }
 
-    void OnCollisionEnter2D(Collision2D other) 
+    void OnCollisionEnter2D(Collision2D collision) 
     {
         // Check if collided with spell
-        if (other.transform.tag == "Spell")
+        if (collision.gameObject.tag == "Spell")
         {
+            // Destroy unit
             Destroy(self);
         }
     }
