@@ -21,12 +21,13 @@ public class SpawnerTest : MonoBehaviour
     void Update()
     {
         // Check if key is pressed, toggle true and false
-        // if(PlayerScript.allowSpawn)
-        if(Input.GetKeyDown(KeyCode.Q)) 
+        //if(Input.GetKeyDown(KeyCode.Q)) 
+        if(PlayerScript.allowSpawn)
         {
             toggleKey = !toggleKey;
         }
 
+        // Delays spawn time
         timer += Time.deltaTime;
 
         // Check if toggle active
@@ -34,7 +35,6 @@ public class SpawnerTest : MonoBehaviour
         {
             // Spawns the enemies at the give point
             Instantiate(enemyPrefab, spawnPoint);
-
             timer = 0.0f;
         }
     }

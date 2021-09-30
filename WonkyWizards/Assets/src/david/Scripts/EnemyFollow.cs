@@ -34,6 +34,7 @@ public class EnemyFollow : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other) 
     {
+        // Check if collided with spell
         if (other.transform.tag == "Spell")
         {
             Destroy(self);
