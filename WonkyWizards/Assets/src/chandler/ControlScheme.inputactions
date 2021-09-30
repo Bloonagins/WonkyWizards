@@ -132,6 +132,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "BossSpawn",
+                    "type": "Button",
+                    "id": "654272e5-2dca-4202-9cb2-39f77c29334d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -352,6 +360,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "FlipSpawner",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e2fc6ee3-6fd1-4979-bd54-1ecae3218acf",
+                    "path": "<Keyboard>/b",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "BossSpawn",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

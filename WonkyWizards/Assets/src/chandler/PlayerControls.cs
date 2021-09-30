@@ -40,6 +40,7 @@ public class PlayerControls : MonoBehaviour
     private InputAction hotbar9;
     private InputAction hotbar0;
     private InputAction spawner;
+    private InputAction bossB;
     // player's rigidbody component
     private Rigidbody2D rb;
     // speed of the player
@@ -48,6 +49,8 @@ public class PlayerControls : MonoBehaviour
     public GameObject testSpell;
     // links to summon prefabs
     public GameObject barrier;
+    // link to boss prefab
+    public GameObject boss;
 
     void Awake()
     {
@@ -66,6 +69,7 @@ public class PlayerControls : MonoBehaviour
         summon = controls.PlayerDefault.Summon;
         mode = controls.PlayerDefault.SwitchMagicMode;
         spawner = controls.PlayerDefault.FlipSpawner;
+        bossB = controls.PlayerDefault.BossSpawn;
 
         summon.performed += OnSummon;
         mode.performed += OnSwitchMagicMode;
@@ -80,6 +84,7 @@ public class PlayerControls : MonoBehaviour
         controls.PlayerDefault.Hotbar9.performed += OnHotbar9;
         controls.PlayerDefault.Hotbar0.performed += OnHotbar0;
         spawner.performed += OnFlipSpawner;
+        bossB.performed += OnBossSpawn;
 
         movement.Enable();
         shoot.Enable();
@@ -96,11 +101,18 @@ public class PlayerControls : MonoBehaviour
         controls.PlayerDefault.Hotbar9.Enable();
         controls.PlayerDefault.Hotbar0.Enable();
         spawner.Enable();
+        bossB.Enable();
+    }
+
+    private void OnBossSpawn(InputAction.CallbackContext obj)
+    {
+        Instantiate(boss);
     }
 
     private void OnFlipSpawner(InputAction.CallbackContext obj)
     {
         PlayerScript.allowSpawn = !PlayerScript.allowSpawn;
+        Debug.Log(PlayerScript.allowSpawn);
     }
 
     // Start is called before the first frame update
@@ -302,6 +314,7 @@ public class PlayerControls : MonoBehaviour
         controls.PlayerDefault.Hotbar9.Disable();
         controls.PlayerDefault.Hotbar0.Disable();
         spawner.Disable();
+        bossB.Disable();
     }
 
     // changes the spell / summon index on the hotbar when a scroll is inputted

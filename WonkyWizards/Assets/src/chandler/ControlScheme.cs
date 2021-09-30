@@ -145,6 +145,14 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""BossSpawn"",
+                    ""type"": ""Button"",
+                    ""id"": ""654272e5-2dca-4202-9cb2-39f77c29334d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -367,6 +375,17 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                     ""action"": ""FlipSpawner"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e2fc6ee3-6fd1-4979-bd54-1ecae3218acf"",
+                    ""path"": ""<Keyboard>/b"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""BossSpawn"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -391,6 +410,7 @@ public class @ControlScheme : IInputActionCollection, IDisposable
         m_PlayerDefault_Hotbar0 = m_PlayerDefault.FindAction("Hotbar0", throwIfNotFound: true);
         m_PlayerDefault_Pause = m_PlayerDefault.FindAction("Pause", throwIfNotFound: true);
         m_PlayerDefault_FlipSpawner = m_PlayerDefault.FindAction("FlipSpawner", throwIfNotFound: true);
+        m_PlayerDefault_BossSpawn = m_PlayerDefault.FindAction("BossSpawn", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -456,6 +476,7 @@ public class @ControlScheme : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerDefault_Hotbar0;
     private readonly InputAction m_PlayerDefault_Pause;
     private readonly InputAction m_PlayerDefault_FlipSpawner;
+    private readonly InputAction m_PlayerDefault_BossSpawn;
     public struct PlayerDefaultActions
     {
         private @ControlScheme m_Wrapper;
@@ -476,6 +497,7 @@ public class @ControlScheme : IInputActionCollection, IDisposable
         public InputAction @Hotbar0 => m_Wrapper.m_PlayerDefault_Hotbar0;
         public InputAction @Pause => m_Wrapper.m_PlayerDefault_Pause;
         public InputAction @FlipSpawner => m_Wrapper.m_PlayerDefault_FlipSpawner;
+        public InputAction @BossSpawn => m_Wrapper.m_PlayerDefault_BossSpawn;
         public InputActionMap Get() { return m_Wrapper.m_PlayerDefault; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -533,6 +555,9 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                 @FlipSpawner.started -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnFlipSpawner;
                 @FlipSpawner.performed -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnFlipSpawner;
                 @FlipSpawner.canceled -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnFlipSpawner;
+                @BossSpawn.started -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnBossSpawn;
+                @BossSpawn.performed -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnBossSpawn;
+                @BossSpawn.canceled -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnBossSpawn;
             }
             m_Wrapper.m_PlayerDefaultActionsCallbackInterface = instance;
             if (instance != null)
@@ -585,6 +610,9 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                 @FlipSpawner.started += instance.OnFlipSpawner;
                 @FlipSpawner.performed += instance.OnFlipSpawner;
                 @FlipSpawner.canceled += instance.OnFlipSpawner;
+                @BossSpawn.started += instance.OnBossSpawn;
+                @BossSpawn.performed += instance.OnBossSpawn;
+                @BossSpawn.canceled += instance.OnBossSpawn;
             }
         }
     }
@@ -607,5 +635,6 @@ public class @ControlScheme : IInputActionCollection, IDisposable
         void OnHotbar0(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
         void OnFlipSpawner(InputAction.CallbackContext context);
+        void OnBossSpawn(InputAction.CallbackContext context);
     }
 }
