@@ -8,7 +8,6 @@ public class SpawnerTest : MonoBehaviour
     public Transform spawnPoint;
     // Variable for the Game Object of the enemy prefab that will be spawned
     public GameObject enemyPrefab;
-    public bool toggleKey;
     private float timer;
     public float spawnDelay;
 
@@ -20,18 +19,11 @@ public class SpawnerTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Check if key is pressed, toggle true and false
-        //if(Input.GetKeyDown(KeyCode.Q)) 
-        if(PlayerScript.allowSpawn)
-        {
-            toggleKey = !toggleKey;
-        }
-
         // Delays spawn time
         timer += Time.deltaTime;
 
         // Check if toggle active
-        if(toggleKey && timer >= spawnDelay)
+        if(PlayerScript.allowSpawn && timer >= spawnDelay)
         {
             // Spawns the enemies at the give point
             Instantiate(enemyPrefab, spawnPoint);

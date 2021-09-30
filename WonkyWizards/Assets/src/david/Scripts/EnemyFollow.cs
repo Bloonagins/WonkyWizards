@@ -35,7 +35,7 @@ public class EnemyFollow : MonoBehaviour
 
 void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag !="Player" && collision.gameObject.tag != "Enemy" && collision.gameObject.tag != "Block")
+        if(collision.gameObject.tag == "Spell")
         {
             Destroy(self);
         }
