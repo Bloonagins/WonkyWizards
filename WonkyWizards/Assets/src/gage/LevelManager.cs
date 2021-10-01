@@ -7,7 +7,7 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Setup faze! Get ready for the enemy wave!");
+        Debug.Log("Wave 1 is beginning!");
     }
 
     // Update is called once per frame
