@@ -27,6 +27,8 @@ public class PlayerScript : MonoBehaviour
     public static int summonIndex;
     // determines whether the player places summons or casts spells with click
     public static bool inBuildMode;
+    // keeps track of how long until the player is allowed to dash again
+    public static float dashtimer;
     // temp variable that determines whether or not enemies are allowed to be spawned
     public static bool allowSpawn;
 

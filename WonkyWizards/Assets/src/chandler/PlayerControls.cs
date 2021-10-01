@@ -50,8 +50,6 @@ public class PlayerControls : MonoBehaviour
     public float dashspeed;
     // time allowed until player is allowed to dash again
     public float dashreset;
-    // keeps track of how long until the player is allowed to dash again
-    private float dashtimer;
     // links to spell prefabs
     public GameObject testSpell;
     // links to summon prefabs
@@ -135,7 +133,7 @@ public class PlayerControls : MonoBehaviour
     void Start()
     {
         PlayerScript.inBuildMode = true;
-        dashtimer = dashreset;
+        PlayerScript.dashtimer = dashreset;
     }
 
     // Update is called once per frame
@@ -178,9 +176,9 @@ public class PlayerControls : MonoBehaviour
         rb.AddForce(movement.ReadValue<Vector2>() * movementspeed, ForceMode2D.Impulse);
 
         // dash timer cooldown
-        if (dashtimer < dashreset)
+        if (PlayerScript.dashtimer < dashreset)
         {
-            dashtimer += Time.fixedDeltaTime;
+            PlayerScript.dashtimer += Time.fixedDeltaTime;
         }
     }
 
@@ -204,10 +202,10 @@ public class PlayerControls : MonoBehaviour
     private void OnDash(InputAction.CallbackContext obj)
     {
         // if the dash isn't on cooldown and the player is currently pressing directional movement button, then dash and activate the dash cooldown timer
-        if (dashtimer >= dashreset && movement.ReadValue<Vector2>() != Vector2.zero)
+        if (PlayerScript.dashtimer >= dashreset && movement.ReadValue<Vector2>() != Vector2.zero)
         {
             rb.AddForce(movement.ReadValue<Vector2>() * dashspeed, ForceMode2D.Impulse);
-            dashtimer = 0.0f;
+            PlayerScript.dashtimer = 0.0f;
         }
     }
 
