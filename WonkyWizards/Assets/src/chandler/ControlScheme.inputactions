@@ -150,6 +150,14 @@
                     "interactions": ""
                 },
                 {
+                    "name": "ReadyUp",
+                    "type": "Button",
+                    "id": "79206ce3-1aed-4d4a-8cf9-76744d78497f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
                     "name": "FlipSpawner",
                     "type": "Button",
                     "id": "094ec46e-b694-4586-a8e9-568f6dd21a0c",
@@ -428,6 +436,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "WaveInfo",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "89338357-409e-48a8-909e-4341c6eead17",
+                    "path": "<Keyboard>/f4",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ReadyUp",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

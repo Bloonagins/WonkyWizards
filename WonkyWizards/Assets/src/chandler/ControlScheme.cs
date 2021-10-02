@@ -163,6 +163,14 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
+                    ""name"": ""ReadyUp"",
+                    ""type"": ""Button"",
+                    ""id"": ""79206ce3-1aed-4d4a-8cf9-76744d78497f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
                     ""name"": ""FlipSpawner"",
                     ""type"": ""Button"",
                     ""id"": ""094ec46e-b694-4586-a8e9-568f6dd21a0c"",
@@ -443,6 +451,17 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                     ""action"": ""WaveInfo"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""89338357-409e-48a8-909e-4341c6eead17"",
+                    ""path"": ""<Keyboard>/f4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ReadyUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -469,6 +488,7 @@ public class @ControlScheme : IInputActionCollection, IDisposable
         m_PlayerDefault_Hotbar0 = m_PlayerDefault.FindAction("Hotbar0", throwIfNotFound: true);
         m_PlayerDefault_Pause = m_PlayerDefault.FindAction("Pause", throwIfNotFound: true);
         m_PlayerDefault_WaveInfo = m_PlayerDefault.FindAction("WaveInfo", throwIfNotFound: true);
+        m_PlayerDefault_ReadyUp = m_PlayerDefault.FindAction("ReadyUp", throwIfNotFound: true);
         m_PlayerDefault_FlipSpawner = m_PlayerDefault.FindAction("FlipSpawner", throwIfNotFound: true);
         m_PlayerDefault_BossSpawn = m_PlayerDefault.FindAction("BossSpawn", throwIfNotFound: true);
     }
@@ -538,6 +558,7 @@ public class @ControlScheme : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerDefault_Hotbar0;
     private readonly InputAction m_PlayerDefault_Pause;
     private readonly InputAction m_PlayerDefault_WaveInfo;
+    private readonly InputAction m_PlayerDefault_ReadyUp;
     private readonly InputAction m_PlayerDefault_FlipSpawner;
     private readonly InputAction m_PlayerDefault_BossSpawn;
     public struct PlayerDefaultActions
@@ -562,6 +583,7 @@ public class @ControlScheme : IInputActionCollection, IDisposable
         public InputAction @Hotbar0 => m_Wrapper.m_PlayerDefault_Hotbar0;
         public InputAction @Pause => m_Wrapper.m_PlayerDefault_Pause;
         public InputAction @WaveInfo => m_Wrapper.m_PlayerDefault_WaveInfo;
+        public InputAction @ReadyUp => m_Wrapper.m_PlayerDefault_ReadyUp;
         public InputAction @FlipSpawner => m_Wrapper.m_PlayerDefault_FlipSpawner;
         public InputAction @BossSpawn => m_Wrapper.m_PlayerDefault_BossSpawn;
         public InputActionMap Get() { return m_Wrapper.m_PlayerDefault; }
@@ -627,6 +649,9 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                 @WaveInfo.started -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnWaveInfo;
                 @WaveInfo.performed -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnWaveInfo;
                 @WaveInfo.canceled -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnWaveInfo;
+                @ReadyUp.started -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnReadyUp;
+                @ReadyUp.performed -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnReadyUp;
+                @ReadyUp.canceled -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnReadyUp;
                 @FlipSpawner.started -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnFlipSpawner;
                 @FlipSpawner.performed -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnFlipSpawner;
                 @FlipSpawner.canceled -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnFlipSpawner;
@@ -691,6 +716,9 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                 @WaveInfo.started += instance.OnWaveInfo;
                 @WaveInfo.performed += instance.OnWaveInfo;
                 @WaveInfo.canceled += instance.OnWaveInfo;
+                @ReadyUp.started += instance.OnReadyUp;
+                @ReadyUp.performed += instance.OnReadyUp;
+                @ReadyUp.canceled += instance.OnReadyUp;
                 @FlipSpawner.started += instance.OnFlipSpawner;
                 @FlipSpawner.performed += instance.OnFlipSpawner;
                 @FlipSpawner.canceled += instance.OnFlipSpawner;
@@ -721,6 +749,7 @@ public class @ControlScheme : IInputActionCollection, IDisposable
         void OnHotbar0(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
         void OnWaveInfo(InputAction.CallbackContext context);
+        void OnReadyUp(InputAction.CallbackContext context);
         void OnFlipSpawner(InputAction.CallbackContext context);
         void OnBossSpawn(InputAction.CallbackContext context);
     }
