@@ -5,14 +5,17 @@
  * Current Input Map:
  * 
  * Movement: WASD
+ * Dash: Spacebar
  * Casting Spells: Left Mouse
  * Placing Summons: Left Mouse
- * Switching between spellcasting and summoning mode: Tab
+ * Changing Summon Targetting Mode: Right Mouse
+ * Switching between spellcasting and summoning mode: R
  * Changing Selected Spell / Summon in Hotbar: Scroll wheel
  *                                             OR
  *                                             Alpha Number keys on keyboard
- * Changing Summon Targetting Mode: Right Mouse (TODO)
- * Dash: Spacebar (TODO) (Might not add)
+ * Pause: Escape (Handled in one of Gabe's scripts)
+ * Ready Up: F4 (TODO)
+ * Wave Info: Tab (TODO)
  */
 
 using System;
@@ -41,6 +44,7 @@ public class PlayerControls : MonoBehaviour
     private InputAction hotbar8;
     private InputAction hotbar9;
     private InputAction hotbar0;
+    private InputAction info;
     private InputAction spawner; // q to enable / disable test enemy spawner
     private InputAction bossB; // b to spawn a boss on the cursor
     // player's rigidbody component
@@ -49,7 +53,7 @@ public class PlayerControls : MonoBehaviour
     public float movementspeed;
     // dash speed of the player (600)
     public float dashspeed;
-    // time allowed until player is allowed to dash again
+    // time allowed until player is allowed to dash again (2)
     public float dashreset;
     // links to spell prefabs
     public GameObject testSpell;
@@ -78,6 +82,7 @@ public class PlayerControls : MonoBehaviour
         summon = controls.PlayerDefault.Summon;
         target = controls.PlayerDefault.SwitchTargetMode;
         mode = controls.PlayerDefault.SwitchMagicMode;
+        info = controls.PlayerDefault.WaveInfo;
         spawner = controls.PlayerDefault.FlipSpawner;
         bossB = controls.PlayerDefault.BossSpawn;
 
@@ -115,6 +120,7 @@ public class PlayerControls : MonoBehaviour
         controls.PlayerDefault.Hotbar8.Enable();
         controls.PlayerDefault.Hotbar9.Enable();
         controls.PlayerDefault.Hotbar0.Enable();
+        info.Enable();
         spawner.Enable();
         bossB.Enable();
     }
@@ -170,6 +176,11 @@ public class PlayerControls : MonoBehaviour
             {
                 Instantiate(testSpell, transform.position, transform.rotation);
             }
+        }
+
+        if (info.ReadValue<float>() > 0.0f)
+        {
+            Debug.Log("Display Wave Info");
         }
     }
 
@@ -228,7 +239,7 @@ public class PlayerControls : MonoBehaviour
         Debug.Log("Switch Target");
     }
 
-    // when tab is pressed, switch from summon building mode to spell casting mode and vice versa
+    // when R is pressed, switch from summon building mode to spell casting mode and vice versa
     private void OnSwitchMagicMode(InputAction.CallbackContext obj)
     {
         PlayerScript.inBuildMode = !PlayerScript.inBuildMode;
@@ -359,6 +370,7 @@ public class PlayerControls : MonoBehaviour
         controls.PlayerDefault.Hotbar8.Disable();
         controls.PlayerDefault.Hotbar9.Disable();
         controls.PlayerDefault.Hotbar0.Disable();
+        info.Disable();
         spawner.Disable();
         bossB.Disable();
     }

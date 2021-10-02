@@ -14,6 +14,14 @@
                     "interactions": ""
                 },
                 {
+                    "name": "Dash",
+                    "type": "Button",
+                    "id": "e5613a02-fd59-41b4-b743-16dd14f8bd91",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
                     "name": "Cast",
                     "type": "Button",
                     "id": "675ed597-16c3-4db5-8d3f-17e0dbb28a7c",
@@ -134,6 +142,14 @@
                     "interactions": ""
                 },
                 {
+                    "name": "WaveInfo",
+                    "type": "Button",
+                    "id": "6a3dce3c-8f4d-493c-b66d-a1459462f6ea",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
                     "name": "FlipSpawner",
                     "type": "Button",
                     "id": "094ec46e-b694-4586-a8e9-568f6dd21a0c",
@@ -145,14 +161,6 @@
                     "name": "BossSpawn",
                     "type": "Button",
                     "id": "654272e5-2dca-4202-9cb2-39f77c29334d",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "Dash",
-                    "type": "Button",
-                    "id": "e5613a02-fd59-41b4-b743-16dd14f8bd91",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -392,6 +400,17 @@
                 },
                 {
                     "name": "",
+                    "id": "9fbb1dd8-3ee0-48ca-b75f-fe7508c4c228",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SwitchTargetMode",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "d503ac19-aca2-4b4f-bb4e-4f2d33e5eec6",
                     "path": "<Keyboard>/space",
                     "interactions": "",
@@ -403,12 +422,12 @@
                 },
                 {
                     "name": "",
-                    "id": "9fbb1dd8-3ee0-48ca-b75f-fe7508c4c228",
-                    "path": "<Mouse>/rightButton",
-                    "interactions": "",
+                    "id": "591f61b0-a8ba-4b92-9aa5-75ab29b66980",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "Press(behavior=2)",
                     "processors": "",
                     "groups": "",
-                    "action": "SwitchTargetMode",
+                    "action": "WaveInfo",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

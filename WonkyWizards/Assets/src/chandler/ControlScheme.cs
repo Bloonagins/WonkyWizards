@@ -27,6 +27,14 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
+                    ""name"": ""Dash"",
+                    ""type"": ""Button"",
+                    ""id"": ""e5613a02-fd59-41b4-b743-16dd14f8bd91"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
                     ""name"": ""Cast"",
                     ""type"": ""Button"",
                     ""id"": ""675ed597-16c3-4db5-8d3f-17e0dbb28a7c"",
@@ -147,6 +155,14 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
+                    ""name"": ""WaveInfo"",
+                    ""type"": ""Button"",
+                    ""id"": ""6a3dce3c-8f4d-493c-b66d-a1459462f6ea"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
                     ""name"": ""FlipSpawner"",
                     ""type"": ""Button"",
                     ""id"": ""094ec46e-b694-4586-a8e9-568f6dd21a0c"",
@@ -158,14 +174,6 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                     ""name"": ""BossSpawn"",
                     ""type"": ""Button"",
                     ""id"": ""654272e5-2dca-4202-9cb2-39f77c29334d"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""Dash"",
-                    ""type"": ""Button"",
-                    ""id"": ""e5613a02-fd59-41b4-b743-16dd14f8bd91"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -405,6 +413,17 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""9fbb1dd8-3ee0-48ca-b75f-fe7508c4c228"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchTargetMode"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""d503ac19-aca2-4b4f-bb4e-4f2d33e5eec6"",
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
@@ -416,12 +435,12 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""9fbb1dd8-3ee0-48ca-b75f-fe7508c4c228"",
-                    ""path"": ""<Mouse>/rightButton"",
-                    ""interactions"": """",
+                    ""id"": ""591f61b0-a8ba-4b92-9aa5-75ab29b66980"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": ""Press(behavior=2)"",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""SwitchTargetMode"",
+                    ""action"": ""WaveInfo"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -433,6 +452,7 @@ public class @ControlScheme : IInputActionCollection, IDisposable
         // PlayerDefault
         m_PlayerDefault = asset.FindActionMap("PlayerDefault", throwIfNotFound: true);
         m_PlayerDefault_Move = m_PlayerDefault.FindAction("Move", throwIfNotFound: true);
+        m_PlayerDefault_Dash = m_PlayerDefault.FindAction("Dash", throwIfNotFound: true);
         m_PlayerDefault_Cast = m_PlayerDefault.FindAction("Cast", throwIfNotFound: true);
         m_PlayerDefault_Summon = m_PlayerDefault.FindAction("Summon", throwIfNotFound: true);
         m_PlayerDefault_SwitchTargetMode = m_PlayerDefault.FindAction("SwitchTargetMode", throwIfNotFound: true);
@@ -448,9 +468,9 @@ public class @ControlScheme : IInputActionCollection, IDisposable
         m_PlayerDefault_Hotbar9 = m_PlayerDefault.FindAction("Hotbar9", throwIfNotFound: true);
         m_PlayerDefault_Hotbar0 = m_PlayerDefault.FindAction("Hotbar0", throwIfNotFound: true);
         m_PlayerDefault_Pause = m_PlayerDefault.FindAction("Pause", throwIfNotFound: true);
+        m_PlayerDefault_WaveInfo = m_PlayerDefault.FindAction("WaveInfo", throwIfNotFound: true);
         m_PlayerDefault_FlipSpawner = m_PlayerDefault.FindAction("FlipSpawner", throwIfNotFound: true);
         m_PlayerDefault_BossSpawn = m_PlayerDefault.FindAction("BossSpawn", throwIfNotFound: true);
-        m_PlayerDefault_Dash = m_PlayerDefault.FindAction("Dash", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -501,6 +521,7 @@ public class @ControlScheme : IInputActionCollection, IDisposable
     private readonly InputActionMap m_PlayerDefault;
     private IPlayerDefaultActions m_PlayerDefaultActionsCallbackInterface;
     private readonly InputAction m_PlayerDefault_Move;
+    private readonly InputAction m_PlayerDefault_Dash;
     private readonly InputAction m_PlayerDefault_Cast;
     private readonly InputAction m_PlayerDefault_Summon;
     private readonly InputAction m_PlayerDefault_SwitchTargetMode;
@@ -516,14 +537,15 @@ public class @ControlScheme : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerDefault_Hotbar9;
     private readonly InputAction m_PlayerDefault_Hotbar0;
     private readonly InputAction m_PlayerDefault_Pause;
+    private readonly InputAction m_PlayerDefault_WaveInfo;
     private readonly InputAction m_PlayerDefault_FlipSpawner;
     private readonly InputAction m_PlayerDefault_BossSpawn;
-    private readonly InputAction m_PlayerDefault_Dash;
     public struct PlayerDefaultActions
     {
         private @ControlScheme m_Wrapper;
         public PlayerDefaultActions(@ControlScheme wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_PlayerDefault_Move;
+        public InputAction @Dash => m_Wrapper.m_PlayerDefault_Dash;
         public InputAction @Cast => m_Wrapper.m_PlayerDefault_Cast;
         public InputAction @Summon => m_Wrapper.m_PlayerDefault_Summon;
         public InputAction @SwitchTargetMode => m_Wrapper.m_PlayerDefault_SwitchTargetMode;
@@ -539,9 +561,9 @@ public class @ControlScheme : IInputActionCollection, IDisposable
         public InputAction @Hotbar9 => m_Wrapper.m_PlayerDefault_Hotbar9;
         public InputAction @Hotbar0 => m_Wrapper.m_PlayerDefault_Hotbar0;
         public InputAction @Pause => m_Wrapper.m_PlayerDefault_Pause;
+        public InputAction @WaveInfo => m_Wrapper.m_PlayerDefault_WaveInfo;
         public InputAction @FlipSpawner => m_Wrapper.m_PlayerDefault_FlipSpawner;
         public InputAction @BossSpawn => m_Wrapper.m_PlayerDefault_BossSpawn;
-        public InputAction @Dash => m_Wrapper.m_PlayerDefault_Dash;
         public InputActionMap Get() { return m_Wrapper.m_PlayerDefault; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -554,6 +576,9 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                 @Move.started -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnMove;
                 @Move.performed -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnMove;
                 @Move.canceled -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnMove;
+                @Dash.started -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnDash;
+                @Dash.performed -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnDash;
+                @Dash.canceled -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnDash;
                 @Cast.started -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnCast;
                 @Cast.performed -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnCast;
                 @Cast.canceled -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnCast;
@@ -599,15 +624,15 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                 @Pause.started -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnPause;
                 @Pause.performed -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnPause;
                 @Pause.canceled -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnPause;
+                @WaveInfo.started -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnWaveInfo;
+                @WaveInfo.performed -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnWaveInfo;
+                @WaveInfo.canceled -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnWaveInfo;
                 @FlipSpawner.started -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnFlipSpawner;
                 @FlipSpawner.performed -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnFlipSpawner;
                 @FlipSpawner.canceled -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnFlipSpawner;
                 @BossSpawn.started -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnBossSpawn;
                 @BossSpawn.performed -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnBossSpawn;
                 @BossSpawn.canceled -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnBossSpawn;
-                @Dash.started -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnDash;
-                @Dash.performed -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnDash;
-                @Dash.canceled -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnDash;
             }
             m_Wrapper.m_PlayerDefaultActionsCallbackInterface = instance;
             if (instance != null)
@@ -615,6 +640,9 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
+                @Dash.started += instance.OnDash;
+                @Dash.performed += instance.OnDash;
+                @Dash.canceled += instance.OnDash;
                 @Cast.started += instance.OnCast;
                 @Cast.performed += instance.OnCast;
                 @Cast.canceled += instance.OnCast;
@@ -660,15 +688,15 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
+                @WaveInfo.started += instance.OnWaveInfo;
+                @WaveInfo.performed += instance.OnWaveInfo;
+                @WaveInfo.canceled += instance.OnWaveInfo;
                 @FlipSpawner.started += instance.OnFlipSpawner;
                 @FlipSpawner.performed += instance.OnFlipSpawner;
                 @FlipSpawner.canceled += instance.OnFlipSpawner;
                 @BossSpawn.started += instance.OnBossSpawn;
                 @BossSpawn.performed += instance.OnBossSpawn;
                 @BossSpawn.canceled += instance.OnBossSpawn;
-                @Dash.started += instance.OnDash;
-                @Dash.performed += instance.OnDash;
-                @Dash.canceled += instance.OnDash;
             }
         }
     }
@@ -676,6 +704,7 @@ public class @ControlScheme : IInputActionCollection, IDisposable
     public interface IPlayerDefaultActions
     {
         void OnMove(InputAction.CallbackContext context);
+        void OnDash(InputAction.CallbackContext context);
         void OnCast(InputAction.CallbackContext context);
         void OnSummon(InputAction.CallbackContext context);
         void OnSwitchTargetMode(InputAction.CallbackContext context);
@@ -691,8 +720,8 @@ public class @ControlScheme : IInputActionCollection, IDisposable
         void OnHotbar9(InputAction.CallbackContext context);
         void OnHotbar0(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
+        void OnWaveInfo(InputAction.CallbackContext context);
         void OnFlipSpawner(InputAction.CallbackContext context);
         void OnBossSpawn(InputAction.CallbackContext context);
-        void OnDash(InputAction.CallbackContext context);
     }
 }
