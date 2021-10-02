@@ -29,6 +29,7 @@ public class PlayerControls : MonoBehaviour
     private InputAction dash; // spacebar to dash
     private InputAction shoot; // left mouse to cast spell
     private InputAction summon; // left mouse to place summon
+    private InputAction target; // right mouse to make summon switch targetting mode
     private InputAction mode; // R to switch between build mode and cast mode
     private InputAction hotbar1; // alpha number keys to select items from hotbar
     private InputAction hotbar2;
@@ -75,6 +76,7 @@ public class PlayerControls : MonoBehaviour
         dash = controls.PlayerDefault.Dash;
         shoot = controls.PlayerDefault.Cast;
         summon = controls.PlayerDefault.Summon;
+        target = controls.PlayerDefault.SwitchTargetMode;
         mode = controls.PlayerDefault.SwitchMagicMode;
         spawner = controls.PlayerDefault.FlipSpawner;
         bossB = controls.PlayerDefault.BossSpawn;
@@ -82,6 +84,7 @@ public class PlayerControls : MonoBehaviour
         // binds certain inputs to a function to be called when that input is activated
         dash.performed += OnDash;
         summon.performed += OnSummon;
+        target.performed += OnSwitchTarget;
         mode.performed += OnSwitchMagicMode;
         controls.PlayerDefault.Hotbar1.performed += OnHotbar1;
         controls.PlayerDefault.Hotbar2.performed += OnHotbar2;
@@ -100,6 +103,7 @@ public class PlayerControls : MonoBehaviour
         dash.Enable();
         shoot.Enable();
         summon.Enable();
+        target.Enable();
         mode.Enable();
         controls.PlayerDefault.Hotbar1.Enable();
         controls.PlayerDefault.Hotbar2.Enable();
@@ -216,6 +220,12 @@ public class PlayerControls : MonoBehaviour
         {
             Instantiate(barrier);
         }
+    }
+
+    // when right click is pressed, switch the targetting mode of the summon that was clicked on
+    private void OnSwitchTarget(InputAction.CallbackContext obj)
+    {
+        Debug.Log("Switch Target");
     }
 
     // when tab is pressed, switch from summon building mode to spell casting mode and vice versa
@@ -337,6 +347,7 @@ public class PlayerControls : MonoBehaviour
         dash.Disable();
         shoot.Disable();
         summon.Disable();
+        target.Disable();
         mode.Disable();
         controls.PlayerDefault.Hotbar1.Disable();
         controls.PlayerDefault.Hotbar2.Disable();

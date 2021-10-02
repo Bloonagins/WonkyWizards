@@ -30,6 +30,14 @@
                     "interactions": ""
                 },
                 {
+                    "name": "SwitchTargetMode",
+                    "type": "Button",
+                    "id": "c7718baf-a29a-43ec-bf1f-166ef895ea06",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
                     "name": "SwitchMagicMode",
                     "type": "Button",
                     "id": "6d21ec47-28e6-4dbb-83e1-5c74e6382adc",
@@ -390,6 +398,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Dash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9fbb1dd8-3ee0-48ca-b75f-fe7508c4c228",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SwitchTargetMode",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
