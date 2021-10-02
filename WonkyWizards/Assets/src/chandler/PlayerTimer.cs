@@ -8,11 +8,11 @@ public class PlayerTimer : MonoBehaviour
     private static float dashReset = 2.0f;
     private static float dashTimer;
     // damage cooldown
-    private static float damageReset = 0.5f;
+    private static float damageReset = 1.0f;
     private static float damageTimer;
     // Spells
     // fireball cooldown
-    private static float fireballReset = 0.5f;
+    private static float fireballReset = 0.75f;
     private static float fireballTimer;
 
     // Start is called before the first frame update

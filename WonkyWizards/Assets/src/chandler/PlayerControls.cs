@@ -176,9 +176,10 @@ public class PlayerControls : MonoBehaviour
         // if player is in cast mode and click is pressed, cast spell
         if (!PlayerScript.inBuildMode)
         {
-            if (shoot.ReadValue<float>() > 0.0f)
+            if (PlayerTimer.canCastFireball() && shoot.ReadValue<float>() > 0.0f)
             {
                 Instantiate(testSpell, transform.position, transform.rotation);
+                PlayerTimer.activateFireballCooldown();
             }
         }
 
@@ -215,7 +216,7 @@ public class PlayerControls : MonoBehaviour
     // when space is pressed, add a big force to the player to make them dash
     private void OnDash(InputAction.CallbackContext obj)
     {
-        if (PlayerTimer.getDashTimer() >= PlayerTimer.getDashCooldown() && movement.ReadValue<Vector2>() != Vector2.zero)
+        if (PlayerTimer.canDash() && movement.ReadValue<Vector2>() != Vector2.zero)
         {
             rb.AddForce(movement.ReadValue<Vector2>() * dashspeed, ForceMode2D.Impulse);
             PlayerTimer.activateDashCooldown();

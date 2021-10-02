@@ -55,15 +55,20 @@ public class PlayerScript : MonoBehaviour
         screenCursorPoint = Camera.main.WorldToScreenPoint(worldCursorPoint);
     }
 
-    private void OnStayEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
         GameObject other = collision.gameObject;
         if (other.tag == "Enemy")
         {
-            if (other.GetComponent<GoblinGrunt>())
+            if (PlayerTimer.canDamage())
             {
-                hp -= other.GetComponent<GoblinGrunt>().GetDamage();
-                // AddForce
+                if (other.GetComponent<GoblinGrunt>())
+                {
+                    hp -= other.GetComponent<GoblinGrunt>().GetDamage();
+                    PlayerTimer.activateDamageCooldown();
+                    Debug.Log(hp);
+                    // AddForce
+                }
             }
         }
     }
