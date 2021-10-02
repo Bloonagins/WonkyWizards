@@ -194,12 +194,6 @@ public class PlayerControls : MonoBehaviour
     {
         // reads WASD input from the player, multiplies that input by the movement speed, and moves the player that direction
         rb.AddForce(movement.ReadValue<Vector2>() * movementspeed, ForceMode2D.Impulse);
-
-        // dash timer cooldown
-        if (PlayerScript.dashtimer < dashreset)
-        {
-            PlayerScript.dashtimer += Time.fixedDeltaTime;
-        }
     }
 
     // returns the angle between the cursor and the player
@@ -221,11 +215,10 @@ public class PlayerControls : MonoBehaviour
     // when space is pressed, add a big force to the player to make them dash
     private void OnDash(InputAction.CallbackContext obj)
     {
-        // if the dash isn't on cooldown and the player is currently pressing directional movement button, then dash and activate the dash cooldown timer
-        if (PlayerScript.dashtimer >= dashreset && movement.ReadValue<Vector2>() != Vector2.zero)
+        if (PlayerTimer.getDashTimer() >= PlayerTimer.getDashCooldown() && movement.ReadValue<Vector2>() != Vector2.zero)
         {
             rb.AddForce(movement.ReadValue<Vector2>() * dashspeed, ForceMode2D.Impulse);
-            PlayerScript.dashtimer = 0.0f;
+            PlayerTimer.activateDashCooldown();
         }
     }
 
