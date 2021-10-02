@@ -8,6 +8,7 @@ public class SpawnerTest : MonoBehaviour
     public Transform spawnPoint;
     // Variable for the Game Object of the enemy prefab that will be spawned
     public GameObject enemyPrefab;
+
     private float timer;
     public float spawnDelay;
 

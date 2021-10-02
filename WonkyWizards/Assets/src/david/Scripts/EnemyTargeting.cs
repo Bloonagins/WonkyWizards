@@ -1,15 +1,23 @@
+/**********************************************
+| EnemyTargeting V1.0.0                       |
+| Author: David Bush, T5                      |
+| Description: This contains the enemy's      |
+| targeting and pathfinding. It will also be  |
+| able to determine whether enemy changes its |
+| target from goal to player.                 |
+| Bugs:                                       |
+**********************************************/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyFollow : MonoBehaviour
+public class EnemyTargeting : MonoBehaviour
 {
     // The speed associated with the unit
     public float speed;
     // The minimum distance reached before stopping
     public float stoppingDistance;
-    // The game object associated with the unit
-    public GameObject self;
     // The target that enemy will follow
     private Transform target;
 
@@ -28,17 +36,7 @@ public class EnemyFollow : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
         }
         else { // Self destructs when too close to player
-            Destroy(self);
+            //Destroy(self);
         }
     }
-
-
-void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.gameObject.tag == "Spell")
-        {
-            Destroy(self);
-        }
-    }
-
 }
