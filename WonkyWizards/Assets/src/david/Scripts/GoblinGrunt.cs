@@ -27,6 +27,7 @@ public class GoblinGrunt : Enemy
         damage = 10;
         move_speed = 5;
         attack_speed = 1.5f;
+        knock_back = 300f;
     }
 
     // Method to update when enemy is dealt damage
@@ -44,7 +45,7 @@ public class GoblinGrunt : Enemy
     {
         return damage;
     }
-    public float GetMoveSpeed()
+    public override float GetMoveSpeed()
     {
         return move_speed;
     }
@@ -52,7 +53,16 @@ public class GoblinGrunt : Enemy
     {
         return attack_speed;
     }
-    
+
+    public float GetKnockBack()
+    {
+        return knock_back;
+    }
+        
+    // Start is called before the first frame update
+    void Start()
+    {
+    }
     // Update is called once per frame
     void Update()
     {
@@ -63,13 +73,10 @@ public class GoblinGrunt : Enemy
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        // Check if enemy hit with spell
-        if(collision.gameObject.tag == "Spell")
+        GameObject other = collision.gameObject;
+        if(collision.gameObject.tag == "Spell") // Check if enemy collided with spell
         {   
-            UpdateHealth(5); // Recieve damage
+            UpdateHealth(50); // Recieve damage // other.GetComponent<FireBall>().getDamage();
         }
-        //if(collision.gameObject.tag == "Summon")
-        //{
-        //}
     }
 }

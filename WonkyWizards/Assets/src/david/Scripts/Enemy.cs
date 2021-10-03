@@ -21,15 +21,22 @@ public class Enemy : MonoBehaviour
 
     protected float attack_speed; // The attack speed the enemy starts with
 
-    // Methods
+    protected float knock_back; // Ammount of knockback applied
 
     // Basic constructor for Enemy class
     public Enemy()
     {
         health = 100;
         damage = 10;
-        move_speed = 1;
-        attack_speed = 0.5f;
+        move_speed = 10;
+        attack_speed = 1f;
+        knock_back = 200f;
+    }
+
+    // Methods
+    virtual public float GetMoveSpeed() 
+    {
+        return move_speed;
     }
 
     // Start is called before the first frame update

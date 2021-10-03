@@ -14,18 +14,28 @@ using UnityEngine;
 
 public class EnemyTargeting : MonoBehaviour
 {
+    // Game object associated with type
+    public GameObject type;
     // The speed associated with the unit
-    public float speed;
+    private float speed;
     // The minimum distance reached before stopping
     public float stoppingDistance;
-    // The target that enemy will follow
+    // The timer for when enemy can be knocked back
+    private float timer;
+    // Time knockback is delayed
     private Transform target;
 
     // Start is called before the first frame update
     void Start()
     {
+
         // Get the target players component
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+
+        //if(type.GetComponent<GoblinGrunt>()) // Might need to add this depending on if multiple types works
+        // Get the enemy's speed 
+        speed = type.GetComponent<Enemy>().GetMoveSpeed();
+
     }
     
     // Update is called once per frame
@@ -34,9 +44,6 @@ public class EnemyTargeting : MonoBehaviour
         if(Vector2.Distance(transform.position, target.position) > stoppingDistance){
             // Move unit towards target player's position
             transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-        }
-        else { // Self destructs when too close to player
-            //Destroy(self);
         }
     }
 }
