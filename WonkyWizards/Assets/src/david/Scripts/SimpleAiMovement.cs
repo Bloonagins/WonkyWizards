@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class TestMovement : MonoBehaviour
+public class SimpleAiMovement : MonoBehaviour
 {
     public Transform goal;
     // Start is called before the first frame update
