@@ -15,6 +15,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     // Variables
+    protected int max_health; // Maximum ammount of health enemy has
     protected int health; // Ammount of health enemy starts with
     protected int damage; // Ammount of damage enemy starts with
     protected float move_speed; // The movement speed the enemy starts with
@@ -26,6 +27,7 @@ public class Enemy : MonoBehaviour
     // Basic constructor for Enemy class
     public Enemy()
     {
+        max_health = 100;
         health = 100;
         damage = 10;
         move_speed = 10;

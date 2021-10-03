@@ -23,6 +23,7 @@ public class GoblinGrunt : Enemy
     // Constructor for GoblinGrunt
     public GoblinGrunt()
     {
+        max_health = 200;
         health = 200;
         damage = 10;
         move_speed = 5;
@@ -37,6 +38,10 @@ public class GoblinGrunt : Enemy
     }
 
     // Methods for retrieving stats
+    public int GetMaxHealth()
+    {
+        return max_health;
+    }
     public int GetHealth()
     {
         return health;
