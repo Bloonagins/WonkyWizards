@@ -10,13 +10,44 @@ public class UIManager : MonoBehaviour
     public bool CastMode;
     public bool BuildMode;
 
+    public TextMeshProUGUI PlayerHealthPercentTXT;
+    public Image PlayerHealthCircleIMG;
+
+    public GameObject PlayerRef;
+
+
     private void Awake()
     {
         CastMode = false;
         BuildMode = true;
     }
 
-    //Calling this funtion will set cast/build bools and set UI text to correspond to those values
+    private void FixedUpdate()
+    {
+        
+    }
+
+    ///returns decimal of players' current hp / their max hp
+    private float CalcHealthDecimal()
+    {   
+        return ( (float) PlayerScript.getHP() / (float) PlayerScript.getMAXHP());
+    }
+
+    ///Calling this function will update all player health UI elements - should be called whenever the player hp value is anticipated to changed
+    ///ie Healing, Enemy Interaction...etc</summary>
+    ///These types of functions that update strings are computationally expensive and should not be placed in an update function
+    
+    public void UpdatePlayerHeathUI()
+        {
+            //float created to avoid extra computation by calling CalcHealthDecimal multiple times in the same function
+            //This also avoids potential albiet unlikely discrepancies in the values displayed in fill and text
+
+            float PlayerCurrHPDecimal = CalcHealthDecimal();
+
+            PlayerHealthPercentTXT.text = (int)PlayerCurrHPDecimal + "%";
+            PlayerHealthCircleIMG.fillAmount = PlayerCurrHPDecimal;
+        }
+    ///Calling this funtion will set cast/build bools and set UI text to correspond to those values
     public void UpdatePlayerModeUI()
     {
 

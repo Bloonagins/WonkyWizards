@@ -21,7 +21,14 @@ public class LevelMenuManager : MonoBehaviour
     private void Awake()
     {
         controls = new ControlScheme();
+
     }
+    /*
+    private void Start()
+    {
+        bIsPaused = false;
+    }
+    */
     private void OnEnable()
     {
         pause = controls.PlayerDefault.Pause;
@@ -43,8 +50,10 @@ public class LevelMenuManager : MonoBehaviour
     //Calling this func will attempt to pause/resume the game
     public void PauseOrResumeGame()
     {
-        if(bIsPaused == false)
+        Debug.Log("trying to switch pause state\n");
+        if (bIsPaused == false)
         {
+            //Debug.Log("trying to switch pause state")
             Time.timeScale = 0f;
             bIsPaused = true;
             PauseMenuObject.SetActive(true);

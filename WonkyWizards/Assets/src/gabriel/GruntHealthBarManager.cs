@@ -26,6 +26,7 @@ public class GruntHealthBarManager : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        
         //add pause checker to avoid unnecessary computation while paused
 
         HPslider.value = CalcHealthDecimal();
@@ -43,8 +44,10 @@ public class GruntHealthBarManager : MonoBehaviour
     //Calling this func will return float of remaining hp / total hp
     float CalcHealthDecimal()
     {
-        Debug.Log("trying to calc enemy hp as ");
-        Debug.Log(SelfPrefab.GetHealth() / 200f);
+        //lost an hour of my time due to int truncation debugging AHHHHHHHHHHH why am I coding at 1am
+
+        //Debug.Log("trying to calc enemy hp as ");
+        //Debug.Log(SelfPrefab.GetHealth() / 200f);
         return ( SelfPrefab.GetHealth() / 200f );
     }
 }

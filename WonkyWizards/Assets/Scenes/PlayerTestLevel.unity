@@ -292,7 +292,7 @@ GameObject:
   - component: {fileID: 60144695}
   - component: {fileID: 60144694}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: CanvasForMenus
   m_TagString: Border
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41998,6 +41998,9 @@ MonoBehaviour:
   PlayerMode: {fileID: 272278017}
   CastMode: 0
   BuildMode: 1
+  PlayerHealthPercentTXT: {fileID: 0}
+  PlayerHealthCircleIMG: {fileID: 0}
+  PlayerRef: {fileID: 0}
 --- !u!1 &1540631071
 GameObject:
   m_ObjectHideFlags: 0
