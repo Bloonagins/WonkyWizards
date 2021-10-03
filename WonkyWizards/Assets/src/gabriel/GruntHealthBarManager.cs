@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthBarManager : MonoBehaviour
+public class GruntHealthBarManager : MonoBehaviour
 {
 
     public GameObject HealthBarUI;
@@ -24,12 +24,18 @@ public class HealthBarManager : MonoBehaviour
 
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
-        if (SelfPrefab.GetHealth() < 200)
+        //add pause checker to avoid unnecessary computation while paused
+
+        HPslider.value = CalcHealthDecimal();
+        if (SelfPrefab.GetHealth() < 200 && SelfPrefab.GetHealth() > 0)
         {
             HealthBarUI.SetActive(true);
+        }
+        else
+        {
+            HealthBarUI.SetActive(false);
         }
 
     }
@@ -37,6 +43,8 @@ public class HealthBarManager : MonoBehaviour
     //Calling this func will return float of remaining hp / total hp
     float CalcHealthDecimal()
     {
-        return ( SelfPrefab.GetHealth() / 200 );
+        Debug.Log("trying to calc enemy hp as ");
+        Debug.Log(SelfPrefab.GetHealth() / 200f);
+        return ( SelfPrefab.GetHealth() / 200f );
     }
 }
