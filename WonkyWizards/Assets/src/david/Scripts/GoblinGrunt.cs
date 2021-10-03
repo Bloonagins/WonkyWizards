@@ -32,12 +32,17 @@ public class GoblinGrunt : Enemy
         knock_back = 300f;
     }
 
+    // bool canAttack()
+    // if (collision)
+    //      canAttack = false;
+    //      add timer*attackspeed;
+    // canAttack = true
+
     // Method to update when enemy is dealt damage
     void UpdateHealth(int damage_recieved)
     {
         health = health - damage_recieved;
     }
-
     // Methods for retrieving stats
     public int GetMaxHealth()
     {
