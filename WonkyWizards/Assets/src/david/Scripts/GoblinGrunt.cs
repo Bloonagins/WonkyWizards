@@ -82,9 +82,10 @@ public class GoblinGrunt : Enemy
     {
         GameObject other = collision.gameObject;
         if(collision.gameObject.tag == "Spell") // Check if enemy collided with spell
-        {   
-            UpdateHealth(70); // Recieve damage // other.GetComponent<FireBall>().getDamage();
-            //rb.AddForce((other.transform.position - transform.position) * 100f * -1.0f, ForceMode2D.Impulse);
+        {   if(other.GetComponent<FireBall>()) { // Check if spell was Fireball
+                UpdateHealth(other.GetComponent<FireBall>().getSpellDamage()); // Recieve damage 
+                rb.AddForce((other.transform.position - transform.position) * 200f * -1.0f, ForceMode2D.Impulse); // FireBall.getKnockback();
+            }
         }
     }
 }
