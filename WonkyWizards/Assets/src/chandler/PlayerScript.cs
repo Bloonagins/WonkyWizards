@@ -57,6 +57,7 @@ public class PlayerScript : MonoBehaviour
         screenCursorPoint = Camera.main.WorldToScreenPoint(worldCursorPoint);
     }
 
+    // checks for collisions with enemies and applies damage / knockback
     private void OnCollisionStay2D(Collision2D collision)
     {
         GameObject other = collision.gameObject;
