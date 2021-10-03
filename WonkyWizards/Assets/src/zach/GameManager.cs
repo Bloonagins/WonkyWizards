@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         MakeSingleton();
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
     void MakeSingleton()
@@ -59,12 +60,27 @@ public class GameManager : MonoBehaviour
     {
         switch(this.state)
         {
+            case GameState.CUTSCENE:
+                break;
+
             case GameState.PLAY:
                 Play();
                 break;
 
             case GameState.SETUP:
                 Setup();
+                break;
+            
+            case GameState.WIN:
+                Win();
+                break;
+            
+            case GameState.LOSE:
+                Lose();
+                break;
+
+            case GameState.PAUSE:
+                Pause();
                 break;
 
             default:
@@ -82,6 +98,24 @@ public class GameManager : MonoBehaviour
     private void Setup()
     {
         Debug.Log("STATE2 " + this.state);
+    }
+
+    //--------------WIN----------------
+    private void Win()
+    {
+        Debug.Log("STATE3 " + this.state);
+    }
+
+    //--------------LOSE---------------
+    private void Lose()
+    {
+        Debug.Log("STATE4 " + this.state);
+    }
+
+    //-------------PAUSE---------------
+    private void Pause()
+    {
+        Debug.Log("STATE5 " + this.state);
     }
 }
 
