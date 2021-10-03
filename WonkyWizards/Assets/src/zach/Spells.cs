@@ -13,11 +13,10 @@ using UnityEngine;
 public class Spells : MonoBehaviour
 {
     //spell vars
-    public float speed; //travel speed
-    public float DPS; //
-    public float DURATION; //
-    public float RANGE; //how far it can travel
-    public float CHARGE_TIME; //pause before actual cast
-    public float COOL_DOWN; //cooldown until next cast
+    protected float speed; //travel speed
+    protected int DAMAGE; //damage the spells do
+    protected float RANGE; //how far it can travel
+    protected float CHARGE_TIME; //pause before actual cast
+    protected float COOL_DOWN; //cooldown until next cast
 }
 

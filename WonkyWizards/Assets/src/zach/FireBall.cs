@@ -18,6 +18,13 @@ public class FireBall: Spells
     //the desired prefab to cast
     public GameObject projectile;
 
+    public FireBall()
+    {
+        speed = 20.0f;
+        DAMAGE = 70;
+        COOL_DOWN = 0.75f;
+    }
+
     //point in the direction of the player and fire
     void Awake()
     {
@@ -27,9 +34,9 @@ public class FireBall: Spells
         rb.AddForce(firePoint.right * this.speed, ForceMode2D.Impulse);
     }
 
-    public (float, float) on_hit()
+    public int getSpellDamage()
     {
-        return (DPS, DURATION);
+        return DAMAGE;
     }
 
     //detect collision between anything that is collidable
@@ -37,7 +44,7 @@ public class FireBall: Spells
     {
         if(collision.gameObject.tag !="Player" && collision.gameObject.tag != "Spell")
         {
-            Debug.Log(on_hit());
+            Debug.Log(DAMAGE);
             Destroy(projectile);
         }
     }
