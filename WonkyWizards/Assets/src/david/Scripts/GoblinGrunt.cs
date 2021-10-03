@@ -20,6 +20,7 @@ using UnityEngine;
 
 public class GoblinGrunt : Enemy
 {
+    private Rigidbody2D rb;
     // Constructor for GoblinGrunt
     public GoblinGrunt()
     {
@@ -67,6 +68,7 @@ public class GoblinGrunt : Enemy
     // Start is called before the first frame update
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
     }
     // Update is called once per frame
     void Update()
@@ -81,7 +83,8 @@ public class GoblinGrunt : Enemy
         GameObject other = collision.gameObject;
         if(collision.gameObject.tag == "Spell") // Check if enemy collided with spell
         {   
-            UpdateHealth(50); // Recieve damage // other.GetComponent<FireBall>().getDamage();
+            UpdateHealth(70); // Recieve damage // other.GetComponent<FireBall>().getDamage();
+            //rb.AddForce((other.transform.position - transform.position) * 100f * -1.0f, ForceMode2D.Impulse);
         }
     }
 }
