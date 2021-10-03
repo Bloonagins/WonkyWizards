@@ -20,8 +20,9 @@ public class PlayerScript : MonoBehaviour
     // speed of the player
     public float movementspeed;
     // player's health and mana point values
-    public static int hp = 1000;
-    public static int mana = 0;
+    private static int MAXHP = 1000;
+    private static int hp;
+    private static int mana = 0;
     // index number of which item is currently selected in the hotbar
     public static int spellIndex;
     public static int summonIndex;
@@ -44,6 +45,7 @@ public class PlayerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        resetPlayerHP();
         spellIndex = 0;
         summonIndex = 0;
     }
@@ -64,12 +66,65 @@ public class PlayerScript : MonoBehaviour
             {
                 if (other.GetComponent<GoblinGrunt>())
                 {
-                    hp -= other.GetComponent<GoblinGrunt>().GetDamage();
-                    PlayerTimer.activateDamageCooldown();
-                    Debug.Log(hp);
+                    damagePlayer(other.GetComponent<GoblinGrunt>().GetDamage());
                     // AddForce
                 }
             }
+        }
+    }
+
+    // Accessor functions
+
+    // returns the player's max amoutn of HP
+    public static int getMAXHP()
+    {
+        return MAXHP;
+    }
+
+    // returns the player's current HP
+    public static int getHP()
+    {
+        return hp;
+    }
+
+    // returns the amount of mana the player currently has
+    public static int getMana()
+    {
+        return mana;
+    }
+
+    // Mutator functions
+
+    // sets the player's hp back to full
+    public static void resetPlayerHP()
+    {
+        hp = MAXHP;
+    }
+
+    // decreases the player's health when damaged
+    public static void damagePlayer(int damage)
+    {
+        hp -= damage;
+        PlayerTimer.activateDamageCooldown();
+    }
+
+    // gives the player mana
+    public static void giveMana(int m)
+    {
+        mana += m;
+    }
+
+    // requests the player to spend mana, returns false if the player cannot spend the amount requested
+    public static bool spendMana(int m)
+    {
+        if (mana - m < 0)
+        {
+            return false;
+        }
+        else
+        {
+            mana -= m;
+            return true;
         }
     }
 }
