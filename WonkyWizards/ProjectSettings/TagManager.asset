@@ -49,8 +49,11 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Objects
+  - name: Collide Map Objects
     uniqueID: 3746740669
+    locked: 0
+  - name: No Collide Map Objects
+    uniqueID: 1416570663
     locked: 0
   - name: Player
     uniqueID: 1773082717
