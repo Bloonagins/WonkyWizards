@@ -66,8 +66,9 @@ public class PlayerScript : MonoBehaviour
             {
                 if (other.GetComponent<GoblinGrunt>())
                 {
-                    damagePlayer(other.GetComponent<GoblinGrunt>().GetDamage());
-                    // AddForce
+                    GoblinGrunt enemy = other.GetComponent<GoblinGrunt>();
+                    damagePlayer(enemy.GetDamage());
+                    rb.AddForce((other.transform.position - transform.position) * enemy.GetKnockBack() * -1.0f, ForceMode2D.Impulse);
                 }
             }
         }
