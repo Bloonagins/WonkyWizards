@@ -15,7 +15,6 @@ public class GruntHealthBarManager : MonoBehaviour
     void Awake()
     {
         SelfPrefab = GetComponent<GoblinGrunt>();
-
     }
     private void Start()
     {
@@ -30,7 +29,7 @@ public class GruntHealthBarManager : MonoBehaviour
         //add pause checker to avoid unnecessary computation while paused
 
         HPslider.value = CalcHealthDecimal();
-        if (SelfPrefab.GetHealth() < 200 && SelfPrefab.GetHealth() > 0)
+        if (SelfPrefab.GetHealth() < SelfPrefab.GetMaxHealth() && SelfPrefab.GetHealth() > 0)
         {
             HealthBarUI.SetActive(true);
         }
@@ -48,6 +47,6 @@ public class GruntHealthBarManager : MonoBehaviour
 
         //Debug.Log("trying to calc enemy hp as ");
         //Debug.Log(SelfPrefab.GetHealth() / 200f);
-        return ( SelfPrefab.GetHealth() / 200f );
+        return ( (float)SelfPrefab.GetHealth() / (float)SelfPrefab.GetMaxHealth());
     }
 }
