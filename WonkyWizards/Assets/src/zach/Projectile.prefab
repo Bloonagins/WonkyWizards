@@ -69,9 +69,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  DAMAGE:
-  - 0
-  - 0
+  DPS: 4
+  DURATION: 4
   RANGE: 0
   CHARGE_TIME: 0
   COOL_DOWN: 0

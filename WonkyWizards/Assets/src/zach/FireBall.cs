@@ -27,12 +27,17 @@ public class FireBall: Spells
         rb.AddForce(firePoint.right * this.speed, ForceMode2D.Impulse);
     }
 
+    public (float, float) on_hit()
+    {
+        return (DPS, DURATION);
+    }
+
     //detect collision between anything that is collidable
     void OnTriggerEnter2D(Collider2D collision)
     {
-        //this.on_hit();
         if(collision.gameObject.tag !="Player" && collision.gameObject.tag != "Spell")
         {
+            Debug.Log(on_hit());
             Destroy(projectile);
         }
     }

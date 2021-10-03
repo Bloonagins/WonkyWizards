@@ -14,14 +14,10 @@ public class Spells : MonoBehaviour
 {
     //spell vars
     public float speed; //travel speed
-    public float[] DAMAGE= {0f, 0f}; //first index is DPS, second is duration
+    public float DPS; //
+    public float DURATION; //
     public float RANGE; //how far it can travel
     public float CHARGE_TIME; //pause before actual cast
     public float COOL_DOWN; //cooldown until next cast
-
-    //on hit behaviour
-    public float[] on_hit(){
-        return this.DAMAGE;
-    }
 }
 
