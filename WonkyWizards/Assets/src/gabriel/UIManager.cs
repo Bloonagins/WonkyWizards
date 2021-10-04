@@ -45,7 +45,9 @@ public class UIManager : MonoBehaviour
         //This also avoids potential albiet unlikely discrepancies in the values displayed in fill and text
 
         float PlayerCurrHPDecimal = CalcHealthDecimal();
-        Debug.Log("pulling player hp" + PlayerCurrHPDecimal);
+
+        //Debug.Log("pulling player hp" + PlayerCurrHPDecimal);
+
         PlayerHealthPercentTXT.text = PlayerCurrHPDecimal * 100 + "%";
         PlayerHealthCircleIMG.fillAmount = PlayerCurrHPDecimal;
         HealthColorSetter();
@@ -53,7 +55,8 @@ public class UIManager : MonoBehaviour
 
     private void HealthColorSetter()
     {
-        Debug.Log("setting color");
+        //Debug.Log("setting color");
+
         Color healthColor = Color.Lerp(Color.red, Color.green, CalcHealthDecimal());
         PlayerHealthCircleIMG.color = healthColor;
         PlayerHealthPercentTXT.color = healthColor;
