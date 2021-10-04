@@ -54,7 +54,7 @@ public class PlayerScript : MonoBehaviour
     // Updateis called once every frame
     void Update()
     {
-        gridCursorPoint = Summon.SnapOffset(worldCursorPoint, new Vector3(4,4,0), 1.0f);
+        gridCursorPoint = Summon.SnapOffset(worldCursorPoint, new Vector3(4,4,0), 8.0f);
         Debug.Log(gridCursorPoint);
     }
 
