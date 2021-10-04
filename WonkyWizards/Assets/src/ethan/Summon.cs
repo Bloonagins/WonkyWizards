@@ -19,8 +19,7 @@ public class Summon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //PlayerScript.worldCursorPoint -> where is the cursor on the big grid
-        PlayerScript.gridCursorPoint = SnapOffset(PlayerScript.worldCursorPoint, offset, 8);
+
     }
 
     // Snaps a Vector3 to a grid
