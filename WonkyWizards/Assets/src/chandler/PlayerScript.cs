@@ -13,6 +13,7 @@ public class PlayerScript : MonoBehaviour
     // cursor coordinates
     public static Vector3 screenCursorPoint;
     public static Vector3 worldCursorPoint;
+    public static Vector3 gridCursorPoint;
     // angle between cursor and player
     public static float cursorAngle;
     // player's rigidbody component
