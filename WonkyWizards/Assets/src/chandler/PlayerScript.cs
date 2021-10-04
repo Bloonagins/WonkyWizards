@@ -51,6 +51,13 @@ public class PlayerScript : MonoBehaviour
         summonIndex = 0;
     }
 
+    // Updateis called once every frame
+    void Update()
+    {
+        gridCursorPoint = Summon.SnapOffset(worldCursorPoint, new Vector3(4,4,0), 1.0f);
+        Debug.Log(gridCursorPoint);
+    }
+
     // moves the camera to the middle of the screen when the game is alt-tabbed out
     void OnApplicationPause()
     {
