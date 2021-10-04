@@ -38,6 +38,14 @@
                     "interactions": ""
                 },
                 {
+                    "name": "DeleteSummon",
+                    "type": "Button",
+                    "id": "85070ca5-3db0-48b0-b898-840e83ae091b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
                     "name": "SwitchTargetMode",
                     "type": "Button",
                     "id": "c7718baf-a29a-43ec-bf1f-166ef895ea06",
@@ -409,7 +417,7 @@
                 {
                     "name": "",
                     "id": "9fbb1dd8-3ee0-48ca-b75f-fe7508c4c228",
-                    "path": "<Mouse>/rightButton",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -447,6 +455,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "ReadyUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3d77c1be-631f-4281-8ed6-e7fe4c640a58",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DeleteSummon",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

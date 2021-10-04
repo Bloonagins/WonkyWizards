@@ -51,6 +51,14 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
+                    ""name"": ""DeleteSummon"",
+                    ""type"": ""Button"",
+                    ""id"": ""85070ca5-3db0-48b0-b898-840e83ae091b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
                     ""name"": ""SwitchTargetMode"",
                     ""type"": ""Button"",
                     ""id"": ""c7718baf-a29a-43ec-bf1f-166ef895ea06"",
@@ -422,7 +430,7 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""9fbb1dd8-3ee0-48ca-b75f-fe7508c4c228"",
-                    ""path"": ""<Mouse>/rightButton"",
+                    ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -462,6 +470,17 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                     ""action"": ""ReadyUp"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3d77c1be-631f-4281-8ed6-e7fe4c640a58"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DeleteSummon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -474,6 +493,7 @@ public class @ControlScheme : IInputActionCollection, IDisposable
         m_PlayerDefault_Dash = m_PlayerDefault.FindAction("Dash", throwIfNotFound: true);
         m_PlayerDefault_Cast = m_PlayerDefault.FindAction("Cast", throwIfNotFound: true);
         m_PlayerDefault_Summon = m_PlayerDefault.FindAction("Summon", throwIfNotFound: true);
+        m_PlayerDefault_DeleteSummon = m_PlayerDefault.FindAction("DeleteSummon", throwIfNotFound: true);
         m_PlayerDefault_SwitchTargetMode = m_PlayerDefault.FindAction("SwitchTargetMode", throwIfNotFound: true);
         m_PlayerDefault_SwitchMagicMode = m_PlayerDefault.FindAction("SwitchMagicMode", throwIfNotFound: true);
         m_PlayerDefault_Hotbar1 = m_PlayerDefault.FindAction("Hotbar1", throwIfNotFound: true);
@@ -544,6 +564,7 @@ public class @ControlScheme : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerDefault_Dash;
     private readonly InputAction m_PlayerDefault_Cast;
     private readonly InputAction m_PlayerDefault_Summon;
+    private readonly InputAction m_PlayerDefault_DeleteSummon;
     private readonly InputAction m_PlayerDefault_SwitchTargetMode;
     private readonly InputAction m_PlayerDefault_SwitchMagicMode;
     private readonly InputAction m_PlayerDefault_Hotbar1;
@@ -569,6 +590,7 @@ public class @ControlScheme : IInputActionCollection, IDisposable
         public InputAction @Dash => m_Wrapper.m_PlayerDefault_Dash;
         public InputAction @Cast => m_Wrapper.m_PlayerDefault_Cast;
         public InputAction @Summon => m_Wrapper.m_PlayerDefault_Summon;
+        public InputAction @DeleteSummon => m_Wrapper.m_PlayerDefault_DeleteSummon;
         public InputAction @SwitchTargetMode => m_Wrapper.m_PlayerDefault_SwitchTargetMode;
         public InputAction @SwitchMagicMode => m_Wrapper.m_PlayerDefault_SwitchMagicMode;
         public InputAction @Hotbar1 => m_Wrapper.m_PlayerDefault_Hotbar1;
@@ -607,6 +629,9 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                 @Summon.started -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnSummon;
                 @Summon.performed -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnSummon;
                 @Summon.canceled -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnSummon;
+                @DeleteSummon.started -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnDeleteSummon;
+                @DeleteSummon.performed -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnDeleteSummon;
+                @DeleteSummon.canceled -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnDeleteSummon;
                 @SwitchTargetMode.started -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnSwitchTargetMode;
                 @SwitchTargetMode.performed -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnSwitchTargetMode;
                 @SwitchTargetMode.canceled -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnSwitchTargetMode;
@@ -674,6 +699,9 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                 @Summon.started += instance.OnSummon;
                 @Summon.performed += instance.OnSummon;
                 @Summon.canceled += instance.OnSummon;
+                @DeleteSummon.started += instance.OnDeleteSummon;
+                @DeleteSummon.performed += instance.OnDeleteSummon;
+                @DeleteSummon.canceled += instance.OnDeleteSummon;
                 @SwitchTargetMode.started += instance.OnSwitchTargetMode;
                 @SwitchTargetMode.performed += instance.OnSwitchTargetMode;
                 @SwitchTargetMode.canceled += instance.OnSwitchTargetMode;
@@ -735,6 +763,7 @@ public class @ControlScheme : IInputActionCollection, IDisposable
         void OnDash(InputAction.CallbackContext context);
         void OnCast(InputAction.CallbackContext context);
         void OnSummon(InputAction.CallbackContext context);
+        void OnDeleteSummon(InputAction.CallbackContext context);
         void OnSwitchTargetMode(InputAction.CallbackContext context);
         void OnSwitchMagicMode(InputAction.CallbackContext context);
         void OnHotbar1(InputAction.CallbackContext context);

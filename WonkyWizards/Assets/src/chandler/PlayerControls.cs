@@ -6,9 +6,10 @@
  * 
  * Movement: WASD
  * Dash: Spacebar
- * Casting Spells: Left Mouse
- * Placing Summons: Left Mouse
- * Changing Summon Targetting Mode: Right Mouse
+ * Casting Spells: Left Mouse (In casting mode)
+ * Placing Summons: Left Mouse (In build mode)
+ * Deleting Summons: Right Click (In build mode)
+ * Changing Summon Targetting Mode: E
  * Switching between spellcasting and summoning mode: R
  * Changing Selected Spell / Summon in Hotbar: Scroll wheel
  *                                             OR
@@ -32,7 +33,8 @@ public class PlayerControls : MonoBehaviour
     private InputAction dash; // spacebar to dash
     private InputAction shoot; // left mouse to cast spell
     private InputAction summon; // left mouse to place summon
-    private InputAction target; // right mouse to make summon switch targetting mode
+    private InputAction delete; // right mouse to delete a summon
+    private InputAction target; // E to make summon switch targetting mode
     private InputAction mode; // R to switch between build mode and cast mode
     private InputAction hotbar1; // alpha number keys to select items from hotbar
     private InputAction hotbar2;
@@ -81,6 +83,7 @@ public class PlayerControls : MonoBehaviour
         dash = controls.PlayerDefault.Dash;
         shoot = controls.PlayerDefault.Cast;
         summon = controls.PlayerDefault.Summon;
+        delete = controls.PlayerDefault.DeleteSummon;
         target = controls.PlayerDefault.SwitchTargetMode;
         mode = controls.PlayerDefault.SwitchMagicMode;
         info = controls.PlayerDefault.WaveInfo;
@@ -91,6 +94,7 @@ public class PlayerControls : MonoBehaviour
         // binds certain inputs to a function to be called when that input is activated
         dash.performed += OnDash;
         summon.performed += OnSummon;
+        delete.performed += OnDelete;
         target.performed += OnSwitchTarget;
         mode.performed += OnSwitchMagicMode;
         controls.PlayerDefault.Hotbar1.performed += OnHotbar1;
@@ -111,6 +115,7 @@ public class PlayerControls : MonoBehaviour
         dash.Enable();
         shoot.Enable();
         summon.Enable();
+        delete.Enable();
         target.Enable();
         mode.Enable();
         controls.PlayerDefault.Hotbar1.Enable();
@@ -228,11 +233,27 @@ public class PlayerControls : MonoBehaviour
     {
         if (PlayerScript.inBuildMode)
         {
-            Instantiate(barrier);
+            if (PlayerScript.spendMana(0))
+            {
+                Instantiate(barrier);
+            }
+            else
+            {
+                Debug.Log("Not enough mana");
+            }
         }
     }
 
-    // when right click is pressed, switch the targetting mode of the summon that was clicked on
+    // when right click is pressed, delete the summon that was clicked on
+    private void OnDelete(InputAction.CallbackContext obj)
+    {
+        if (PlayerScript.inBuildMode)
+        {
+            Debug.Log("Delete Summon");
+        }
+    }
+
+    // when E is pressed, switch the targetting mode of the summon that the mouse was hovering over when E was pressed
     private void OnSwitchTarget(InputAction.CallbackContext obj)
     {
         Debug.Log("Switch Target");
@@ -363,6 +384,7 @@ public class PlayerControls : MonoBehaviour
         dash.Disable();
         shoot.Disable();
         summon.Disable();
+        delete.Disable();
         target.Disable();
         mode.Disable();
         controls.PlayerDefault.Hotbar1.Disable();
