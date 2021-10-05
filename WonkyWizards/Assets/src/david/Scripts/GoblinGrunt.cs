@@ -80,7 +80,7 @@ public class GoblinGrunt : Enemy
         }
         else if(collision.gameObject.tag == "Goal") { // Checks if collided with Goal
             rb.AddForce((other.transform.position - transform.position) * 20f * -1.0f, ForceMode2D.Impulse);
-            if (canAttack() && attackConnected) { // Make sure attack is available and attack is successful
+            if (attackConnected) { // Make sure attack is available and attack is successful
                 attackTimer = 0.0f; // Reset timer
                 attackConnected = false; // Reset attack 
             }
