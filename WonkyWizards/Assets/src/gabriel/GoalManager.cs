@@ -21,7 +21,7 @@ public class GoalManager : MonoBehaviour
     }
 
 
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerStay2D(Collider2D collision)
     {
         GameObject other = collision.gameObject;
         
