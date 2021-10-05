@@ -30,6 +30,7 @@ public class GoblinGrunt : Enemy
         damage = 30;
         move_speed = 10f;
         attack_speed = attackTimer = 1.5f;
+        attackConnected = true;
         knock_back = 300f;
     }
 
@@ -79,9 +80,9 @@ public class GoblinGrunt : Enemy
         }
         else if(collision.gameObject.tag == "Goal") { // Checks if collided with Goal
             rb.AddForce((other.transform.position - transform.position) * 20f * -1.0f, ForceMode2D.Impulse);
-            if (canAttack()) {
-                Debug.Log("Attack");
+            if (canAttack() && attackConnected) {
                 attackTimer = 0.0f;
+                attackConnected = false;
             }
         }
     }
