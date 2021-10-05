@@ -27,6 +27,7 @@ public class UIManager : MonoBehaviour
     private void FixedUpdate()
     {
         UpdatePlayerHeathUI();
+        UpdatePlayerModeUI();
     }
 
     ///returns decimal of players' current hp / their max hp
@@ -63,27 +64,25 @@ public class UIManager : MonoBehaviour
     }
     ///Calling this function will set cast/build bools and set UI text to correspond to those values
     public void UpdatePlayerModeUI()
-    {
+    {    
 
-    
-
-        if(bBuildMode)
+        if(PlayerScript.inBuildMode)
         {
-            bCastMode = true;
-            bBuildMode = false;
-            PlayerMode.text = "Cast Mode";
-            PlayerMode.color = new Color32(209, 73, 30, 255);
-            //Debug.Log("changed to cast mode");
-            //D1491E
-
-        }
-        else {
             bCastMode = false;
             bBuildMode = true;
             PlayerMode.text = "Build Mode";
             PlayerMode.color = new Color32(52, 209, 30, 255);
             //Debug.Log("changed to build mode");
             //34D11E
+
+        }
+        else {
+            bCastMode = true;
+            bBuildMode = false;
+            PlayerMode.text = "Cast Mode";
+            PlayerMode.color = new Color32(209, 73, 30, 255);
+            //Debug.Log("changed to cast mode");
+            //D1491E
         }
 
     }
