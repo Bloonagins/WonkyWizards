@@ -62,6 +62,7 @@ public class PlayerControls : MonoBehaviour
     public GameObject testSpell;
     // links to summon prefabs
     public GameObject barrier;
+    public GameObject[] summons = new GameObject[10];
     // link to boss prefab
     public GameObject boss;
 
@@ -231,9 +232,9 @@ public class PlayerControls : MonoBehaviour
     {
         if (PlayerScript.inBuildMode)
         {
-            if (PlayerScript.spendMana(0))
+            if (PlayerScript.spendMana(summons[PlayerScript.summonIndex].GetComponent<Barrier>().getCost()))
             {
-                Instantiate(barrier);
+                Instantiate(summons[PlayerScript.summonIndex]);
             }
             else
             {

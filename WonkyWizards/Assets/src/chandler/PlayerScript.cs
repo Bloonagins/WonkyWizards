@@ -14,6 +14,7 @@ public class PlayerScript : MonoBehaviour
     public static Vector3 screenCursorPoint;
     public static Vector3 worldCursorPoint;
     public static Vector3 gridCursorPoint;
+    public static Vector3 arrayCursorPoint;
     // angle between cursor and player
     public static float cursorAngle;
     // player's rigidbody component
@@ -23,7 +24,7 @@ public class PlayerScript : MonoBehaviour
     // player's health and mana point values
     private static int MAXHP = 1000;
     private static int hp;
-    private static int mana = 0;
+    private static int mana = 200;
     // index number of which item is currently selected in the hotbar
     public static int spellIndex;
     public static int summonIndex;
@@ -56,6 +57,9 @@ public class PlayerScript : MonoBehaviour
     {
         // updates cursor point for what square the cursor is currently in
         gridCursorPoint = Summon.SnapOffset(worldCursorPoint, new Vector3(4,4,0), 8.0f);
+        // updates the indexes of the level array that the cursor is currently over
+        arrayCursorPoint = (gridCursorPoint - new Vector3(4, 4, 0)) / 8.0f;
+        arrayCursorPoint.y *= -1.0f;
     }
 
     // moves the camera to the middle of the screen when the game is alt-tabbed out
@@ -134,6 +138,7 @@ public class PlayerScript : MonoBehaviour
         else
         {
             mana -= m;
+            Debug.Log(mana);
             return true;
         }
     }
