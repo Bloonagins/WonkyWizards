@@ -22,6 +22,8 @@ public class Enemy : MonoBehaviour
 
     protected float attack_speed; // The attack speed the enemy starts with
 
+    protected float attackTimer; // Keeps track of when enemy can attack
+
     protected float knock_back; // Ammount of knockback applied
 
     // Basic constructor for Enemy class
