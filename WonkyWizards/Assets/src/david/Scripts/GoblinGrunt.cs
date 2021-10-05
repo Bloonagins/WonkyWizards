@@ -8,7 +8,7 @@
 | type. This also updates the health for each |
 | GoblinGrunt and removes the object if health|
 | is zero.                                    |
-| Bugs:                                       |
+| Bugs: First collision doesn't register      |
 **********************************************/
 //To get Enemies damage
 // GoblinGrunt goblinGrunt;
@@ -83,6 +83,7 @@ public class GoblinGrunt : Enemy
             if (attackConnected) { // Make sure attack is available and attack is successful
                 attackTimer = 0.0f; // Reset timer
                 attackConnected = false; // Reset attack 
+                Debug.Log("Attack");
             }
         }
     }
