@@ -59,9 +59,8 @@ public class PlayerControls : MonoBehaviour
     // time allowed until player is allowed to dash again (2)
     public float dashreset;
     // links to spell prefabs
-    public GameObject testSpell;
+    public GameObject[] spells = new GameObject[5];
     // links to summon prefabs
-    public GameObject barrier;
     public GameObject[] summons = new GameObject[10];
     // link to boss prefab
     public GameObject boss;
@@ -180,10 +179,11 @@ public class PlayerControls : MonoBehaviour
         // if player is in cast mode and click is pressed, cast spell
         if (!PlayerScript.inBuildMode)
         {
-            if (PlayerTimer.canCastFireball() && shoot.ReadValue<float>() > 0.0f)
+            if (PlayerTimer.canCast(PlayerScript.spellIndex) && shoot.ReadValue<float>() > 0.0f)
             {
-                Instantiate(testSpell, transform.position, transform.rotation);
-                PlayerTimer.activateFireballCooldown();
+                GameObject spell = spells[PlayerScript.spellIndex];
+                Instantiate(spell, transform.position, transform.rotation);
+                PlayerTimer.activateSpellCooldown(PlayerScript.spellIndex);
             }
         }
 
@@ -230,15 +230,26 @@ public class PlayerControls : MonoBehaviour
     // when click is pressed and player is in build mode, place a summon
     private void OnSummon(InputAction.CallbackContext obj)
     {
+        // makes sure player is in build mode
         if (PlayerScript.inBuildMode)
         {
-            if (PlayerScript.spendMana(summons[PlayerScript.summonIndex].GetComponent<Barrier>().getCost()))
+            // makes sure current spell in the array exists
+            GameObject summon = summons[PlayerScript.summonIndex];
+            if (summon != null)
             {
-                Instantiate(summons[PlayerScript.summonIndex]);
+                // if the player has enough mana
+                if (PlayerScript.spendMana(summon.GetComponent<Barrier>().getCost()))
+                {
+                    Instantiate(summon);
+                }
+                else
+                {
+                    Debug.Log("Not enough mana");
+                }
             }
             else
             {
-                Debug.Log("Not enough mana");
+                Debug.Log("Cannot spawn summon number " + PlayerScript.summonIndex);
             }
         }
     }

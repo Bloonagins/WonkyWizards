@@ -43,6 +43,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: BelowTerrain
+    uniqueID: 2343434377
+    locked: 0
   - name: Terrain
     uniqueID: 979243323
     locked: 0
