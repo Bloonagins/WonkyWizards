@@ -15,7 +15,7 @@ public class GoalManager : MonoBehaviour
     }
 
 
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnStayEnter2D(Collider2D collision)
     {
         GameObject other = collision.gameObject;
 
@@ -30,15 +30,15 @@ public class GoalManager : MonoBehaviour
                 //GoalTakeDamageAnimation();
 
             }
-            //else if (other.GetComponent<GoblinGrunt>())
+            //else //if(other.GetComponent<GoblinGrunt>() && other.GetComponent<GoblinGrunt>().GetCanAttack())
             {
 
             }
-            //else if (other.GetComponent<GoblinGrunt>())
+            //else //if(other.GetComponent<GoblinGrunt>() && other.GetComponent<GoblinGrunt>().GetCanAttack())
             {
 
             }
-            //else if (other.GetComponent<GoblinGrunt>())
+            //else //if(other.GetComponent<GoblinGrunt>() && other.GetComponent<GoblinGrunt>().GetCanAttack())
             {
 
             }

@@ -3,11 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class UIManager : MonoBehaviour
 {
     public TextMeshProUGUI PlayerMode;
     public TextMeshProUGUI PlayerHealthPercentTXT;
+
+    public Image DashAbilityIcon;
+    public Image FireballAbilityIcon;
+    /*
+    public Image DashIcon;
+    public Image DashIcon;
+    public Image DashIcon;
+    public Image DashIcon;
+    */
+
 
     public Image PlayerHealthCircleIMG;
     public GameObject PlayerRef;
@@ -28,6 +39,14 @@ public class UIManager : MonoBehaviour
     {
         UpdatePlayerHeathUI();
         UpdatePlayerModeUI();
+        UpdatePlayerCooldownsUI();
+    }
+
+    private void UpdatePlayerCooldownsUI()
+    {
+        DashAbilityIcon.fillAmount = ((float)PlayerTimer.getDashTimer() / (float)PlayerTimer.getDashCooldown());
+        FireballAbilityIcon.fillAmount = ((float)PlayerTimer.getFireballTimer() / (float)PlayerTimer.getFireballCooldown());
+
     }
 
     ///returns decimal of players' current hp / their max hp
