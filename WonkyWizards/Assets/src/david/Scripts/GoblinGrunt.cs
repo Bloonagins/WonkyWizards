@@ -107,9 +107,12 @@ public class GoblinGrunt : Enemy
     {
         return attack_speed;
     }
-
     public float GetKnockBack()
     {
         return knock_back;
+    }
+    public float GetAttackTimer()
+    {
+        return attackTimer;
     }
 }
