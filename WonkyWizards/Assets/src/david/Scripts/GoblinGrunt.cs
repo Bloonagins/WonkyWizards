@@ -10,10 +10,10 @@
 | is zero.                                    |
 | Bugs:                                       |
 **********************************************/
-// To get Enemies damage
-//    GoblinGrunt goblinGrunt;
-//    goblinGrunt = FindObjectOfType<GoblinGrunt>();
-//    goblinGrunt.GetDamage();
+//To get Enemies damage
+// GoblinGrunt goblinGrunt;
+// goblinGrunt = FindObjectOfType<GoblinGrunt>();
+// goblinGrunt.GetDamage();
 
 using System.Collections;
 using UnityEngine;
@@ -28,7 +28,7 @@ public class GoblinGrunt : Enemy
         max_health = 200;
         health = 200;
         damage = 30;
-        move_speed = 5;
+        move_speed = 10f;
         attack_speed = attackTimer = 1.5f;
         knock_back = 300f;
     }
@@ -54,7 +54,7 @@ public class GoblinGrunt : Enemy
     // Increments the timers if they're on a cooldown
     void FixedUpdate()
     {
-        if (attackTimer < attack_speed) {
+        if (attackTimer <= attack_speed) {
             attackTimer += Time.fixedDeltaTime;
         }
     }
@@ -80,6 +80,7 @@ public class GoblinGrunt : Enemy
         else if(collision.gameObject.tag == "Goal") { // Checks if collided with Goal
             rb.AddForce((other.transform.position - transform.position) * 20f * -1.0f, ForceMode2D.Impulse);
             if (canAttack()) {
+                Debug.Log("Attack");
                 attackTimer = 0.0f;
             }
         }
