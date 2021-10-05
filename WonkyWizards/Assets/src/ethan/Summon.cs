@@ -8,6 +8,7 @@ public class Summon : MonoBehaviour
 
     Vector3 offset;
 
+    public const int cost = 0;
 
     // Start is called before the first frame update
     void Start()
