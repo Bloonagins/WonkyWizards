@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class GoalManager : MonoBehaviour
 {
-    private int iGoalHp;
+    public int iGoalHp;
 
-
+    
 
 
     public int GetGoalHp()
@@ -15,18 +15,32 @@ public class GoalManager : MonoBehaviour
     }
 
 
-    void OnStayEnter2D(Collider2D collision)
+    private void Start()
+    {
+        iGoalHp = 10000;
+    }
+
+
+    void OnTriggerEnter2D(Collider2D collision)
     {
         GameObject other = collision.gameObject;
-
+        
         if (collision.gameObject.tag == "Enemy")
         {
+            
             int iDamageNum;
-            //if(other.GetComponent<GoblinGrunt>() && other.GetComponent<GoblinGrunt>().GetCanAttack())
+            if(other.GetComponent<GoblinGrunt>() && other.GetComponent<GoblinGrunt>().canAttack())
             {
+                Debug.Log("collided 3");
+
                 iDamageNum = other.GetComponent<GoblinGrunt>().GetDamage();
+
                 GoalTakeDamage(iDamageNum);
-                
+
+                Debug.Log(other.GetComponent<GoblinGrunt>().attackConnected);
+
+                other.GetComponent<GoblinGrunt>().attackConnected = true;
+
                 //GoalTakeDamageAnimation();
 
             }
