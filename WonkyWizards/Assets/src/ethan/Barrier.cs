@@ -18,5 +18,5 @@ public class Barrier : Summon
         
     }
 
-    public static int getCost () { return cost; }
+    public int getCost () { return cost; }
 }
