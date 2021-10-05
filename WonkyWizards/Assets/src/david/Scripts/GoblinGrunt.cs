@@ -78,7 +78,20 @@ public class GoblinGrunt : Enemy
                 rb.AddForce((other.transform.position - transform.position) * 200f * -1.0f, ForceMode2D.Impulse); // FireBall.getKnockback();
             }
         }
-        else if(collision.gameObject.tag == "Goal") { // Checks if collided with Goal
+        // else if(collision.gameObject.tag == "Goal") { // Checks if collided with Goal
+        //     rb.AddForce((other.transform.position - transform.position) * 20f * -1.0f, ForceMode2D.Impulse);
+        //     if (attackConnected) { // Make sure attack is available and attack is successful
+        //         attackTimer = 0.0f; // Reset timer
+        //         attackConnected = false; // Reset attack 
+        //         Debug.Log("Attack");
+        //     }
+        // }
+    }
+
+    void OnTriggerStay2D(Collider2D collision)
+    {
+        GameObject other = collision.gameObject;
+        if(collision.gameObject.tag == "Goal") { // Checks if collided with Goal
             rb.AddForce((other.transform.position - transform.position) * 20f * -1.0f, ForceMode2D.Impulse);
             if (attackConnected) { // Make sure attack is available and attack is successful
                 attackTimer = 0.0f; // Reset timer
