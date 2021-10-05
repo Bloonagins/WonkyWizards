@@ -9,6 +9,7 @@ public class Barrier : Summon
     // Start is called before the first frame update
     void Start()
     {
+
     }
 
     // Update is called once per frame
@@ -16,4 +17,6 @@ public class Barrier : Summon
     {
         
     }
+
+    public static int getCost () { return cost; }
 }
