@@ -30,12 +30,19 @@ public class GameManager : MonoBehaviour
 {
     public GameState state;
     public static GameManager instance;
+    public bool[,] placementGrid; 
+
 
     //---------SINGLETON PATTERN-------------
     void Awake()
     {
         MakeSingleton();
         Cursor.lockState = CursorLockMode.Confined;
+    }
+
+    void Start()
+    {
+        
     }
 
     void MakeSingleton()
@@ -117,5 +124,8 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("STATE5 " + this.state);
     }
+
+    //---------PLACEMENT GRID----------
+
 }
 
