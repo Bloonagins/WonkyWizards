@@ -61,9 +61,15 @@ public class PlayerTimer : MonoBehaviour
         return damageTimer >= damageReset;
     }
 
-    public static bool canCastFireball()
+    public static bool canCast(int index)
     {
-        return fireballTimer >= fireballReset;
+        switch (index)
+        {
+            case 0:
+                return fireballTimer >= fireballReset;
+            default:
+                return false;
+        }
     }
 
     // functions that return the current value of each timer
@@ -109,8 +115,15 @@ public class PlayerTimer : MonoBehaviour
         damageTimer = 0.0f;
     }
 
-    public static void activateFireballCooldown()
+    public static void activateSpellCooldown(int index)
     {
-        fireballTimer = 0.0f;
+        switch (index)
+        {
+            case 0:
+                fireballTimer = 0.0f;
+                break;
+            default:
+                return;
+        }
     }
 }
