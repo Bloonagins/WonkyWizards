@@ -64,8 +64,6 @@ public class PlayerControls : MonoBehaviour
     public GameObject barrier;
     // link to boss prefab
     public GameObject boss;
-    // link to the level main object (might get rid of it since it'll probably overlap with the game manager a lot)
-    public GameObject lmo;
 
     void Awake()
     {
@@ -264,7 +262,6 @@ public class PlayerControls : MonoBehaviour
     {
         PlayerScript.inBuildMode = !PlayerScript.inBuildMode;
         // tells ui to update what mode to display
-        lmo.GetComponent<UIManager>().UpdatePlayerModeUI();
     }
 
     // when one of the alpha number keys is pressed, change the hotbar index to that number
