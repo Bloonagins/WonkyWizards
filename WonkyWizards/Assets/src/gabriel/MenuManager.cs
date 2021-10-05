@@ -22,19 +22,19 @@ public class MenuManager : MonoBehaviour
 
     public void LoadLevel1()
     {
-        SceneManager.LoadScene("PlayerTestLevel");
+        SceneManager.LoadScene("FirstLevel");
     }
     public void LoadLevel2()
     {
-        SceneManager.LoadScene("Level_2");
+        SceneManager.LoadScene("SecondLevel");
     }
     public void LoadLevel3()
     {
-        SceneManager.LoadScene("Level_3");
+        SceneManager.LoadScene("ThirdLevel");
     }
     public void LoadLevel4()
     {
-        SceneManager.LoadScene("Level_4");
+        SceneManager.LoadScene("FourthLevel");
     }
 
 
