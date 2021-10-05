@@ -20,10 +20,23 @@ public class MenuManager : MonoBehaviour
         SceneManager.LoadScene("MainMenuScene");
     }
 
-    public void LoadFirstLevel()
+    public void LoadLevel1()
     {
         SceneManager.LoadScene("PlayerTestLevel");
     }
+    public void LoadLevel2()
+    {
+        SceneManager.LoadScene("Level_2");
+    }
+    public void LoadLevel3()
+    {
+        SceneManager.LoadScene("Level_3");
+    }
+    public void LoadLevel4()
+    {
+        SceneManager.LoadScene("Level_4");
+    }
+
 
     //Calling this func will return the mouse to the center of screen width and height
     public void MousePositionZero()
