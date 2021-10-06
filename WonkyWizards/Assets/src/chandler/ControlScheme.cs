@@ -177,22 +177,6 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
-                },
-                {
-                    ""name"": ""FlipSpawner"",
-                    ""type"": ""Button"",
-                    ""id"": ""094ec46e-b694-4586-a8e9-568f6dd21a0c"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""BossSpawn"",
-                    ""type"": ""Button"",
-                    ""id"": ""654272e5-2dca-4202-9cb2-39f77c29334d"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -407,28 +391,6 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""0bbf5400-f3e4-456e-b552-adde26415cb3"",
-                    ""path"": ""<Keyboard>/q"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""FlipSpawner"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""e2fc6ee3-6fd1-4979-bd54-1ecae3218acf"",
-                    ""path"": ""<Keyboard>/b"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""BossSpawn"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""9fbb1dd8-3ee0-48ca-b75f-fe7508c4c228"",
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
@@ -509,8 +471,6 @@ public class @ControlScheme : IInputActionCollection, IDisposable
         m_PlayerDefault_Pause = m_PlayerDefault.FindAction("Pause", throwIfNotFound: true);
         m_PlayerDefault_WaveInfo = m_PlayerDefault.FindAction("WaveInfo", throwIfNotFound: true);
         m_PlayerDefault_ReadyUp = m_PlayerDefault.FindAction("ReadyUp", throwIfNotFound: true);
-        m_PlayerDefault_FlipSpawner = m_PlayerDefault.FindAction("FlipSpawner", throwIfNotFound: true);
-        m_PlayerDefault_BossSpawn = m_PlayerDefault.FindAction("BossSpawn", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -580,8 +540,6 @@ public class @ControlScheme : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerDefault_Pause;
     private readonly InputAction m_PlayerDefault_WaveInfo;
     private readonly InputAction m_PlayerDefault_ReadyUp;
-    private readonly InputAction m_PlayerDefault_FlipSpawner;
-    private readonly InputAction m_PlayerDefault_BossSpawn;
     public struct PlayerDefaultActions
     {
         private @ControlScheme m_Wrapper;
@@ -606,8 +564,6 @@ public class @ControlScheme : IInputActionCollection, IDisposable
         public InputAction @Pause => m_Wrapper.m_PlayerDefault_Pause;
         public InputAction @WaveInfo => m_Wrapper.m_PlayerDefault_WaveInfo;
         public InputAction @ReadyUp => m_Wrapper.m_PlayerDefault_ReadyUp;
-        public InputAction @FlipSpawner => m_Wrapper.m_PlayerDefault_FlipSpawner;
-        public InputAction @BossSpawn => m_Wrapper.m_PlayerDefault_BossSpawn;
         public InputActionMap Get() { return m_Wrapper.m_PlayerDefault; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -677,12 +633,6 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                 @ReadyUp.started -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnReadyUp;
                 @ReadyUp.performed -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnReadyUp;
                 @ReadyUp.canceled -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnReadyUp;
-                @FlipSpawner.started -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnFlipSpawner;
-                @FlipSpawner.performed -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnFlipSpawner;
-                @FlipSpawner.canceled -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnFlipSpawner;
-                @BossSpawn.started -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnBossSpawn;
-                @BossSpawn.performed -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnBossSpawn;
-                @BossSpawn.canceled -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnBossSpawn;
             }
             m_Wrapper.m_PlayerDefaultActionsCallbackInterface = instance;
             if (instance != null)
@@ -747,12 +697,6 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                 @ReadyUp.started += instance.OnReadyUp;
                 @ReadyUp.performed += instance.OnReadyUp;
                 @ReadyUp.canceled += instance.OnReadyUp;
-                @FlipSpawner.started += instance.OnFlipSpawner;
-                @FlipSpawner.performed += instance.OnFlipSpawner;
-                @FlipSpawner.canceled += instance.OnFlipSpawner;
-                @BossSpawn.started += instance.OnBossSpawn;
-                @BossSpawn.performed += instance.OnBossSpawn;
-                @BossSpawn.canceled += instance.OnBossSpawn;
             }
         }
     }
@@ -779,7 +723,5 @@ public class @ControlScheme : IInputActionCollection, IDisposable
         void OnPause(InputAction.CallbackContext context);
         void OnWaveInfo(InputAction.CallbackContext context);
         void OnReadyUp(InputAction.CallbackContext context);
-        void OnFlipSpawner(InputAction.CallbackContext context);
-        void OnBossSpawn(InputAction.CallbackContext context);
     }
 }
