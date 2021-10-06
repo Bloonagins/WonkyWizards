@@ -12,7 +12,7 @@ public class Summon : MonoBehaviour
     void Start()
     {
         offset = new Vector3(4, 4, 0);
-        transform.position = SnapOffset(PlayerScript.worldCursorPoint, offset, 8);
+        transform.position = SnapOffset(PlayerScript.getWorldCursorPoint(), offset, 8);
     }
 
     // Update is called once per frame

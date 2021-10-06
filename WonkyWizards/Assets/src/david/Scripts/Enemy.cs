@@ -24,7 +24,7 @@ public class Enemy : MonoBehaviour
 
     protected float attackTimer; // Keeps track of when enemy can attack
 
-    public bool attackConnected; // Keeps attack if attack was successful
+    protected bool attackConnected; // Keeps attack if attack was successful
 
     protected float knock_back; // Ammount of knockback applied
 
