@@ -33,18 +33,6 @@ public class GoblinGrunt : Enemy
         attackConnected = false;
         knock_back = 300f;
     }
-
-    public bool canAttack()
-    {
-        return attackTimer >= attack_speed;
-    }
-
-    // Method to update when enemy is dealt damage
-    void UpdateHealth(int damage_recieved)
-    {
-        health = health - damage_recieved;
-    }
-
     
     // Start is called before the first frame update
     void Start()
@@ -74,7 +62,7 @@ public class GoblinGrunt : Enemy
         GameObject other = collision.gameObject;
         if(collision.gameObject.tag == "Spell") { // Check if enemy collided with spell
             if(other.GetComponent<FireBall>()) { // Check if spell was Fireball
-                UpdateHealth(other.GetComponent<FireBall>().getSpellDamage()); // Recieve damage 
+                RecieveDamage(other.GetComponent<FireBall>().getSpellDamage()); // Recieve damage 
                 rb.AddForce((other.transform.position - transform.position) * 200f * -1.0f, ForceMode2D.Impulse); // FireBall.getKnockback();
             }
         }
@@ -99,6 +87,24 @@ public class GoblinGrunt : Enemy
                 Debug.Log("Attack");
             }
         }
+    }
+
+    // Keeps track of when enemy can attack
+    public bool canAttack()
+    {
+        return attackTimer >= attack_speed;
+    }
+
+    // Method to update health when enemy is dealt damage
+    void RecieveDamage(int damage_recieved)
+    {
+        health -= damage_recieved;
+    }
+
+    // Method that gives health to enemy
+    void AddHealth(int health_recieved)
+    {
+        health_recieved += health_recieved;
     }
 
     // Methods for retrieving stats
