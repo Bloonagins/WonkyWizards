@@ -9,12 +9,15 @@ public class SpawnerTest : MonoBehaviour
     // Variable for the Game Object of the enemy prefab that will be spawned
     public GameObject enemyPrefab;
 
+    public bool allowSpawn;
+
     private float timer;
     public float spawnDelay;
 
     void Start() 
     {
         timer = 0.0f;
+        allowSpawn = true;
     }
 
     // Update is called once per frame
@@ -24,7 +27,7 @@ public class SpawnerTest : MonoBehaviour
         timer += Time.deltaTime;
 
         // Check if toggle active
-        if(PlayerScript.allowSpawn && timer >= spawnDelay)
+        if(allowSpawn && timer >= spawnDelay)
         {
             // Spawns the enemies at the give point
             Instantiate(enemyPrefab, spawnPoint);
