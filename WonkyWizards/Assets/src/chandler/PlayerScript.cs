@@ -40,8 +40,6 @@ public class PlayerScript : MonoBehaviour
     {
         // gets a link to this game object's rigid body component
         rb = GetComponent<Rigidbody2D>();
-        // Confines the cursor to within the screen (NOTE: send this to Zach to put in GameManager)
-        Cursor.lockState = CursorLockMode.Confined;
     }
 
     // Start is called before the first frame update
