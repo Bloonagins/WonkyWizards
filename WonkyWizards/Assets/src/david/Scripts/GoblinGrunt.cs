@@ -80,7 +80,7 @@ public class GoblinGrunt : Enemy
     {
         GameObject other = collision.gameObject;
         if(collision.gameObject.tag == "Goal") { // Checks if collided with Goal
-            rb.AddForce((other.transform.position - transform.position) * 20f * -1.0f, ForceMode2D.Impulse);
+            rb.AddForce((other.transform.position - transform.position) * 50f * -1.0f, ForceMode2D.Impulse);
             if (attackConnected) { // Make sure attack is available and attack is successful
                 attackTimer = 0.0f; // Reset timer
                 attackConnected = false; // Reset attack 
@@ -98,14 +98,28 @@ public class GoblinGrunt : Enemy
     // Method to update health when enemy is dealt damage
     void RecieveDamage(int damage_recieved)
     {
-        health -= damage_recieved;
-    }
+        health -= damage_recieved; // take away health from eneny
 
+        if(health < 0) { // Check if health is below 0
+            health = 0; // set to 0
+        }
+
+    }
     // Method that gives health to enemy
     void AddHealth(int health_recieved)
     {
-        health_recieved += health_recieved;
+        health += health_recieved; // add health to enemy
+
+        if(health > max_health) { // Check if health is above max
+            health = max_health; // set to max
+        }
     }
+    // 
+    void SetAttack(bool success)
+    {
+        attackConnected = success;
+    }
+
 
     // Methods for retrieving stats
     public int GetMaxHealth()
