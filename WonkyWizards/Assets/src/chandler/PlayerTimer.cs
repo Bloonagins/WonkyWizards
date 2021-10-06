@@ -23,12 +23,6 @@ public class PlayerTimer : MonoBehaviour
         fireballTimer = fireballReset;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     // Called at a fixed interval (50 times / second)
     // Increments the timers if they're on a cooldown
     void FixedUpdate()

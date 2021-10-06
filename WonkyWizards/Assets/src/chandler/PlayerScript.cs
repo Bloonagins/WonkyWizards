@@ -119,6 +119,16 @@ public class PlayerScript : MonoBehaviour
     public static void damagePlayer(int damage)
     {
         hp -= damage;
+
+        if (hp < 0)
+        {
+            hp = 0;
+        }
+        else if (hp > MAXHP)
+        {
+            hp = MAXHP;
+        }
+
         PlayerTimer.activateDamageCooldown();
     }
 
@@ -126,6 +136,11 @@ public class PlayerScript : MonoBehaviour
     public static void giveMana(int m)
     {
         mana += m;
+
+        if (mana < 0)
+        {
+            mana = 0;
+        }
     }
 
     // requests the player to spend mana, returns false if the player cannot spend the amount requested
