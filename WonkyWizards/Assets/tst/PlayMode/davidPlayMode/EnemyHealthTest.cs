@@ -7,7 +7,8 @@ using UnityEditor;
 
 public class EnemyHealthTest
 {
-    /* private GameObject GoblinGruntPrefab = AssetDatabase.LoadAssetAtPath<GameObject> ("Assets/src/david/Prefabs/GoblinGrunt.prefab"); 
+    /* 
+    private GameObject GoblinGruntPrefab = AssetDatabase.LoadAssetAtPath<GameObject> ("Assets/src/david/Prefabs/GoblinGrunt.prefab"); 
     
     [UnityTest]
     public IEnumerator BelowMinHealth()
