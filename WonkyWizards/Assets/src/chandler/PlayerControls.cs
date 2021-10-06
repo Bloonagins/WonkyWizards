@@ -48,8 +48,6 @@ public class PlayerControls : MonoBehaviour
     private InputAction hotbar0;
     private InputAction info; // tab to display info about the wave
     private InputAction rup; // F4 to enter combat mode
-    private InputAction spawner; // q to enable / disable test enemy spawner
-    private InputAction bossB; // b to spawn a boss on the cursor
     // player's rigidbody component
     private Rigidbody2D rb;
     // speed of the player (30)
@@ -86,8 +84,6 @@ public class PlayerControls : MonoBehaviour
         mode = controls.PlayerDefault.SwitchMagicMode;
         info = controls.PlayerDefault.WaveInfo;
         rup = controls.PlayerDefault.ReadyUp;
-        spawner = controls.PlayerDefault.FlipSpawner;
-        bossB = controls.PlayerDefault.BossSpawn;
 
         // binds certain inputs to a function to be called when that input is activated
         dash.performed += OnDash;
@@ -106,8 +102,6 @@ public class PlayerControls : MonoBehaviour
         controls.PlayerDefault.Hotbar9.performed += OnHotbar9;
         controls.PlayerDefault.Hotbar0.performed += OnHotbar0;
         rup.performed += OnReadyUp;
-        spawner.performed += OnFlipSpawner;
-        bossB.performed += OnBossSpawn;
 
         movement.Enable();
         dash.Enable();
@@ -128,22 +122,6 @@ public class PlayerControls : MonoBehaviour
         controls.PlayerDefault.Hotbar0.Enable();
         info.Enable();
         rup.Enable();
-        spawner.Enable();
-        bossB.Enable();
-    }
-
-    // REMOVE AFTER DONE TESTING
-    // when b is pressed, spawn a boss object on the cursor
-    private void OnBossSpawn(InputAction.CallbackContext obj)
-    {
-        Instantiate(boss);
-    }
-
-    // REMOVE AFTER DONE TESTING
-    // when q is pressed, activate / deactivate the enemy spawner
-    private void OnFlipSpawner(InputAction.CallbackContext obj)
-    {
-        PlayerScript.allowSpawn = !PlayerScript.allowSpawn;
     }
 
     // Start is called before the first frame update
@@ -407,8 +385,6 @@ public class PlayerControls : MonoBehaviour
         controls.PlayerDefault.Hotbar0.Disable();
         info.Disable();
         rup.Disable();
-        spawner.Disable();
-        bossB.Disable();
     }
 
     // changes the spell / summon index on the hotbar when a scroll is inputted

@@ -11,12 +11,12 @@ using System;
 public class PlayerScript : MonoBehaviour
 {
     // cursor coordinates
-    public static Vector3 screenCursorPoint;
-    public static Vector3 worldCursorPoint;
-    public static Vector3 gridCursorPoint;
-    public static Vector3 arrayCursorPoint;
+    private static Vector3 screenCursorPoint;
+    private static Vector3 worldCursorPoint;
+    private static Vector3 gridCursorPoint;
+    private static Vector3 arrayCursorPoint;
     // angle between cursor and player
-    public static float cursorAngle;
+    private static float cursorAngle;
     // player's rigidbody component
     public Rigidbody2D rb;
     // speed of the player
@@ -29,7 +29,7 @@ public class PlayerScript : MonoBehaviour
     public static int spellIndex;
     public static int summonIndex;
     // determines whether the player places summons or casts spells with click
-    public static bool inBuildMode;
+    private static bool inBuildMode;
     // keeps track of how long until the player is allowed to dash again
     public static float dashtimer;
     // temp variable that determines whether or not enemies are allowed to be spawned
@@ -85,7 +85,7 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-    // Accessor functions
+    // Getter functions
 
     // returns the player's max amoutn of HP
     public static int getMAXHP()
@@ -105,7 +105,37 @@ public class PlayerScript : MonoBehaviour
         return mana;
     }
 
-    // Mutator functions
+    public static Vector3 getScreenCursorPoint()
+    {
+        return screenCursorPoint;
+    }
+
+    public static Vector3 getWorldCursorPoint()
+    {
+        return worldCursorPoint;
+    }
+
+    public static Vector3 getGridCursorPoint()
+    {
+        return gridCursorPoint;
+    }
+
+    public static Vector3 getArrayCursorPoint()
+    {
+        return arrayCursorPoint;
+    }
+
+    public static float getCursorAngle()
+    {
+        return cursorAngle;
+    }
+
+    public static bool isInBuildMode()
+    {
+        return inBuildMode;
+    }
+
+    // Setter functions
 
     // sets the player's hp back to full
     public static void resetPlayerHP()
