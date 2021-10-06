@@ -115,7 +115,7 @@ public class GoblinGrunt : Enemy
         }
     }
     // 
-    void SetAttack(bool success)
+    public void SetAttack(bool success)
     {
         attackConnected = success;
     }
