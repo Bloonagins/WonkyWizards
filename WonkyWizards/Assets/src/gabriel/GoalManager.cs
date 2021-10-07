@@ -62,9 +62,9 @@ public class GoalManager : MonoBehaviour
 
                 GoalTakeDamage(iDamageNum);
 
-                Debug.Log(other.GetComponent<GoblinGrunt>().attackConnected);
+                //Debug.Log(other.GetComponent<GoblinGrunt>().SetAttack());
 
-                other.GetComponent<GoblinGrunt>().attackConnected = true;
+                other.GetComponent<GoblinGrunt>().SetAttack(true); ;
 
                 //GoalTakeDamageAnimation();
 
