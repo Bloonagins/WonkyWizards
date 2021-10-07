@@ -85,7 +85,7 @@ public class UIManager : MonoBehaviour
     public void UpdatePlayerModeUI()
     {    
 
-        if(PlayerScript.inBuildMode)
+        if(PlayerScript.isInBuildMode())
         {
             bCastMode = false;
             bBuildMode = true;
