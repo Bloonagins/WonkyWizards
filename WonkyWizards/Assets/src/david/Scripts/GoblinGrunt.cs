@@ -96,7 +96,7 @@ public class GoblinGrunt : Enemy
     }
 
     // Method to update health when enemy is dealt damage
-    void RecieveDamage(int damage_recieved)
+    public void RecieveDamage(int damage_recieved)
     {
         health -= damage_recieved; // take away health from eneny
 
@@ -106,7 +106,7 @@ public class GoblinGrunt : Enemy
 
     }
     // Method that gives health to enemy
-    void AddHealth(int health_recieved)
+    public void AddHealth(int health_recieved)
     {
         health += health_recieved; // add health to enemy
 
