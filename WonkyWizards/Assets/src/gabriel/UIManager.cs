@@ -7,11 +7,21 @@ using System;
 
 public class UIManager : MonoBehaviour
 {
+    public GameObject PlayerRef;
+
+
     public TextMeshProUGUI PlayerMode;
+
     public TextMeshProUGUI PlayerHealthPercentTXT;
+    public Image PlayerHealthCircleIMG;
+
+    public TextMeshProUGUI PlayerManaTXT;
+    public Image PlayerManaCircleDepletedIMG;
+
 
     public Image DashAbilityIcon;
     public Image FireballAbilityIcon;
+
     /*
     public Image DashIcon;
     public Image DashIcon;
@@ -20,8 +30,8 @@ public class UIManager : MonoBehaviour
     */
 
 
-    public Image PlayerHealthCircleIMG;
-    public GameObject PlayerRef;
+    
+    
 
     public bool bCastMode;
     public bool bBuildMode;
@@ -38,6 +48,7 @@ public class UIManager : MonoBehaviour
     private void FixedUpdate()
     {
         UpdatePlayerHeathUI();
+        UpdatePlayerManaUI();
         UpdatePlayerModeUI();
         UpdatePlayerCooldownsUI();
     }
@@ -73,6 +84,19 @@ public class UIManager : MonoBehaviour
         HealthColorSetter();
     }
 
+    private void UpdatePlayerManaUI()
+    {
+        int PlayerCurrManaInt = PlayerScript.getMana();
+        PlayerManaTXT.text = PlayerCurrManaInt.ToString();
+        if (PlayerCurrManaInt == 0)
+        {
+            PlayerManaCircleDepletedIMG.enabled = true;
+        }
+        else
+        {
+            PlayerManaCircleDepletedIMG.enabled = false;
+        }
+    }
     private void HealthColorSetter()
     {
         //Debug.Log("setting color");
