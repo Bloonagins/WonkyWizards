@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnerTest : MonoBehaviour
+public class Spawner : MonoBehaviour
 {
     // Variable for the location of where the enemies will spawn from
     public Transform spawnPoint;
