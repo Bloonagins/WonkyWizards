@@ -7,7 +7,7 @@ using UnityEditor;
 
 public class EnemyHealthTest
 {
-    ///* 
+    /* 
     private GameObject GoblinGruntPrefab = AssetDatabase.LoadAssetAtPath<GameObject> ("Assets/src/david/Prefabs/GoblinGrunt.prefab"); 
     
     [UnityTest]
@@ -47,5 +47,5 @@ public class EnemyHealthTest
 
         yield return null; // skips frame
     }
-    //*/
+    */
 }
