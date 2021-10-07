@@ -2,6 +2,6 @@
 2 Chandler - Player	CF - Camera Movement 
 2 Gabe - UI		CF - Goal Tower 
 3 Zach - Game Manager	CF - Spells 
-4 Chase - Anim/Sprites	CF - Cutscenes 
+4 Chase - Anim/Sprites	CF - Bosses 
 5 David - Enemy AI	CF - Enemies 
 6 Gage - Tile Maps	CF - levels
