@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GoalManager : MonoBehaviour
 {
-    private int iGoalHp;
-    private int iGoalMaxHp;
+    public int iGoalHp;
+    public int iGoalMaxHp;
     
     public bool isGoalDead;
 
