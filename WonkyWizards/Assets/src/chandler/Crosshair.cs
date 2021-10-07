@@ -14,6 +14,6 @@ public class Crosshair : MonoBehaviour
     void Update()
     {
         // teleports the crosshair to the cursor's current position
-        transform.position = new Vector3(PlayerScript.worldCursorPoint.x, PlayerScript.worldCursorPoint.y, transform.position.z);
+        transform.position = new Vector3(PlayerScript.getWorldCursorPoint().x, PlayerScript.getWorldCursorPoint().y, transform.position.z);
     }
 }

@@ -27,7 +27,7 @@ public class MainCamera : MonoBehaviour
     void Update()
     {
         // gets coordinates of the cursor
-        cursorPoint = PlayerScript.screenCursorPoint;
+        cursorPoint = PlayerScript.getScreenCursorPoint();
 
         // keeps the cursor's x coordinates within the bounds of the screen
         if (cursorPoint.x < 0)

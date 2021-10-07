@@ -53,6 +53,9 @@ public class PlayerScript : MonoBehaviour
     // Updateis called once every frame
     void Update()
     {
+        worldCursorPoint = Camera.main.ScreenToWorldPoint(screenCursorPoint);
+        worldCursorPoint.z = 0.0f;
+        calculateCursorAngle();
         // updates cursor point for what square the cursor is currently in
         gridCursorPoint = Summon.SnapOffset(worldCursorPoint, new Vector3(4,4,0), 8.0f);
         // updates the indexes of the level array that the cursor is currently over
@@ -105,31 +108,37 @@ public class PlayerScript : MonoBehaviour
         return mana;
     }
 
+    // returns screenCursorPoint
     public static Vector3 getScreenCursorPoint()
     {
         return screenCursorPoint;
     }
 
+    // returns WorldCursorPoint
     public static Vector3 getWorldCursorPoint()
     {
         return worldCursorPoint;
     }
 
+    // returns gridCursorPoint
     public static Vector3 getGridCursorPoint()
     {
         return gridCursorPoint;
     }
 
+    // returns arrayCursorPoint
     public static Vector3 getArrayCursorPoint()
     {
         return arrayCursorPoint;
     }
 
+    // returns the angle between the cursor and the player
     public static float getCursorAngle()
     {
         return cursorAngle;
     }
 
+    // returns whether or not the player is currently in build mode
     public static bool isInBuildMode()
     {
         return inBuildMode;
@@ -184,5 +193,30 @@ public class PlayerScript : MonoBehaviour
             Debug.Log(mana);
             return true;
         }
+    }
+
+    public static void setScreenCursorPoint(Vector3 point)
+    {
+        screenCursorPoint = point;
+    }
+
+    private void calculateCursorAngle()
+    {
+        Vector3 difference = worldCursorPoint - transform.position;
+        Debug.Log(difference);
+        float angle = (float) Math.Atan(difference.y / difference.x);
+        angle = angle * (float)(180.0f / Math.PI);
+    }
+
+    // sets the inBuildMode bool to a certain value
+    public static void setBuildMode(bool b)
+    {
+        inBuildMode = b;
+    }
+
+    // flips the inBuildMode value
+    public static void flipBuildMode()
+    {
+        inBuildMode = !inBuildMode;
     }
 }

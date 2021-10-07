@@ -127,7 +127,7 @@ public class PlayerControls : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PlayerScript.inBuildMode = true;
+        PlayerScript.setBuildMode(true);
         PlayerScript.dashtimer = dashreset;
     }
 
@@ -135,14 +135,9 @@ public class PlayerControls : MonoBehaviour
     void Update()
     {
         // gets the coordinates of the cursor
-        PlayerScript.screenCursorPoint = Mouse.current.position.ReadValue();
-        PlayerScript.worldCursorPoint = Camera.main.ScreenToWorldPoint(PlayerScript.screenCursorPoint);
-        PlayerScript.worldCursorPoint.z = 0.0f;
-
-        // updates the angle between the cursor and the player
-        PlayerScript.cursorAngle = getCursorAngle();
+        PlayerScript.setScreenCursorPoint(Mouse.current.position.ReadValue());
         // rotates the player towards the cursor
-        transform.eulerAngles = Vector3.forward * PlayerScript.cursorAngle;
+        transform.eulerAngles = Vector3.forward * PlayerScript.getCursorAngle();
 
         // when scroll wheel is inputted, change hotbar index
         if (Mouse.current.scroll.ReadValue().normalized.y > 0)
@@ -155,7 +150,7 @@ public class PlayerControls : MonoBehaviour
         }
 
         // if player is in cast mode and click is pressed, cast spell
-        if (!PlayerScript.inBuildMode)
+        if (!PlayerScript.isInBuildMode())
         {
             if (PlayerTimer.canCast(PlayerScript.spellIndex) && shoot.ReadValue<float>() > 0.0f)
             {
@@ -182,7 +177,7 @@ public class PlayerControls : MonoBehaviour
     // returns the angle between the cursor and the player
     private float getCursorAngle()
     {
-        Vector3 difference = PlayerScript.worldCursorPoint - transform.position;
+        Vector3 difference = PlayerScript.getWorldCursorPoint() - transform.position;
         float angle = (float)((180 / Math.PI) * Math.Atan((double)(difference.y / difference.x)));
         if (difference.x < 0.0f && difference.y > 0.0f)
         {
@@ -209,7 +204,7 @@ public class PlayerControls : MonoBehaviour
     private void OnSummon(InputAction.CallbackContext obj)
     {
         // makes sure player is in build mode
-        if (PlayerScript.inBuildMode)
+        if (PlayerScript.isInBuildMode())
         {
             // makes sure current spell in the array exists
             GameObject summon = summons[PlayerScript.summonIndex];
@@ -235,7 +230,7 @@ public class PlayerControls : MonoBehaviour
     // when right click is pressed, delete the summon that was clicked on
     private void OnDelete(InputAction.CallbackContext obj)
     {
-        if (PlayerScript.inBuildMode)
+        if (PlayerScript.isInBuildMode())
         {
             Debug.Log("Delete Summon");
         }
@@ -250,14 +245,14 @@ public class PlayerControls : MonoBehaviour
     // when R is pressed, switch from summon building mode to spell casting mode and vice versa
     private void OnSwitchMagicMode(InputAction.CallbackContext obj)
     {
-        PlayerScript.inBuildMode = !PlayerScript.inBuildMode;
+        PlayerScript.flipBuildMode();
     }
 
     // when one of the alpha number keys is pressed, change the hotbar index to that number
     // when 1 is pressed
     private void OnHotbar1(InputAction.CallbackContext obj)
     {
-        if (PlayerScript.inBuildMode)
+        if (PlayerScript.isInBuildMode())
         {
             PlayerScript.summonIndex = 0;
         }
@@ -269,7 +264,7 @@ public class PlayerControls : MonoBehaviour
     // when 2 is pressed
     private void OnHotbar2(InputAction.CallbackContext obj)
     {
-        if (PlayerScript.inBuildMode)
+        if (PlayerScript.isInBuildMode())
         {
             PlayerScript.summonIndex = 1;
         }
@@ -281,7 +276,7 @@ public class PlayerControls : MonoBehaviour
     // when 3 is pressed
     private void OnHotbar3(InputAction.CallbackContext obj)
     {
-        if (PlayerScript.inBuildMode)
+        if (PlayerScript.isInBuildMode())
         {
             PlayerScript.summonIndex = 2;
         }
@@ -293,7 +288,7 @@ public class PlayerControls : MonoBehaviour
     // when 4 is pressed
     private void OnHotbar4(InputAction.CallbackContext obj)
     {
-        if (PlayerScript.inBuildMode)
+        if (PlayerScript.isInBuildMode())
         {
             PlayerScript.summonIndex = 3;
         }
@@ -305,7 +300,7 @@ public class PlayerControls : MonoBehaviour
     // when 5 is pressed
     private void OnHotbar5(InputAction.CallbackContext obj)
     {
-        if (PlayerScript.inBuildMode)
+        if (PlayerScript.isInBuildMode())
         {
             PlayerScript.summonIndex = 4;
         }
@@ -317,7 +312,7 @@ public class PlayerControls : MonoBehaviour
     // when 6 is pressed
     private void OnHotbar6(InputAction.CallbackContext obj)
     {
-        if (PlayerScript.inBuildMode)
+        if (PlayerScript.isInBuildMode())
         {
             PlayerScript.summonIndex = 5;
         }
@@ -325,7 +320,7 @@ public class PlayerControls : MonoBehaviour
     // when 7 is pressed
     private void OnHotbar7(InputAction.CallbackContext obj)
     {
-        if (PlayerScript.inBuildMode)
+        if (PlayerScript.isInBuildMode())
         {
             PlayerScript.summonIndex = 6;
         }
@@ -333,7 +328,7 @@ public class PlayerControls : MonoBehaviour
     // when 8 is pressed
     private void OnHotbar8(InputAction.CallbackContext obj)
     {
-        if (PlayerScript.inBuildMode)
+        if (PlayerScript.isInBuildMode())
         {
             PlayerScript.summonIndex = 7;
         }
@@ -341,7 +336,7 @@ public class PlayerControls : MonoBehaviour
     // when 9 is pressed
     private void OnHotbar9(InputAction.CallbackContext obj)
     {
-        if (PlayerScript.inBuildMode)
+        if (PlayerScript.isInBuildMode())
         {
             PlayerScript.summonIndex = 8;
         }
@@ -349,7 +344,7 @@ public class PlayerControls : MonoBehaviour
     // when 0 is pressed
     private void OnHotbar0(InputAction.CallbackContext obj)
     {
-        if (PlayerScript.inBuildMode)
+        if (PlayerScript.isInBuildMode())
         {
             PlayerScript.summonIndex = 9;
         }
@@ -392,7 +387,7 @@ public class PlayerControls : MonoBehaviour
     {
         if (change > 0)
         {
-            if (PlayerScript.inBuildMode)
+            if (PlayerScript.isInBuildMode())
             {
                 if (PlayerScript.summonIndex >= 9)
                 {
@@ -417,7 +412,7 @@ public class PlayerControls : MonoBehaviour
         }
         else if (change < 0)
         {
-            if (PlayerScript.inBuildMode)
+            if (PlayerScript.isInBuildMode())
             {
                 if (PlayerScript.summonIndex <= 0)
                 {
