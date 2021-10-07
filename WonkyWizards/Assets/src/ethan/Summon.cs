@@ -11,8 +11,7 @@ public class Summon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        offset = new Vector3(4, 4, 0);
-        transform.position = SnapOffset(PlayerScript.getWorldCursorPoint(), offset, 8);
+        
     }
 
     // Update is called once per frame
