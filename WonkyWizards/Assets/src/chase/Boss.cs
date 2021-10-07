@@ -7,7 +7,7 @@ public class Boss : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = PlayerScript.worldCursorPoint; 
+        transform.position = PlayerScript.getWorldCursorPoint(); 
     }
 
     // Update is called once per frame
