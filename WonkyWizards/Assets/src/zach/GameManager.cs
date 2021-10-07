@@ -31,6 +31,9 @@ public class GameManager : MonoBehaviour
     public GameState state;
     public static GameManager instance;
     public bool[,] placementGrid; 
+    public int rows;
+    public int cols; 
+
 
 
     //---------SINGLETON PATTERN-------------
@@ -45,7 +48,7 @@ public class GameManager : MonoBehaviour
         
     }
 
-    void MakeSingleton()
+    private void MakeSingleton()
     {
         if(instance == null)
         {

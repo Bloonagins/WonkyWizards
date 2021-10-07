@@ -1,8 +1,10 @@
 {
-    "name": "zachSrc",
+    "name": "chandlerSrc",
     "rootNamespace": "",
     "references": [
-        "GUID:75469ad4d38634e559750d17036d5f7c"
+        "GUID:75469ad4d38634e559750d17036d5f7c",
+        "GUID:a754e3be861b80a4fbd7d11f7085aab2",
+        "GUID:19f1d1c10967e1143b7587a20d739a1a"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
