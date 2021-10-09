@@ -1,13 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
-using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 using UnityEngine.SceneManagement;
 
 public class LeftPaddleBoundaryTest
 {
-    [UnityTest]
+    /*[UnityTest]
     public IEnumerator TestUpperPaddleBoundary()
     {
         SceneManager.LoadScene("Pong");
@@ -70,4 +69,5 @@ public class LeftPaddleBoundaryTest
         yield return null;
         Assert.AreEqual(-4.2f, paddle1.transform.position.y);
     }
+    */
 }

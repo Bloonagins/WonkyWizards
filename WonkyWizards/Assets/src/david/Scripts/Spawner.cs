@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    // Variable for the location of where the enemies will spawn from
+   // Variable for the location of where the enemies will spawn from
     public Transform spawnPoint;
     // Variable for the Game Object of the enemy prefab that will be spawned
     public GameObject enemyPrefab;

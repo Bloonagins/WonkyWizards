@@ -55,6 +55,7 @@ public class GoblinGrunt : Enemy
             // SoundManagerScript.PlaySound("enemyDeath");
             Destroy(gameObject); // Destroy unit
         }
+        //Debug.Log("Position"+GetPosition());
     }
     // Function that checks for collisions
     void OnTriggerEnter2D(Collider2D collision)
@@ -66,14 +67,6 @@ public class GoblinGrunt : Enemy
                 rb.AddForce((other.transform.position - transform.position) * 200f * -1.0f, ForceMode2D.Impulse); // FireBall.getKnockback();
             }
         }
-        // else if(collision.gameObject.tag == "Goal") { // Checks if collided with Goal
-        //     rb.AddForce((other.transform.position - transform.position) * 20f * -1.0f, ForceMode2D.Impulse);
-        //     if (attackConnected) { // Make sure attack is available and attack is successful
-        //         attackTimer = 0.0f; // Reset timer
-        //         attackConnected = false; // Reset attack 
-        //         Debug.Log("Attack");
-        //     }
-        // }
     }
 
     void OnTriggerStay2D(Collider2D collision)
@@ -114,10 +107,19 @@ public class GoblinGrunt : Enemy
             health = max_health; // set to max
         }
     }
-    // 
+    // Function to confirm attack was sucessful
     public void SetAttack(bool success)
     {
         attackConnected = success;
+    }
+    // Function to return current position of GoblinGrunt unit
+    public Vector3 GetPosition()
+    {
+        return gameObject.transform.position;
+    }
+    public bool IsOnGoal(Vector3 goalPosition)
+    {
+        return GetPosition() == goalPosition;
     }
 
 
