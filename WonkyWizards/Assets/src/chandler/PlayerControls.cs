@@ -233,6 +233,20 @@ public class PlayerControls : MonoBehaviour
         if (PlayerScript.isInBuildMode())
         {
             Debug.Log("Delete Summon");
+
+            // create a ray cast based on the mouse location, pointing down
+            RaycastHit2D hit = Physics2D.Raycast(PlayerScript.getWorldCursorPoint(), -Vector2.up);
+
+            // if that ray cast hit something...
+            if (hit.collider)
+            {
+                // check if it's a summon
+                if (hit.transform.tag == "Summon")
+                {
+                    // if it is delete it
+                    Destroy(hit.transform.gameObject);
+                }
+            }
         }
     }
 
