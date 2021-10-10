@@ -10,34 +10,32 @@ public class EnemyStressTest
 {
     ///*
     private GameObject GoblinGruntPrefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/src/david/Prefabs/GoblinGrunt.prefab");
-    private Transform goal; 
     private int enemy_count = 0;
 
     [SetUp]
     public void LoadScene()
     {
         SceneManager.LoadScene("FirstLevel");
-        //NUNit.framework.setup
     }
 
     [UnityTest]
     public IEnumerator SpawnMaxEnemies()
     {
-        GoblinGrunt goblinGrunt = GoblinGruntPrefab.GetComponent<GoblinGrunt>();
-        goal = GameObject.FindGameObjectWithTag("Goal").GetComponent<Transform>();
-        while(!goblinGrunt.IsOnGoal(goal.position)) // check if enemies are inside goal dimensions
+        float fps = 100f;
+        float minimum_fps = 10f;
+        while(fps > minimum_fps)
         {
             GameObject.Instantiate(GoblinGruntPrefab, new Vector3 (30, -90, 0), Quaternion.identity);
-            //GameObject.Instantiate(GoblinGruntPrefab, new Vector3 (40, -80, 0), Quaternion.identity);
-            //GameObject.Instantiate(GoblinGruntPrefab, new Vector3 (60, -80, 0), Quaternion.identity);
-            //GameObject.Instantiate(GoblinGruntPrefab, new Vector3 (70, -90, 0), Quaternion.identity);
-            enemy_count += 1;
+            GameObject.Instantiate(GoblinGruntPrefab, new Vector3 (40, -80, 0), Quaternion.identity);
+            GameObject.Instantiate(GoblinGruntPrefab, new Vector3 (60, -80, 0), Quaternion.identity);
+            GameObject.Instantiate(GoblinGruntPrefab, new Vector3 (70, -90, 0), Quaternion.identity);
+            enemy_count += 4;
             yield return new WaitForSeconds(1f);
+            fps = 1/Time.unscaledDeltaTime;
+            //Debug.Log("Fps: "+fps);
         }
-        
         Debug.Log("Number of Enemies: "+enemy_count);
-
-
     }
+
     //*/
 }

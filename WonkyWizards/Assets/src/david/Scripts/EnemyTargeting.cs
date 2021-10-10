@@ -36,7 +36,7 @@ public class EnemyTargeting : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        targetDistance = 8f;
+        targetDistance = 15f;
         stoppingDistance = 1f;
 
         // Get the target players component
