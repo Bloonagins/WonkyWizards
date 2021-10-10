@@ -211,7 +211,7 @@ public class PlayerControls : MonoBehaviour
             if (summon != null)
             {
                 // if the player has enough mana
-                if (PlayerScript.spendMana(summon.GetComponent<Barrier>().getCost()))
+                if (PlayerScript.spendMana(summon.GetComponent<Summon>().getCost()))
                 {
                     Instantiate(summon, PlayerScript.getGridCursorPoint(), Quaternion.identity);
                 }
