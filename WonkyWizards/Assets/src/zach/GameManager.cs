@@ -138,6 +138,7 @@ public class GameManager : MonoBehaviour
         {
             case "Level_1": level = 0; break;
             case "Level_2": level = 1; break;
+            default: level = -1; break;
             // etc
         }
         return level;
