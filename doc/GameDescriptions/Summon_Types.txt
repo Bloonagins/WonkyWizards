@@ -33,6 +33,7 @@ Summon Types (tower types):
 				- while players are resummoning, they need to stand still for a few seconds, leaving them exposed
 				- cancelling a resummon attempt resets its progress, so if the player tries to resummon again, they will have to start over
 			- Destroyed summons are guaranteed to respawn at the end of the wave if the player doesn't resummon them before then
+		- Wonk is going to get on average about 100 mana per wave, barriers will cost about 10 mana, there will be 6 waves per level on average (3 on level 8), and attacking summons will cost about 50 - 100 on average
 	
 	Glossary:
 		- Cost:
@@ -59,7 +60,7 @@ Summon Types (tower types):
 			- How the summon functions / what it looks like on screen
 	
 	Barrier
-		- Cost: very cheap
+		- Cost: 10
 		- Travel time: None
 		- Damage per hit: None
 		- Firing speed: None
@@ -67,8 +68,8 @@ Summon Types (tower types):
 		- Hitbox size / shape: None
 		- HP: 
 		- Effect: only serves to block enemies from reaching their target directly. They can look like part of a castle wall unless someone has a cooler idea.
-	Ghost Pepper
-		- Cost: ?
+	The Dragon of the West
+		- Cost: 50
 		- Travel time: hitscan
 		- Damage per hit: low
 		- Firing speed: very fast (continuous)
@@ -78,7 +79,7 @@ Summon Types (tower types):
 		- Effect: A dragon that breathes fire at enemies that come within range.
 					good for short range high dps
 	Enchanted Swords
-		- Cost: ? 
+		- Cost: 60
 		- Travel time: hitscan
 		- Damage per hit: high
 		- Firing speed: fast
@@ -88,7 +89,7 @@ Summon Types (tower types):
 		- Effect: 2 swords spin around very quickly like a rotor. Enemies takes damage each time a sword hits them. Swords magicaly pass through nearby summons and the player without harming them.
 					good for even higher dps but even shorter range
 	Astral Crossbow
-		- Cost: ?
+		- Cost: 80
 		- Travel time: hitscan
 		- Damage per hit: high
 		- Firing speed: slow
@@ -98,7 +99,7 @@ Summon Types (tower types):
 		- Effect: A crossbow that fires a magic beam of light at enemies. It can also target enemies through tiles with collision. In other words, it can shoot through walls.
 					good for long range
 	Portal
-		- Cost: expensive
+		- Cost: 50 (per portal)
 		- Travel time: none
 		- Damage per hit: none
 		- Firing speed: none
@@ -112,7 +113,7 @@ Summon Types (tower types):
 						Or, a player that is overwhelmed with enemies near the target could get all of the enemies to lock onto them, and then take a portal back to the start, drawing them all back.
 					Portals can look like a small room with magic force fields as walls and a bright, spiraling pit in the center
 	Empowering Crystal
-		- Cost: Expensive
+		- Cost: 70
 		- Travel time: none
 		- Damage per hit: none
 		- Firing speed: none
@@ -123,7 +124,7 @@ Summon Types (tower types):
 					good support
 					could look like a giant floating crystal that pulses energy
 	Shrubbery from the Realm of NI!
-		- Cost: ?
+		- Cost: 60
 		- Travel time: very fast
 		- Damage per hit: low
 		- Firing speed: slow - medium
@@ -132,8 +133,8 @@ Summon Types (tower types):
 		- HP: 
 		- Effect: A giant plant that shoots out slimeballs. Enemies hit with a slimeball from this plant get slowed down temporarily.
 					(I'm imagining that this looks kinda like the peashooter from plants vs zombies)
-	Sven
-		- Cost: ?
+	The Sven
+		- Cost: 50
 		- Travel time: very fast
 		- Damage per hit: high to medium (distance from center of explosion determines damage)
 		- Firing speed: medium
@@ -143,7 +144,7 @@ Summon Types (tower types):
 		- Effect: A snowman that shoots giant snowballs at enemies. When a snowball collides with something, it explodes into ice shards. Enemies within the snowball's explosion radius take damage.
 					the amount of damage enemies take from the snowball is determined by their distance from the center of the explosion.
 	Mysterious Futuristic Wind Manipulation Device
-		- Cost: ?
+		- Cost: 90
 		- Travel time: none
 		- Damage per hit: none
 		- Firing speed: constant
@@ -154,7 +155,7 @@ Summon Types (tower types):
 					Player can rotate the fan when placing it down
 					Useful for holding enemies in a certain area for a longer period of time
 	Big Chunk
-		- Cost: expensive
+		- Cost: 100
 		- Travel time: Very fast
 		- Damage per hit: high
 		- Firing speed: medium

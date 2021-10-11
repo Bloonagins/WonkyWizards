@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Barrier : Summon
 {
-    public const int cost = 10;
+    private const int cost = 10;
 
-    public int getCost () { return cost; }
+    public override int getCost () { return cost; }
 }

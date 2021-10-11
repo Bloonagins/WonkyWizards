@@ -20,6 +20,11 @@ public class Summon : MonoBehaviour
 
     }
 
+    public virtual int getCost()
+    {
+        return 0;
+    }
+
     // Snaps a Vector3 to a grid
     public static Vector3 SnapOffset(Vector3 vec, Vector3 offset, float gridSize = 1.0f)
     {

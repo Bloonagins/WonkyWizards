@@ -23,8 +23,8 @@ public class PlayerScript : MonoBehaviour
     public float movementspeed;
     // player's health and mana point values
     private static int MAXHP = 1000;
-    private static int hp;
-    private static int mana = 200;
+    private static int hp = 1000;
+    private static int mana = 100;
     // index number of which item is currently selected in the hotbar
     public static int spellIndex;
     public static int summonIndex;
@@ -169,6 +169,14 @@ public class PlayerScript : MonoBehaviour
         }
 
         PlayerTimer.activateDamageCooldown();
+    }
+
+    public static void setMana(int m)
+    {
+        if (m >= 0)
+        {
+            mana = m;
+        }
     }
 
     // gives the player mana
