@@ -18,7 +18,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement; // package is used to check the scene name in unity
 
-public enum GameState{
+public static enum GameState{
     CUTSCENE,
     SETUP,
     PLAY,
@@ -29,13 +29,13 @@ public enum GameState{
 
 public class GameManager : MonoBehaviour
 {
-    public GameState state;
+    public static GameState state;
     public static GameManager instance;
-    public bool[,] placementGrid; 
-    public int rows;
-    public int cols; 
-    Scene currentScene; // reference variable to the current scene
-    string sceneName; // reference to the scene's name
+    public static bool[,] placementGrid; 
+    public static int rows;
+    public static int cols; 
+    public static Scene currentScene; // reference variable to the current scene
+    public static string sceneName; // reference to the scene's name
 
     //---------SINGLETON PATTERN-------------
     void Awake()
