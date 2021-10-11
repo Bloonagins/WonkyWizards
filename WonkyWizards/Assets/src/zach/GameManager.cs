@@ -18,7 +18,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement; // package is used to check the scene name in unity
 
-public static enum GameState{
+public enum GameState{
     CUTSCENE,
     SETUP,
     PLAY,
