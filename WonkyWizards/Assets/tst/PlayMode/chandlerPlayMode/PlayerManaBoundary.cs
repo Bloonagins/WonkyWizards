@@ -12,7 +12,7 @@ public class PlayerManaBoundary : MonoBehaviour
 
         // makes sure mana can't go below 0
         PlayerScript.spendMana(101);
-        Assert.AreEqual(0, PlayerScript.getMana());
+        Assert.AreEqual(100, PlayerScript.getMana());
 
         PlayerScript.setMana(100);
 

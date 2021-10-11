@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
@@ -24,20 +23,19 @@ public class PlayerSpeedStress
     {
         GameObject player = GameObject.Instantiate(playerPrefab, Vector2.zero, Quaternion.identity);
         Rigidbody2D playerRB = player.GetComponent<Rigidbody2D>();
-        PlayerControls playerController = player.GetComponent<PlayerControls>();
-        playerController.movementspeed = 30.0f;
+        float movementspeed = 30.0f;
 
         do
         {
             if (upSpeed)
             {
                 upSpeed = false;
-                playerController.movementspeed += 0.01f;
+                movementspeed += 0.01f;
             }
-            playerRB.AddForce(direction * playerController.movementspeed, ForceMode2D.Impulse);
+            playerRB.AddForce(direction * movementspeed, ForceMode2D.Impulse);
         } while (player.transform.position.y < 4 && player.transform.position.y > -4);
 
-        Debug.Log("Final MovementSpeed: " + playerController.movementspeed);
+        Debug.Log("Final MovementSpeed: " + movementspeed);
 
         yield return null;
     }
