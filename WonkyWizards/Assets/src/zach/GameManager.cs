@@ -16,6 +16,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement; // package is used to check the scene name in unity
 
 public enum GameState{
     CUTSCENE,
@@ -33,19 +34,20 @@ public class GameManager : MonoBehaviour
     public bool[,] placementGrid; 
     public int rows;
     public int cols; 
-
-
+    Scene currentScene; // reference variable to the current scene
+    string sceneName; // reference to the scene's name
 
     //---------SINGLETON PATTERN-------------
     void Awake()
     {
         MakeSingleton();
-        Cursor.lockState = CursorLockMode.Confined;
     }
 
     void Start()
     {
-        
+        Cursor.lockState = CursorLockMode.Confined;
+        currentScene = SceneManager.GetActiveScene(); // get the current loaded scene
+        sceneName = currentScene.name;
     }
 
     private void MakeSingleton()
@@ -130,5 +132,15 @@ public class GameManager : MonoBehaviour
 
     //---------PLACEMENT GRID----------
 
+    public int getCurrentLevel () {
+        int level;
+        switch (sceneName)
+        {
+            case "Level_1": level = 0; break;
+            case "Level_2": level = 1; break;
+            // etc
+        }
+        return level;
+    }
 }
 
