@@ -63,14 +63,14 @@ public class GameManager : MonoBehaviour
     //change states
     public void ChangeState(GameState newState)
     {
-        this.state = newState;
+        state = newState;
         Game();
     }
 
     //change game
     private void Game()
     {
-        switch(this.state)
+        switch(state)
         {
             case GameState.CUTSCENE:
                 break;
@@ -103,31 +103,31 @@ public class GameManager : MonoBehaviour
     //-------------PLAY----------------
     private void Play()
     {
-        Debug.Log("STATE1 " + this.state);
+        Debug.Log("STATE1 " + state);
     }
 
     //-------------SETUP---------------
     private void Setup()
     {
-        Debug.Log("STATE2 " + this.state);
+        Debug.Log("STATE2 " + state);
     }
 
     //--------------WIN----------------
     private void Win()
     {
-        Debug.Log("STATE3 " + this.state);
+        Debug.Log("STATE3 " + state);
     }
 
     //--------------LOSE---------------
     private void Lose()
     {
-        Debug.Log("STATE4 " + this.state);
+        Debug.Log("STATE4 " + state);
     }
 
     //-------------PAUSE---------------
     private void Pause()
     {
-        Debug.Log("STATE5 " + this.state);
+        Debug.Log("STATE5 " + state);
     }
 
     //---------PLACEMENT GRID----------
