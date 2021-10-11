@@ -9,30 +9,26 @@ public class PlayerSpeedStress
 {
     private GameObject playerPrefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/src/chandler/player.prefab");
     private Vector2 direction = Vector2.up;
-    private bool upSpeed;
+    private GameObject player;
+    private Rigidbody2D playerRB;
+    private float movementspeed;
 
     [SetUp]
-    public void LoadTestScene()
+    public void TestSetup()
     {
         SceneManager.LoadScene("PlayerTestScene");
-        upSpeed = false;
+        player = GameObject.Instantiate(playerPrefab, Vector2.zero, Quaternion.identity);
+        playerRB = player.GetComponent<Rigidbody2D>();
+        movementspeed = 30.0f;
     }
 
     [UnityTest]
     public IEnumerator SuperSpeedTest()
     {
-        GameObject player = GameObject.Instantiate(playerPrefab, Vector2.zero, Quaternion.identity);
-        Rigidbody2D playerRB = player.GetComponent<Rigidbody2D>();
-        float movementspeed = 30.0f;
-
         do
         {
-            if (upSpeed)
-            {
-                upSpeed = false;
-                movementspeed += 0.01f;
-            }
             playerRB.AddForce(direction * movementspeed, ForceMode2D.Impulse);
+            yield return null;
         } while (player.transform.position.y < 4 && player.transform.position.y > -4);
 
         Debug.Log("Final MovementSpeed: " + movementspeed);
@@ -42,7 +38,7 @@ public class PlayerSpeedStress
 
     private void OnCollisionEnter2D(Collider2D wall)
     {
-        upSpeed = true;
+        movementspeed += 0.01f;
         direction *= -1;
     }
 }
