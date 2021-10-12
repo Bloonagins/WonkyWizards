@@ -8,8 +8,7 @@ using UnityEditor;
 
 public class CollisionsTest
 {
-    private GameObject Projectile1 = AssetDatabase.LoadAssetAtPath<GameObject> ("Assets/src/zach/Projectile.prefab"); 
-    private GameObject Projectile2 = AssetDatabase.LoadAssetAtPath<GameObject> ("Assets/src/zach/Projectile.prefab"); 
+    private GameObject Projectile = AssetDatabase.LoadAssetAtPath<GameObject> ("Assets/src/zach/Projectile.prefab"); 
 
     private bool properCollision = false;
 
@@ -22,9 +21,8 @@ public class CollisionsTest
     [UnityTest]
     public IEnumerator CollisionWall()
     {
-        GameObject TestPlayer1 = GameObject.Find("TestPlayer1");
         GameObject Wall = GameObject.Find("Wall");
-        GameObject.Instantiate(Projectile1, TestPlayer1.transform.position, TestPlayer1.transform.rotation);
+        GameObject.Instantiate(Projectile, new Vector3(-6,-3.37f,0), Quaternion.identity);
         yield return new WaitForSeconds(1f);
         properCollision = Wall.GetComponent<TestWall>().propercollision;
         Assert.AreEqual(true, properCollision);
@@ -34,11 +32,10 @@ public class CollisionsTest
     [UnityTest]
     public IEnumerator CollisionEnemy()
     {
-        GameObject TestPlayer = GameObject.Find("TestPlayer2");
-        GameObject Wall = GameObject.Find("Enemy");
-        GameObject.Instantiate(Projectile2, TestPlayer.transform.position, TestPlayer.transform.rotation);
+        GameObject Enemy = GameObject.Find("Enemy");
+        GameObject.Instantiate(Projectile, new Vector3(-6,3.37f,0), Quaternion.identity);
         yield return new WaitForSeconds(1f);
-        properCollision = Wall.GetComponent<TestEnemy>().propercollision;
+        properCollision = Enemy.GetComponent<TestEnemy>().propercollision;
         Assert.AreEqual(true, properCollision);
         properCollision = false;       
     }

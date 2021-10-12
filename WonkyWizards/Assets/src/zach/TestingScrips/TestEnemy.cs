@@ -5,9 +5,9 @@ using UnityEngine;
 public class TestEnemy : MonoBehaviour
 {
     public bool propercollision = false;
-    void OnTriggerEnter2D(Collider2D collision)
+    void FixedUpdate()
     {
-        if(collision.gameObject.tag =="SpellEffect")
+        if(GameObject.Find("BlastRadius(Clone)") != null)
         {
             propercollision = true;
         }

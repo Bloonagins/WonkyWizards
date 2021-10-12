@@ -45,10 +45,10 @@ public class FireBall: Spells
     {
         if(collision.gameObject.tag !="Player" && collision.gameObject.tag != "Spell")
         {
-            if(collision.gameObject.tag =="Enemy")
+            if(collision.gameObject.tag == "Enemy")
             {
                 GameObject effect = Instantiate(blastradius, projectile.transform.position, projectile.transform.rotation);
-                Destroy(effect);
+                new WaitForSeconds(5f);
             }
             Destroy(projectile);
         }
