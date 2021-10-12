@@ -12,10 +12,6 @@ TagManager:
   - Summon
   - NavMesh
   - SpellEffect
-  - EntranceWall
-  - Wall
-  - SpawnPointEntrance
-  - SpawnPointWall
   layers:
   - Default
   - TransparentFX
