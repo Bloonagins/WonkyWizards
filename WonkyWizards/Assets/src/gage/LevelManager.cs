@@ -14,15 +14,26 @@ public class LevelManager : MonoBehaviour
     // int array to store the size of each level
     private static int[] row = {12};
     private static int[] col = {12};
-
+    private int currentLevel;
   
     // Start is called before the first frame update
     void Start()
     {
+        currentLevel = GameManager.getCurrentLevel();
         levelMasterArray.Add(level1Arr);
         enemySpawnPoints.Add(new Tuple<int, int>(0, 5));
         goals.Add(new Tuple<int, int>(11, 5));
-        GameManager.setLevelArray(levelMasterArray[GameManager.getCurrentLevel()]);
+        GameManager.setLevelArray(levelMasterArray[currentLevel]);
+
+        switch(currentLevel)
+        {
+            case 0:
+                Initialize_Level_1();
+                break;
+            default:
+                Debug.Log("Current level invalide while initializing array");
+                break;
+        }
     }
 
     // Update is called once per frame
