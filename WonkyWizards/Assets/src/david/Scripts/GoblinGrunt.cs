@@ -72,7 +72,7 @@ public class GoblinGrunt : Enemy
             if (attackConnected) { // Make sure attack is available and attack is successful
                 attackTimer = 0.0f; // Reset timer
                 attackConnected = false; // Reset attack 
-                Debug.Log("Attack");
+                //Debug.Log("Attack");
             }
         }
     }
