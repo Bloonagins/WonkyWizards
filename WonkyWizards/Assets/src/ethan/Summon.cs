@@ -36,9 +36,15 @@ public class Summon : MonoBehaviour
         return snapped - offset;
     }
 
-    // Returns whether or not a given grid 
+    // Returns whether or not the current grid plus one more spot is be placeable
     public static bool isPlaceable(Tuple<int, int> plus)
     {
+        if (plus == null)
+        {
+            Debug.Log("Invalid new position (null): " + plus);
+            return false;
+        }
+
         // test that the proposed new position is not already occupied
         if (!GameManager.getPlacementGrid()[plus.Item1, plus.Item2])
             return false;
