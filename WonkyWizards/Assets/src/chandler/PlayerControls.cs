@@ -218,7 +218,6 @@ public class PlayerControls : MonoBehaviour
                         (int)PlayerScript.getArrayCursorPoint().y,
                         (int)PlayerScript.getArrayCursorPoint().x
                     );
-                    Debug.Log("Checking with new: " + summonPosition);
 
                     // if the square is a placeable location
                     if (PlayerScript.cursorWithinBounds())

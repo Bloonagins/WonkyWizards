@@ -111,5 +111,16 @@ public class Summon : MonoBehaviour
         // Goal position was never found
         return false;
     }
+
+    private static void print2DArray (bool[,] array)
+    {
+        for (int i = 0; i < LevelManager.getLevelRows(); i++)
+        {
+            for (int j = 0; j < LevelManager.getLevelCols(); j++)
+            {
+                Debug.Log("array[" + i + ", " + j + "] = " + array[i, j]);
+            }
+        }
+    }
 }
 
