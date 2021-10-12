@@ -25,13 +25,13 @@ public class GoalManager : MonoBehaviour
         {
             iGoalHp = 0;
             isGoalDead = true;
-            Debug.Log("hp lower bound check\n");
+            //Debug.Log("hp lower bound check\n");
         }
 
         if (iGoalHp > iGoalMaxHp)
         {
             iGoalHp = iGoalMaxHp;
-            Debug.Log("hp upper bound check\n");
+            //Debug.Log("hp upper bound check\n");
         }
     }
 

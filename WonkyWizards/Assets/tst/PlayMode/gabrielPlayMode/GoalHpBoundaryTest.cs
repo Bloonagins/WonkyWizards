@@ -46,7 +46,8 @@ public class GoalHpBoundaryTest
         TestGoalPrefab.GetComponent<GoalManager>().GoalTakeDamage(100000);
 
         yield return new WaitForFixedUpdate();
-     
+
+        Debug.Log("Goal Hp Lower Bound Check\n");
 
         Assert.AreEqual(0, TestGoalPrefab.GetComponent<GoalManager>().GetGoalHp());
 
@@ -67,6 +68,8 @@ public class GoalHpBoundaryTest
 
         //Debug.Log(TestGoalPrefab.GetComponent<GoalManager>().GetGoalHp() + "hp");
 
+        Debug.Log("Goal Hp Upper Bound Check\n");
+
         Assert.AreEqual(TestGoalPrefab.GetComponent<GoalManager>().GetGoalMaxHp(), TestGoalPrefab.GetComponent<GoalManager>().GetGoalHp());
         
 
@@ -83,6 +86,8 @@ public class GoalHpBoundaryTest
         TestGoalPrefab.GetComponent<GoalManager>().GoalTakeDamage(2000);
 
         yield return new WaitForFixedUpdate();
+
+        Debug.Log("Goal Hp Inner Bound Check\n");
 
         Assert.Greater(TestGoalPrefab.GetComponent<GoalManager>().GetGoalMaxHp(), TestGoalPrefab.GetComponent<GoalManager>().GetGoalHp());
         Assert.Less(0, TestGoalPrefab.GetComponent<GoalManager>().GetGoalHp());
