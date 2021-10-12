@@ -22,6 +22,7 @@ public class LevelManager : MonoBehaviour
         levelMasterArray.Add(level1Arr);
         enemySpawnPoints.Add(new Tuple<int, int>(0, 5));
         goals.Add(new Tuple<int, int>(11, 5));
+        GameManager.setLevelArray(levelMasterArray[GameManager.getCurrentLevel()]);
     }
 
     // Update is called once per frame
