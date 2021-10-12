@@ -17,17 +17,14 @@ public class GoblinGrunt : Enemy
 {
     // Used to store RigidBody2d Component
     private Rigidbody2D rb;
-    private CircleCollider2D enemy_collider;
-    private CircleCollider2D goal_collider;
 
     // Constructor for GoblinGrunt
     public GoblinGrunt()
     {
-        max_health = 200;
-        health = 200;
+        max_health = health = 200;
         damage = 30;
-        move_speed = 10f;
-        attack_speed = attackTimer = 1.5f;
+        move_speed = 18f;
+        attack_speed = attackTimer = 1.5f; // 1200 damage per minute
         attackConnected = false;
         knock_back = 300f;
     }
@@ -37,10 +34,6 @@ public class GoblinGrunt : Enemy
     {
         // Gets the Rigid Body component
         rb = GetComponent<Rigidbody2D>();
-        enemy_collider = gameObject.GetComponent<CircleCollider2D>();
-        //Debug.Log("Bounds of Enemy: "+enemy_collider.bounds);
-        goal_collider = GameObject.FindGameObjectWithTag("Goal").GetComponent<CircleCollider2D>();
-        //Debug.Log("Bounds of Goal: "+goal_collider.bounds);
     }
     // Called at a fixed interval (50 times / second)
     // Increments the timers if they're on a cooldown
@@ -58,11 +51,6 @@ public class GoblinGrunt : Enemy
             // SoundManagerScript.PlaySound("enemyDeath");
             Destroy(gameObject); // Destroy unit
         }
-
-        if(enemy_collider.bounds.Intersects(goal_collider.bounds)) {
-            Debug.Log("Bounds violated");
-        }
-
     }
     // Function that checks for collisions
     void OnTriggerEnter2D(Collider2D collision)

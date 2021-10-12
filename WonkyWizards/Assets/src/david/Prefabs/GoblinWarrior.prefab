@@ -388,9 +388,9 @@ GameObject:
   - component: {fileID: 3664139666188686051}
   - component: {fileID: 8876061678995178979}
   - component: {fileID: 1219836346203463661}
-  - component: {fileID: 2401651124146870632}
   - component: {fileID: 2632441840679876396}
   - component: {fileID: 4345692953200082053}
+  - component: {fileID: -5645112494716230092}
   - component: {fileID: 8742574352418143989}
   m_Layer: 0
   m_Name: GoblinWarrior
@@ -455,7 +455,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 0.013797826, g: 0.38679248, b: 0, a: 1}
+  m_Color: {r: 0.41960785, g: 0.06264329, b: 0.03631186, a: 0.99215686}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -515,18 +515,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: {fileID: 6390561161598129843}
---- !u!114 &2401651124146870632
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6390561161598129843}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9f212c4cfba7ec4fab878d8e9569e4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2632441840679876396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -553,6 +541,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HealthBarUI: {fileID: 1307631347662906874}
   HPslider: {fileID: 4928788886567883121}
+--- !u!114 &-5645112494716230092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6390561161598129843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaf0f220492a0e241ba1e516b6886953, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!195 &8742574352418143989
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -563,8 +563,8 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 5
-  m_Acceleration: 5
+  m_Speed: 13
+  m_Acceleration: 13
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
