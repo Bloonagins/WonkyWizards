@@ -7,11 +7,10 @@
 | between each subclass.                      |
 | Bugs:                                       |
 **********************************************/
-
 using System.Collections;
 using UnityEngine;
 
-// This is the parent class for the enemy type child classes 
+// This is the superclass for the Enemies
 public class Enemy : MonoBehaviour
 {
     // Variables
