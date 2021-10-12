@@ -34,19 +34,13 @@ public class GameManager : MonoBehaviour
     private static bool[,] placementGrid; 
     public static int rows;
     public static int cols; 
-    public static Scene currentScene; // reference variable to the current scene
     public static string sceneName; // reference to the scene's name
-
-    public GameManager()
-    {
-        currentScene = SceneManager.GetActiveScene(); // get the current loaded scene
-        sceneName = currentScene.name;
-    }
 
     //---------SINGLETON PATTERN-------------
     void Awake()
     {
         MakeSingleton();
+        sceneName = SceneManager.GetActiveScene().name;
     }
 
     void Start()
@@ -147,6 +141,7 @@ public class GameManager : MonoBehaviour
     }
     public static int getCurrentLevel () {
         int level;
+        Debug.Log("Current Scene" + sceneName);
         switch (sceneName)
         {
             case "FirstLevel": level = 0; break;

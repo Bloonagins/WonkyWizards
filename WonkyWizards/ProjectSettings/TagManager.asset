@@ -11,6 +11,7 @@ TagManager:
   - Goal
   - Summon
   - NavMesh
+  - SpellEffect
   layers:
   - Default
   - TransparentFX
