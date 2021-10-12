@@ -4,11 +4,20 @@ using UnityEngine;
 
 public class GoalManager : MonoBehaviour
 {
-    public int iGoalHp;
-    public int iGoalMaxHp;
+    private int iGoalHp;
+    private int iGoalMaxHp = 10000;
     
-    public bool isGoalDead;
+    private bool isGoalDead;
 
+
+    /*
+    public void Awake()
+    {
+        //iGoalMaxHp = 10000;
+        iGoalHp = iGoalMaxHp;
+        isGoalDead = false;
+    }
+    */
 
     private void FixedUpdate()
     {
@@ -16,10 +25,13 @@ public class GoalManager : MonoBehaviour
         {
             iGoalHp = 0;
             isGoalDead = true;
+            Debug.Log("hp lower bound check\n");
         }
+
         if (iGoalHp > iGoalMaxHp)
         {
             iGoalHp = iGoalMaxHp;
+            Debug.Log("hp upper bound check\n");
         }
     }
 
@@ -37,13 +49,14 @@ public class GoalManager : MonoBehaviour
         return isGoalDead;
     }
 
-
+    
     private void Start()
     {
-        iGoalMaxHp = 10000;
+        //iGoalMaxHp = 10000;
         iGoalHp = iGoalMaxHp;
         isGoalDead = false;
     }
+    
 
 
     void OnTriggerStay2D(Collider2D collision)
@@ -88,11 +101,18 @@ public class GoalManager : MonoBehaviour
         
     }
 
+    public void ResetGoalHpToMax()
+    {
+        iGoalHp = iGoalMaxHp;
+    }
     public void GoalTakeDamage(int damage)
     {
         iGoalHp -= damage;
     }
-
+    public void GoalAddHp(int HpToAdd)
+    {
+        iGoalHp += HpToAdd;
+    }
 
 
     public void GoalTakeDamageAnimation()
