@@ -50,7 +50,7 @@ public class Summon : MonoBehaviour
         newArray[plus.Item1, plus.Item2] = false;
         // then test that the new grid is traversable
         //return true;
-        return isTraversable(newArray, LevelManager.getLevelRows(), LevelManager.getLevelCols(), LevelManager.getLevelStart(), LevelManager.getLevelGoal());
+        return isTraversable(newArray, LevelManager.getLevelRows(), LevelManager.getLevelCols(), LevelManager.getEnemySpawnPoint(), LevelManager.getLevelGoal());
     }
     public static bool isTraversable(bool[,] grid, int rows, int cols, Tuple<int, int> start, Tuple<int, int> goal)
     {
