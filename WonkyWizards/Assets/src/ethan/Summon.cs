@@ -46,8 +46,11 @@ public class Summon : MonoBehaviour
         }
 
         // test that the proposed new position is not already occupied
-        if (!GameManager.getPlacementGrid()[plus.Item1, plus.Item2])
+        if (GameManager.getPlacementGrid()[plus.Item1, plus.Item2])
+        {
+            Debug.Log("[Summon.cs] Space is not placeable");
             return false;
+        }
 
         // now test array with new pos added:
         // copy array to test on
@@ -55,8 +58,8 @@ public class Summon : MonoBehaviour
         // add the proposed new position to the new array
         newArray[plus.Item1, plus.Item2] = false;
         // then test that the new grid is traversable
-        //return true;
-        return isTraversable(newArray, LevelManager.getLevelRows(), LevelManager.getLevelCols(), LevelManager.getEnemySpawnPoint(), LevelManager.getLevelGoal());
+        return true;
+        //return isTraversable(newArray, LevelManager.getLevelRows(), LevelManager.getLevelCols(), LevelManager.getEnemySpawnPoint(), LevelManager.getLevelGoal());
     }
     public static bool isTraversable(bool[,] grid, int rows, int cols, Tuple<int, int> start, Tuple<int, int> goal)
     {

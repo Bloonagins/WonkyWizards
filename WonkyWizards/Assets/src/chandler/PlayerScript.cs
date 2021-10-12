@@ -61,7 +61,7 @@ public class PlayerScript : MonoBehaviour
         // updates cursor point for what square the cursor is currently in
         gridCursorPoint = Summon.SnapOffset(worldCursorPoint, new Vector3(4,4,0), 8.0f);
         // updates the indexes of the level array that the cursor is currently over
-        arrayCursorPoint = (gridCursorPoint - new Vector3(4, 4, 0)) / 8.0f;
+        arrayCursorPoint = (gridCursorPoint - new Vector3(4, -4, 0)) / 8.0f;
         arrayCursorPoint.y *= -1.0f;
     }
 
