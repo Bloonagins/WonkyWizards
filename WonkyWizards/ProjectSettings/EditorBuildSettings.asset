@@ -21,6 +21,11 @@ EditorBuildSettings:
     path: Assets/src/zach/SpellTest.unity
     guid: 468c492e11917fc4eaa68cfcbc15a4aa
   - enabled: 1
+<<<<<<< Updated upstream
     path: Assets/Scenes/Test Scenes/SummonTestScene.unity
     guid: c6880510677362f4fbd66b5975ba53ab
+=======
+    path: Assets/Scenes/Test Scenes/PlayableAreaStressTest.unity
+    guid: f9e678edcd670f0488cb6233077b1a16
+>>>>>>> Stashed changes
   m_configObjects: {}

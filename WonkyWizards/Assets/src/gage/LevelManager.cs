@@ -19,7 +19,8 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentLevel = GameManager.getCurrentLevel();
+        currentLevel = 0;
+        Debug.Log("Current level: " + currentLevel);
         levelMasterArray.Add(level1Arr);
         enemySpawnPoints.Add(new Tuple<int, int>(0, 5));
         goals.Add(new Tuple<int, int>(11, 5));
