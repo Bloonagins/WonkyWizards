@@ -9,6 +9,8 @@ TagManager:
   - Border
   - Enemy
   - Goal
+  - Summon
+  - NavMesh
   layers:
   - Default
   - TransparentFX

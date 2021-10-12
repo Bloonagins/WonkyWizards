@@ -7,7 +7,6 @@
 | target from goal to player.                 |
 | Bugs:                                       |
 **********************************************/
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

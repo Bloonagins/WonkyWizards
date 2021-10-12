@@ -8,13 +8,8 @@
 | type. This also updates the health for each |
 | GoblinGrunt and removes the object if health|
 | is zero.                                    |
-| Bugs: First collision doesn't register      |
+| Bugs:                                       |
 **********************************************/
-//To get Enemies damage
-// GoblinGrunt goblinGrunt;
-// goblinGrunt = FindObjectOfType<GoblinGrunt>();
-// goblinGrunt.GetDamage();
-
 using System.Collections;
 using UnityEngine;
 
