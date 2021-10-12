@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/src/zach/SpellTest.unity
     guid: 468c492e11917fc4eaa68cfcbc15a4aa
+  - enabled: 1
+    path: Assets/Scenes/Test Scenes/SummonTestScene.unity
+    guid: c6880510677362f4fbd66b5975ba53ab
   m_configObjects: {}
