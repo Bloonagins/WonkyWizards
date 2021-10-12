@@ -37,6 +37,12 @@ public class GameManager : MonoBehaviour
     public static Scene currentScene; // reference variable to the current scene
     public static string sceneName; // reference to the scene's name
 
+    void GameManager()
+    {
+        currentScene = SceneManager.GetActiveScene(); // get the current loaded scene
+        sceneName = currentScene.name;
+    }
+
     //---------SINGLETON PATTERN-------------
     void Awake()
     {
@@ -46,8 +52,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Confined;
-        currentScene = SceneManager.GetActiveScene(); // get the current loaded scene
-        sceneName = currentScene.name;
     }
 
     private void MakeSingleton()
@@ -145,8 +149,8 @@ public class GameManager : MonoBehaviour
         int level;
         switch (sceneName)
         {
-            case "Level_1": level = 0; break;
-            case "Level_2": level = 1; break;
+            case "FirstLevel": level = 0; break;
+            case "SecondLevel": level = 1; break;
             default: level = -1; break;
             // etc
         }
