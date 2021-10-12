@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
@@ -9,30 +8,37 @@ using UnityEditor;
 public class PlayerSpeedStress
 {
     private GameObject playerPrefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/src/chandler/player.prefab");
+    private Vector2 direction = Vector2.up;
+    private GameObject player;
+    private Rigidbody2D playerRB;
+    private float movementspeed;
 
     [SetUp]
-    public void LoadTestScene()
+    public void TestSetup()
     {
         SceneManager.LoadScene("PlayerTestScene");
+        player = GameObject.Instantiate(playerPrefab, Vector2.zero, Quaternion.identity);
+        playerRB = player.GetComponent<Rigidbody2D>();
+        movementspeed = 30.0f;
     }
 
     [UnityTest]
     public IEnumerator SuperSpeedTest()
     {
-        GameObject player = GameObject.Instantiate(playerPrefab, Vector2.zero, Quaternion.identity);
-        Rigidbody2D playerRB = player.GetComponent<Rigidbody2D>();
-        PlayerControls playerController = player.GetComponent<PlayerControls>();
-        playerController.movementspeed = 30.0f;
-        float minFPS = 30.0f;
-
         do
         {
-            playerRB.AddForce(Vector2.up * playerController.movementspeed, ForceMode2D.Impulse);
-            playerController.movementspeed *= 2;
-        } while (1 / Time.unscaledDeltaTime > minFPS);
+            playerRB.AddForce(direction * movementspeed, ForceMode2D.Impulse);
+            yield return null;
+        } while (player.transform.position.y < 4 && player.transform.position.y > -4);
 
-        Debug.Log("Final MovementSpeed: " + playerController.movementspeed);
+        Debug.Log("Final MovementSpeed: " + movementspeed);
 
         yield return null;
+    }
+
+    private void OnCollisionEnter2D(Collider2D wall)
+    {
+        movementspeed += 0.01f;
+        direction *= -1;
     }
 }

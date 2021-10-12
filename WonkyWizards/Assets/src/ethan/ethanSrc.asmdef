@@ -2,7 +2,8 @@
     "name": "ethanSrc",
     "rootNamespace": "",
     "references": [
-        "GUID:75469ad4d38634e559750d17036d5f7c"
+        "GUID:75469ad4d38634e559750d17036d5f7c",
+        "GUID:81949b860ad1d0c458aacdf9940f415e"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
