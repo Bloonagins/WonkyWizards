@@ -1,32 +1,32 @@
 /**********************************************
 | GoblinGrunt V1.0.0                          |
 | Author: David Bush, T5                      |
-| Description: This is the GoblinGrunt class  |
+| Description: This is the GoblinWarrior class|
 | that inherits from the Enemy superclass.    |
 | This will contain all variables and methods |
-| associtiated with the GoblinGrunt enemy     |
-| type. This also updates the health for each |
-| GoblinGrunt and removes the object if health|
-| is zero.                                    |
+| associtiated with the GoblinWarrior enemy   |
+| type. The unique ability that the each      |
+| GoblinWarrior it gets a flat damage buff for|
+| each nearby Goblin.                         |  
 | Bugs:                                       |
 **********************************************/
 using System.Collections;
 using UnityEngine;
 
-public class GoblinGrunt : Enemy
+public class GoblinWarrior : Enemy
 {
     // Used to store RigidBody2d Component
     private Rigidbody2D rb;
 
     // Constructor for GoblinGrunt
-    public GoblinGrunt()
+    public GoblinWarrior()
     {
-        max_health = health = 200;
-        damage = 30;
-        move_speed = 18f;
-        attack_speed = attackTimer = 1.5f; // 1200 damage per minute
+        max_health = health = 350;
+        damage = 50;
+        move_speed = 13f;
+        attack_speed = attackTimer = 1.75f; // 1714 damage per minute
         attackConnected = false;
-        knock_back = 300f;
+        knock_back = 400f;
     }
     
     // Start is called before the first frame update
