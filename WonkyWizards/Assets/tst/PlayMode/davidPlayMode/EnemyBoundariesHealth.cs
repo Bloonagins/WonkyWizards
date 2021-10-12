@@ -18,18 +18,24 @@ public class EnemyHealthTest
         goblinGrunt.RecieveDamage(goblinGrunt.GetMaxHealth() + 100);
         Assert.AreEqual(0, goblinGrunt.GetHealth());
 
-        // Recieve exactly same damage as health
+        // Reset health to max
         goblinGrunt.AddHealth(goblinGrunt.GetMaxHealth());
+
+        // Recieve exactly same damage as health
         goblinGrunt.RecieveDamage(goblinGrunt.GetMaxHealth());
         Assert.AreEqual(0, goblinGrunt.GetHealth());
         
-        // Recieve maximum damage - 1
+        // Reset health to max
         goblinGrunt.AddHealth(goblinGrunt.GetMaxHealth());
+
+        // Recieve maximum damage - 1
         goblinGrunt.RecieveDamage(goblinGrunt.GetMaxHealth()-1);
         Assert.IsTrue(goblinGrunt.GetHealth() > 0);
 
-        // Recieve damage flat damage
+        // Reset health to max
         goblinGrunt.AddHealth(goblinGrunt.GetMaxHealth());
+
+        // Recieve damage flat damage
         goblinGrunt.RecieveDamage(60);
         Assert.IsTrue(goblinGrunt.GetHealth() > 0 && goblinGrunt.GetHealth() < goblinGrunt.GetMaxHealth());
 
@@ -45,18 +51,24 @@ public class EnemyHealthTest
         goblinGrunt.AddHealth(goblinGrunt.GetMaxHealth() + 100);
         Assert.AreEqual(goblinGrunt.GetMaxHealth(), goblinGrunt.GetHealth());
 
-        // Recieve exactly the same health as maximum health
+        // Reset health to 0
         goblinGrunt.RecieveDamage(goblinGrunt.GetMaxHealth());
+
+        // Recieve exactly the same health as maximum health
         goblinGrunt.AddHealth(goblinGrunt.GetMaxHealth());
         Assert.AreEqual(goblinGrunt.GetMaxHealth(), goblinGrunt.GetHealth());
 
-        // Recieve maximum health - 1
+        // Reset health to 0
         goblinGrunt.RecieveDamage(goblinGrunt.GetMaxHealth());
+
+        // Recieve maximum health - 1
         goblinGrunt.AddHealth(goblinGrunt.GetMaxHealth()-1);
         Assert.IsTrue(goblinGrunt.GetHealth() < goblinGrunt.GetMaxHealth());
 
-        // Recieve flat health
+        // Reset health to 0
         goblinGrunt.RecieveDamage(goblinGrunt.GetMaxHealth());
+
+        // Recieve flat health
         goblinGrunt.AddHealth(60);
         Assert.IsTrue(goblinGrunt.GetHealth() > 0 && goblinGrunt.GetHealth() < goblinGrunt.GetMaxHealth());
 
