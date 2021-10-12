@@ -213,12 +213,6 @@ public class PlayerControls : MonoBehaviour
                 // if the player has enough mana
                 if (PlayerScript.getMana() >= summon.GetComponent<Summon>().getCost())
                 {
-                    Tuple<int, int> summonPosition = new Tuple<int, int>
-                    (
-                        (int)PlayerScript.getArrayCursorPoint().y,
-                        (int)PlayerScript.getArrayCursorPoint().x
-                    );
-
                     // if there isn't already a summon in this location
                     RaycastHit2D hit = Physics2D.Raycast(PlayerScript.getWorldCursorPoint(), Vector2.down);
                     if (hit.collider)
@@ -229,9 +223,16 @@ public class PlayerControls : MonoBehaviour
                         }
                         else
                         {
-                            // if the square is a placeable location, then spawn summon and spend mana
+                            // if the cursor is within the bounds of the level
                             if (PlayerScript.cursorWithinBounds())
                             {
+                                Tuple<int, int> summonPosition = new Tuple<int, int>
+                                (
+                                    (int)PlayerScript.getArrayCursorPoint().y,
+                                    (int)PlayerScript.getArrayCursorPoint().x
+                                );
+
+                                // if the square is a valid location, then attempt to place the summon, and if that succeeds, spend mana
                                 if (Summon.attemptPlacement(summon, PlayerScript.getGridCursorPoint(), summonPosition))
                                 {
                                     PlayerScript.spendMana(summon.GetComponent<Summon>().getCost());
@@ -281,7 +282,8 @@ public class PlayerControls : MonoBehaviour
                 // check if it's a summon
                 if (hit.transform.tag == "Summon")
                 {
-                    // if it is delete it
+                    // if it is then give the player their mana back and delete it
+                    PlayerScript.giveMana(hit.transform.gameObject.GetComponent<Summon>().getCost());
                     Destroy(hit.transform.gameObject);
                 }
             }
