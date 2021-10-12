@@ -136,6 +136,11 @@ public class GameManager : MonoBehaviour
     {
         return placementGrid;
     }
+
+    public static void setLevelArray (bool[,] levelArray)
+    {
+        placementGrid = levelArray;
+    }
     public static int getCurrentLevel () {
         int level;
         switch (sceneName)
@@ -147,7 +152,5 @@ public class GameManager : MonoBehaviour
         }
         return level;
     }
-
-
 }
 
