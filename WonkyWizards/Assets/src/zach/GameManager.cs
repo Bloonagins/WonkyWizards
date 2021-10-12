@@ -132,7 +132,7 @@ public class GameManager : MonoBehaviour
 
     //---------PLACEMENT GRID----------
 
-    public int getCurrentLevel () {
+    public static int getCurrentLevel () {
         int level;
         switch (sceneName)
         {
