@@ -221,7 +221,6 @@ public class PlayerControls : MonoBehaviour
 
                     if (Summon.isPlaceable(summonPosition) && PlayerScript.cursorWithinBounds())
                     {
-                        Debug.Log(summon);
                         Instantiate(summon, PlayerScript.getGridCursorPoint(), Quaternion.identity);
                     }
                     else
