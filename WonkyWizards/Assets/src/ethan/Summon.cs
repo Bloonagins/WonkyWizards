@@ -62,7 +62,6 @@ public class Summon : MonoBehaviour
         ))
         {
             GameManager.occupySpace(pos);
-            Debug.Log("spot " + pos + " is: " + GameManager.getPlacementGrid()[pos.Item1, pos.Item2]);
             Instantiate(summon, worldPos, Quaternion.identity);
             return true;
         }
