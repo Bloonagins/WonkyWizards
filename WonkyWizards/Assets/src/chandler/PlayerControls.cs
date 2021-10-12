@@ -221,13 +221,16 @@ public class PlayerControls : MonoBehaviour
                     Debug.Log("Checking with new: " + summonPosition);
 
                     // if the square is a placeable location
-                    if (Summon.isPlaceable(summonPosition) && PlayerScript.cursorWithinBounds())
+                    if (PlayerScript.cursorWithinBounds())
                     {
-                        Instantiate(summon, PlayerScript.getGridCursorPoint(), Quaternion.identity);
+                        if (!Summon.attemptPlacement(summon, PlayerScript.getGridCursorPoint(), summonPosition))
+                        {
+                            Debug.Log("Invalid Position");
+                        }
                     }
                     else
                     {
-                        Debug.Log("Invalid Position");
+                        Debug.Log("Cursor Out of Bounds");
                     }
                 }
                 else
