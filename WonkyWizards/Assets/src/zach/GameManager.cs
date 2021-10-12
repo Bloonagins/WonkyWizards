@@ -141,9 +141,10 @@ public class GameManager : MonoBehaviour
     }
     public static int getCurrentLevel () {
         int level;
+        Debug.Log("Current Scene" + sceneName);
         switch (sceneName)
         {
-            case "SpellTest": level = 0; break;
+            case "FirstLevel": level = 0; break;
             case "SecondLevel": level = 1; break;
             default: level = -1; break;
             // etc
