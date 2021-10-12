@@ -37,16 +37,16 @@ public class Summon : MonoBehaviour
     }
 
     // Returns whether or not the current grid plus one more spot is be placeable
-    public static bool isPlaceable(Tuple<int, int> plus)
+    public static bool attemptPlacement(GameObject summon, Vector3 worldPos, Tuple<int, int> pos)
     {
-        if (plus == null)
+        if (pos == null)
         {
-            Debug.Log("Invalid new position (null): " + plus);
+            Debug.Log("Invalid new position (null): " + pos);
             return false;
         }
 
         // test that the proposed new position is not already occupied
-        if (GameManager.getPlacementGrid()[plus.Item1, plus.Item2])
+        if (GameManager.getPlacementGrid()[pos.Item1, pos.Item2])
         {
             Debug.Log("[Summon.cs] Space is not placeable");
             return false;
@@ -56,10 +56,14 @@ public class Summon : MonoBehaviour
         // copy array to test on
         bool[,] newArray = GameManager.getPlacementGrid().Clone() as bool[,];
         // add the proposed new position to the new array
-        newArray[plus.Item1, plus.Item2] = false;
+        newArray[pos.Item1, pos.Item2] = false;
         // then test that the new grid is traversable
-        return true;
-        //return isTraversable(newArray, LevelManager.getLevelRows(), LevelManager.getLevelCols(), LevelManager.getEnemySpawnPoint(), LevelManager.getLevelGoal());
+        if (isTraversable(newArray, LevelManager.getLevelRows(), LevelManager.getLevelCols(), LevelManager.getEnemySpawnPoint(), LevelManager.getLevelGoal()))
+        {
+            Instantiate(summon, worldPos, Quaternion.identity);
+            return true;
+        }
+        else return false;
     }
     public static bool isTraversable(bool[,] grid, int rows, int cols, Tuple<int, int> start, Tuple<int, int> goal)
     {
