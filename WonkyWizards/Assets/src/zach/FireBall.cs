@@ -17,6 +17,7 @@ public class FireBall: Spells
     private Transform firePoint;
     //the desired prefab to cast
     public GameObject projectile;
+    public GameObject blastradius;
 
     public FireBall()
     {
@@ -44,7 +45,11 @@ public class FireBall: Spells
     {
         if(collision.gameObject.tag !="Player" && collision.gameObject.tag != "Spell")
         {
-            Debug.Log(DAMAGE);
+            if(collision.gameObject.tag =="Enemy")
+            {
+                GameObject effect = Instantiate(blastradius, projectile.transform.position, projectile.transform.rotation);
+                Destroy(effect);
+            }
             Destroy(projectile);
         }
     }

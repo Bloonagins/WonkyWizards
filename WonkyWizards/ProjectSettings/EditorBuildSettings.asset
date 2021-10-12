@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Test Scenes/Boss_StressTestScene.unity
     guid: bf0b67a4d87780943b115a134ffc6b2b
+  - enabled: 1
+    path: Assets/src/zach/SpellTest.unity
+    guid: 468c492e11917fc4eaa68cfcbc15a4aa
   m_configObjects: {}
