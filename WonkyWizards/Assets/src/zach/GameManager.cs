@@ -141,7 +141,6 @@ public class GameManager : MonoBehaviour
     }
     public static int getCurrentLevel () {
         int level;
-        Debug.Log("Current Scene" + sceneName);
         switch (sceneName)
         {
             case "FirstLevel": level = 0; break;
