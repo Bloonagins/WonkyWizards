@@ -219,18 +219,35 @@ public class PlayerControls : MonoBehaviour
                         (int)PlayerScript.getArrayCursorPoint().x
                     );
 
-                    // if the square is a placeable location
-                    if (PlayerScript.cursorWithinBounds())
+                    RaycastHit2D hit = Physics2D.Raycast(PlayerScript.getWorldCursorPoint(), -Vector2.up);
+
+                    if (hit.collider)
                     {
-                        if (!Summon.attemptPlacement(summon, PlayerScript.getGridCursorPoint(), summonPosition))
+                        if (hit.transform.tag == "Summon")
                         {
-                            Debug.Log("Invalid Position");
+                            Debug.Log("Spot already taken");
+                        }
+                        else
+                        {
+                            // if the square is a placeable location
+                            if (PlayerScript.cursorWithinBounds())
+                            {
+                                if (!Summon.attemptPlacement(summon, PlayerScript.getGridCursorPoint(), summonPosition))
+                                {
+                                    Debug.Log("Invalid Position");
+                                }
+                            }
+                            else
+                            {
+                                Debug.Log("Cursor Out of Bounds");
+                            }
                         }
                     }
                     else
                     {
-                        Debug.Log("Cursor Out of Bounds");
+                        Debug.Log("Raycast missed");
                     }
+                    
                 }
                 else
                 {

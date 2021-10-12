@@ -45,28 +45,37 @@ public class Summon : MonoBehaviour
             return false;
         }
 
-        // test that the proposed new position is not already occupied
-        if (GameManager.getPlacementGrid()[pos.Item1, pos.Item2])
-        {
-            Debug.Log("[Summon.cs] Space is not placeable");
-            return false;
-        }
-
         // now test array with new pos added:
         // copy array to test on
         bool[,] newArray = GameManager.getPlacementGrid().Clone() as bool[,];
+
         // add the proposed new position to the new array
         newArray[pos.Item1, pos.Item2] = false;
+
         // then test that the new grid is traversable
-        if (isTraversable(newArray, LevelManager.getLevelRows(), LevelManager.getLevelCols(), LevelManager.getEnemySpawnPoint(), LevelManager.getLevelGoal()))
+        //print2DArray(newArray);
+        if (isTraversable(  newArray,
+                            LevelManager.getLevelRows(),
+                            LevelManager.getLevelCols(),
+                            LevelManager.getEnemySpawnPoint(),
+                            LevelManager.getLevelGoal()
+        ))
         {
+            GameManager.occupySpace(pos);
+            Debug.Log("spot " + pos + " is: " + GameManager.getPlacementGrid()[pos.Item1, pos.Item2]);
             Instantiate(summon, worldPos, Quaternion.identity);
             return true;
         }
-        else return false;
+        else
+        {
+            Debug.Log("[Summon.cs] not traversable");
+            return false;
+        }
     }
     public static bool isTraversable(bool[,] grid, int rows, int cols, Tuple<int, int> start, Tuple<int, int> goal)
     {
+        //Debug.Log("rows: " + rows + ", cols: " + cols + ", start: " + start + ", goal: " + goal);
+
         // List of possible directions
         int[,] dir = { { 1, 0 }, { 0, 1 }, { -1, 0 }, { 0, -1 } };
 
@@ -88,6 +97,7 @@ public class Summon : MonoBehaviour
             grid[p.Item1, p.Item2] = false;
 
             // Check if the destination has been reached
+            //Debug.Log(p);
             if (p.Equals(goal))
                 return true;
 
@@ -98,12 +108,15 @@ public class Summon : MonoBehaviour
                 int a = p.Item1 + dir[i, 0];
                 int b = p.Item2 + dir[i, 1];
 
-                // Check if we add or not
+                // Check that a,b is in bounds
                 if (a >= 0 && b >= 0 &&
-                    a < rows && b < cols &&
-                    grid[a, b] == true)
+                    a < rows && b < cols)
                 {
-                    q.Enqueue(new Tuple<int, int>(a, b));
+                    // create tuple for the spot we're considering
+                    Tuple<int, int> spot = new Tuple<int, int>(a, b);
+                    // check if the spot is the goal
+                    if (spot.Equals(goal)) return true;
+                    else if (grid[a, b] == true) q.Enqueue(new Tuple<int, int>(a, b));
                 }
             }
         }
