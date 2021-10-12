@@ -13,6 +13,7 @@
 | Bugs:                                       |
 **********************************************/
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -133,6 +134,11 @@ public class GameManager : MonoBehaviour
     public static bool[,] getPlacementGrid()
     {
         return placementGrid;
+    }
+
+    public static void occupySpace (Tuple<int, int> space)
+    {
+        placementGrid[space.Item1, space.Item1] = false;
     }
 
     public static void setLevelArray (bool[,] levelArray)
