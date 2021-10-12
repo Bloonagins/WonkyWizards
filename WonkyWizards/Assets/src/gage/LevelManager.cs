@@ -8,8 +8,8 @@ public class LevelManager : MonoBehaviour
     private static bool[,] level1Arr = new bool[11, 11]; // static array of level 1
     private static List<bool[,]> levelMasterArray = new List<bool[,]>();
     
-    private static List<Tuple<int, int>> enemySpawnPoints;
-    private static List<Tuple<int, int>> goals;
+    private static List<Tuple<int, int>> enemySpawnPoints = new List<Tuple<int,int>>();
+    private static List<Tuple<int, int>> goals = new List<Tuple<int,int>>();
 
     // int array to store the size of each level
     private static int[] row = {12};
