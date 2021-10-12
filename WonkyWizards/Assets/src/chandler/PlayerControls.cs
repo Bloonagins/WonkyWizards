@@ -213,7 +213,21 @@ public class PlayerControls : MonoBehaviour
                 // if the player has enough mana
                 if (PlayerScript.spendMana(summon.GetComponent<Summon>().getCost()))
                 {
-                    Instantiate(summon, PlayerScript.getGridCursorPoint(), Quaternion.identity);
+                    Tuple<int, int> summonPosition = new Tuple<int, int>
+                    (
+                        (int)PlayerScript.getArrayCursorPoint().y,
+                        (int)PlayerScript.getArrayCursorPoint().x
+                    );
+
+                    if (Summon.isPlaceable(summonPosition) && PlayerScript.cursorWithinBounds())
+                    {
+                        Debug.Log(summon);
+                        Instantiate(summon, PlayerScript.getGridCursorPoint(), Quaternion.identity);
+                    }
+                    else
+                    {
+                        Debug.Log("Invalid Position");
+                    }
                 }
                 else
                 {

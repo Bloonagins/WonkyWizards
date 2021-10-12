@@ -134,6 +134,11 @@ public class PlayerScript : MonoBehaviour
         return arrayCursorPoint;
     }
 
+    public static bool cursorWithinBounds()
+    {
+        return arrayCursorPoint.x >= 0 && arrayCursorPoint.x < 12 && arrayCursorPoint.y >= 0 && arrayCursorPoint.y < 12;
+    }
+
     // returns the angle between the cursor and the player
     public static float getCursorAngle()
     {
@@ -200,7 +205,6 @@ public class PlayerScript : MonoBehaviour
         else
         {
             mana -= m;
-            Debug.Log(mana);
             return true;
         }
     }
