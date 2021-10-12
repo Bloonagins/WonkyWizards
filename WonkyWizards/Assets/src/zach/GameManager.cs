@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
     public static Scene currentScene; // reference variable to the current scene
     public static string sceneName; // reference to the scene's name
 
-    void GameManager()
+    public GameManager()
     {
         currentScene = SceneManager.GetActiveScene(); // get the current loaded scene
         sceneName = currentScene.name;
