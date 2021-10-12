@@ -211,7 +211,7 @@ public class PlayerControls : MonoBehaviour
             if (summon != null)
             {
                 // if the player has enough mana
-                if (PlayerScript.spendMana(summon.GetComponent<Summon>().getCost()))
+                if (PlayerScript.getMana() >= summon.GetComponent<Summon>().getCost())
                 {
                     Tuple<int, int> summonPosition = new Tuple<int, int>
                     (
@@ -219,8 +219,8 @@ public class PlayerControls : MonoBehaviour
                         (int)PlayerScript.getArrayCursorPoint().x
                     );
 
-                    RaycastHit2D hit = Physics2D.Raycast(PlayerScript.getWorldCursorPoint(), -Vector2.up);
-
+                    // if there isn't already a summon in this location
+                    RaycastHit2D hit = Physics2D.Raycast(PlayerScript.getWorldCursorPoint(), Vector2.down);
                     if (hit.collider)
                     {
                         if (hit.transform.tag == "Summon")
@@ -229,10 +229,14 @@ public class PlayerControls : MonoBehaviour
                         }
                         else
                         {
-                            // if the square is a placeable location
+                            // if the square is a placeable location, then spawn summon and spend mana
                             if (PlayerScript.cursorWithinBounds())
                             {
-                                if (!Summon.attemptPlacement(summon, PlayerScript.getGridCursorPoint(), summonPosition))
+                                if (Summon.attemptPlacement(summon, PlayerScript.getGridCursorPoint(), summonPosition))
+                                {
+                                    PlayerScript.spendMana(summon.GetComponent<Summon>().getCost());
+                                }
+                                else
                                 {
                                     Debug.Log("Invalid Position");
                                 }
