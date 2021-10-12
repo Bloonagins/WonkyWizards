@@ -219,6 +219,7 @@ public class PlayerControls : MonoBehaviour
                         (int)PlayerScript.getArrayCursorPoint().x
                     );
 
+                    // if the square is a placeable location
                     if (Summon.isPlaceable(summonPosition) && PlayerScript.cursorWithinBounds())
                     {
                         Instantiate(summon, PlayerScript.getGridCursorPoint(), Quaternion.identity);
