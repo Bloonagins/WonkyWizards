@@ -5,13 +5,14 @@ using UnityEngine;
 public class Summon : MonoBehaviour
 {
     public static Vector3 gridCursorPoint;
+    private int health;
 
     Vector3 offset;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        health = this.getMaxHealth();
     }
 
     // Update is called once per frame
@@ -23,6 +24,33 @@ public class Summon : MonoBehaviour
     public virtual int getCost()
     {
         return 0;
+    }
+
+    public virtual int getMaxHealth()
+    {
+        return 0;
+    }
+
+    public int getHealth ()
+    {
+        return this.health;
+    }
+
+    public void resetSummonHP ()
+    {
+        this.health = getMaxHealth();
+    }
+
+    public void takeDamage(int damage)
+    {
+        this.health -= damage;
+        this.health = Math.Max(0, Math.Min(100, this.health));
+    }
+
+    public void takeHealing(int healing)
+    {
+        this.health += healing;
+        this.health = Math.Max(0, Math.Min(100, this.health));
     }
 
     // Snaps a Vector3 to a grid
