@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameState state;
     public static GameManager instance;
-    public static bool[,] placementGrid; 
+    private static bool[,] placementGrid; 
     public static int rows;
     public static int cols; 
     public static Scene currentScene; // reference variable to the current scene
@@ -132,6 +132,10 @@ public class GameManager : MonoBehaviour
 
     //---------PLACEMENT GRID----------
 
+    public static bool[,] getPlacementGrid()
+    {
+        return placementGrid;
+    }
     public static int getCurrentLevel () {
         int level;
         switch (sceneName)
@@ -143,5 +147,7 @@ public class GameManager : MonoBehaviour
         }
         return level;
     }
+
+
 }
 
