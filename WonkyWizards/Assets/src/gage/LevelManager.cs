@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    private static bool[,] level1Arr = new bool[11, 11]; // static array of level 1
+    private static bool[,] level1Arr = new bool[12, 12]; // static array of level 1
     private static List<bool[,]> levelMasterArray = new List<bool[,]>();
     
     private static List<Tuple<int, int>> enemySpawnPoints = new List<Tuple<int,int>>();
