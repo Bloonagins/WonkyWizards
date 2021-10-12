@@ -37,7 +37,7 @@ public class WaveSpawner : MonoBehaviour
         else
         {
             SpawnWave();
-            if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0 && !canSpawn)
+            if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0 && !canSpawn && currentWaveNumber+1 != waves.Length)
             {
                 currentWaveNumber++;
                 canSpawn = true;
