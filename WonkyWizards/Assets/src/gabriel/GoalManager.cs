@@ -77,20 +77,25 @@ public class GoalManager : MonoBehaviour
 
                 //Debug.Log(other.GetComponent<GoblinGrunt>().SetAttack());
 
-                other.GetComponent<GoblinGrunt>().SetAttack(true); ;
+                other.GetComponent<GoblinGrunt>().SetAttack(true);
 
                 //GoalTakeDamageAnimation();
 
             }
-            //else //if(other.GetComponent<GoblinGrunt>() && other.GetComponent<GoblinGrunt>().GetCanAttack())
+            else if(other.GetComponent<GoblinWarrior>() && other.GetComponent<GoblinWarrior>().canAttack())
+            {
+                iDamageNum = other.GetComponent<GoblinGrunt>().GetDamage();
+
+                GoalTakeDamage(iDamageNum);           
+
+                other.GetComponent<GoblinGrunt>().SetAttack(true);
+
+            }
+            //else if(other.GetComponent<GoblinWarrior>() && other.GetComponent<GoblinWarrior>().canAttack())
             {
 
             }
-            //else //if(other.GetComponent<GoblinGrunt>() && other.GetComponent<GoblinGrunt>().GetCanAttack())
-            {
-
-            }
-            //else //if(other.GetComponent<GoblinGrunt>() && other.GetComponent<GoblinGrunt>().GetCanAttack())
+            //else if(other.GetComponent<GoblinWarrior>() && other.GetComponent<GoblinWarrior>().canAttack())
             {
 
             }
