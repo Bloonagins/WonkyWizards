@@ -56,7 +56,7 @@ public class GoblinGrunt : Enemy
     void OnTriggerEnter2D(Collider2D collision)
     {
         GameObject other = collision.gameObject;
-        if(collision.gameObject.tag == "Spell") { // Check if enemy collided with spell
+        if(other.tag == "Spell") { // Check if enemy collided with spell
             if(other.GetComponent<FireBall>()) { // Check if spell was Fireball
                 RecieveDamage(other.GetComponent<FireBall>().getSpellDamage()); // Recieve damage 
                 rb.AddForce((other.transform.position - transform.position) * 200f * -1.0f, ForceMode2D.Impulse); // FireBall.getKnockback();
@@ -67,7 +67,7 @@ public class GoblinGrunt : Enemy
     void OnTriggerStay2D(Collider2D collision)
     {
         GameObject other = collision.gameObject;
-        if(collision.gameObject.tag == "Goal") { // Checks if collided with Goal
+        if(other.tag == "Goal") { // Checks if collided with Goal
             rb.AddForce((other.transform.position - transform.position) * 50f * -1.0f, ForceMode2D.Impulse);
             if (attackConnected) { // Make sure attack is available and attack is successful
                 attackTimer = 0.0f; // Reset timer
@@ -112,11 +112,6 @@ public class GoblinGrunt : Enemy
     {
         return gameObject.transform.position;
     }
-    public bool IsOnGoal(Vector3 goalPosition)
-    {
-        return GetPosition() == goalPosition;
-    }
-
 
     // Methods for retrieving stats
     public int GetMaxHealth()

@@ -22,8 +22,6 @@ public class EnemyTargeting : MonoBehaviour
     private Transform goal;
     // enemy agent component
     NavMeshAgent agent;
-    // The speed associated with the unit
-    private float speed;
     // Distance where enemy switches to targeting player
     private float targetDistance;
     // The minimum distance reached before stopping
@@ -42,11 +40,6 @@ public class EnemyTargeting : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         // Get goal's component
         goal = GameObject.FindGameObjectWithTag("Goal").GetComponent<Transform>();
-
-        //if(type.GetComponent<GoblinGrunt>()) // Might need to add this depending on if multiple types works
-        // Get the enemy's speed 
-        speed = type.GetComponent<Enemy>().GetMoveSpeed();
-
         // Retrieving NavMeshAgent component
         agent = GetComponent<NavMeshAgent>();
         // Initializing values and setting goal position

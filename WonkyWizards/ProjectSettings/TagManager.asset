@@ -16,6 +16,7 @@ TagManager:
   - Wall
   - SpawnPointEntrance
   - SpawnPointWall
+  - Zone
   layers:
   - Default
   - TransparentFX

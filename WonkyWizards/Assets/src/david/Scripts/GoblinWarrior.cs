@@ -1,13 +1,13 @@
 /**********************************************
-| GoblinGrunt V1.0.0                          |
+| GoblinWarrior V1.0.0                        |
 | Author: David Bush, T5                      |
 | Description: This is the GoblinWarrior class|
 | that inherits from the Enemy superclass.    |
 | This will contain all variables and methods |
 | associtiated with the GoblinWarrior enemy   |
-| type. The unique ability that the each      |
-| GoblinWarrior it gets a flat damage buff for|
-| each nearby Goblin.                         |  
+| type. Each GoblinWarrior has the unique     |
+| ability where it get's more damage each time|
+| its hit by a spell.                         |
 | Bugs:                                       |
 **********************************************/
 using System.Collections;
@@ -18,12 +18,16 @@ public class GoblinWarrior : Enemy
     // Used to store RigidBody2d Component
     private Rigidbody2D rb;
 
+    // Variable used for flat damage boost
+    private int damage_boost;
+
     // Constructor for GoblinGrunt
     public GoblinWarrior()
     {
         max_health = health = 350;
         damage = 50;
-        move_speed = 13f;
+        damage_boost = 5; 
+        move_speed = 14f;
         attack_speed = attackTimer = 1.75f; // 1714 damage per minute
         attackConnected = false;
         knock_back = 400f;
@@ -42,6 +46,7 @@ public class GoblinWarrior : Enemy
         if (attackTimer <= attack_speed) {
             attackTimer += Time.fixedDeltaTime;
         }
+        Debug.Log("Current Damage: "+GetDamage());
     }
     // Update is called once per frame
     void Update()
@@ -54,9 +59,11 @@ public class GoblinWarrior : Enemy
     }
     // Function that checks for collisions
     void OnTriggerEnter2D(Collider2D collision)
-    {
+    {        
         GameObject other = collision.gameObject;
-        if(collision.gameObject.tag == "Spell") { // Check if enemy collided with spell
+        if(other.tag == "Spell") { // Check if enemy collided with spell
+            // Add damage each time its hit by spell
+            ChangeDamage(damage_boost);
             if(other.GetComponent<FireBall>()) { // Check if spell was Fireball
                 RecieveDamage(other.GetComponent<FireBall>().getSpellDamage()); // Recieve damage 
                 rb.AddForce((other.transform.position - transform.position) * 200f * -1.0f, ForceMode2D.Impulse); // FireBall.getKnockback();
@@ -67,7 +74,7 @@ public class GoblinWarrior : Enemy
     void OnTriggerStay2D(Collider2D collision)
     {
         GameObject other = collision.gameObject;
-        if(collision.gameObject.tag == "Goal") { // Checks if collided with Goal
+        if(other.tag == "Goal") { // Checks if collided with Goal
             rb.AddForce((other.transform.position - transform.position) * 50f * -1.0f, ForceMode2D.Impulse);
             if (attackConnected) { // Make sure attack is available and attack is successful
                 attackTimer = 0.0f; // Reset timer
@@ -112,11 +119,10 @@ public class GoblinWarrior : Enemy
     {
         return gameObject.transform.position;
     }
-    public bool IsOnGoal(Vector3 goalPosition)
-    {
-        return GetPosition() == goalPosition;
+    // Function to change the enemy's damage by a flat amount
+    public void ChangeDamage(int damage_amount){
+        damage += damage_amount; // can be positive or negative
     }
-
 
     // Methods for retrieving stats
     public int GetMaxHealth()
@@ -130,6 +136,10 @@ public class GoblinWarrior : Enemy
     public int GetDamage()
     {
         return damage;
+    }
+    public int GetDamageBoost()
+    {
+        return damage_boost;
     }
     public override float GetMoveSpeed()
     {
