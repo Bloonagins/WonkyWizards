@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/src/zach/SpellTest.unity
+    path: Assets/src/zach/TestingScrips/SpellTest.unity
     guid: 468c492e11917fc4eaa68cfcbc15a4aa
   - enabled: 1
     path: Assets/Scenes/Test Scenes/Boss_StressTestScene.unity
