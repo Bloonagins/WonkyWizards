@@ -69,7 +69,7 @@ public class Summon : MonoBehaviour
     {
         if (pos == null)
         {
-            Debug.Log("Invalid new position (null): " + pos);
+            //Debug.Log("Invalid new position (null): " + pos);
             return false;
         }
 
@@ -90,12 +90,14 @@ public class Summon : MonoBehaviour
         ))
         {
             GameManager.occupySpace(pos);
-            Instantiate(summon, worldPos, Quaternion.identity);
+            GameObject newSummon = Instantiate(summon, worldPos, Quaternion.identity);
+
+            newSummon.transform.parent = GameObject.FindGameObjectsWithTag("NavMesh")[0].transform;
             return true;
         }
         else
         {
-            Debug.Log("[Summon.cs] not traversable");
+            //Debug.Log("[Summon.cs] not traversable");
             return false;
         }
     }
