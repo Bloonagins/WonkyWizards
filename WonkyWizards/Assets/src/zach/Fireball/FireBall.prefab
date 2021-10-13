@@ -68,6 +68,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 2819576702667748300}
+  projectileEffect: {fileID: 1117777562058283690, guid: 5c508c5e76dff324daa47e5f8a91f86d, type: 3}
   radius: 3
 --- !u!58 &6781392509395917272
 CircleCollider2D:

@@ -18,5 +18,48 @@ public class Spells : MonoBehaviour
     protected float RANGE; //how far it can travel
     protected float CHARGE_TIME; //pause before actual cast
     protected float COOL_DOWN; //cooldown until next cast
+    protected float KNOCK_BACK;
+    protected bool Upgrade;
+    protected bool[] UpgradeList = {true,false,false,false};
+    protected Transform firePoint; //stores the value of the players position/rotation
+    public GameObject projectile;
+    public GameObject projectileEffect;
+
+    public int checkUpgrades()
+    {
+        for(int i=0; i < UpgradeList.Length;i++)
+        {
+            if(UpgradeList[i] == true)
+            {
+                return i;
+            }
+        }
+        return 0;
+    }
+
+    public void getUpgrade()
+    {
+        int current = checkUpgrades();
+        if(current < 3){
+            UpgradeList[current] = false;
+            current += 1;
+            UpgradeList[current] = true;
+        }
+        else
+        {
+            Debug.Log("Action cannot be performed");
+        }
+    }
+
+    public int getSpellDamage()
+    {
+        return DAMAGE;
+    }
+
+    public float getSpellKnockBack()
+    {
+        return KNOCK_BACK;
+    }
+
 }
 

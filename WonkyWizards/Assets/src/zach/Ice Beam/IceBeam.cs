@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class IceBeam : Spells
 {
-    //stores the value of the players position/rotation
-    private Transform firePoint;
-    //the desired prefab to cast
-    public GameObject projectile;
-    public GameObject projectileEffect;
     private int fire_radius;
 
     public IceBeam()
@@ -19,7 +14,7 @@ public class IceBeam : Spells
         fire_radius = 10;
     }
 
-    //point in the direction of the player and fire
+    //-----------Firing-------------
     void Awake()
     {
         var player = GameObject.FindWithTag("Player");
@@ -33,6 +28,7 @@ public class IceBeam : Spells
         return DAMAGE;
     }
 
+    //-----------Behaviour-------------
     void Freeze()
     {
         GameObject effect = Instantiate(projectileEffect, projectile.transform.position, projectile.transform.rotation);
@@ -40,7 +36,7 @@ public class IceBeam : Spells
         Destroy(effect,1);
     }
 
-    //detect collision between anything that is collidable
+    //-----------Collisions-------------
     void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("collision: " + collision);

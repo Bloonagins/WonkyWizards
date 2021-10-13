@@ -4,20 +4,15 @@ using UnityEngine;
 
 public class MagicMissle : Spells
 {
-    //stores the value of the players position/rotation
-    private Transform firePoint;
-    //the desired prefab to cast
-    public GameObject projectile;
-    public GameObject projectileEffect;
-
     public MagicMissle()
     {
         speed = 20.0f;
         DAMAGE = 80;
         COOL_DOWN = 1f;
+        KNOCK_BACK = 100.0f;
     }
 
-    //point in the direction of the player and fire
+    //-----------Firing-------------
     void Awake()
     {
         var player = GameObject.FindWithTag("Player");
@@ -31,6 +26,7 @@ public class MagicMissle : Spells
         return DAMAGE;
     }
 
+    //-----------Behaviour-------------
     void Explode()
     {
         GameObject Effect = Instantiate(projectileEffect, projectile.transform.position, projectile.transform.rotation);
@@ -38,7 +34,7 @@ public class MagicMissle : Spells
         Destroy(Effect,1);
     }
 
-    //detect collision between anything that is collidable
+    //-----------Collisions-------------
     void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("collision: " + collision);

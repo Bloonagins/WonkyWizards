@@ -13,10 +13,6 @@ using UnityEngine;
 
 public class FireBall: Spells
 {   
-    //stores the value of the players position/rotation
-    private Transform firePoint;
-    //the desired prefab to cast
-    public GameObject projectile;
     public float radius = 3f;
 
     public FireBall()
@@ -24,9 +20,15 @@ public class FireBall: Spells
         speed = 20.0f;
         DAMAGE = 70;
         COOL_DOWN = 0.75f;
+        KNOCK_BACK = 200.0f;
+
+        if(checkUpgrades() != 0)
+        {
+            applyUpgrades();
+        }
     }
 
-    //point in the direction of the player and fire
+    //-----------Firing-------------
     void Awake()
     {
         var player = GameObject.FindWithTag("Player");
@@ -39,19 +41,39 @@ public class FireBall: Spells
     {
         return DAMAGE;
     }
+    //-----------Upgrades-------------
+    public void applyUpgrades()
+    {
+        int current = checkUpgrades();
+        switch(current){
+            case 1:
+                DAMAGE += 10;
+                break;
+            case 2:
+                DAMAGE += 20;
+                break; 
+            case 3: 
+                DAMAGE += 30;
+                break;
+            default:
+                Debug.Log("Action cannot be performed");
+                break;
+        }
+    }
 
+    //-----------Behaviour-------------
     void Explode()
     {
-        //GameObject effect = Instantiate(blastradius, projectile.transform.position, projectile.transform.rotation);
+        GameObject effect = Instantiate(projectileEffect, projectile.transform.position, projectile.transform.rotation);
         Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
         foreach(Collider nearbyObject in colliders)
         {
             Debug.Log("object: " + nearbyObject);
         }
-        //Destroy(effect,1);
+        Destroy(effect,1);
     }
 
-    //detect collision between anything that is collidable
+    //-----------Collisions-------------
     void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("collision: " + collision);

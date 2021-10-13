@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class AcidSpray : Spells
 {
-    //the desired prefab to cast
-    public GameObject projectile;
-    public GameObject projectileEffect;
     public float radius = 4f;
 
     public AcidSpray()
@@ -15,12 +12,13 @@ public class AcidSpray : Spells
         COOL_DOWN = 0.75f;
     }
 
-    //point in the direction of the player and fire
+    //-----------Firing-------------
     public int getSpellDamage()
     {
         return DAMAGE;
     }
 
+    //-----------Behaviour-------------
     void Acid()
     {
         GameObject effect = Instantiate(projectileEffect, projectile.transform.position, projectile.transform.rotation);
@@ -32,6 +30,7 @@ public class AcidSpray : Spells
         Destroy(effect,1);
     }
 
+    //-----------Collisions-------------
     void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("collision: " + collision);
