@@ -61,5 +61,10 @@ public class Spells : MonoBehaviour
         return KNOCK_BACK;
     }
 
+    public float getSpellCoolDown()
+    {
+        return COOL_DOWN;
+    }
+
 }
 
