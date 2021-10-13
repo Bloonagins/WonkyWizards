@@ -9,8 +9,8 @@ public class IceBeam : Spells
     public IceBeam()
     {
         speed = 50.0f;
-        DAMAGE = 0;
-        COOL_DOWN = 0f;
+        DAMAGE = 80;
+        COOL_DOWN = 0.5f;
         fire_radius = 10;
     }
 
