@@ -8,7 +8,7 @@ public class MagicMissle : Spells
     {
         speed = 20.0f;
         DAMAGE = 80;
-        COOL_DOWN = 1f;
+        COOL_DOWN = 1.1f;
         KNOCK_BACK = 100.0f;
     }
 
@@ -38,14 +38,13 @@ public class MagicMissle : Spells
     void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("collision: " + collision);
-        if(collision.gameObject.tag !="Player" && collision.gameObject.tag != "Spell")
+        if(collision.gameObject.tag =="Enemy")
         {
             Explode();
         }
-
-        if(collision.gameObject.tag =="Summon" || collision.gameObject.tag =="Wall")
+        if(collision.gameObject.tag !="Player" && collision.gameObject.tag !="Spell")
         {
-            Destroy(projectile);
+        Destroy(projectile);
         }
     }
 }

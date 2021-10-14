@@ -10,7 +10,7 @@ public class IceBeam : Spells
     {
         speed = 50.0f;
         DAMAGE = 80;
-        COOL_DOWN = 0.5f;
+        COOL_DOWN = 0.02f;
         fire_radius = 10;
     }
 
