@@ -13,20 +13,19 @@
 using System.Collections;
 using UnityEngine;
 
-public class GoblinGrunt : Enemy
+public class GoblinGrunt : MonoBehaviour
 {
     // Used to store RigidBody2d Component
     private Rigidbody2D rb;
 
+    // Private Data Class Pattern 
+    private GoblinGruntData goblinGruntData; // Stores all GoblinGrunts attributes privately
+
     // Constructor for GoblinGrunt
     public GoblinGrunt()
     {
-        max_health = health = 200;
-        damage = 30;
-        move_speed = 18f;
-        attack_speed = attackTimer = 1.5f; // 1200 damage per minute
-        attackConnected = false;
-        knock_back = 300f;
+        // Set initial values of goblinGruntData class
+        this.goblinGruntData = new GoblinGruntData(200, 200, 30, 18f, 1.5f, 1.5f, 300f, false);
     }
     
     // Start is called before the first frame update
@@ -39,15 +38,17 @@ public class GoblinGrunt : Enemy
     // Increments the timers if they're on a cooldown
     void FixedUpdate()
     {
-        if (attackTimer <= attack_speed) {
-            attackTimer += Time.fixedDeltaTime;
+        // If attackTimer is less than attackSpeed then increment timer
+        if (this.goblinGruntData.GetAttackTimer() <= this.goblinGruntData.GetAttackSpeed()) {
+            // Increments time on attack timer
+            this.goblinGruntData.SetAttackTimer(this.goblinGruntData.GetAttackTimer()+Time.fixedDeltaTime);
         }
     }
     // Update is called once per frame
     void Update()
     {
         // Check if unit has no health left
-        if (health <= 0) {
+        if (this.goblinGruntData.GetHealth() <= 0) {
             // SoundManagerScript.PlaySound("enemyDeath");
             Destroy(gameObject); // Destroy unit
         }
@@ -57,9 +58,25 @@ public class GoblinGrunt : Enemy
     {
         GameObject other = collision.gameObject;
         if(other.tag == "Spell") { // Check if enemy collided with spell
+            //Debug.Log("Collided with spell");
             if(other.GetComponent<FireBall>()) { // Check if spell was Fireball
                 RecieveDamage(other.GetComponent<FireBall>().getSpellDamage()); // Recieve damage 
-                rb.AddForce((other.transform.position - transform.position) * 200f * -1.0f, ForceMode2D.Impulse); // FireBall.getKnockback();
+                rb.AddForce((other.transform.position - transform.position) * other.GetComponent<FireBall>().getSpellKnockBack() * -1.0f, ForceMode2D.Impulse); // FireBall.getKnockback();
+            }
+            else if(other.GetComponent<MagicMissle>()) { // Check if spell was MagicMissle
+                //Debug.Log("Collided Magic Missle");
+                RecieveDamage(other.GetComponent<MagicMissle>().getSpellDamage()); // Recieve damage 
+                rb.AddForce((other.transform.position - transform.position) * other.GetComponent<MagicMissle>().getSpellKnockBack() * -1.0f, ForceMode2D.Impulse); // FireBall.getKnockback();
+            }
+            else if(other.GetComponent<IceBeam>()) { // Check if spell was IceBeam
+                //Debug.Log("Collided Ice Beam");
+                RecieveDamage(other.GetComponent<IceBeam>().getSpellDamage()); // Recieve damage 
+                rb.AddForce((other.transform.position - transform.position) * other.GetComponent<IceBeam>().getSpellKnockBack() * -1.0f, ForceMode2D.Impulse); // FireBall.getKnockback();
+            }
+            else if(other.GetComponent<AcidSpray>()) { // Check if spell was AcidSpray
+                //Debug.Log("Collided Acid Spray");
+                RecieveDamage(other.GetComponent<AcidSpray>().getSpellDamage()); // Recieve damage 
+                rb.AddForce((other.transform.position - transform.position) * other.GetComponent<AcidSpray>().getSpellKnockBack() * -1.0f, ForceMode2D.Impulse); // FireBall.getKnockback();
             }
         }
     }
@@ -68,10 +85,10 @@ public class GoblinGrunt : Enemy
     {
         GameObject other = collision.gameObject;
         if(other.tag == "Goal") { // Checks if collided with Goal
-            rb.AddForce((other.transform.position - transform.position) * 50f * -1.0f, ForceMode2D.Impulse);
-            if (attackConnected) { // Make sure attack is available and attack is successful
-                attackTimer = 0.0f; // Reset timer
-                attackConnected = false; // Reset attack 
+            //rb.AddForce((other.transform.position - transform.position) * 50f * -1.0f, ForceMode2D.Impulse);
+            if (this.goblinGruntData.GetAttackConnected()) { // Make sure attack is available and attack is successful
+                this.goblinGruntData.SetAttackTimer(0.0f); // Reset timer
+                this.goblinGruntData.SetAttackConnected(false); // Reset attack 
                 //Debug.Log("Attack");
             }
         }
@@ -80,32 +97,34 @@ public class GoblinGrunt : Enemy
     // Keeps track of when enemy can attack
     public bool canAttack()
     {
-        return attackTimer >= attack_speed;
+        return this.goblinGruntData.GetAttackTimer() >= this.goblinGruntData.GetAttackSpeed();
     }
 
     // Method to update health when enemy is dealt damage
     public void RecieveDamage(int damage_recieved)
     {
-        health -= damage_recieved; // take away health from eneny
-
-        if(health < 0) { // Check if health is below 0
-            health = 0; // set to 0
+        if(damage_recieved > 0) {
+            this.goblinGruntData.SetHealth(this.goblinGruntData.GetHealth()-damage_recieved); // take away health from enemy
+        }
+        if(this.goblinGruntData.GetHealth() < 0) { // Check if health is below 0
+            this.goblinGruntData.SetHealth(0); // set to 0
         }
 
     }
     // Method that gives health to enemy
     public void AddHealth(int health_recieved)
     {
-        health += health_recieved; // add health to enemy
-
-        if(health > max_health) { // Check if health is above max
-            health = max_health; // set to max
+        if(health_recieved > 0) {
+            this.goblinGruntData.SetHealth(this.goblinGruntData.GetHealth()+health_recieved); // add health to enemy
+        }
+        if(this.goblinGruntData.GetHealth() > this.goblinGruntData.GetMaxHealth()) { // Check if health is above max
+            this.goblinGruntData.SetHealth(this.goblinGruntData.GetMaxHealth()); // set to max
         }
     }
     // Function to confirm attack was sucessful
     public void SetAttack(bool success)
     {
-        attackConnected = success;
+        this.goblinGruntData.SetAttackConnected(success);
     }
     // Function to return current position of GoblinGrunt unit
     public Vector3 GetPosition()
@@ -116,30 +135,30 @@ public class GoblinGrunt : Enemy
     // Methods for retrieving stats
     public int GetMaxHealth()
     {
-        return max_health;
+        return this.goblinGruntData.GetMaxHealth();
     }
     public int GetHealth()
     {
-        return health;
+        return this.goblinGruntData.GetHealth();
     }
     public int GetDamage()
     {
-        return damage;
+        return this.goblinGruntData.GetDamage();
     }
-    public override float GetMoveSpeed()
+    public float GetMoveSpeed()
     {
-        return move_speed;
+        return this.goblinGruntData.GetMoveSpeed();
     }
     public float GetAttackSpeed()
     {
-        return attack_speed;
+        return this.goblinGruntData.GetAttackSpeed();
     }
     public float GetKnockBack()
     {
-        return knock_back;
+        return this.goblinGruntData.GetKnockBack();
     }
     public float GetAttackTimer()
     {
-        return attackTimer;
+        return this.goblinGruntData.GetAttackTimer();
     }
 }
