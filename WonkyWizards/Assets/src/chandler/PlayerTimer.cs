@@ -14,6 +14,18 @@ public class PlayerTimer : MonoBehaviour
     // fireball cooldown
     private static float fireballReset = 0.75f;
     private static float fireballTimer;
+    // magic missile cooldown
+    private static float magicMissileReset = 1.1f;
+    private static float magicMissileTimer;
+    // ice beam cooldown
+    private static float iceBeamReset = 0.02f;
+    private static float iceBeamTimer;
+    // acid splash cooldown
+    private static float acidSplashReset = 0.75f;
+    private static float acidSplashTimer;
+    // slimeball cooldown
+    private static float slimeballReset = 0.5f;
+    private static float slimeballTimer;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +33,10 @@ public class PlayerTimer : MonoBehaviour
         dashTimer = dashReset;
         damageTimer = damageReset;
         fireballTimer = fireballReset;
+        magicMissileTimer = magicMissileReset;
+        iceBeamTimer = iceBeamReset;
+        acidSplashTimer = acidSplashReset;
+        slimeballTimer = slimeballReset;
     }
 
     // Called at a fixed interval (50 times / second)
@@ -37,9 +53,30 @@ public class PlayerTimer : MonoBehaviour
             damageTimer += Time.fixedDeltaTime;
         }
 
+        // spells
         if (fireballTimer < fireballReset)
         {
             fireballTimer += Time.fixedDeltaTime;
+        }
+
+        if (magicMissileTimer < magicMissileReset)
+        {
+            magicMissileTimer += Time.fixedDeltaTime;
+        }
+
+        if (iceBeamTimer < iceBeamReset)
+        {
+            iceBeamTimer += Time.fixedDeltaTime;
+        }
+
+        if (acidSplashTimer < acidSplashReset)
+        {
+            acidSplashTimer += Time.fixedDeltaTime;
+        }
+
+        if (slimeballTimer < slimeballReset)
+        {
+            slimeballTimer += Time.fixedDeltaTime;
         }
     }
 
@@ -61,6 +98,14 @@ public class PlayerTimer : MonoBehaviour
         {
             case 0:
                 return fireballTimer >= fireballReset;
+            case 1:
+                return magicMissileTimer >= magicMissileReset;
+            case 2:
+                return iceBeamTimer >= iceBeamReset;
+            case 3:
+                return acidSplashTimer >= acidSplashReset;
+            /*case 4:
+                return slimeballTimer >= slimeballReset;*/
             default:
                 return false;
         }
@@ -115,6 +160,18 @@ public class PlayerTimer : MonoBehaviour
         {
             case 0:
                 fireballTimer = 0.0f;
+                break;
+            case 1:
+                magicMissileTimer = 0.0f;
+                break;
+            case 2:
+                iceBeamTimer = 0.0f;
+                break;
+            case 3:
+                acidSplashTimer = 0.0f;
+                break;
+            case 4:
+                slimeballTimer = 0.0f;
                 break;
             default:
                 return;
