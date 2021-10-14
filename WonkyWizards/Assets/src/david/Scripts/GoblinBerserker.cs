@@ -1,21 +1,22 @@
 /**********************************************
-| GoblinWarrior V1.0.0                        |
+| GoblinBerserker V1.0.0                      |
 | Author: David Bush, T5                      |
-| Description: This is the GoblinWarrior class|
-| that inherits from the Enemy superclass.    |
-| This will contain all variables and methods |
-| associtiated with the GoblinWarrior enemy   |
-| type. Each GoblinWarrior has the unique     |
-| ability Rage Mode. When it is hit by a spell|
-| it'5s damage and speed increase by a flat   |
-| ammount each time.                          |
+| Description: This is the GoblinBerserker    |
+| class that inherits from the Enemy          |
+| superclass. This will contain all variables |
+| and methods associtiated with the           |
+| GoblinBerserker enemy type. Each            |
+| GoblinBerserker has the unique ability Rage |
+| Mode. When it is hit by a spell it's damage |
+| and speed increase by a flat ammount each   |
+| time.                                       |         
 | Bugs:                                       |
 **********************************************/
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class GoblinWarrior : Enemy
+public class GoblinBerserker : Enemy
 {
     // Used to store RigidBody2d Component
     private Rigidbody2D rb;
@@ -27,11 +28,8 @@ public class GoblinWarrior : Enemy
     // Variable used for flat speed increase
     private float speed_boost;
 
-    // TEST
-    private RaycastHit2D raycastHit2D;
-
     // Constructor for GoblinGrunt
-    public GoblinWarrior()
+    public GoblinBerserker()
     {
         max_health = health = 350;
         damage = 50;
@@ -59,6 +57,7 @@ public class GoblinWarrior : Enemy
             attackTimer += Time.fixedDeltaTime;
         }
         Debug.Log("Current Damage: "+GetDamage());
+        Debug.Log("Current speed: "+agent.acceleration);
     }
     // Update is called once per frame
     void Update()
@@ -68,24 +67,38 @@ public class GoblinWarrior : Enemy
             // SoundManagerScript.PlaySound("enemyDeath");
             Destroy(gameObject); // Destroy unit
         }
-        raycastHit2D = Physics2D.CircleCast(gameObject.transform.position, 10f, new Vector3(1,0,0));
-        Debug.Log("Test: "+raycastHit2D.distance);
     }
     // Function that checks for collisions
     void OnTriggerEnter2D(Collider2D collision)
     {        
         GameObject other = collision.gameObject;
+       
         if(other.tag == "Spell") { // Check if enemy collided with spell
 
-            // Add damage each time its hit by spell
+            // Set hard cap on boosts??
+            // Add damage and speed each time its hit by spell
             ChangeDamage(damage_boost);
-            // Increase speed
             agent.speed += speed_boost;
             agent.acceleration += speed_boost;
 
             if(other.GetComponent<FireBall>()) { // Check if spell was Fireball
                 RecieveDamage(other.GetComponent<FireBall>().getSpellDamage()); // Recieve damage 
-                rb.AddForce((other.transform.position - transform.position) * other.GetComponent<FireBall>().getSpellKnockBack() * -1.0f, ForceMode2D.Impulse);
+                rb.AddForce((other.transform.position - transform.position) * other.GetComponent<FireBall>().getSpellKnockBack() * -1.0f, ForceMode2D.Impulse); // FireBall.getKnockback();
+            }
+            else if(other.GetComponent<MagicMissle>()) { // Check if spell was MagicMissle
+                //Debug.Log("Collided Magic Missle");
+                RecieveDamage(other.GetComponent<MagicMissle>().getSpellDamage()); // Recieve damage 
+                rb.AddForce((other.transform.position - transform.position) * other.GetComponent<MagicMissle>().getSpellKnockBack() * -1.0f, ForceMode2D.Impulse); // FireBall.getKnockback();
+            }
+            else if(other.GetComponent<IceBeam>()) { // Check if spell was IceBeam
+                //Debug.Log("Collided Ice Beam");
+                RecieveDamage(other.GetComponent<IceBeam>().getSpellDamage()); // Recieve damage 
+                rb.AddForce((other.transform.position - transform.position) * other.GetComponent<IceBeam>().getSpellKnockBack() * -1.0f, ForceMode2D.Impulse); // FireBall.getKnockback();
+            }
+            else if(other.GetComponent<AcidSpray>()) { // Check if spell was AcidSpray
+                //Debug.Log("Collided Acid Spray");
+                RecieveDamage(other.GetComponent<AcidSpray>().getSpellDamage()); // Recieve damage 
+                rb.AddForce((other.transform.position - transform.position) * other.GetComponent<AcidSpray>().getSpellKnockBack() * -1.0f, ForceMode2D.Impulse); // FireBall.getKnockback();
             }
         }
     }

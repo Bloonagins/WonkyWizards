@@ -46,6 +46,16 @@ public class EnemyTargeting : MonoBehaviour
         agent.updateRotation = false;
         agent.updateUpAxis = false;
         agent.SetDestination(goal.position);
+        if(gameObject.GetComponent<GoblinGrunt>()) { // Set GoblinGrunts speed
+            //Debug.Log("Speed before "+agent.speed);
+            agent.speed = gameObject.GetComponent<GoblinGrunt>().GetMoveSpeed(); 
+            agent.acceleration = gameObject.GetComponent<GoblinGrunt>().GetMoveSpeed();
+            //Debug.Log("Speed after "+agent.speed);
+        }
+        else if(gameObject.GetComponent<GoblinBerserker>()) { // Set GoblinBerserkers speed
+            agent.speed = gameObject.GetComponent<GoblinBerserker>().GetMoveSpeed(); 
+            agent.acceleration = gameObject.GetComponent<GoblinBerserker>().GetMoveSpeed();
+        }
     }
     
     // Update is called once per frame

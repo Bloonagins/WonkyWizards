@@ -33,7 +33,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -168,7 +168,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6772397727306183636
 RectTransform:
   m_ObjectHideFlags: 0
@@ -425,8 +425,8 @@ GameObject:
   - component: {fileID: 5317580803931415215}
   - component: {fileID: 2452339950828583073}
   - component: {fileID: 1616092327010029664}
-  - component: {fileID: 1056881603400899529}
   - component: {fileID: 237921778391990648}
+  - component: {fileID: 8769265343172430078}
   - component: {fileID: 5455567296907008441}
   m_Layer: 0
   m_Name: GoblinWarrior
@@ -491,7 +491,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 0.41960785, g: 0.06264329, b: 0.03631186, a: 0.99215686}
+  m_Color: {r: 0.41960785, g: 0.22488008, b: 0.035294127, a: 0.99215686}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -563,20 +563,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 699089187aa34894c9a3228f2c377e0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1056881603400899529
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7658961621372727807}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b962388d6ce39bf43801c7c1a9eef8d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HealthBarUI: {fileID: 2360008563003179702}
-  HPslider: {fileID: 8539774736030643773}
 --- !u!114 &237921778391990648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -589,6 +575,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaf0f220492a0e241ba1e516b6886953, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8769265343172430078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7658961621372727807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 857788fa69a722a46948c8a5e0ace823, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HealthBarUI: {fileID: 2360008563003179702}
+  HPslider: {fileID: 8539774736030643773}
 --- !u!195 &5455567296907008441
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -599,8 +599,8 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 14
-  m_Acceleration: 14
+  m_Speed: 10
+  m_Acceleration: 10
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
