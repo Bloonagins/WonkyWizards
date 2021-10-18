@@ -13,6 +13,8 @@ public class LevelMenuManager : MonoBehaviour
 
 
     //Per level this pause menu object will have to be assigned
+    public GameObject PlayerHUDObject;
+
     public GameObject PauseMenuObject;
     public GameObject ConfirmMenuObject;
     public GameObject OptionsMenuObject;
@@ -31,12 +33,15 @@ public class LevelMenuManager : MonoBehaviour
         ReadyAction = controls.PlayerDefault.ReadyUp;
         ReadyAction.performed += ReadyUpState;
 
-
+        ReadyAction.Enable();
         PauseAction.Enable();
     }
     private void OnDisable()
     {
         PauseAction.performed -= POrResGame;
+        PauseAction.Disable();
+
+        ReadyAction.performed -= ReadyUpState;
         PauseAction.Disable();
     }
 
@@ -83,6 +88,8 @@ public class LevelMenuManager : MonoBehaviour
 
             PauseMenuObject.SetActive(true);
 
+            PlayerHUDObject.SetActive(false);
+
             bGameWasInSetup = true;
 
             GameManager.ChangeState(GameState.PAUSE);
@@ -94,6 +101,8 @@ public class LevelMenuManager : MonoBehaviour
             
             PauseMenuObject.SetActive(true);
 
+            PlayerHUDObject.SetActive(false);
+
             GameManager.ChangeState(GameState.PAUSE);
             bGameWasInSetup = false;
         }        
@@ -102,7 +111,9 @@ public class LevelMenuManager : MonoBehaviour
             PauseMenuObject.SetActive(false);
             OptionsMenuObject.SetActive(false);
             ConfirmMenuObject.SetActive(false);
-            
+
+            PlayerHUDObject.SetActive(true);
+
             Time.timeScale = 1f;
 
             if (bGameWasInSetup)
