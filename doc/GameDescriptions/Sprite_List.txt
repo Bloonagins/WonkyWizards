@@ -1,5 +1,5 @@
 - Wonk
-	- Facing different directions (8 directions preferably, 4 axis directions and 4 diagonal)
+	- Facing different directions (8 directions preferably, 4 axis directions and 4 diagonal) (4 minimum, 1 for each axis direction)
 	- Casting spells / placing summons
 	- Drinking a potion (happens after each wave, causes him to heal)
 	- Dead
@@ -7,7 +7,7 @@
 - Enemies
 	- All goblin types
 	- All boss types (read level 7 and 8 in main plot description for bosses)
-	- Enemies facing different directions (8 directions preferably, 4 axis directions and 4 diagonal)
+	- Enemies facing different directions (8 directions preferably, 4 axis directions and 4 diagonal) (4 minimum, 1 for each axis direction)
 	- Enemy icons for wave info tab
 	- Projectiles the enemies might shoot (arrows, potions, etc.)
 	- Dead
