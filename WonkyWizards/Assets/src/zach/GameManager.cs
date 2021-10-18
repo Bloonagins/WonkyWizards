@@ -37,6 +37,11 @@ public class GameManager : MonoBehaviour
     public static int cols; 
     public static string sceneName; // reference to the scene's name
 
+    public GameManager()
+    {
+        state = GameState.SETUP;
+    }
+
     //---------SINGLETON PATTERN-------------
     void Awake()
     {
@@ -55,6 +60,7 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
         }
+        return instance;
     }
 
     //--------STATE HANDLING-----------------
@@ -66,71 +72,10 @@ public class GameManager : MonoBehaviour
     //change states
     public static void ChangeState(GameState newState)
     {
-        state = newState;
-        Game();
-    }
-
-    //change game
-    private static void Game()
-    {
-        switch(state)
-        {
-            case GameState.CUTSCENE:
-                break;
-
-            case GameState.PLAY:
-                Play();
-                break;
-
-            case GameState.SETUP:
-                Setup();
-                break;
-            
-            case GameState.WIN:
-                Win();
-                break;
-            
-            case GameState.LOSE:
-                Lose();
-                break;
-
-            case GameState.PAUSE:
-                Pause();
-                break;
-
-            default:
-                break;
+        if (state != newState){
+            state = newState;
         }
-    }
 
-    //-------------PLAY----------------
-    private static void Play()
-    {
-        Debug.Log("STATE1 " + state);
-    }
-
-    //-------------SETUP---------------
-    private static void Setup()
-    {
-        Debug.Log("STATE2 " + state);
-    }
-
-    //--------------WIN----------------
-    private static void Win()
-    {
-        Debug.Log("STATE3 " + state);
-    }
-
-    //--------------LOSE---------------
-    private static void Lose()
-    {
-        Debug.Log("STATE4 " + state);
-    }
-
-    //-------------PAUSE---------------
-    private static void Pause()
-    {
-        Debug.Log("STATE5 " + state);
     }
 
     //---------PLACEMENT GRID----------
