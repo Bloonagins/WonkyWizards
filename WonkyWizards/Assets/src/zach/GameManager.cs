@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour
     //--------STATE HANDLING-----------------
 
     //change states
-    public void ChangeState(GameState newState)
+    public static void ChangeState(GameState newState)
     {
         state = newState;
         Game();
