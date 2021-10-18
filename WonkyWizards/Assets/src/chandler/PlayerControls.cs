@@ -15,8 +15,8 @@
  *                                             OR
  *                                             Alpha Number keys on keyboard
  * Pause: Escape (Handled in one of Gabe's scripts)
- * Wave Info: Tab
- * Ready Up: F4 (TODO)
+ * Wave Info: Tab (Handled in one of Gabe's scripts)
+ * Ready Up: F4
  */
 
 using System;
@@ -46,7 +46,6 @@ public class PlayerControls : MonoBehaviour
     private InputAction hotbar8;
     private InputAction hotbar9;
     private InputAction hotbar0;
-    private InputAction info; // tab to display info about the wave
     private InputAction rup; // F4 to enter combat mode
     // player's rigidbody component
     private Rigidbody2D rb;
@@ -82,7 +81,6 @@ public class PlayerControls : MonoBehaviour
         delete = controls.PlayerDefault.DeleteSummon;
         target = controls.PlayerDefault.SwitchTargetMode;
         mode = controls.PlayerDefault.SwitchMagicMode;
-        info = controls.PlayerDefault.WaveInfo;
         rup = controls.PlayerDefault.ReadyUp;
 
         // binds certain inputs to a function to be called when that input is activated
@@ -120,7 +118,6 @@ public class PlayerControls : MonoBehaviour
         controls.PlayerDefault.Hotbar8.Enable();
         controls.PlayerDefault.Hotbar9.Enable();
         controls.PlayerDefault.Hotbar0.Enable();
-        info.Enable();
         rup.Enable();
     }
 
@@ -158,12 +155,6 @@ public class PlayerControls : MonoBehaviour
                 Instantiate(spell, transform.position, transform.rotation);
                 PlayerTimer.activateSpellCooldown(PlayerScript.spellIndex);
             }
-        }
-
-        // while tab is being held down, display wave info
-        if (info.ReadValue<float>() > 0.0f)
-        {
-            Debug.Log("Display Wave Info");
         }
     }
 
@@ -432,7 +423,6 @@ public class PlayerControls : MonoBehaviour
         controls.PlayerDefault.Hotbar8.Disable();
         controls.PlayerDefault.Hotbar9.Disable();
         controls.PlayerDefault.Hotbar0.Disable();
-        info.Disable();
         rup.Disable();
     }
 
