@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour
     }
 
     //change game
-    private void Game()
+    private static void Game()
     {
         switch(state)
         {
@@ -100,31 +100,31 @@ public class GameManager : MonoBehaviour
     }
 
     //-------------PLAY----------------
-    private void Play()
+    private static void Play()
     {
         Debug.Log("STATE1 " + state);
     }
 
     //-------------SETUP---------------
-    private void Setup()
+    private static void Setup()
     {
         Debug.Log("STATE2 " + state);
     }
 
     //--------------WIN----------------
-    private void Win()
+    private static void Win()
     {
         Debug.Log("STATE3 " + state);
     }
 
     //--------------LOSE---------------
-    private void Lose()
+    private static void Lose()
     {
         Debug.Log("STATE4 " + state);
     }
 
     //-------------PAUSE---------------
-    private void Pause()
+    private static void Pause()
     {
         Debug.Log("STATE5 " + state);
     }
