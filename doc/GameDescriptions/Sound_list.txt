@@ -1,0 +1,34 @@
+- Wonk
+	- Hurt sounds
+	- Death sounds
+	- Potion drinking sounds
+
+- Spells
+	- Casting sounds
+	- Termination sounds (when a spell disipates / explodes / ends)
+
+- Summons
+	- Placement sounds
+	- Attacking sounds
+		- When a projectile shoots + when it hits an enemy
+	- Destroy sound
+
+- Enemies
+	- Occasional random grunt or something
+	- Attack sounds
+		- Include making sounds for enemy projectiles
+	- Hurt sounds
+	- Death sounds
+
+- HUD
+	- Menu click sounds
+	- Hotbar selction sounds
+
+- Cutscenes
+	- Text scrolling / appearing sound (kind of like in pokemon or undertale)
+
+- Music
+	- Looping background music for:
+		- Main Menu
+		- Cutscenes
+		- Gameplay for each level
