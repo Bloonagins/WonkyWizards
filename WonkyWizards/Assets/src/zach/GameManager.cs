@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
     }
 
     //--------STATE HANDLING-----------------
-    public static GameState CheckState(GameState newState)
+    public static GameState CheckState()
     {
         return state;
     }
