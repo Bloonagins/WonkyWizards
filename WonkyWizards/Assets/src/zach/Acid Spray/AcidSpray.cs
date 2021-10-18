@@ -12,12 +12,6 @@ public class AcidSpray : Spells
         COOL_DOWN = 0.75f;
     }
 
-    //-----------Firing-------------
-    public int getSpellDamage()
-    {
-        return DAMAGE;
-    }
-
     //-----------Behaviour-------------
     void Acid()
     {

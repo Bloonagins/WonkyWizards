@@ -36,11 +36,6 @@ public class FireBall: Spells
         Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
         rb.AddForce(firePoint.right * this.speed, ForceMode2D.Impulse);
     }
-
-    public int getSpellDamage()
-    {
-        return DAMAGE;
-    }
     //-----------Upgrades-------------
     public void applyUpgrades()
     {

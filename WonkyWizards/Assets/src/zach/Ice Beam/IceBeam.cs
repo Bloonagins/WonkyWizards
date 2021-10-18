@@ -23,11 +23,6 @@ public class IceBeam : Spells
         rb.AddForce(firePoint.right * this.speed, ForceMode2D.Impulse);
     }
 
-    public int getSpellDamage()
-    {
-        return DAMAGE;
-    }
-
     //-----------Behaviour-------------
     void Freeze()
     {
