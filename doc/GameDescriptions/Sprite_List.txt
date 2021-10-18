@@ -1,0 +1,32 @@
+- Wonk
+	- Facing different directions (8 directions preferably, 4 axis directions and 4 diagonal) (4 minimum, 1 for each axis direction)
+	- Casting spells / placing summons
+	- Drinking a potion (happens after each wave, causes him to heal)
+	- Dead
+
+- Enemies
+	- All goblin types
+	- All boss types (read level 7 and 8 in main plot description for bosses)
+	- Enemies facing different directions (8 directions preferably, 4 axis directions and 4 diagonal) (4 minimum, 1 for each axis direction)
+	- Enemy icons for wave info tab
+	- Projectiles the enemies might shoot (arrows, potions, etc.)
+	- Dead
+
+- Spells
+	- Spell icons for hud
+	- Effects (explosion from fireball, etc.)
+
+- Summons
+	- Icons for hud
+	- Projectiles that they might shoot
+	- Effects from projectiles (ice ball explosion, wind from futuristic wind manipulation decive, etc.)
+
+- NPCs for cutscenes
+	- Level 2 libarian
+	- Level 3 Slimp
+	- Level 4 tavernkeep and maybe people in tavern
+	- Level 5 Strobenord
+	- Level 6 Jarine Cordinial
+	- Level 7 Tim the Enchanter (counts as a boss too)
+
+- Maybe also some tilemapping assets for Gage if he needs any
