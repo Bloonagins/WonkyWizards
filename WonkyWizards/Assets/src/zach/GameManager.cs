@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Confined;
     }
 
-    private void MakeSingleton()
+    private GameManager MakeSingleton()
     {
         if(instance == null)
         {
