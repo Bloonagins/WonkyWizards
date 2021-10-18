@@ -58,6 +58,10 @@ public class GameManager : MonoBehaviour
     }
 
     //--------STATE HANDLING-----------------
+    public static GameState CheckState(GameState newState)
+    {
+        return state;
+    }
 
     //change states
     public static void ChangeState(GameState newState)
