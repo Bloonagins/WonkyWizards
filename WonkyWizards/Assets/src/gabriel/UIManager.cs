@@ -22,7 +22,7 @@ public class UIManager : MonoBehaviour
     public Image DashAbilityIcon;
     public Image FireballAbilityIcon;
 
-    
+
 
     /*
     public Image DashIcon;
@@ -30,20 +30,13 @@ public class UIManager : MonoBehaviour
     public Image DashIcon;
     public Image DashIcon;
     */
-
-
     
-    
-    //remove these bools later
-    public bool bCastMode;
-    public bool bBuildMode;
+    //For accessing Current Build Mode use PlayerScript.isInBuildMode()
 
     public float fLerpSpeed;
 
     private void Awake()
-    {
-        bCastMode = false;
-        bBuildMode = true;
+    { 
 
         //this value is not set in stone and can be modified for differing looks
         fLerpSpeed = 3f * Time.deltaTime;
@@ -130,30 +123,21 @@ public class UIManager : MonoBehaviour
     {   
         if(PlayerScript.isInBuildMode())
         {
-            bCastMode = false;
-            bBuildMode = true;
+
             PlayerMode.text = "Build Mode";
             PlayerMode.color = new Color32(52, 209, 30, 255);
             //Debug.Log("changed to build mode");
             //34D11E
         }
         else {
-            bCastMode = true;
-            bBuildMode = false;
+
             PlayerMode.text = "Cast Mode";
             PlayerMode.color = new Color32(209, 73, 30, 255);
             //Debug.Log("changed to cast mode");
             //D1491E
         }
     }
-    public void ChangeCastMode()
-    {
-        bCastMode = !bCastMode;
-    }
-    public void ChangeBuildMode()
-    {
-        bBuildMode = !bBuildMode;
-    }
+
 
 
 
