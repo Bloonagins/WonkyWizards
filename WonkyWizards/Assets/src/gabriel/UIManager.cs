@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
 {
     public GameObject PlayerRef;
 
+    //HUD element object reference list follows:
 
     public TextMeshProUGUI PlayerMode;
 
@@ -18,9 +19,10 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI PlayerManaTXT;
     public Image PlayerManaCircleDepletedIMG;
 
-
     public Image DashAbilityIcon;
     public Image FireballAbilityIcon;
+
+    
 
     /*
     public Image DashIcon;
@@ -32,7 +34,7 @@ public class UIManager : MonoBehaviour
 
     
     
-
+    //remove these bools later
     public bool bCastMode;
     public bool bBuildMode;
 
@@ -42,6 +44,8 @@ public class UIManager : MonoBehaviour
     {
         bCastMode = false;
         bBuildMode = true;
+
+        //this value is not set in stone and can be modified for differing looks
         fLerpSpeed = 3f * Time.deltaTime;
     }
 
@@ -53,23 +57,28 @@ public class UIManager : MonoBehaviour
         UpdatePlayerCooldownsUI();
     }
 
+    /// <summary>
+    /// This function fills each cooldown based HUD element determined by their remaining cooldown time
+    /// </summary>
     private void UpdatePlayerCooldownsUI()
     {
         DashAbilityIcon.fillAmount = ((float)PlayerTimer.getDashTimer() / (float)PlayerTimer.getDashCooldown());
         FireballAbilityIcon.fillAmount = ((float)PlayerTimer.getFireballTimer() / (float)PlayerTimer.getFireballCooldown());
 
     }
-
-    ///returns decimal of players' current hp / their max hp
+    
+    /// <summary>
+    /// Returns decimal of players' current hp / their max hp
+    /// </summary>    
     private float CalcHealthDecimal()
     {   
         return ( (float) PlayerScript.getHP() / (float) PlayerScript.getMAXHP());
     }
 
-    ///Calling this function will update all player health UI elements - should be called whenever the player hp value is anticipated to changed
-    ///ie Healing, Enemy Interaction...etc</summary>
-    ///These types of functions that update strings are computationally expensive and should not be placed in an update function
-    
+    /// <summary>
+    /// Calling this function will update all player health UI elements.
+    /// These types of functions that update strings are computationally expensive and should not be placed in a regular update function
+    /// </summary>
     public void UpdatePlayerHeathUI()
     {
         //float created to avoid extra computation by calling CalcHealthDecimal multiple times in the same function
@@ -84,6 +93,10 @@ public class UIManager : MonoBehaviour
         HealthColorSetter();
     }
 
+    /// <summary>
+    /// Calling this function will update all player mana UI elements.
+    /// These types of functions that update strings are computationally expensive and should not be placed in a regular update function
+    /// </summary>
     private void UpdatePlayerManaUI()
     {
         int PlayerCurrManaInt = PlayerScript.getMana();
@@ -97,6 +110,10 @@ public class UIManager : MonoBehaviour
             PlayerManaCircleDepletedIMG.enabled = false;
         }
     }
+
+    /// <summary>
+    /// This function grabs the correct color gradient value between green and red based on current player hp
+    /// </summary>
     private void HealthColorSetter()
     {
         //Debug.Log("setting color");
@@ -105,10 +122,12 @@ public class UIManager : MonoBehaviour
         PlayerHealthCircleIMG.color = healthColor;
         PlayerHealthPercentTXT.color = healthColor;
     }
-    ///Calling this function will set cast/build bools and set UI text to correspond to those values
-    public void UpdatePlayerModeUI()
-    {    
 
+    /// <summary>
+    /// Calling this function will set cast/build bools and set UI text to correspond to those values
+    /// </summary>
+    public void UpdatePlayerModeUI()
+    {   
         if(PlayerScript.isInBuildMode())
         {
             bCastMode = false;
@@ -117,7 +136,6 @@ public class UIManager : MonoBehaviour
             PlayerMode.color = new Color32(52, 209, 30, 255);
             //Debug.Log("changed to build mode");
             //34D11E
-
         }
         else {
             bCastMode = true;
@@ -127,7 +145,6 @@ public class UIManager : MonoBehaviour
             //Debug.Log("changed to cast mode");
             //D1491E
         }
-
     }
     public void ChangeCastMode()
     {
