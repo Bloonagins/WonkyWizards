@@ -16,7 +16,7 @@
  *                                             Alpha Number keys on keyboard
  * Pause: Escape (Handled in one of Gabe's scripts)
  * Wave Info: Tab (Handled in one of Gabe's scripts)
- * Ready Up: F4
+ * Ready Up: F4 (Handled in one of Gabe's scripts)
  */
 
 using System;
@@ -46,7 +46,6 @@ public class PlayerControls : MonoBehaviour
     private InputAction hotbar8;
     private InputAction hotbar9;
     private InputAction hotbar0;
-    private InputAction rup; // F4 to enter combat mode
     // player's rigidbody component
     private Rigidbody2D rb;
     // speed of the player (30)
@@ -81,7 +80,6 @@ public class PlayerControls : MonoBehaviour
         delete = controls.PlayerDefault.DeleteSummon;
         target = controls.PlayerDefault.SwitchTargetMode;
         mode = controls.PlayerDefault.SwitchMagicMode;
-        rup = controls.PlayerDefault.ReadyUp;
 
         // binds certain inputs to a function to be called when that input is activated
         dash.performed += OnDash;
@@ -99,7 +97,6 @@ public class PlayerControls : MonoBehaviour
         controls.PlayerDefault.Hotbar8.performed += OnHotbar8;
         controls.PlayerDefault.Hotbar9.performed += OnHotbar9;
         controls.PlayerDefault.Hotbar0.performed += OnHotbar0;
-        rup.performed += OnReadyUp;
 
         movement.Enable();
         dash.Enable();
@@ -118,7 +115,6 @@ public class PlayerControls : MonoBehaviour
         controls.PlayerDefault.Hotbar8.Enable();
         controls.PlayerDefault.Hotbar9.Enable();
         controls.PlayerDefault.Hotbar0.Enable();
-        rup.Enable();
     }
 
     // Start is called before the first frame update
@@ -394,12 +390,6 @@ public class PlayerControls : MonoBehaviour
         }
     }
 
-    // when F4 is pressed, ready up
-    private void OnReadyUp(InputAction.CallbackContext obj)
-    {
-        GameManager.ChangeState(GameState.PLAY);
-    }
-
     // handles disabling unity input package scheme
     void OnDisable()
     {
@@ -422,7 +412,6 @@ public class PlayerControls : MonoBehaviour
         controls.PlayerDefault.Hotbar8.Disable();
         controls.PlayerDefault.Hotbar9.Disable();
         controls.PlayerDefault.Hotbar0.Disable();
-        rup.Disable();
     }
 
     // changes the spell / summon index on the hotbar when a scroll is inputted
