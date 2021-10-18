@@ -7,39 +7,47 @@ using UnityEngine.InputSystem;
 public class LevelMenuManager : MonoBehaviour
 {
     private ControlScheme controls;
-    private InputAction pause;
+    private InputAction PauseAction;
+    private InputAction ReadyAction;
 
-    private bool bIsPaused = false;
+
 
     //Per level this pause menu object will have to be assigned
     public GameObject PauseMenuObject;
     public GameObject ConfirmMenuObject;
     public GameObject OptionsMenuObject;
 
-
+    public bool bGameWasInSetup;
 
     private void Awake()
     {
         controls = new ControlScheme();
+    }
 
-    }
-    /*
-    private void Start()
-    {
-        bIsPaused = false;
-    }
-    */
     private void OnEnable()
     {
-        pause = controls.PlayerDefault.Pause;
-        pause.performed += POrResGame;
-        pause.Enable();
+        PauseAction = controls.PlayerDefault.Pause;
+        PauseAction.performed += POrResGame;
+        ReadyAction = controls.PlayerDefault.ReadyUp;
+        ReadyAction.performed += ReadyUpState;
+
+
+        PauseAction.Enable();
     }
     private void OnDisable()
     {
-        pause.performed -= POrResGame;
-        pause.Disable();
+        PauseAction.performed -= POrResGame;
+        PauseAction.Disable();
     }
+
+
+    private void ReadyUpState(InputAction.CallbackContext obj)
+    {
+        Debug.Log("attempting to ready up...\n");
+        ReadyUpGame();
+    }
+
+    
 
     private void POrResGame(InputAction.CallbackContext obj)
     {
@@ -47,29 +55,73 @@ public class LevelMenuManager : MonoBehaviour
         PauseOrResumeGame();
     }
 
-    //Calling this func will attempt to pause/resume the game
+    /// <summary>
+    /// Calling this function will attempt to set the gamestate to PLAY
+    /// </summary>
+    public void ReadyUpGame()
+    {
+        if(GameManager.CheckState() == GameState.SETUP)
+        {
+            GameManager.ChangeState(GameState.PLAY);
+            bGameWasInSetup = false;
+        }
+    }
+
+
+    /// <summary>
+    /// Calling this func will attempt to pause/resume the game based on current game state
+    /// </summary>
     public void PauseOrResumeGame()
     {
         Debug.Log("trying to switch pause state\n");
-        if (bIsPaused == false)
+
+
+        if (GameManager.CheckState() == GameState.SETUP)
         {
             //Debug.Log("trying to switch pause state")
             Time.timeScale = 0f;
-            bIsPaused = true;
+
             PauseMenuObject.SetActive(true);
+
+            bGameWasInSetup = true;
+
+            GameManager.ChangeState(GameState.PAUSE);
         }
-        else
+        else if (GameManager.CheckState() == GameState.PLAY)
+        {
+            //Debug.Log("trying to switch pause state")
+            Time.timeScale = 0f;      
+            
+            PauseMenuObject.SetActive(true);
+
+            GameManager.ChangeState(GameState.PAUSE);
+            bGameWasInSetup = false;
+        }        
+        else if (GameManager.CheckState() == GameState.PAUSE)
         {
             PauseMenuObject.SetActive(false);
             OptionsMenuObject.SetActive(false);
             ConfirmMenuObject.SetActive(false);
-
+            
             Time.timeScale = 1f;
-            bIsPaused = false;
+
+            if (bGameWasInSetup)
+            {
+                GameManager.ChangeState(GameState.SETUP);
+                bGameWasInSetup = true;
+            }
+            else
+            {
+                GameManager.ChangeState(GameState.PLAY);
+                bGameWasInSetup = false;
+            }
         }
+        else { }
     }
 
-    //Calling this function will close the application
+    /// <summary>
+    /// Calling this function will close the application
+    /// </summary>
     public void ExitGame()
     {
         Debug.Log("Exiting Game\n");

@@ -13,6 +13,8 @@ public class UIManager : MonoBehaviour
 
     public TextMeshProUGUI PlayerMode;
 
+    public TextMeshProUGUI SetupMode;
+
     public TextMeshProUGUI PlayerHealthPercentTXT;
     public Image PlayerHealthCircleIMG;
 
@@ -48,6 +50,20 @@ public class UIManager : MonoBehaviour
         UpdatePlayerManaUI();
         UpdatePlayerModeUI();
         UpdatePlayerCooldownsUI();
+        UpdatePlayerSetupPhaseUI();
+    }
+
+
+    private void UpdatePlayerSetupPhaseUI()
+    {
+        if(GameManager.CheckState() == GameState.SETUP)
+        {
+            SetupMode.text = "Press f4 to exit Setup Phase";
+        }
+        else if (GameManager.CheckState() == GameState.PLAY)
+        {
+            SetupMode.text = "Play Phase";
+        }
     }
 
     /// <summary>
