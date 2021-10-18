@@ -129,7 +129,7 @@ public class PlayerControls : MonoBehaviour
         // gets the coordinates of the cursor
         PlayerScript.setScreenCursorPoint(Mouse.current.position.ReadValue());
         // rotates the player towards the cursor
-        transform.eulerAngles = Vector3.forward * PlayerScript.getCursorAngle();
+        //transform.eulerAngles = Vector3.forward * PlayerScript.getCursorAngle();
 
         // when scroll wheel is inputted, change hotbar index
         if (Mouse.current.scroll.ReadValue().normalized.y > 0)
@@ -147,7 +147,7 @@ public class PlayerControls : MonoBehaviour
             if (PlayerTimer.canCast(PlayerScript.spellIndex) && shoot.ReadValue<float>() > 0.0f)
             {
                 GameObject spell = spells[PlayerScript.spellIndex];
-                Instantiate(spell, transform.position, transform.rotation);
+                Instantiate(spell, transform.position, Quaternion.Euler(Vector3.Normalize(PlayerScript.getWorldCursorPoint() - transform.position)));
                 PlayerTimer.activateSpellCooldown(PlayerScript.spellIndex);
             }
         }
