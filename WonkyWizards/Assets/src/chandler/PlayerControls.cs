@@ -125,7 +125,6 @@ public class PlayerControls : MonoBehaviour
     void Start()
     {
         PlayerScript.setBuildMode(true);
-        PlayerScript.dashtimer = dashreset;
     }
 
     // Update is called once per frame
@@ -398,7 +397,7 @@ public class PlayerControls : MonoBehaviour
     // when F4 is pressed, ready up
     private void OnReadyUp(InputAction.CallbackContext obj)
     {
-        Debug.Log("Ready Up");
+        GameManager.ChangeState(GameState.PLAY);
     }
 
     // handles disabling unity input package scheme
