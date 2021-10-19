@@ -40,7 +40,9 @@ public class GruntHealthBarManager : MonoBehaviour
 
     }
 
-    //Calling this func will return float of remaining hp / total hp
+    /// <summary>
+    /// Calling this function will return float of enemy remaining hp / total hp
+    /// </summary>
     float CalcHealthDecimal()
     {
         //lost an hour of my time due to int truncation debugging AHHHHHHHHHHH why am I coding at 1am
