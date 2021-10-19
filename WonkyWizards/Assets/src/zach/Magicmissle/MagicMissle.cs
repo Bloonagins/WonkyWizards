@@ -6,7 +6,7 @@ public class MagicMissle : Spells
 {
     public MagicMissle()
     {
-        speed = 20.0f;
+        speed = 100.0f;
         DAMAGE = 80;
         COOL_DOWN = 1.1f;
         KNOCK_BACK = 100.0f;
@@ -15,10 +15,7 @@ public class MagicMissle : Spells
     //-----------Firing-------------
     void Awake()
     {
-        var player = GameObject.FindWithTag("Player");
-        firePoint = player.transform; //get player position/rotation
-        Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
-        rb.AddForce(firePoint.right * this.speed, ForceMode2D.Impulse);
+        Cast();
     }
 
     //-----------Behaviour-------------
