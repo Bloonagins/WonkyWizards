@@ -66,9 +66,9 @@ public class EnemyTargeting : MonoBehaviour
             agent.speed = gameObject.GetComponent<GoblinBerserker>().GetMoveSpeed(); 
             agent.acceleration = gameObject.GetComponent<GoblinBerserker>().GetMoveSpeed();
         }
-        else if(gameObject.GetComponent<GoblinAssasin>()) { // Set GoblinAssasin speed
-            agent.speed = gameObject.GetComponent<GoblinAssasin>().GetMoveSpeed(); 
-            agent.acceleration = gameObject.GetComponent<GoblinAssasin>().GetMoveSpeed();
+        else if(gameObject.GetComponent<GoblinAssassin>()) { // Set GoblinAssasin speed
+            agent.speed = gameObject.GetComponent<GoblinAssassin>().GetMoveSpeed(); 
+            agent.acceleration = gameObject.GetComponent<GoblinAssassin>().GetMoveSpeed();
             isDash = true;
         }
     }
@@ -84,8 +84,8 @@ public class EnemyTargeting : MonoBehaviour
             agent.SetDestination(goal.position);
         }
         // Check if GoblinAssasin and is in range
-        if (isDash && gameObject.GetComponent<GoblinAssasin>().canDash() && distanceFrom < dashDistance) {
-            gameObject.GetComponent<GoblinAssasin>().ApplyDash(player.position);
+        if (isDash && gameObject.GetComponent<GoblinAssassin>().canDash() && distanceFrom < dashDistance) {
+            gameObject.GetComponent<GoblinAssassin>().ApplyDash(player.position);
         }
     }
 }
