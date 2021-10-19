@@ -1,15 +1,14 @@
 /**********************************************
-| GoblinBerserker V1.0.0                      |
+| GoblinAssasin V1.0.0                        |
 | Author: David Bush, T5                      |
-| Description: This is the GoblinBerserker    |
+| Description: This is the GoblinAssasin      |
 | class that inherits from the Enemy          |
 | superclass. This will contain all variables |
 | and methods associtiated with the           |
-| GoblinBerserker enemy type. Each            |
-| GoblinBerserker has the unique ability Rage |
-| Mode. When it is hit by a spell it's damage |
-| and speed increase by a flat ammount each   |
-| time.                                       |         
+| GoblinAssasin enemy type. Each GoblinAssasin| 
+| has the unique dash ability. When it is     | 
+| within a certain range from the player the  |
+| Assasain dashes forward towards the player. |
 | Bugs:                                       |
 **********************************************/
 using System.Collections;
@@ -20,7 +19,12 @@ public class GoblinAssasin : Enemy
 {
     // Used to store RigidBody2d Component
     private Rigidbody2D rb;
-    // Used to store Agent component
+    //
+    private float dashAmount;
+    //
+    private float dashCD;
+    //
+    private float dashTimer;
 
     // Constructor for GoblinAssasin
     public GoblinAssasin()
@@ -29,7 +33,9 @@ public class GoblinAssasin : Enemy
         damage = 70;
         move_speed = 20f;
         attack_speed = attackTimer = 1.25f; // 3,360 damage per minute
+        dashCD = dashTimer = 3f;
         attackConnected = false;
+        dashAmount = 100f;
         knock_back = 200f;
     }
     
@@ -43,8 +49,12 @@ public class GoblinAssasin : Enemy
     // Increments the timers if they're on a cooldown
     void FixedUpdate()
     {
-        if (attackTimer <= attack_speed) {
+        // Check timers, and increment time
+        if (attackTimer <= attack_speed) { 
             attackTimer += Time.fixedDeltaTime;
+        }
+        if (dashTimer <= dashCD) {
+            dashTimer += Time.fixedDeltaTime;
         }
     }
     // Update is called once per frame
@@ -100,6 +110,16 @@ public class GoblinAssasin : Enemy
         }
     }
 
+
+    //
+    public void ApplyDash(Vector3 player_position) {
+        dashTimer = 0f;
+        rb.AddForce((player_position - transform.position) * dashAmount , ForceMode2D.Impulse);
+    }
+    //
+    public bool canDash() {
+        return dashTimer >= dashCD;
+    }
     // Keeps track of when enemy can attack
     public bool canAttack()
     {
@@ -168,5 +188,9 @@ public class GoblinAssasin : Enemy
     public float GetAttackTimer()
     {
         return attackTimer;
+    }
+    public float GetDashTimer()
+    {
+        return dashTimer;
     }
 }

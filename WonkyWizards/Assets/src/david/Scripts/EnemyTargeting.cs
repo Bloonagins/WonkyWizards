@@ -22,19 +22,28 @@ public class EnemyTargeting : MonoBehaviour
     private Transform goal;
     // enemy agent component
     NavMeshAgent agent;
+    
+    // Distance enemy is from the player 
+    private float distanceFrom;
     // Distance where enemy switches to targeting player
     private float targetDistance;
     // The minimum distance reached before stopping
     private float stoppingDistance;
+    // The distance the GoblinAssasin needs to be in order to dash
+    private float dashDistance;
     // The timer for when enemy can be knocked back
     private float timer;
-    // Time knockback is delayed
+    // Keep track if GoblinAssasin
+    private bool isDash;
 
     // Start is called before the first frame update
     void Start()
     {
+        distanceFrom = 0f;
         targetDistance = 15f;
         stoppingDistance = 1f;
+        dashDistance = 5f;
+        isDash = false;
 
         // Get the target players component
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
@@ -60,17 +69,23 @@ public class EnemyTargeting : MonoBehaviour
         else if(gameObject.GetComponent<GoblinAssasin>()) { // Set GoblinAssasin speed
             agent.speed = gameObject.GetComponent<GoblinAssasin>().GetMoveSpeed(); 
             agent.acceleration = gameObject.GetComponent<GoblinAssasin>().GetMoveSpeed();
+            isDash = true;
         }
     }
     
     // Update is called once per frame
     void Update(){
+        distanceFrom = Vector2.Distance(transform.position, player.position);
         // Check if enemy is within range of player
-        if(Vector2.Distance(transform.position, player.position) < targetDistance) {
+        if(distanceFrom < targetDistance) {
             agent.SetDestination(player.position);
         }
         else {
             agent.SetDestination(goal.position);
+        }
+        // Check if GoblinAssasin and is in range
+        if (isDash && gameObject.GetComponent<GoblinAssasin>().canDash() && distanceFrom < dashDistance) {
+            gameObject.GetComponent<GoblinAssasin>().ApplyDash(player.position);
         }
     }
 }
