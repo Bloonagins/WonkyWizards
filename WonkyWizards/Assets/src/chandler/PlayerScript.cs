@@ -88,9 +88,9 @@ public class PlayerScript : MonoBehaviour
                     damagePlayer(enemy.GetDamage());
                     rb.AddForce((other.transform.position - transform.position) * enemy.GetKnockBack() * -1.0f, ForceMode2D.Impulse);
                 }
-                else if (other.GetComponent<GoblinAssasin>())
+                else if (other.GetComponent<GoblinAssassin>())
                 {
-                    GoblinAssasin enemy = other.GetComponent<GoblinAssasin>();
+                    GoblinAssasin enemy = other.GetComponent<GoblinAssassin>();
                     damagePlayer(enemy.GetDamage());
                     rb.AddForce((other.transform.position - transform.position) * enemy.GetKnockBack() * -1.0f, ForceMode2D.Impulse);
                 }
