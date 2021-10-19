@@ -70,7 +70,7 @@ public class Spells : MonoBehaviour
     {
         firePoint = projectile.transform;
         Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
-        rb.AddForce(firePoint.right * this.speed, ForceMode2D.Impulse);
+        rb.AddForce(firePoint.forward * this.speed, ForceMode2D.Impulse);
     }
 }
 
