@@ -196,54 +196,46 @@ public class PlayerControls : MonoBehaviour
             GameObject summon = summons[PlayerScript.summonIndex];
             if (summon != null)
             {
-                // if there isn't already a summon in this location
-                RaycastHit2D hit = Physics2D.Raycast(PlayerScript.getWorldCursorPoint(), Vector2.down);
+                RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
 
-                // if the player has enough mana
-                if (hit.collider)
+                // if the raycast either hits nothing, or the thing it hit wasn't a summon
+                if
+                (hit.collider == null || hit.collider.tag != "Summon")
                 {
                     if (PlayerScript.getMana() >= summon.GetComponent<Summon>().getCost())
                     {
-                        if (hit.transform.tag == "Summon")
+                        // if the cursor is within the bounds of the level
+                        if (PlayerScript.cursorWithinBounds())
                         {
-                            Debug.Log("Spot already taken");
-                        }
-                        else
-                        {
-                            // if the cursor is within the bounds of the level
-                            if (PlayerScript.cursorWithinBounds())
-                            {
-                                Tuple<int, int> summonPosition = new Tuple<int, int>
-                                (
-                                    (int)PlayerScript.getArrayCursorPoint().y,
-                                    (int)PlayerScript.getArrayCursorPoint().x
-                                );
+                            Tuple<int, int> summonPosition = new Tuple<int, int>
+                            (
+                                (int)PlayerScript.getArrayCursorPoint().y,
+                                (int)PlayerScript.getArrayCursorPoint().x
+                            );
 
-                                // if the square is a valid location, then attempt to place the summon, and if that succeeds, spend mana
-                                if (Summon.attemptPlacement(summon, PlayerScript.getGridCursorPoint(), summonPosition))
-                                {
-                                    PlayerScript.spendMana(summon.GetComponent<Summon>().getCost());
-                                }
-                                else
-                                {
-                                    Debug.Log("Invalid Position");
-                                }
+                            // if the square is a valid location, then attempt to place the summon, and if that succeeds, spend mana
+                            if (Summon.attemptPlacement(summon, PlayerScript.getGridCursorPoint(), summonPosition))
+                            {
+                                PlayerScript.spendMana(summon.GetComponent<Summon>().getCost());
                             }
                             else
                             {
-                                Debug.Log("Cursor Out of Bounds");
+                                Debug.Log("Invalid Position");
                             }
+                        }
+                        else
+                        {
+                            Debug.Log("Cursor Out of Bounds");
                         }
                     }
                     else
                     {
                         Debug.Log("Not enough mana");
                     }
-                    
                 }
                 else
                 {
-                    Debug.Log("Raycast missed");
+                    Debug.Log("Raycast hit. tag: " + hit.transform.tag);
                 }
             }
             else
@@ -258,19 +250,15 @@ public class PlayerControls : MonoBehaviour
     {
         if (PlayerScript.isInBuildMode())
         {
-            // create a ray cast based on the mouse location, pointing down
-            RaycastHit2D hit = Physics2D.Raycast(PlayerScript.getWorldCursorPoint(), Vector2.down);
+            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
 
-            // if that ray cast hit something...
-            if (hit.collider)
+            // if that ray cast hit a Summon...
+            if
+            (hit.collider != null && hit.collider.tag == "Summon")
             {
-                // check if it's a summon
-                if (hit.transform.tag == "Summon")
-                {
-                    // if it is then give the player their mana back and delete it
-                    PlayerScript.giveMana(hit.transform.gameObject.GetComponent<Summon>().getCost());
-                    Destroy(hit.transform.gameObject);
-                }
+                // if it is then give the player their mana back and delete it
+                PlayerScript.giveMana(hit.transform.gameObject.GetComponent<Summon>().getCost());
+                Destroy(hit.transform.gameObject);
             }
         }
     }
@@ -281,17 +269,13 @@ public class PlayerControls : MonoBehaviour
         if (PlayerScript.isInBuildMode())
         {
             // create a ray cast based on the mouse location pointing down
-            RaycastHit2D hit = Physics2D.Raycast(PlayerScript.getWorldCursorPoint(), Vector2.down);
+            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
 
-            // if that ray cast hit something...
-            if (hit.collider)
+            // if that ray cast hit a summon...
+            if (hit.collider != null && hit.collider.tag == "Summon")
             {
-                // check if it's a summon
-                if (hit.transform.tag == "Summon")
-                {
-                    // if it is a summon then change that summon's targetting mode
-                    hit.transform.gameObject.GetComponent<Summon>().cycleTargetMode();
-                }
+                // then change that summon's targetting mode
+                hit.transform.gameObject.GetComponent<Summon>().cycleTargetMode();
             }
         }
     }
@@ -299,7 +283,10 @@ public class PlayerControls : MonoBehaviour
     // when R is pressed, switch from summon building mode to spell casting mode and vice versa
     private void OnSwitchMagicMode(InputAction.CallbackContext obj)
     {
-        PlayerScript.flipBuildMode();
+        if (GameManager.CheckState() == GameState.SETUP)
+        {
+            PlayerScript.flipBuildMode();
+        }
     }
 
     // when one of the alpha number keys is pressed, change the hotbar index to that number
