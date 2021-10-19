@@ -12,6 +12,13 @@ public class Summon : MonoBehaviour
     protected GameObject projectilePrefab;
 
     protected int health;
+    protected enum targetingMode {
+        WEAK,
+        STRONG,
+        FIRST,
+        LAST
+    }
+    protected targetingMode tm = targetingMode.FIRST;
 
     // init
     public virtual void Start()
@@ -99,6 +106,12 @@ public class Summon : MonoBehaviour
         {
             return false;
         }
+    }
+
+    public void cycleTargetMode()
+    {
+        if (tm == targetingMode.LAST) tm = targetingMode.WEAK;
+        else tm++;
     }
     public static bool isTraversable(bool[,] grid, int rows, int cols, Tuple<int, int> start, Tuple<int, int> goal)
     {
