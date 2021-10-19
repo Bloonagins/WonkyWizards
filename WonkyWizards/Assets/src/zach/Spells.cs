@@ -68,9 +68,11 @@ public class Spells : MonoBehaviour
 
     public void Cast()
     {
-        firePoint = projectile.transform;
+        var player = GameObject.FindWithTag("Player");
+        firePoint = player.transform; //get player position/rotation
         Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
         rb.AddForce(firePoint.right * this.speed, ForceMode2D.Impulse);
     }
+
 }
 
