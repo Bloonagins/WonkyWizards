@@ -3,43 +3,41 @@ using System.Collections;
 using UnityEngine;
 
 public class Summon : MonoBehaviour
+
 {
+    public static LevelManager lm;
     public static Vector3 gridCursorPoint;
-    private int health;
 
-    Vector3 offset;
+    protected GameObject summonPrefab;
+    protected GameObject projectilePrefab;
 
-    // Start is called before the first frame update
-    void Start()
+    protected int health;
+
+    // init
+    public virtual void Start()
     {
         health = this.getMaxHealth();
+        lm = GameObject.FindGameObjectsWithTag("LevelManager")[0].GetComponent<LevelManager>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+    // constants
+    public virtual string getDisplayName() { return "Summon"; }
+    public virtual int getCost() { return 0; }
 
-    }
 
-    public virtual int getCost()
-    {
-        return 0;
-    }
 
-    public virtual int getMaxHealth()
-    {
-        return 0;
-    }
+    public virtual int getMaxHealth() { return 0; }
+
+    public virtual GameObject getSummonPrefab() { return summonPrefab; }
+    public virtual GameObject getProjectilePrefab() { return projectilePrefab; }
+
 
     public int getHealth ()
     {
         return this.health;
     }
 
-    public void resetSummonHP ()
-    {
-        this.health = getMaxHealth();
-    }
+    public void resetSummonHP () { this.health = getMaxHealth(); }
 
     public void takeDamage(int damage)
     {
@@ -52,6 +50,7 @@ public class Summon : MonoBehaviour
         this.health += healing;
         this.health = Math.Max(0, Math.Min(100, this.health));
     }
+
 
     // Snaps a Vector3 to a grid
     public static Vector3 SnapOffset(Vector3 vec, Vector3 offset, float gridSize = 1.0f)
@@ -67,26 +66,27 @@ public class Summon : MonoBehaviour
     // Returns whether or not the current grid plus one more spot is be placeable
     public static bool attemptPlacement(GameObject summon, Vector3 worldPos, Tuple<int, int> pos)
     {
+        // check that the position isn't null
         if (pos == null)
         {
-            //Debug.Log("Invalid new position (null): " + pos);
             return false;
         }
 
         // now test array with new pos added:
         // copy array to test on
         bool[,] newArray = GameManager.getPlacementGrid().Clone() as bool[,];
+        //print2DArray(GameManager.getPlacementGrid());
 
         // add the proposed new position to the new array
         newArray[pos.Item1, pos.Item2] = false;
 
         // then test that the new grid is traversable
         //print2DArray(newArray);
-        if (isTraversable(  newArray,
-                            LevelManager.getLevelRows(),
-                            LevelManager.getLevelCols(),
-                            LevelManager.getEnemySpawnPoint(),
-                            LevelManager.getLevelGoal()
+        if (isTraversable(newArray,
+                            lm.getLevelRows(),
+                            lm.getLevelCols(),
+                            lm.getEnemySpawnPoint(),
+                            lm.getLevelGoal()
         ))
         {
             GameManager.occupySpace(pos);
@@ -97,7 +97,6 @@ public class Summon : MonoBehaviour
         }
         else
         {
-            //Debug.Log("[Summon.cs] not traversable");
             return false;
         }
     }
@@ -153,15 +152,21 @@ public class Summon : MonoBehaviour
         // Goal position was never found
         return false;
     }
-
     private static void print2DArray (bool[,] array)
     {
-        for (int i = 0; i < LevelManager.getLevelRows(); i++)
+        Debug.Log("Array:\n");
+        String s = "";
+        for (int i = 0; i < array.GetLength(0); i++)
         {
-            for (int j = 0; j < LevelManager.getLevelCols(); j++)
+            s += "[";
+            for (int j = 0; j < array.GetLength(1); j++)
             {
-                Debug.Log("array[" + i + ", " + j + "] = " + array[i, j]);
+                s +=  array[i, j] ? "O" : "X";
+                s += " ";
+                //Console.Write((array[i, j] ? "1" : "X") + ", ");
             }
+            s += "]\n";
+            Debug.Log(s);
         }
     }
 }
