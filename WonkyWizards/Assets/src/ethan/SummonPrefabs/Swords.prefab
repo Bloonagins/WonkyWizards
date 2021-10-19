@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 2725990468511589283}
   - component: {fileID: 2725990468511589280}
   - component: {fileID: -1658140394998652667}
-  - component: {fileID: 7588705184641311272}
+  - component: {fileID: -8708791163814019447}
   m_Layer: 0
-  m_Name: Barrier
+  m_Name: Swords
   m_TagString: Summon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 0.6037736, g: 0.6037736, b: 0.6037736, a: 1}
+  m_Color: {r: 0.9507383, g: 1, b: 0.7688679, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Area: 1
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
---- !u!114 &7588705184641311272
+--- !u!114 &-8708791163814019447
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,6 +158,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 2725990468511589311}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2868f842acf288846b43abf16733d443, type: 3}
+  m_Script: {fileID: 11500000, guid: f3c5b8386a0b2b342a1a3aef18e04124, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
