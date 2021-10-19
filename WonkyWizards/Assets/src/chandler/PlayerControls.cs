@@ -196,12 +196,13 @@ public class PlayerControls : MonoBehaviour
             GameObject summon = summons[PlayerScript.summonIndex];
             if (summon != null)
             {
+                // if there isn't already a summon in this location
+                RaycastHit2D hit = Physics2D.Raycast(PlayerScript.getWorldCursorPoint(), Vector2.down);
+
                 // if the player has enough mana
-                if (PlayerScript.getMana() >= summon.GetComponent<Summon>().getCost())
+                if (hit.collider)
                 {
-                    // if there isn't already a summon in this location
-                    RaycastHit2D hit = Physics2D.Raycast(PlayerScript.getWorldCursorPoint(), Vector2.down);
-                    if (hit.collider)
+                    if (PlayerScript.getMana() >= summon.GetComponent<Summon>().getCost())
                     {
                         if (hit.transform.tag == "Summon")
                         {
@@ -236,13 +237,13 @@ public class PlayerControls : MonoBehaviour
                     }
                     else
                     {
-                        Debug.Log("Raycast missed");
+                        Debug.Log("Not enough mana");
                     }
                     
                 }
                 else
                 {
-                    Debug.Log("Not enough mana");
+                    Debug.Log("Raycast missed");
                 }
             }
             else
