@@ -17,6 +17,8 @@ TagManager:
   - SpawnPointEntrance
   - SpawnPointWall
   - Zone
+  - LevelManager
+  - GameManager
   layers:
   - Default
   - TransparentFX
