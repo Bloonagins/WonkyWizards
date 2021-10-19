@@ -129,7 +129,7 @@ public class PlayerControls : MonoBehaviour
         // gets the coordinates of the cursor
         PlayerScript.setScreenCursorPoint(Mouse.current.position.ReadValue());
         // rotates the player towards the cursor
-        //transform.eulerAngles = Vector3.forward * PlayerScript.getCursorAngle();
+        transform.eulerAngles = Vector3.forward * PlayerScript.getCursorAngle();
 
         // when scroll wheel is inputted, change hotbar index
         if (Mouse.current.scroll.ReadValue().normalized.y > 0)
