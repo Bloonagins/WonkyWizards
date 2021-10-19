@@ -5,7 +5,7 @@ using UnityEngine;
 public class Summon : MonoBehaviour
 
 {
-    public static LevelManager lm;
+    //public static LevelManager lm;
     public static Vector3 gridCursorPoint;
 
     protected GameObject summonPrefab;
@@ -24,7 +24,7 @@ public class Summon : MonoBehaviour
     public virtual void Start()
     {
         health = this.getMaxHealth();
-        lm = GameObject.FindGameObjectsWithTag("LevelManager")[0].GetComponent<LevelManager>();
+        //lm = GameObject.FindGameObjectsWithTag("LevelManager")[0].GetComponent<LevelManager>();
     }
 
     // constants
@@ -90,10 +90,10 @@ public class Summon : MonoBehaviour
         // then test that the new grid is traversable
         //print2DArray(newArray);
         if (isTraversable(newArray,
-                            lm.getLevelRows(),
-                            lm.getLevelCols(),
-                            lm.getEnemySpawnPoint(),
-                            lm.getLevelGoal()
+                            LevelManager.getLevelRows(),
+                            LevelManager.getLevelCols(),
+                            LevelManager.getEnemySpawnPoint(),
+                            LevelManager.getLevelGoal()
         ))
         {
             GameManager.occupySpace(pos);
