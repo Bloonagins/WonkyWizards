@@ -257,10 +257,8 @@ public class PlayerControls : MonoBehaviour
     {
         if (PlayerScript.isInBuildMode())
         {
-            Debug.Log("Delete Summon");
-
             // create a ray cast based on the mouse location, pointing down
-            RaycastHit2D hit = Physics2D.Raycast(PlayerScript.getWorldCursorPoint(), -Vector2.up);
+            RaycastHit2D hit = Physics2D.Raycast(PlayerScript.getWorldCursorPoint(), Vector2.down);
 
             // if that ray cast hit something...
             if (hit.collider)
@@ -279,7 +277,22 @@ public class PlayerControls : MonoBehaviour
     // when E is pressed, switch the targetting mode of the summon that the mouse was hovering over when E was pressed
     private void OnSwitchTarget(InputAction.CallbackContext obj)
     {
-        Debug.Log("Switch Target");
+        if (PlayerScript.isInBuildMode())
+        {
+            // create a ray cast based on the mouse location pointing down
+            RaycastHit2D hit = Physics2D.Raycast(PlayerScript.getWorldCursorPoint(), Vector2.down);
+
+            // if that ray cast hit something...
+            if (hit.collider)
+            {
+                // check if it's a summon
+                if (hit.transform.tag == "Summon")
+                {
+                    // if it is a summon then change that summon's targetting mode
+                    hit.transform.gameObject.GetComponent<Summon>().cycleTargetMode();
+                }
+            }
+        }
     }
 
     // when R is pressed, switch from summon building mode to spell casting mode and vice versa
