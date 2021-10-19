@@ -15,7 +15,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class GoblinAssasin : Enemy
+public class GoblinAssassin : Enemy
 {
     // Used to store RigidBody2d Component
     private Rigidbody2D rb;
@@ -27,7 +27,7 @@ public class GoblinAssasin : Enemy
     private float dashTimer;
 
     // Constructor for GoblinAssasin
-    public GoblinAssasin()
+    public GoblinAssassin()
     {
         max_health = health = 300;
         damage = 70;
