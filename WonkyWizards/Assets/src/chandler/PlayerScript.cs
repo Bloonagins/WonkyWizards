@@ -19,8 +19,6 @@ public class PlayerScript : MonoBehaviour
     private static float cursorAngle;
     // player's rigidbody component
     public Rigidbody2D rb;
-    // speed of the player
-    public float movementspeed;
     // player's health and mana point values
     private static int MAXHP = 1000;
     private static int hp = 1000;
@@ -227,7 +225,7 @@ public class PlayerScript : MonoBehaviour
     private void calculateCursorAngle()
     {
         Vector3 difference = worldCursorPoint - transform.position;
-        float angle = (float) (Math.Atan(difference.y / difference.x) * (180 / Math.PI));
+        float angle = (float)(Math.Atan(difference.y / difference.x) * (180 / Math.PI));
 
         if (difference.x < 0)
         {

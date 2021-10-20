@@ -49,11 +49,9 @@ public class PlayerControls : MonoBehaviour
     // player's rigidbody component
     private Rigidbody2D rb;
     // speed of the player (30)
-    public float movementspeed;
+    public float movementSpeed;
     // dash speed of the player (600)
-    public float dashspeed;
-    // time allowed until player is allowed to dash again (2)
-    public float dashreset;
+    public float dashSpeed;
     // links to spell prefabs
     public GameObject[] spells = new GameObject[5];
     // links to summon prefabs
@@ -157,23 +155,7 @@ public class PlayerControls : MonoBehaviour
     void FixedUpdate()
     {
         // reads WASD input from the player, multiplies that input by the movement speed, and moves the player that direction
-        rb.AddForce(movement.ReadValue<Vector2>() * movementspeed, ForceMode2D.Impulse);
-    }
-
-    // returns the angle between the cursor and the player
-    private float getCursorAngle()
-    {
-        Vector3 difference = PlayerScript.getWorldCursorPoint() - transform.position;
-        float angle = (float)((180 / Math.PI) * Math.Atan((double)(difference.y / difference.x)));
-        if (difference.x < 0.0f && difference.y > 0.0f)
-        {
-            angle += 180.0f;
-        }
-        else if (difference.x < 0.0f && difference.y < 0.0f)
-        {
-            angle -= 180.0f;
-        }
-        return angle;
+        rb.AddForce(movement.ReadValue<Vector2>() * movementSpeed, ForceMode2D.Impulse);
     }
 
     // when space is pressed, add a big force to the player to make them dash
@@ -181,7 +163,7 @@ public class PlayerControls : MonoBehaviour
     {
         if (PlayerTimer.canDash() && movement.ReadValue<Vector2>() != Vector2.zero)
         {
-            rb.AddForce(movement.ReadValue<Vector2>() * dashspeed, ForceMode2D.Impulse);
+            rb.AddForce(movement.ReadValue<Vector2>() * dashSpeed, ForceMode2D.Impulse);
             PlayerTimer.activateDashCooldown();
         }
     }
