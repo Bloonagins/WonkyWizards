@@ -25,7 +25,7 @@ public class GoblinGrunt : MonoBehaviour
     public GoblinGrunt()
     {
         // Set initial values of goblinGruntData class
-        this.goblinGruntData = new GoblinGruntData(200, 200, 30, 18f, 1.5f, 1.5f, 300f, false);
+        this.goblinGruntData = new GoblinGruntData(200, 200, 30, 18f, 1.5f, 1.5f, 300f, 20f, false);
     }
     
     // Start is called before the first frame update
@@ -160,5 +160,9 @@ public class GoblinGrunt : MonoBehaviour
     public float GetAttackTimer()
     {
         return this.goblinGruntData.GetAttackTimer();
+    }
+    public float GetTargetDistance() 
+    {
+        return this.goblinGruntData.GetTargetDistance();
     }
 }
