@@ -171,15 +171,15 @@ MonoBehaviour:
   - {fileID: 0}
   summons:
   - {fileID: 2725990468511589311, guid: e9aad49c3fc09ae4f826f408d1209952, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2725990468511589311, guid: c528b6ab0232e78449239de932b371c2, type: 3}
+  - {fileID: 2725990468511589311, guid: 984b9c785b280734d945d72c81e1599b, type: 3}
+  - {fileID: 2725990468511589311, guid: 586a281d83e0ee14986e6b7d1b26513d, type: 3}
+  - {fileID: 2725990468511589311, guid: dda03787254cab64a9999f04ff0a371c, type: 3}
+  - {fileID: 2725990468511589311, guid: 0f399f3ed9344604fbf6e87526bbdc83, type: 3}
+  - {fileID: 2725990468511589311, guid: 528e661e643979f42867406082b20dc8, type: 3}
+  - {fileID: 2725990468511589311, guid: 8f3fd03f863544649913fd54c1e51875, type: 3}
+  - {fileID: 2725990468511589311, guid: 1871d357b793fb64dbb66bc0f5449213, type: 3}
+  - {fileID: 2725990468511589311, guid: 032fc42e515bfba428645c94a6abf9d4, type: 3}
   boss: {fileID: 1637366806030073435, guid: 1522dd5d51500514189be6d084617a7c, type: 3}
 --- !u!114 &-3251849990200032654
 MonoBehaviour:
