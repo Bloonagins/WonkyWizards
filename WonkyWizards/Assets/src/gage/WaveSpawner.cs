@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEditor;
+
 [System.Serializable]
 
 public class Wave
@@ -19,6 +21,7 @@ public class WaveSpawner : MonoBehaviour
     private bool canSpawn = true;
     private float nextSpawnTime, currentSpawnTime;
     //private float timer;
+    //private GameObject GoblinGrunt = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/src/david/Prefab/GoblinGrunt.prefab");
 
     private void Start()
     {
@@ -29,21 +32,24 @@ public class WaveSpawner : MonoBehaviour
     private void FixedUpdate()
     {
         currentWave = waves[currentWaveNumber];
-
-        if (currentSpawnTime > 0)
+        // check gamestate
+        if (GameManager.CheckState() == GameState.PLAY)
         {
-            currentSpawnTime -= Time.fixedDeltaTime; // decrement the timer
-        }
-        else
-        {
-            SpawnWave();
-            if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0 && !canSpawn && currentWaveNumber+1 != waves.Length)
+            if (currentSpawnTime > 0)
             {
-                currentWaveNumber++;
-                canSpawn = true;
+                currentSpawnTime -= Time.fixedDeltaTime; // decrement the timer
             }
-            currentSpawnTime += nextSpawnTime; // increment the time
-        } 
+            else
+            {
+                SpawnWave();
+                if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0 && !canSpawn && currentWaveNumber + 1 != waves.Length)
+                {
+                    currentWaveNumber++;
+                    canSpawn = true;
+                }
+                currentSpawnTime += nextSpawnTime; // increment the time
+            }
+        }
     }
 
     void SpawnWave()
@@ -59,6 +65,8 @@ public class WaveSpawner : MonoBehaviour
             if(currentWave.numberOfEnemies == 0)
             {
                 canSpawn = false;
+                // Set gamestate to setup
+                GameManager.ChangeState(GameState.SETUP);
             }
         }
     }
