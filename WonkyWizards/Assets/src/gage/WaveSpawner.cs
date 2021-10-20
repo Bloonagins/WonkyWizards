@@ -44,6 +44,7 @@ public class WaveSpawner : MonoBehaviour
                 SpawnWave();
                 if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0 && !canSpawn && currentWaveNumber + 1 != waves.Length)
                 {
+                    GameManager.ChangeState(GameState.SETUP);
                     currentWaveNumber++;
                     canSpawn = true;
                 }
@@ -65,8 +66,6 @@ public class WaveSpawner : MonoBehaviour
             if(currentWave.numberOfEnemies == 0)
             {
                 canSpawn = false;
-                // Set gamestate to setup
-                GameManager.ChangeState(GameState.SETUP);
             }
         }
     }
