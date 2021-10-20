@@ -19,23 +19,27 @@ public class GoblinAssassin : Enemy
 {
     // Used to store RigidBody2d Component
     private Rigidbody2D rb;
+    // The distance the GoblinAssasin needs to be in order to dash
+    private float dashDistance;
     // The dash amount applied to the unit
     private float dashAmount;
-    // The dash timer
+    // The dash cool down
     private float dashCD;
-    //
+    // The dash cool down timer
     private float dashTimer;
 
     // Constructor for GoblinAssasin
     public GoblinAssassin()
     {
-        max_health = health = 300;
+        max_health = health = 350;
         damage = 70;
         move_speed = 20f;
         attack_speed = attackTimer = 1.25f; // 3,360 damage per minute
+        dashDistance = 8f;
+        dashAmount = 150f;
         dashCD = dashTimer = 3f;
+        targetDistance = 25f;
         attackConnected = false;
-        dashAmount = 100f;
         knock_back = 200f;
     }
     
@@ -192,5 +196,12 @@ public class GoblinAssassin : Enemy
     public float GetDashTimer()
     {
         return dashTimer;
+    }
+    public float GetDashDistance() {
+        return dashDistance;
+    }
+    public float GetTargetDistance() 
+    {
+        return targetDistance;
     }
 }

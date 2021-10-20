@@ -40,9 +40,7 @@ public class EnemyTargeting : MonoBehaviour
     void Start()
     {
         distanceFrom = 0f;
-        targetDistance = 15f;
         stoppingDistance = 1f;
-        dashDistance = 5f;
         isDash = false;
 
         // Get the target players component
@@ -57,18 +55,20 @@ public class EnemyTargeting : MonoBehaviour
         agent.SetDestination(goal.position);
         
         if(gameObject.GetComponent<GoblinGrunt>()) { // Set GoblinGrunts speed
-            //Debug.Log("Speed before "+agent.speed);
             agent.speed = gameObject.GetComponent<GoblinGrunt>().GetMoveSpeed(); 
             agent.acceleration = gameObject.GetComponent<GoblinGrunt>().GetMoveSpeed();
-            //Debug.Log("Speed after "+agent.speed);
+            targetDistance = gameObject.GetComponent<GoblinGrunt>().GetTargetDistance();
         }
         else if(gameObject.GetComponent<GoblinBerserker>()) { // Set GoblinBerserkers speed
             agent.speed = gameObject.GetComponent<GoblinBerserker>().GetMoveSpeed(); 
             agent.acceleration = gameObject.GetComponent<GoblinBerserker>().GetMoveSpeed();
+            targetDistance = gameObject.GetComponent<GoblinBerserker>().GetTargetDistance();
         }
         else if(gameObject.GetComponent<GoblinAssassin>()) { // Set GoblinAssasin speed
             agent.speed = gameObject.GetComponent<GoblinAssassin>().GetMoveSpeed(); 
             agent.acceleration = gameObject.GetComponent<GoblinAssassin>().GetMoveSpeed();
+            targetDistance = gameObject.GetComponent<GoblinAssassin>().GetTargetDistance();
+            dashDistance = gameObject.GetComponent<GoblinAssassin>().GetDashDistance();
             isDash = true;
         }
     }

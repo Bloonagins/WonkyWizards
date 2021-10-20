@@ -23,6 +23,9 @@ public class Enemy : MonoBehaviour
 
     protected float attackTimer; // Keeps track of when enemy can attack
 
+    protected float targetDistance; // The distance the enemy starts targeting the player
+
+
     protected bool attackConnected; // Keeps attack if attack was successful
 
     protected float knock_back; // Ammount of knockback applied
@@ -30,12 +33,12 @@ public class Enemy : MonoBehaviour
     // Basic constructor for Enemy class
     public Enemy()
     {
-        max_health = 100;
-        health = 100;
+        max_health = health = 100;
         damage = 10;
         move_speed = 10;
         attack_speed = 1f;
         knock_back = 200f;
+        targetDistance = 20f;
     }
 
     // Methods

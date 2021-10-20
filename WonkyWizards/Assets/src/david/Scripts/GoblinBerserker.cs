@@ -31,12 +31,13 @@ public class GoblinBerserker : Enemy
     // Constructor for GoblinBerserker
     public GoblinBerserker()
     {
-        max_health = health = 350;
+        max_health = health = 400;
         damage = 50;
         damage_boost = 5; 
         move_speed = 14f;
         speed_boost = 2f;
         attack_speed = attackTimer = 1.75f; // 1714 damage per minute
+        targetDistance = 25f;
         attackConnected = false;
         knock_back = 400f;
     }
@@ -188,5 +189,9 @@ public class GoblinBerserker : Enemy
     public float GetAttackTimer()
     {
         return attackTimer;
+    }
+    public float GetTargetDistance() 
+    {
+        return targetDistance;
     }
 }
