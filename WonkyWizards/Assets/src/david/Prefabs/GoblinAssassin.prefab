@@ -51,7 +51,7 @@ GameObject:
   - component: {fileID: 8841862072547253747}
   - component: {fileID: 5679443668606760242}
   - component: {fileID: 8068250305859373846}
-  - component: {fileID: 6203181493055159963}
+  - component: {fileID: 5929119600111266796}
   - component: {fileID: 1372187253646703851}
   m_Layer: 0
   m_Name: GoblinAssassin
@@ -200,7 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70af82fa41a6c414599d6c1495f3eeac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6203181493055159963
+--- !u!114 &5929119600111266796
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -209,7 +209,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3672392477358822573}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b962388d6ce39bf43801c7c1a9eef8d2, type: 3}
+  m_Script: {fileID: 11500000, guid: a2d77c2432221ed40bcb33690c134377, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   HealthBarUI: {fileID: 8681959096110295012}

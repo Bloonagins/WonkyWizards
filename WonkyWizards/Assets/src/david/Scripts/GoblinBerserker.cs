@@ -56,8 +56,8 @@ public class GoblinBerserker : Enemy
         if (attackTimer <= attack_speed) {
             attackTimer += Time.fixedDeltaTime;
         }
-        Debug.Log("Current Damage: "+GetDamage());
-        Debug.Log("Current speed: "+agent.acceleration);
+        //Debug.Log("Current Damage: "+GetDamage());
+        //Debug.Log("Current speed: "+agent.acceleration);
     }
     // Update is called once per frame
     void Update()
@@ -157,11 +157,11 @@ public class GoblinBerserker : Enemy
     }
 
     // Methods for retrieving stats
-    public int GetMaxHealth()
+    public override int GetMaxHealth()
     {
         return max_health;
     }
-    public int GetHealth()
+    public override int GetHealth()
     {
         return health;
     }

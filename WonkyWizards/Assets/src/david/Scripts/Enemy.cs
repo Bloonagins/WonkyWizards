@@ -43,10 +43,15 @@ public class Enemy : MonoBehaviour
     {
         return move_speed;
     }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-    
+    virtual public int GetHealth() {
+        return health;
     }
+    virtual public int GetMaxHealth() {
+        return max_health;
+    }
+
+    void Start() {
+        //Debug.Log("Health:"+GetHealth());
+    }
+
 }

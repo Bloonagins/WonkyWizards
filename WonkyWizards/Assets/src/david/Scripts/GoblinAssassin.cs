@@ -19,9 +19,9 @@ public class GoblinAssassin : Enemy
 {
     // Used to store RigidBody2d Component
     private Rigidbody2D rb;
-    // The dash amount applied to the enemy
+    // The dash amount applied to the unit
     private float dashAmount;
-    //
+    // The dash timer
     private float dashCD;
     //
     private float dashTimer;
@@ -161,11 +161,11 @@ public class GoblinAssassin : Enemy
     }
 
     // Methods for retrieving stats
-    public int GetMaxHealth()
+    public override int GetMaxHealth()
     {
         return max_health;
     }
-    public int GetHealth()
+    public override int GetHealth()
     {
         return health;
     }
