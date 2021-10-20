@@ -9,6 +9,7 @@ public class LevelMenuManager : MonoBehaviour
     private ControlScheme controls;
     private InputAction PauseAction;
     private InputAction ReadyAction;
+    private InputAction WaveScreenAction;
 
 
 
@@ -32,10 +33,17 @@ public class LevelMenuManager : MonoBehaviour
         PauseAction.performed += POrResGame;
         ReadyAction = controls.PlayerDefault.ReadyUp;
         ReadyAction.performed += ReadyUpState;
+        WaveScreenAction = controls.PlayerDefault.WaveInfo;
+        WaveScreenAction.performed += DisplayWaveInfo;
 
+
+        WaveScreenAction.Enable();
         ReadyAction.Enable();
         PauseAction.Enable();
     }
+
+    
+
     private void OnDisable()
     {
         PauseAction.performed -= POrResGame;
@@ -43,16 +51,21 @@ public class LevelMenuManager : MonoBehaviour
 
         ReadyAction.performed -= ReadyUpState;
         PauseAction.Disable();
-    }
 
+        WaveScreenAction.performed -= DisplayWaveInfo;
+        WaveScreenAction.Disable();
+    }
+    private void DisplayWaveInfo(InputAction.CallbackContext obj)
+    {
+        Debug.Log("attempting to display wave info\n");
+
+    }
 
     private void ReadyUpState(InputAction.CallbackContext obj)
     {
         Debug.Log("attempting to ready up...\n");
         ReadyUpGame();
     }
-
-    
 
     private void POrResGame(InputAction.CallbackContext obj)
     {
@@ -80,15 +93,10 @@ public class LevelMenuManager : MonoBehaviour
     {
         Debug.Log("trying to switch pause state\n");
 
-
         if (GameManager.CheckState() == GameState.SETUP)
         {
             //Debug.Log("trying to switch pause state")
-            Time.timeScale = 0f;
-
-            PauseMenuObject.SetActive(true);
-
-            PlayerHUDObject.SetActive(false);
+            PauseGame();
 
             bGameWasInSetup = true;
 
@@ -97,24 +105,14 @@ public class LevelMenuManager : MonoBehaviour
         else if (GameManager.CheckState() == GameState.PLAY)
         {
             //Debug.Log("trying to switch pause state")
-            Time.timeScale = 0f;      
-            
-            PauseMenuObject.SetActive(true);
-
-            PlayerHUDObject.SetActive(false);
+            PauseGame();
 
             GameManager.ChangeState(GameState.PAUSE);
             bGameWasInSetup = false;
         }        
         else if (GameManager.CheckState() == GameState.PAUSE)
         {
-            PauseMenuObject.SetActive(false);
-            OptionsMenuObject.SetActive(false);
-            ConfirmMenuObject.SetActive(false);
-
-            PlayerHUDObject.SetActive(true);
-
-            Time.timeScale = 1f;
+            UnPauseGame();
 
             if (bGameWasInSetup)
             {
@@ -128,6 +126,32 @@ public class LevelMenuManager : MonoBehaviour
             }
         }
         else { }
+    }
+    /// <summary>
+    /// Sets correct UI elements to be displayed when paused.
+    /// Does NOT set GameState
+    /// </summary>
+    private void PauseGame()
+    {   
+        Time.timeScale = 0f;
+        
+        PauseMenuObject.SetActive(true);
+
+        PlayerHUDObject.SetActive(false);        
+    }
+    /// <summary>
+    /// Sets correct UI elements to be displayed when unpaused.
+    /// Does NOT set GameState
+    /// </summary>
+    private void UnPauseGame()
+    {
+        PauseMenuObject.SetActive(false);
+        OptionsMenuObject.SetActive(false);
+        ConfirmMenuObject.SetActive(false);
+
+        PlayerHUDObject.SetActive(true);
+
+        Time.timeScale = 1f;
     }
 
     /// <summary>
