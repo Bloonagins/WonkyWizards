@@ -31,8 +31,6 @@ public class Summon : MonoBehaviour
     public virtual string getDisplayName() { return "Summon"; }
     public virtual int getCost() { return 0; }
 
-
-
     public virtual int getMaxHealth() { return 0; }
 
     public virtual GameObject getSummonPrefab() { return summonPrefab; }
