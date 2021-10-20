@@ -147,7 +147,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
-  movementspeed: 30
 --- !u!114 &5876367107654672497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,9 +159,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad782410179ec5b4584baf4d6204b2fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementspeed: 30
-  dashspeed: 600
-  dashreset: 2
+  movementSpeed: 30
+  dashSpeed: 600
   spells:
   - {fileID: 2819576702667748300, guid: f5efe1bbc982ab94a88e55ba914c628d, type: 3}
   - {fileID: 6141101822864145280, guid: 177d493e34fdf7146b904ad209ff6554, type: 3}
