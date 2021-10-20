@@ -141,7 +141,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 1
 --- !u!50 &1258539582325770237
 Rigidbody2D:
   serializedVersion: 4
@@ -223,7 +223,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 3672392477358822573}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 1
   m_Speed: 5
   m_Acceleration: 5
   avoidancePriority: 50
