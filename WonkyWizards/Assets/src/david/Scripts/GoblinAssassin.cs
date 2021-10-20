@@ -19,7 +19,7 @@ public class GoblinAssassin : Enemy
 {
     // Used to store RigidBody2d Component
     private Rigidbody2D rb;
-    //
+    // The dash amount applied to the enemy
     private float dashAmount;
     //
     private float dashCD;
