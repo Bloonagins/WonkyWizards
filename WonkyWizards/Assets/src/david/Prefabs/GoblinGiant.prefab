@@ -152,12 +152,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9f212c4cfba7ec4fab878d8e9569e4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 0}
-  death_clips:
-  - {fileID: 8300000, guid: f5eac0d8c71417c4e8195f30f3603dec, type: 3}
-  - {fileID: 8300000, guid: 6c5ccabd5a269bb489e1c303f9f395fe, type: 3}
-  - {fileID: 8300000, guid: f6a1554b98eb5a34fa4f7d4b9e9dc3a8, type: 3}
-  - {fileID: 8300000, guid: 40a5db508db79614c8032788cb19d91b, type: 3}
 --- !u!114 &7054130812170036580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,7 +194,7 @@ NavMeshAgent:
   m_AngularSpeed: 120
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 0
+  m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 1
   m_BaseOffset: 0.5

@@ -36,7 +36,7 @@ public class GoblinAssassin : Enemy
         move_speed = 20f;
         attack_speed = attackTimer = 1.25f; // 3,360 damage per minute
         dashDistance = 8f;
-        dashAmount = 150f;
+        dashAmount = 130f;
         dashCD = dashTimer = 3f;
         targetDistance = 25f;
         attackConnected = false;
