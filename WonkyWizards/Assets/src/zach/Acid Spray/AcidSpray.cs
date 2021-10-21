@@ -31,7 +31,7 @@ public class AcidSpray : Spells
         if(collision.gameObject.tag !="Player" && collision.gameObject.tag != "Spell")
         {
             Acid();
-            Destroy(projectile, 7);
         }
+        Destroy(projectile, 7);
     }
 }
