@@ -81,6 +81,7 @@ public class LevelMenuManager : MonoBehaviour
         if(GameManager.CheckState() == GameState.SETUP)
         {
             GameManager.ChangeState(GameState.PLAY);
+            PlayerScript.setBuildMode(false);
             bGameWasInSetup = false;
         }
     }
@@ -117,11 +118,13 @@ public class LevelMenuManager : MonoBehaviour
             if (bGameWasInSetup)
             {
                 GameManager.ChangeState(GameState.SETUP);
+
                 bGameWasInSetup = true;
             }
             else
             {
                 GameManager.ChangeState(GameState.PLAY);
+                
                 bGameWasInSetup = false;
             }
         }
