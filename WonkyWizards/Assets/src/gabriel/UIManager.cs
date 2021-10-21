@@ -58,7 +58,7 @@ public class UIManager : MonoBehaviour
     {
         if(GameManager.CheckState() == GameState.SETUP)
         {
-            SetupMode.text = "Press f4 to exit Setup Phase";
+            SetupMode.text = "Press f4/'L' to exit Setup Phase";
         }
         else if (GameManager.CheckState() == GameState.PLAY)
         {

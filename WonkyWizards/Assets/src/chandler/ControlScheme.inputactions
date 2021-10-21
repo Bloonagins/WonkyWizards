@@ -422,6 +422,17 @@
                 },
                 {
                     "name": "",
+                    "id": "5ba47404-f32f-4040-9fcb-bfb5d1fc0270",
+                    "path": "<Keyboard>/l",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ReadyUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "3d77c1be-631f-4281-8ed6-e7fe4c640a58",
                     "path": "<Mouse>/rightButton",
                     "interactions": "",
