@@ -78,19 +78,19 @@ public class PlayerScript : MonoBehaviour
                 {
                     GoblinGrunt enemy = other.GetComponent<GoblinGrunt>();
                     damagePlayer(enemy.GetDamage());
-                    rb.AddForce((other.transform.position - transform.position) * enemy.GetKnockBack() * -1.0f, ForceMode2D.Impulse);
+                    rb.AddForce(Vector3.Normalize(other.transform.position - transform.position) * enemy.GetKnockBack() * -1.0f, ForceMode2D.Impulse);
                 }
                 else if (other.GetComponent<GoblinBerserker>())
                 {
                     GoblinBerserker enemy = other.GetComponent<GoblinBerserker>();
                     damagePlayer(enemy.GetDamage());
-                    rb.AddForce((other.transform.position - transform.position) * enemy.GetKnockBack() * -1.0f, ForceMode2D.Impulse);
+                    rb.AddForce(Vector3.Normalize(other.transform.position - transform.position) * enemy.GetKnockBack() * -1.0f, ForceMode2D.Impulse);
                 }
                 else if (other.GetComponent<GoblinAssassin>())
                 {
                     GoblinAssassin enemy = other.GetComponent<GoblinAssassin>();
                     damagePlayer(enemy.GetDamage());
-                    rb.AddForce((other.transform.position - transform.position) * enemy.GetKnockBack() * -1.0f, ForceMode2D.Impulse);
+                    rb.AddForce(Vector3.Normalize(other.transform.position - transform.position) * enemy.GetKnockBack() * -1.0f, ForceMode2D.Impulse);
                 }
             }
         }
