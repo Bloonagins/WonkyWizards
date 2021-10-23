@@ -13,10 +13,9 @@ GameObject:
   - component: {fileID: 8625698327889526955}
   - component: {fileID: 4486458656025876395}
   - component: {fileID: 6161130727518784933}
-  - component: {fileID: 7221910715787905824}
   - component: {fileID: 7054130812170036580}
-  - component: {fileID: 8728540978341326541}
   - component: {fileID: 4341149519812226237}
+  - component: {fileID: 4053205182351187032}
   m_Layer: 0
   m_Name: GoblinGiant
   m_TagString: Enemy
@@ -80,7 +79,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 0.013797826, g: 0.38679248, b: 0, a: 1}
+  m_Color: {r: 0, g: 0.046878096, b: 0.3882353, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -140,18 +139,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: {fileID: 2144510525061973243}
---- !u!114 &7221910715787905824
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2144510525061973243}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9f212c4cfba7ec4fab878d8e9569e4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7054130812170036580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,20 +151,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 699089187aa34894c9a3228f2c377e0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8728540978341326541
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2144510525061973243}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b962388d6ce39bf43801c7c1a9eef8d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HealthBarUI: {fileID: 6289455795504281522}
-  HPslider: {fileID: 75314423376675641}
 --- !u!195 &4341149519812226237
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -200,6 +173,18 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &4053205182351187032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2144510525061973243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04163b1c4bf74f0419e896b29e87223b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4196213999410798307
 GameObject:
   m_ObjectHideFlags: 0

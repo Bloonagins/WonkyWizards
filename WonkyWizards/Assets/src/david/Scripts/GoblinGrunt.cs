@@ -79,6 +79,12 @@ public class GoblinGrunt : MonoBehaviour
                 rb.AddForce((other.transform.position - transform.position) * other.GetComponent<AcidSpray>().getSpellKnockBack() * -1.0f, ForceMode2D.Impulse); // FireBall.getKnockback();
             }
         }
+        else if(other.tag == "SummonProjectile") {
+            if(other.GetComponent<Sword>()) {
+                RecieveDamage(other.GetComponent<Sword>().getProjDamage()); // Recieve damage
+                //rb.AddForce((other.transform.position - transform.position) * other.GetComponent<Sword>().getProjKnockback() * -1.0f, ForceMode2D.Impulse); // Apply Knockback;
+            }
+        }
     }
 
     void OnTriggerStay2D(Collider2D collision)
