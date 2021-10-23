@@ -15,7 +15,7 @@ using UnityEngine;
 
 public class Barrier : Summon
 {
-	static string displayName = "Barrier";
+	//static string displayName = "Barrier";
 	protected static int cost = 10;
 	private const int maxHealth = int.MaxValue;
 
