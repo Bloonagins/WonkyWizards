@@ -20,6 +20,7 @@ TagManager:
   - LevelManager
   - GameManager
   - SummonProjectile
+  - SummonNoPlace
   layers:
   - Default
   - TransparentFX

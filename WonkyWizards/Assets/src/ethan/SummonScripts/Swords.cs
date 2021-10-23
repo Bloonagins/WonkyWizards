@@ -17,5 +17,16 @@ using UnityEngine;
 
 public class Swords : Summon
 {
+	private Transform rotAnchor;
+	private float rotAmount = -5.0f;
 
+	public void Awake ()
+    {
+		rotAnchor = gameObject.GetComponentInChildren<RotAnchor>().transform;
+    }
+
+    public void FixedUpdate()
+    {
+		rotAnchor.transform.Rotate(0.0f, 0.0f, rotAmount);
+	}
 }
