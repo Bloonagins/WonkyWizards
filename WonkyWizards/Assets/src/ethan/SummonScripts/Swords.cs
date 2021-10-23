@@ -18,17 +18,4 @@ using UnityEngine;
 public class Swords : Summon
 {
 
-    private Transform swords;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        swords = this.gameObject.transform.GetChild(0);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
