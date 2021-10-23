@@ -182,7 +182,7 @@ public class PlayerControls : MonoBehaviour
 
                 // if the raycast either hits nothing, or the thing it hit wasn't a summon
                 if
-                (hit.collider == null || hit.collider.tag != "Summon")
+                (hit.collider == null || (hit.collider.tag != "Summon" && hit.collider.tag != "Goal"))
                 {
                     if (PlayerScript.getMana() >= summon.GetComponent<Summon>().getCost())
                     {
