@@ -69,7 +69,7 @@ public class FireBall: Spells
     void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("collision: " + collision);
-        if(collision.gameObject.tag !="Player" && collision.gameObject.tag != "Spell")
+        if(collision.gameObject.tag !="Player" && collision.gameObject.tag != "Spell" && collision.gameObject.tag != "Zone")
         {
             Explode();
             Destroy(projectile);

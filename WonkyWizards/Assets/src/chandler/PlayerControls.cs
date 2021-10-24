@@ -139,10 +139,11 @@ public class PlayerControls : MonoBehaviour
             updateHotbarIndex(-1);
         }
 
-        // if player is in cast mode and click is pressed, cast spell
-        if (!PlayerScript.isInBuildMode())
+        // if click is pressed, the player is in casting mode, and the game isn't paused, then see if a spell can be casted
+        if (shoot.ReadValue<float>() > 0.0f && !PlayerScript.isInBuildMode() && GameManager.CheckState() != GameState.PAUSE)
         {
-            if (PlayerTimer.canCast(PlayerScript.spellIndex) && shoot.ReadValue<float>() > 0.0f)
+            // if the spell isn't on a cooldown, then cast it
+            if (PlayerTimer.canCast(PlayerScript.spellIndex))
             {
                 GameObject spell = spells[PlayerScript.spellIndex];
                 Instantiate(spell, transform.position, Quaternion.Euler(Vector3.Normalize(PlayerScript.getWorldCursorPoint() - transform.position)));
@@ -171,8 +172,8 @@ public class PlayerControls : MonoBehaviour
     // when click is pressed and player is in build mode, place a summon
     private void OnSummon(InputAction.CallbackContext obj)
     {
-        // makes sure player is in build mode
-        if (PlayerScript.isInBuildMode())
+        // makes sure player is in build mode and the game isn't paused
+        if (PlayerScript.isInBuildMode() && GameManager.CheckState() != GameState.PAUSE)
         {
             // makes sure current spell in the array exists
             GameObject summon = summons[PlayerScript.summonIndex];

@@ -1,41 +1,26 @@
 /**********************************************
 | GoblinBerserker V1.0.0                      |
 | Author: David Bush, T5                      |
-| Description: This is the GoblinBerserker    |
-| class that inherits from the Enemy          |
-| superclass. This will contain all variables |
-| and methods associtiated with the           |
-| GoblinBerserker enemy type. Each            |
-| GoblinBerserker has the unique ability Rage |
-| Mode. When it is hit by a spell it's damage |
-| and speed increase by a flat ammount each   |
-| time.                                       |         
+| Description: This is the GoblinGiant class  |
+| that inherits from the Enemy superclass.    |
 | Bugs:                                       |
 **********************************************/
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class GoblinBerserker : Enemy
+public class GoblinGiant : Enemy
 {
     // Used to store RigidBody2d Component
     private Rigidbody2D rb;
-    // Used to store Agent component
-    private NavMeshAgent agent;
 
-    // Variable used for flat damage boost
-    private int damage_boost;
-    // Variable used for flat speed increase
-    private float speed_boost;
 
-    // Constructor for GoblinBerserker
-    public GoblinBerserker()
+    // Constructor for GoblinGiant
+    public GoblinGiant()
     {
         max_health = health = 400;
         damage = 50;
-        damage_boost = 5; 
         move_speed = 14f;
-        speed_boost = 2f;
         attack_speed = attackTimer = 1.75f; // 1714 damage per minute
         targetDistance = 25f;
         attackConnected = false;
@@ -47,8 +32,6 @@ public class GoblinBerserker : Enemy
     {
         // Gets the Rigid Body component
         rb = GetComponent<Rigidbody2D>();
-        // Gets the Agent component
-        agent = GetComponent<NavMeshAgent>();
     }
     // Called at a fixed interval (50 times / second)
     // Increments the timers if they're on a cooldown
@@ -74,14 +57,8 @@ public class GoblinBerserker : Enemy
     void OnTriggerEnter2D(Collider2D collision)
     {        
         GameObject other = collision.gameObject;
-        Debug.Log("COLLIDED");
        
         if(other.tag == "Spell") { // Check if enemy collided with spell
-            // Set hard cap on boosts??
-            // Add damage and speed each time its hit by spell
-            ChangeDamage(damage_boost);
-            agent.speed += speed_boost;
-            agent.acceleration += speed_boost;
 
             if(other.GetComponent<FireBall>()) { // Check if spell was Fireball
                 RecieveDamage(other.GetComponent<FireBall>().getSpellDamage()); // Recieve damage 
@@ -102,9 +79,6 @@ public class GoblinBerserker : Enemy
                 RecieveDamage(other.GetComponent<AcidSpray>().getSpellDamage()); // Recieve damage 
                 rb.AddForce((other.transform.position - transform.position) * other.GetComponent<AcidSpray>().getSpellKnockBack() * -1.0f, ForceMode2D.Impulse); // Apply Knockback;
             }
-        }
-        else if(other.tag == "Summon") {
-            Debug.Log("Summon!");
         }
         else if(other.tag == "SummonProjectile") {
             if(other.GetComponent<Sword>()) {
@@ -168,21 +142,17 @@ public class GoblinBerserker : Enemy
     }
 
     // Methods for retrieving stats
-    public override int GetMaxHealth()
+    public int GetMaxHealth()
     {
         return max_health;
     }
-    public override int GetHealth()
+    public int GetHealth()
     {
         return health;
     }
     public int GetDamage()
     {
         return damage;
-    }
-    public int GetDamageBoost()
-    {
-        return damage_boost;
     }
     public override float GetMoveSpeed()
     {

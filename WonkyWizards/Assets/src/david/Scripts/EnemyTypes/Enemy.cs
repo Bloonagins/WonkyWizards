@@ -46,12 +46,6 @@ public class Enemy : MonoBehaviour
     {
         return move_speed;
     }
-    virtual public int GetHealth() {
-        return health;
-    }
-    virtual public int GetMaxHealth() {
-        return max_health;
-    }
 
     void Start() {
         //Debug.Log("Health:"+GetHealth());

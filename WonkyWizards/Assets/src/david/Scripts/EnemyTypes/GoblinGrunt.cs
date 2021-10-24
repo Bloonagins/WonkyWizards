@@ -80,10 +80,31 @@ public class GoblinGrunt : MonoBehaviour
             }
         }
         else if(other.tag == "SummonProjectile") {
-            if(other.GetComponent<Sword>()) {
+            if(other.GetComponent<Sword>()) { // Check if collided with Sword
                 RecieveDamage(other.GetComponent<Sword>().getProjDamage()); // Recieve damage
                 //rb.AddForce((other.transform.position - transform.position) * other.GetComponent<Sword>().getProjKnockback() * -1.0f, ForceMode2D.Impulse); // Apply Knockback;
             }
+            /*else if(other.GetComponent<DragonProj>()) { // Check if collided with Dragon projectile
+                Debug.Log("COLLIDED Dragon");
+                RecieveDamage(other.GetComponent<DragonProj>().getProjDamage()); // Recieve damage
+            }
+            else if(other.GetComponent<CrossbowProj>()) { // Check if collided with Crossbow projectile
+                Debug.Log("COLLIDED Crosbow");
+                RecieveDamage(other.GetComponent<CrossbowProj>().getProjDamage()); // Recieve damage
+            }
+            else if(other.GetComponent<ShrubberyProj>()) { // Check if collided with Shrubbery projectile
+                Debug.Log("COLLIDED Shrubbery");
+                RecieveDamage(other.GetComponent<ShrubberyProj>().getProjDamage()); // Recieve damage
+            }
+            else if(other.GetComponent<SvenProj>()) { // Check if collided with Sven projectile
+                Debug.Log("COLLIDED Sven");
+                RecieveDamage(other.GetComponent<SvenProj>().getProjDamage()); // Recieve damage
+            }
+            else if(other.GetComponent<ChunkProj>()) { // Check if collided with Chunk projectile
+                Debug.Log("COLLIDED Chunk");
+                RecieveDamage(other.GetComponent<ChunkProj>().getProjDamage()); // Recieve damage
+            }
+            */
         }
     }
 
