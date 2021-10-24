@@ -21,4 +21,12 @@ using UnityEngine;
 
 public class Portal : Summon
 {
+	protected static int cost = 50;
+
+	public void FixedUpdate()
+	{
+
+	}
+
+	public override int getCost() { return cost; }
 }

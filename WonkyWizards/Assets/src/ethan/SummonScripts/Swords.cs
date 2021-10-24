@@ -17,7 +17,6 @@ using UnityEngine;
 
 public class Swords : Summon
 {
-
 	protected static int cost = 60;
 	private Transform rotAnchor;
 	private float rotAmount = -2.0f;

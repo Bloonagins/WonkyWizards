@@ -19,15 +19,6 @@ public class Barrier : Summon
 	protected static int cost = 10;
 	private const int maxHealth = int.MaxValue;
 
-    public override void Start()
-    {
-		base.Start();
-
-		summonPrefab = Resources.Load("src/ethan/SummonPrefabs/Barrier.prefab", typeof(GameObject)) as GameObject;
-		projectilePrefab = Resources.Load("src/ethan/SummonPrefabs/Barrier.prefab", typeof(GameObject)) as GameObject;
-	}
-
-
     public override int getCost () { return cost; }
     public override int getMaxHealth () { return maxHealth; }
 }
