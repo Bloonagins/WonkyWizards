@@ -39,10 +39,6 @@ public class EnemyRadar : MonoBehaviour
             }
             closestEnemy = getClosetEnemy();
             target = closestEnemy;
-            // if(demoActive)
-                // setScreenCursorPoint(calculateAttack(closestEnemy));
-                // Send attack
-
             closestEnemy.gameObject.GetComponent<SpriteRenderer>().material.color = new Color(0, 0.7f, 3, 1);       
             enemyContact = true;
         }
@@ -77,7 +73,6 @@ public class EnemyRadar : MonoBehaviour
         return inRange;
     }
 
-
     // if(inRange)
     // Move player away from enemy if active target
     // rb.AddForce(target.position - player.position, force * -1.0f, ForceMode2D.Impulse)
@@ -85,7 +80,7 @@ public class EnemyRadar : MonoBehaviour
     // else
     // If no active target move player towards goal.position
 
-    public Transform getClosetEnemy() 
+    private Transform getClosetEnemy() 
     {
         multipleEnemies = GameObject.FindGameObjectsWithTag("Enemy");
         float closestDistance = Mathf.Infinity;
