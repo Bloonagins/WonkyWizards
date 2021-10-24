@@ -21,6 +21,7 @@ TagManager:
   - GameManager
   - SummonProjectile
   - SummonNoPlace
+  - DemoPoint
   layers:
   - Default
   - TransparentFX

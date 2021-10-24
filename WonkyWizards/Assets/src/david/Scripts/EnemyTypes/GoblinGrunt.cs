@@ -47,7 +47,6 @@ public class GoblinGrunt : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(transform.position);
         // Check if unit has no health left
         if (this.goblinGruntData.GetHealth() <= 0) {
             // SoundManagerScript.PlaySound("enemyDeath");
