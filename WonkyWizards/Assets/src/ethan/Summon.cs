@@ -9,7 +9,7 @@ public class Summon : MonoBehaviour
     public static Vector3 gridCursorPoint;
 
     protected GameObject summonPrefab;
-    protected GameObject projectilePrefab;
+    protected GameObject projPrefab;
 
     protected int health;
     protected enum targetingMode {
@@ -24,7 +24,6 @@ public class Summon : MonoBehaviour
     public virtual void Start()
     {
         health = this.getMaxHealth();
-        //lm = GameObject.FindGameObjectsWithTag("LevelManager")[0].GetComponent<LevelManager>();
     }
 
     // constants
@@ -34,7 +33,7 @@ public class Summon : MonoBehaviour
     public virtual int getMaxHealth() { return 0; }
 
     public virtual GameObject getSummonPrefab() { return summonPrefab; }
-    public virtual GameObject getProjectilePrefab() { return projectilePrefab; }
+    public virtual GameObject getProjectilePrefab() { return projPrefab; }
 
 
     public int getHealth ()

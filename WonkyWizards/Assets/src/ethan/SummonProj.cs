@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SummonProjectile : MonoBehaviour
+public class SummonProj : MonoBehaviour
 {
     protected float speed;
     protected int damage;

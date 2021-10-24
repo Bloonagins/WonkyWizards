@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Sword : SummonProjectile
+public class Sword : SummonProj
 {
     public Sword()
     {

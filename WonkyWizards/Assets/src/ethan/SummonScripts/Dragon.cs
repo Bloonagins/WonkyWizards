@@ -19,9 +19,16 @@ public class Dragon : Summon
 {
 	protected static int cost = 50;
 
+    public override void Start()
+    {
+        base.Start();
+
+		projPrefab = Resources.Load("src/ethan/SummonProjPrefabs/DragonProj.prefab", typeof(GameObject)) as GameObject;
+	}
+
     public void FixedUpdate()
     {
-        
+		Instantiate();
     }
 
     public override int getCost() { return cost; }
