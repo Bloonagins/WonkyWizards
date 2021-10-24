@@ -17,11 +17,14 @@ using UnityEngine;
 
 public class Swords : Summon
 {
-	private Transform rotAnchor;
-	private float rotAmount = -5.0f;
 
-	public void Awake ()
+	protected static int cost = 60;
+	private Transform rotAnchor;
+	private float rotAmount = -2.0f;
+
+	public override void Start()
     {
+
 		rotAnchor = gameObject.GetComponentInChildren<RotAnchor>().transform;
     }
 
@@ -29,4 +32,7 @@ public class Swords : Summon
     {
 		rotAnchor.transform.Rotate(0.0f, 0.0f, rotAmount);
 	}
+
+
+	public override int getCost() { return cost; }
 }
