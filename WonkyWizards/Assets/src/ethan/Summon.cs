@@ -29,7 +29,7 @@ public class Summon : MonoBehaviour
 
     // constants
     public virtual string getDisplayName() { return "Summon"; }
-    public virtual int getCost() { return 0; }
+    public virtual int getCost() { return 10; }
 
     public virtual int getMaxHealth() { return 0; }
 

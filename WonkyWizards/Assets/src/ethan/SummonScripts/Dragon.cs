@@ -17,15 +17,12 @@ using UnityEngine;
 
 public class Dragon : Summon
 {
-    // Start is called before the first frame update
-    void Start()
+	protected static int cost = 50;
+
+    public void FixedUpdate()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public override int getCost() { return cost; }
 }
