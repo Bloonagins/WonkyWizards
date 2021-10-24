@@ -2,17 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DragonProj : MonoBehaviour
+public class DragonProj : SummonProj
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    public void Start()
     {
-        
+        speed = 0;
+        damage = 1;
+        kockback = 0f;
+
+        Invoke("killSelf", 0.04f);
     }
 }

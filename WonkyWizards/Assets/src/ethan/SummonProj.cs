@@ -23,5 +23,8 @@ public class SummonProj : MonoBehaviour
         return kockback;
     }
 
-
+    protected void killSelf()
+    {
+        Destroy(gameObject);
+    }
 }

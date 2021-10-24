@@ -23,13 +23,9 @@ public class Dragon : Summon
     {
         base.Start();
 
-		projPrefab = Resources.Load("src/ethan/SummonProjPrefabs/DragonProj.prefab", typeof(GameObject)) as GameObject;
+		cooldown = 0.05f;
 	}
 
-    public void FixedUpdate()
-    {
-		Instantiate();
-    }
 
     public override int getCost() { return cost; }
 }

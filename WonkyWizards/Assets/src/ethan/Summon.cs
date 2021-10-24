@@ -8,8 +8,12 @@ public class Summon : MonoBehaviour
     //public static LevelManager lm;
     public static Vector3 gridCursorPoint;
 
-    protected GameObject summonPrefab;
+    protected float cooldown;
+    protected float timer;
+
+    [SerializeField]
     protected GameObject projPrefab;
+
 
     protected int health;
     protected enum targetingMode {
@@ -24,15 +28,35 @@ public class Summon : MonoBehaviour
     public virtual void Start()
     {
         health = this.getMaxHealth();
+        timer = 0.0f;
     }
+
+    public virtual void FixedUpdate()
+    {
+        timer += Time.deltaTime;
+
+        if (timer >= cooldown)
+        {
+            // check that we have something to shoot at
+
+            SummonProj();
+            timer = 0.0f;
+        }
+    }
+
+    protected virtual void SummonProj()
+    {
+        Instantiate<GameObject>(projPrefab, transform);
+    }
+
 
     // constants
     public virtual string getDisplayName() { return "Summon"; }
+
     public virtual int getCost() { return 10; }
 
     public virtual int getMaxHealth() { return 0; }
 
-    public virtual GameObject getSummonPrefab() { return summonPrefab; }
     public virtual GameObject getProjectilePrefab() { return projPrefab; }
 
 
