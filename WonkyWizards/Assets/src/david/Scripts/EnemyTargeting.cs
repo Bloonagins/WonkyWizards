@@ -59,6 +59,11 @@ public class EnemyTargeting : MonoBehaviour
             agent.acceleration = gameObject.GetComponent<GoblinGrunt>().GetMoveSpeed();
             targetDistance = gameObject.GetComponent<GoblinGrunt>().GetTargetDistance();
         }
+        else if(gameObject.GetComponent<GoblinWarrior>()) { // Set GoblinWarrior speed
+            agent.speed = gameObject.GetComponent<GoblinWarrior>().GetMoveSpeed(); 
+            agent.acceleration = gameObject.GetComponent<GoblinWarrior>().GetMoveSpeed();
+            targetDistance = gameObject.GetComponent<GoblinWarrior>().GetTargetDistance();
+        }        
         else if(gameObject.GetComponent<GoblinBerserker>()) { // Set GoblinBerserkers speed
             agent.speed = gameObject.GetComponent<GoblinBerserker>().GetMoveSpeed(); 
             agent.acceleration = gameObject.GetComponent<GoblinBerserker>().GetMoveSpeed();
