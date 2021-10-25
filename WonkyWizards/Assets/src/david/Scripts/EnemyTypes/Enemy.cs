@@ -19,6 +19,10 @@ public class Enemy : MonoBehaviour
     protected int damage; // Ammount of damage enemy starts with
     protected float move_speed; // The movement speed the enemy starts with
 
+    protected float lowest_speed; // The lowest movement speed the enemy has
+
+    protected float highest_speed; // The highest movement speed the enemy has
+
     protected float attack_speed; // The attack speed the enemy starts with
 
     protected float attackTimer; // Keeps track of when enemy can attack

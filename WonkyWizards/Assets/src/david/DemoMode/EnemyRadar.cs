@@ -54,6 +54,7 @@ public class EnemyRadar : MonoBehaviour
         }
     }
 
+    // Function that calculates the position the target will be
     public Vector3 calculateAttack() {
         // Use distance between enemy and player ?
         // float distanceBetween = Vector3.Distance(target.position, player.position);
@@ -73,13 +74,7 @@ public class EnemyRadar : MonoBehaviour
         return inRange;
     }
 
-    // if(inRange)
-    // Move player away from enemy if active target
-    // rb.AddForce(target.position - player.position, force * -1.0f, ForceMode2D.Impulse)
-    
-    // else
-    // If no active target move player towards goal.position
-
+    // Function that returns the transform of the closest enemy in range
     private Transform getClosetEnemy() 
     {
         multipleEnemies = GameObject.FindGameObjectsWithTag("Enemy");

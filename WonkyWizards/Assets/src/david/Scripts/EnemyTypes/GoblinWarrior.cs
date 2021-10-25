@@ -17,6 +17,8 @@ public class GoblinWarrior : Enemy
 {
     // Used to store RigidBody2d Component
     private Rigidbody2D rb;
+    // Used to store Agent component
+    private NavMeshAgent agent;
     // Ammount of damage GoblinWarrior gets for each surrounding enemy
     private int damageBoost;
 
@@ -28,6 +30,8 @@ public class GoblinWarrior : Enemy
         damage = 50;
         damageBoost = 2;
         move_speed = 14f;
+        lowest_speed = 6f;
+        highest_speed = 24f;
         attack_speed = attackTimer = 1.75f; // 1714 damage per minute
         targetDistance = 25f;
         attackConnected = false;
@@ -39,6 +43,8 @@ public class GoblinWarrior : Enemy
     {
         // Gets the Rigid Body component
         rb = GetComponent<Rigidbody2D>();
+        // Gets the Agent component
+        agent = GetComponent<NavMeshAgent>();
     }
     // Called at a fixed interval (50 times / second)
     // Increments the timers if they're on a cooldown
@@ -74,14 +80,40 @@ public class GoblinWarrior : Enemy
             }
             else if(other.GetComponent<IceBeam>()) { // Check if spell was IceBeam
                 //Debug.Log("Collided Ice Beam");
-                RecieveDamage(other.GetComponent<IceBeam>().getSpellDamage()); // Recieve damage 
-                rb.AddForce((other.transform.position - transform.position) * other.GetComponent<IceBeam>().getSpellKnockBack() * -1.0f, ForceMode2D.Impulse); // Apply Knockback;
+                ChangeMoveSpeed(other.GetComponent<IceBeam>().Freeze() * -1); // Recieve slow 
             }
             else if(other.GetComponent<AcidSpray>()) { // Check if spell was AcidSpray
                 //Debug.Log("Collided Acid Spray");
                 RecieveDamage(other.GetComponent<AcidSpray>().getSpellDamage()); // Recieve damage 
                 rb.AddForce((other.transform.position - transform.position) * other.GetComponent<AcidSpray>().getSpellKnockBack() * -1.0f, ForceMode2D.Impulse); // Apply Knockback;
             }
+        }
+        else if(other.tag == "SummonProjectile") {
+            if(other.GetComponent<Sword>()) { // Check if collided with Sword
+                RecieveDamage(other.GetComponent<Sword>().getProjDamage()); // Recieve damage
+                //rb.AddForce((other.transform.position - transform.position) * other.GetComponent<Sword>().getProjKnockback() * -1.0f, ForceMode2D.Impulse); // Apply Knockback;
+            }
+            /*else if(other.GetComponent<DragonProj>()) { // Check if collided with Dragon projectile
+                Debug.Log("COLLIDED Dragon");
+                RecieveDamage(other.GetComponent<DragonProj>().getProjDamage()); // Recieve damage
+            }
+            else if(other.GetComponent<CrossbowProj>()) { // Check if collided with Crossbow projectile
+                Debug.Log("COLLIDED Crosbow");
+                RecieveDamage(other.GetComponent<CrossbowProj>().getProjDamage()); // Recieve damage
+            }
+            else if(other.GetComponent<ShrubberyProj>()) { // Check if collided with Shrubbery projectile
+                Debug.Log("COLLIDED Shrubbery");
+                RecieveDamage(other.GetComponent<ShrubberyProj>().getProjDamage()); // Recieve damage
+            }
+            else if(other.GetComponent<SvenProj>()) { // Check if collided with Sven projectile
+                Debug.Log("COLLIDED Sven");
+                RecieveDamage(other.GetComponent<SvenProj>().getProjDamage()); // Recieve damage
+            }
+            else if(other.GetComponent<ChunkProj>()) { // Check if collided with Chunk projectile
+                Debug.Log("COLLIDED Chunk");
+                RecieveDamage(other.GetComponent<ChunkProj>().getProjDamage()); // Recieve damage
+            }
+            */
         }
     }
 
@@ -137,7 +169,18 @@ public class GoblinWarrior : Enemy
     public void ChangeDamage(int damage_amount){
         damage += damage_amount; // can be positive or negative
     }
-
+    // Function to change the enemy's movespeed by a flat amount
+    public void ChangeMoveSpeed(float speed_amount) {
+        if (agent.speed >= lowest_speed && speed_amount< 0) { 
+            agent.speed += speed_amount;
+            agent.acceleration += speed_amount;
+        }
+        else if (agent.speed <= highest_speed && speed_amount > 0) {
+            agent.speed += speed_amount;
+            agent.acceleration += speed_amount;
+        }
+    }
+    
     // Methods for retrieving stats
     public int GetMaxHealth()
     {

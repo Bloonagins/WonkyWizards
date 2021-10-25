@@ -5,6 +5,8 @@ public class GoblinGruntData
     private int health; // Ammount of health enemy starts with
     private int damage; // Ammount of damage enemy starts with
     private float move_speed; // The movement speed the enemy starts with
+    private float lowest_speed; // The lowest movespeed the enemy can have
+    private float highest_speed; // The highest movespeed the enemy can have
     private float attack_speed; // The attack speed the enemy starts with
     private float attackTimer; // Keeps track of when enemy can attack
     private float knock_back; // Ammount of knockback applied
@@ -12,12 +14,14 @@ public class GoblinGruntData
     private bool attackConnected; // Keeps attack if attack was successful
 
     // Constructor for GoblinGruntData
-    public GoblinGruntData(int max_health, int health, int damage, float move_speed, float attack_speed, float attackTimer, float knock_back, float targetDistance, bool attackConnected)
+    public GoblinGruntData(int max_health, int health, int damage, float move_speed, float lowest_speed, float highest_speed, float attack_speed, float attackTimer, float knock_back, float targetDistance, bool attackConnected)
     {
         this.max_health = max_health;
         this.health = health;
         this.damage = damage;
         this.move_speed = move_speed;
+        this.lowest_speed = lowest_speed;
+        this.highest_speed = highest_speed;
         this.attack_speed = attack_speed;
         this.attackTimer = attackTimer;
         this.knock_back = knock_back;
@@ -55,6 +59,13 @@ public class GoblinGruntData
     public float GetMoveSpeed()
     {
         return this.move_speed;
+    }
+    public float GetLowestSpeed()
+    {
+        return this.lowest_speed;
+    }    public float GetHighestSpeed()
+    {
+        return this.highest_speed;
     }
     public float GetAttackSpeed()
     {

@@ -25,6 +25,8 @@ public class GoblinBerserker : Enemy
 
     // Variable used for flat damage boost
     private int damage_boost;
+    //
+    private int maxDamage;
     // Variable used for flat speed increase
     private float speed_boost;
 
@@ -34,7 +36,10 @@ public class GoblinBerserker : Enemy
         max_health = health = 300;
         damage = 45;
         damage_boost = 5; 
-        move_speed = 14f;
+        maxDamage = 65;
+        move_speed = 16f;
+        lowest_speed = 6f; 
+        highest_speed = 24f; 
         speed_boost = 2f;
         attack_speed = attackTimer = 1.75f; // 1714 damage per minute
         targetDistance = 25f;
@@ -75,11 +80,11 @@ public class GoblinBerserker : Enemy
     {        
         GameObject other = collision.gameObject;
         if(other.tag == "Spell") { // Check if enemy collided with spell
-            // Set hard cap on boosts??
             // Add damage and speed each time its hit by spell
-            ChangeDamage(damage_boost);
-            agent.speed += speed_boost;
-            agent.acceleration += speed_boost;
+            if(!other.GetComponent<IceBeam>()) {
+                ChangeDamage(damage_boost);
+                ChangeMoveSpeed(speed_boost);
+            }
 
             if(other.GetComponent<FireBall>()) { // Check if spell was Fireball
                 RecieveDamage(other.GetComponent<FireBall>().getSpellDamage()); // Recieve damage 
@@ -92,8 +97,7 @@ public class GoblinBerserker : Enemy
             }
             else if(other.GetComponent<IceBeam>()) { // Check if spell was IceBeam
                 //Debug.Log("Collided Ice Beam");
-                RecieveDamage(other.GetComponent<IceBeam>().getSpellDamage()); // Recieve damage 
-                rb.AddForce((other.transform.position - transform.position) * other.GetComponent<IceBeam>().getSpellKnockBack() * -1.0f, ForceMode2D.Impulse); // Apply Knockback;
+                ChangeMoveSpeed(other.GetComponent<IceBeam>().Freeze() * -1); // Recieve slow 
             }
             else if(other.GetComponent<AcidSpray>()) { // Check if spell was AcidSpray
                 //Debug.Log("Collided Acid Spray");
@@ -106,6 +110,27 @@ public class GoblinBerserker : Enemy
                 RecieveDamage(other.GetComponent<Sword>().getProjDamage()); // Recieve damage
                 //rb.AddForce((other.transform.position - transform.position) * other.GetComponent<Sword>().getProjKnockback() * -1.0f, ForceMode2D.Impulse); // Apply Knockback;
             }
+            /*else if(other.GetComponent<DragonProj>()) { // Check if collided with Dragon projectile
+                Debug.Log("COLLIDED Dragon");
+                RecieveDamage(other.GetComponent<DragonProj>().getProjDamage()); // Recieve damage
+            }
+            else if(other.GetComponent<CrossbowProj>()) { // Check if collided with Crossbow projectile
+                Debug.Log("COLLIDED Crosbow");
+                RecieveDamage(other.GetComponent<CrossbowProj>().getProjDamage()); // Recieve damage
+            }
+            else if(other.GetComponent<ShrubberyProj>()) { // Check if collided with Shrubbery projectile
+                Debug.Log("COLLIDED Shrubbery");
+                RecieveDamage(other.GetComponent<ShrubberyProj>().getProjDamage()); // Recieve damage
+            }
+            else if(other.GetComponent<SvenProj>()) { // Check if collided with Sven projectile
+                Debug.Log("COLLIDED Sven");
+                RecieveDamage(other.GetComponent<SvenProj>().getProjDamage()); // Recieve damage
+            }
+            else if(other.GetComponent<ChunkProj>()) { // Check if collided with Chunk projectile
+                Debug.Log("COLLIDED Chunk");
+                RecieveDamage(other.GetComponent<ChunkProj>().getProjDamage()); // Recieve damage
+            }
+            */
         }
     }
     void OnTriggerStay2D(Collider2D collision)
@@ -158,8 +183,22 @@ public class GoblinBerserker : Enemy
     }
     // Function to change the enemy's damage by a flat amount
     public void ChangeDamage(int damage_amount){
-        damage += damage_amount; // can be positive or negative
+        if (damage < maxDamage)
+            damage += damage_amount; // can be positive or negative
     }
+
+    // Function to change the enemy's movespeed by a flat amount
+    public void ChangeMoveSpeed(float speed_amount) {
+        if (agent.speed >= lowest_speed && speed_amount< 0) { 
+            agent.speed += speed_amount;
+            agent.acceleration += speed_amount;
+        }
+        else if (agent.speed <= highest_speed && speed_amount > 0) {
+            agent.speed += speed_amount;
+            agent.acceleration += speed_amount;
+        }
+    }
+
 
     // Methods for retrieving stats
     public int GetMaxHealth()

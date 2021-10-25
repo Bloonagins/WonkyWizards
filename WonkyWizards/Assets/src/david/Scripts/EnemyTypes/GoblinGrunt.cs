@@ -12,11 +12,14 @@
 **********************************************/
 using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class GoblinGrunt : MonoBehaviour
 {
     // Used to store RigidBody2d Component
     private Rigidbody2D rb;
+    // Used to store NavMeshAgent Component
+    private NavMeshAgent agent;
 
     // Private Data Class Pattern 
     private GoblinGruntData goblinGruntData; // Stores all GoblinGrunts attributes privately
@@ -25,7 +28,7 @@ public class GoblinGrunt : MonoBehaviour
     public GoblinGrunt()
     {
         // Set initial values of goblinGruntData class
-        this.goblinGruntData = new GoblinGruntData(200, 200, 30, 18f, 1.5f, 1.5f, 300f, 20f, false);
+        this.goblinGruntData = new GoblinGruntData(200, 200, 30, 18f, 6f, 24f, 1.5f, 1.5f, 300f, 20f, false);
     }
     
     // Start is called before the first frame update
@@ -33,6 +36,8 @@ public class GoblinGrunt : MonoBehaviour
     {
         // Gets the Rigid Body component
         rb = GetComponent<Rigidbody2D>();
+        // Gets the Agent component
+        agent = GetComponent<NavMeshAgent>();
     }
     // Called at a fixed interval (50 times / second)
     // Increments the timers if they're on a cooldown
@@ -70,8 +75,7 @@ public class GoblinGrunt : MonoBehaviour
             }
             else if(other.GetComponent<IceBeam>()) { // Check if spell was IceBeam
                 //Debug.Log("Collided Ice Beam");
-                RecieveDamage(other.GetComponent<IceBeam>().getSpellDamage()); // Recieve damage 
-                rb.AddForce((other.transform.position - transform.position) * other.GetComponent<IceBeam>().getSpellKnockBack() * -1.0f, ForceMode2D.Impulse); // FireBall.getKnockback();
+                ChangeMoveSpeed(other.GetComponent<IceBeam>().Freeze() * -1); // Recieve slow 
             }
             else if(other.GetComponent<AcidSpray>()) { // Check if spell was AcidSpray
                 //Debug.Log("Collided Acid Spray");
@@ -148,6 +152,17 @@ public class GoblinGrunt : MonoBehaviour
             this.goblinGruntData.SetHealth(this.goblinGruntData.GetMaxHealth()); // set to max
         }
     }
+    public void ChangeMoveSpeed(float s) {
+        if (agent.speed >= this.goblinGruntData.GetLowestSpeed() && s < 0) { // decrease
+            agent.speed += s;
+            agent.acceleration += s;
+        }
+        else if (agent.speed <= this.goblinGruntData.GetHighestSpeed() && s > 0) { // increase
+            agent.speed += s;
+            agent.acceleration += s;
+        }
+    }
+
     // Function to confirm attack was sucessful
     public void SetAttack(bool success)
     {
