@@ -179,6 +179,11 @@ public class PlayerScript : MonoBehaviour
             hp = MAXHP;
         }
 
+        if (hp <= 0)
+        {
+            GameManager.ChangeState(GameState.LOSE);
+        }
+
         PlayerTimer.activateDamageCooldown();
     }
 
