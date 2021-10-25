@@ -3,6 +3,12 @@
 	- Death sounds
 	- Potion drinking sounds
 
+- Notifications
+	- Goal tower being hit sounds
+	- Game over sounds
+	- Wave start sounds
+	- Wave completed sounds
+
 - Spells
 	- Casting sounds
 	- Termination sounds (when a spell disipates / explodes / ends)
