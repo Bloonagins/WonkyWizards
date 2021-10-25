@@ -6,10 +6,13 @@ public class IceBeam : Spells
 {
     private int fire_radius;
 
+    public float slow;
+
     public IceBeam()
     {
         speed = 50.0f;
-        DAMAGE = 80;
+        slow = .1f;
+        DAMAGE = 0;
         COOL_DOWN = 0.02f;
         fire_radius = 10;
     }
@@ -21,20 +24,16 @@ public class IceBeam : Spells
     }
 
     //-----------Behaviour-------------
-    void Freeze()
+    public float Freeze()
     {
-        GameObject effect = Instantiate(projectileEffect, projectile.transform.position, projectile.transform.rotation);
-        //slow enemy
-        Destroy(effect,1);
+        return slow;
     }
 
     //-----------Collisions-------------
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("collision: " + collision);
-        if(collision.gameObject.tag !="Player" && collision.gameObject.tag != "Spell")
+        if(Collision_behaviour(collision))
         {
-            Freeze();
             Destroy(projectile);
         }
     }

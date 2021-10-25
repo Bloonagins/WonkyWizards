@@ -60,7 +60,6 @@ public class FireBall: Spells
         Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
         foreach(Collider nearbyObject in colliders)
         {
-            Debug.Log("object: " + nearbyObject);
         }
         Destroy(effect,1);
     }
@@ -68,8 +67,7 @@ public class FireBall: Spells
     //-----------Collisions-------------
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("collision: " + collision);
-        if(collision.gameObject.tag !="Player" && collision.gameObject.tag != "Spell" && collision.gameObject.tag != "Zone")
+        if(Collision_behaviour(collision))
         {
             Explode();
             Destroy(projectile);
