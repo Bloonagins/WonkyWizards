@@ -16,7 +16,7 @@ public class DemoMode : MonoBehaviour
     {
         demoActive = false;
         inputTimer = 0f;
-        inputDelay = 10f;
+        inputDelay = 3f;
     }
 
     // Update is called once per frame
