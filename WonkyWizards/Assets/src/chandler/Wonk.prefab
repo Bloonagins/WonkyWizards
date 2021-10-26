@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 6288506958427422217}
   - component: {fileID: 5876367107654672497}
   - component: {fileID: -3251849990200032654}
-  - component: {fileID: -5909464218696765434}
   m_Layer: 0
   m_Name: Wonk
   m_TagString: Player
@@ -191,18 +190,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9e095ef9f00d914b876dc0689302238, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &-5909464218696765434
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6288506958427422210}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c0288922092e9b4cbf7f95991c9d625, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &7988060899388022925
