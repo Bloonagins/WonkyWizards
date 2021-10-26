@@ -8,6 +8,7 @@ public class DemoController : MonoBehaviour
     private static DemoMode dm;
     private static EnemyRadar er;
     private static Rigidbody2D rb;
+    public Transform demoPoint;
     public GameObject fireball;
 
     void Start()
@@ -44,7 +45,10 @@ public class DemoController : MonoBehaviour
             }
             else
             {
-                //move towards goal point
+                if (transform.position != demoPoint.position)
+                {
+                    rb.AddForce(Vector3.Normalize(demoPoint.position - transform.position) * 30, ForceMode2D.Impulse);
+                }
             }
         }
     }
