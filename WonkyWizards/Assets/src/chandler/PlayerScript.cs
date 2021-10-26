@@ -51,7 +51,7 @@ public class PlayerScript : MonoBehaviour
         worldCursorPoint = Camera.main.ScreenToWorldPoint(screenCursorPoint);
         worldCursorPoint.z = 0.0f;
         // updates the cursor angle
-        calculateCursorAngle();
+        cursorAngle = calculateVectorAngle(transform.position, worldCursorPoint);
         // updates cursor point for what square the cursor is currently in
         gridCursorPoint = Summon.SnapOffset(worldCursorPoint, new Vector3(4,4,0), 8.0f);
         // updates the indexes of the level array that the cursor is currently over
@@ -227,9 +227,9 @@ public class PlayerScript : MonoBehaviour
     }
 
     // used for updating the cursor angle
-    private void calculateCursorAngle()
+    public static float calculateVectorAngle(Vector3 origin, Vector3 away)
     {
-        Vector3 difference = worldCursorPoint - transform.position;
+        Vector3 difference = away - origin;
         float angle = (float)(Math.Atan(difference.y / difference.x) * (180 / Math.PI));
 
         if (difference.x < 0)
@@ -244,7 +244,7 @@ public class PlayerScript : MonoBehaviour
             }
         }
 
-        cursorAngle = angle;
+        return angle;
     }
 
     // sets the inBuildMode bool to a certain value
