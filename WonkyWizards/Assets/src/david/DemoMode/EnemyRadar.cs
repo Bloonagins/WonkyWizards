@@ -9,8 +9,11 @@ public class EnemyRadar : MonoBehaviour
     private GameObject[] multipleEnemies;
     private Transform closestEnemy;
     private Transform target;
-    public bool enemyContact;
-    public bool inRange;
+    private static DemoMode demo;
+    private bool enemyContact;
+    private bool inRange;
+    private int minVal;
+    private int maxVal;
 
     // Start is called before the first frame update
     void Start()
@@ -19,15 +22,13 @@ public class EnemyRadar : MonoBehaviour
         target = null;
         enemyContact = false;
         inRange = false;
+        minVal = 2;
+        maxVal = 6;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        demo = GetComponent<DemoMode>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        // Debug.Log(inRange);
-    }
-
+    // Function that checks when collsion has entered
     private void OnTriggerStay2D(Collider2D collision)
     {
         if(collision.isTrigger != true && collision.CompareTag("Enemy")) 
@@ -37,31 +38,31 @@ public class EnemyRadar : MonoBehaviour
             {
                 closestEnemy.gameObject.GetComponent<SpriteRenderer>().material.color = Color.white;
             }
+
             closestEnemy = getClosetEnemy();
             target = closestEnemy;
-            closestEnemy.gameObject.GetComponent<SpriteRenderer>().material.color = new Color(0, 0.7f, 3, 1);       
+            //closestEnemy.gameObject.GetComponent<SpriteRenderer>().material.color = new Color(0, 0.7f, 3, 1);       
             enemyContact = true;
         }
     }
-
+    // Function checks when collision has exited
     private void OnTriggerExit2D(Collider2D collision) 
     {
         if(collision.isTrigger != true && collision.CompareTag("Enemy"))
         {
             inRange = false;
             enemyContact = false;
-            closestEnemy.gameObject.GetComponent<SpriteRenderer>().material.color = Color.white;
+            //closestEnemy.gameObject.GetComponent<SpriteRenderer>().material.color = Color.white;
         }
     }
 
     // Function that calculates the position the target will be
     public Vector3 calculateAttack() {
-        // Use distance between enemy and player ?
-        // float distanceBetween = Vector3.Distance(target.position, player.position);
-        // NavMeshAgent agent = target.GetComponent<NavMeshAgent>();
-        // agent.speeds
-        // Use direction ?
-        return target.position;
+        Vector3 attack = target.position;
+        if(demo.GetFail()) {
+            attack += new Vector3 (Random.Range(minVal, maxVal), Random.Range(minVal, maxVal), Random.Range(minVal, maxVal));
+        }
+        return attack;
     }
 
     public Transform GetTarget()
