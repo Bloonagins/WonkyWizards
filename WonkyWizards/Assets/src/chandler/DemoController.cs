@@ -25,7 +25,7 @@ public class DemoController : MonoBehaviour
             PlayerScript.setBuildMode(false);
             if (er.GetInRange())
             {
-                transform.eulerAngles = Vector3.forward * PlayerScript.calculateVectorAngle(transform.position, er.GetTarget().position);
+                transform.eulerAngles = Vector3.forward * PlayerScript.calculateVectorAngle(transform.position, er.calculateAttack());
                 if (PlayerTimer.canCast(1) && GameManager.CheckState() != GameState.PAUSE)
                 {
                     Instantiate(fireball, transform.position, Quaternion.Euler(Vector3.Normalize(er.calculateAttack() - transform.position)));
