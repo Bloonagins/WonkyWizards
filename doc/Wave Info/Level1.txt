@@ -1,56 +1,132 @@
 Wave 1 (60 seconds) (+150 mana):
-	00
+	000
 		Goblin grunt: x5
-	05
+	005
 		Goblin grunt: x5
-	10
+	010
 		Goblin grunt: x5
-	15
+	015
 		Goblin grunt: x5
 		Goblin warrior: x2
-	20
+	020
 		Goblin grunt: x5
 		Goblin warrior: x3
-	30
+	030
 		Goblin grunt: x5
 		Goblin warrior: x3
-	40
+	040
 		Goblin grunt: x3
-	45
+	045
 		Goblin warrior: x8
 
 Wave 2 (60 seconds) (+150 mana):
-	00
+	000
 		Goblin grunt: x5
-	05
+	005
 		Goblin warrior: x3
-	06
+	006
 		Goblin archer: x3
-	15
+	015
 		Goblin warrior: x3
-	16
+	016
 		Goblin archer: x3
-	25
+	025
 		Goblin assassin: x3
-	26
+	026
 		Goblin archer: x3
-	35
+	035
 		Goblin assassin: x5
-	36
+	036
 		Goblin archer: x5
-	50
+	050
 		Goblin grunt: x5
-	51
+	051
 		Goblin warrior: x3
 		Goblin assassin: x3
 
 Wave 3 (120 seconds) (+150 mana):
-	00
-		Goblin grunt: x1
+	000
+		Goblin grunt: x10
+	001
+		Goblin slimecaster: x5
+	015
+		Goblin warrior: x5
+	016
+		Goblin slimecaster: x5
+	030
+		Goblin grunt: x5
+		Goblin warrior: x5
+	031
+		Goblin archer: x5
+		Goblin slimecaster: x5
+	050
+		Goblin warrior: x5
+	051
+		Goblin alchemist: x5
+	065
+		Goblin assassin: x5
+	066
+		Goblin slimecaster: x5
+		Goblin alchemist: x5
+	085
+		Goblin grunt: x10
+	086
+		Goblin archer: x5
+		Goblin slimecaster: x5
+		Goblin alchemist: x5
+	100
+		Goblin warrior: x5
+		Goblin assassin: x5
+	101
+		Goblin slimecaster: x7
+		Goblin alchemist: x7
 
 Wave 4 (120 seconds) (+150 mana):
-	00
-		Goblin grunt: x1
+	000
+		Goblin warrior: x5
+	001
+		Goblin priest: x3
+	010
+		Goblin grunt: x10
+	011
+		Goblin priest: x5
+	025
+		Goblin warrior: x5
+	026
+		Goblin archer: x3
+		Goblin alchemist: x3
+	027
+		Goblin priest: x3
+	040
+		Goblin assassin: x10
+	041
+		Goblin priest: x5
+	055
+		Goblin grunt: x10
+	056
+		Goblin archer: x2
+		Goblin slimecaster: x2
+		Goblin alchemist: x2
+	057
+		Goblin priest: x3
+	070
+		Goblin warrior: x5
+	071
+		Goblin archer: x5
+		Goblin priest: x5
+	085
+		Goblin warrior: x1
+	086
+		Goblin priest: x10
+	095
+		Goblin alchemist: x6
+	105
+		Goblin grunt: x5
+		Goblin assassin: x3
+	110
+		Goblin priest: x10
+	115
+		Goblin warrior: x1
 
 Wave 5 (180 seconds) (+150 mana):
 	00
