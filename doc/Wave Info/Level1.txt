@@ -19,7 +19,7 @@ Wave 1 (60 seconds) (+150 mana):
 	45
 		Goblin warrior: x8
 
-Wave 2 (60 seconds) (150 mana):
+Wave 2 (60 seconds) (+150 mana):
 	00
 		Goblin grunt: x5
 	05
