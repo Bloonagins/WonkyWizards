@@ -1,0 +1,61 @@
+Wave 1 (60 seconds) (+150 mana):
+	00
+		Goblin grunt: x5
+	05
+		Goblin grunt: x5
+	10
+		Goblin grunt: x5
+	15
+		Goblin grunt: x5
+		Goblin warrior: x2
+	20
+		Goblin grunt: x5
+		Goblin warrior: x3
+	30
+		Goblin grunt: x5
+		Goblin warrior: x3
+	40
+		Goblin grunt: x3
+	45
+		Goblin warrior: x8
+
+Wave 2 (60 seconds) (150 mana):
+	00
+		Goblin grunt: x5
+	05
+		Goblin warrior: x3
+	06
+		Goblin archer: x3
+	15
+		Goblin warrior: x3
+	16
+		Goblin archer: x3
+	25
+		Goblin assassin: x3
+	26
+		Goblin archer: x3
+	35
+		Goblin assassin: x5
+	36
+		Goblin archer: x5
+	50
+		Goblin grunt: x5
+	51
+		Goblin warrior: x3
+		Goblin assassin: x3
+
+Wave 3 (120 seconds) (+150 mana):
+	00
+		Goblin grunt: x1
+
+Wave 4 (120 seconds) (+150 mana):
+	00
+		Goblin grunt: x1
+
+Wave 5 (180 seconds) (+150 mana):
+	00
+		Goblin grunt: x1
+
+Wave 6 (180 seconds) (+150 mana):
+	00
+		Goblin grunt: x1
