@@ -9,7 +9,9 @@ public class DemoMode : MonoBehaviour
     // Keeps track of time since last input
     private float inputTimer;
     // Amount of time for input delay
-    private float inputDelay;
+    public float inputDelay;
+    // 
+    public bool Fail;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +19,7 @@ public class DemoMode : MonoBehaviour
         demoActive = false;
         inputTimer = 0f;
         inputDelay = 3f;
+        Fail = false;
     }
 
     // Update is called once per frame
@@ -37,7 +40,7 @@ public class DemoMode : MonoBehaviour
 
         // Check if theres been no input for 10 seconds and game is in playmode
         if(GameManager.CheckState() == GameState.PLAY && NoInput10Seconds()) {
-            Debug.Log("IN PLAY STATE and no input 10 seconds");
+            // Debug.Log("IN PLAY STATE and no input 10 seconds");
             // activate demo mode
             demoActive = true;
         }
@@ -60,6 +63,11 @@ public class DemoMode : MonoBehaviour
     public bool GetDemoActive() 
     {
         return demoActive;
+    }
+
+    public bool GetFail() 
+    {
+        return Fail;
     }
 
 }
