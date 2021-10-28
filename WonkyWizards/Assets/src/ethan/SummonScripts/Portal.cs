@@ -21,7 +21,7 @@ using UnityEngine;
 
 public class Portal : Summon
 {
-	protected static int cost = 50;
+	protected static int cost = 0;
 
 	public void FixedUpdate()
 	{
