@@ -645,6 +645,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1368356695192625970, guid: 91e935024e2aa84478def3377817e5a4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 14.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 1368356695192625970, guid: 91e935024e2aa84478def3377817e5a4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.08
       objectReference: {fileID: 0}
@@ -683,6 +687,14 @@ PrefabInstance:
     - target: {fileID: 1368356695192625970, guid: 91e935024e2aa84478def3377817e5a4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0.723
+      objectReference: {fileID: 0}
+    - target: {fileID: 2619976383768782805, guid: 91e935024e2aa84478def3377817e5a4, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7090832528880050873, guid: 91e935024e2aa84478def3377817e5a4, type: 3}
+      propertyPath: m_Radius
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 7090832528880050873, guid: 91e935024e2aa84478def3377817e5a4, type: 3}
       propertyPath: m_IsTrigger
