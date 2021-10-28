@@ -8,8 +8,8 @@ public class LevelManager : MonoBehaviour
     private static bool[,] level1Arr = new bool[12, 12]; // static array of level 1
     private static List<bool[,]> levelMasterArray = new List<bool[,]>();
     
-    private static List<Tuple<int, int>> enemySpawnPoints = new List<Tuple<int,int>>();
-    private static List<Tuple<int, int>> goals = new List<Tuple<int,int>>();
+    private static List<Tuple<int, int>> enemySpawnPoints = new List<Tuple<int,int>>(); // list of enemy spawn points (x, y)
+    private static List<Tuple<int, int>> goals = new List<Tuple<int,int>>();  // list of the 
 
     // int array to store the size of each level
     private static int[] row = {12};
@@ -19,14 +19,30 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentLevel = 0;
-        Debug.Log("Current level: " + currentLevel);
+        currentLevel = GameManager.getCurrentLevel(); // gets the current level from zach's function
+        //Debug.Log("Current level: " + currentLevel);
         levelMasterArray.Add(level1Arr);
         enemySpawnPoints.Add(new Tuple<int, int>(0, 5));
         goals.Add(new Tuple<int, int>(11, 5));
         GameManager.setLevelArray(levelMasterArray[currentLevel]);
-
+        Initiate_Level(currentLevel);
+        
+        /*
         switch(currentLevel)
+        {
+            case 0:
+                Initialize_Level_1();
+                break;
+            default:
+                Debug.Log("Current level invalide while initializing array");
+                break;
+        } 
+        */
+    }
+
+    void Initiate_Level(int currentLevel)
+    {
+        switch (currentLevel)
         {
             case 0:
                 Initialize_Level_1();
@@ -36,13 +52,6 @@ public class LevelManager : MonoBehaviour
                 break;
         }
     }
-
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-
-    }
-
     void Initialize_Level_1()
     {
         /// Initializes the level 1 bool array of traversable tiles.
@@ -78,14 +87,17 @@ public class LevelManager : MonoBehaviour
     {
         return row[GameManager.getCurrentLevel()];
     }
+    /// <returns> get the current level's column size </returns>
     public static int getLevelCols()
     {
         return col[GameManager.getCurrentLevel()];
     }
+    /// <returns> gets the spawn point coordinates for the current level</returns>
     public static Tuple<int, int> getEnemySpawnPoint()
     {
         return enemySpawnPoints[GameManager.getCurrentLevel()];
     }
+    /// <returns> gets the enemy's goal for the current level </returns>
     public static Tuple<int, int> getLevelGoal()
     {
         return goals[GameManager.getCurrentLevel()];

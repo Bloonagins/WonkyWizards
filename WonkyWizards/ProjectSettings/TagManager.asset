@@ -62,8 +62,14 @@ TagManager:
   - name: Terrain
     uniqueID: 979243323
     locked: 0
+  - name: temp
+    uniqueID: 2521902359
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: invisible collider map objects
+    uniqueID: 77629441
     locked: 0
   - name: Collide Map Objects
     uniqueID: 3746740669
