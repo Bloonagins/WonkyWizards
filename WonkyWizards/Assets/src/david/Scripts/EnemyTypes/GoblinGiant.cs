@@ -3,6 +3,10 @@
 | Author: David Bush, T5                      |
 | Description: This is the GoblinGiant class  |
 | that inherits from the Enemy superclass.    |
+| This will contain all variables and methods |
+| for the GoblinGiant type. The GoblinGiant is|
+| a large enemy that has the unique ability to|
+| explode on death, damaging the player.      | 
 | Bugs:                                       |
 **********************************************/
 using System.Collections;
@@ -13,18 +17,21 @@ public class GoblinGiant : Enemy
 {
     // Used to store RigidBody2d Component
     private Rigidbody2D rb;
-
+    // Used to store Agent component
+    private NavMeshAgent agent;
+    // Used to store deathExplosion object
+    public GameObject deathExplosion;
 
     // Constructor for GoblinGiant
     public GoblinGiant()
     {
-        max_health = health = 400;
-        damage = 50;
-        move_speed = 14f;
-        attack_speed = attackTimer = 1.75f; // 1714 damage per minute
-        targetDistance = 25f;
+        max_health = health = 100;
+        damage = 100;
+        move_speed = 12f;
+        attack_speed = attackTimer = 3f; // 2000 damage per minute
+        targetDistance = 30f;
         attackConnected = false;
-        knock_back = 400f;
+        knock_back = 700f;
     }
     
     // Start is called before the first frame update
@@ -32,6 +39,8 @@ public class GoblinGiant : Enemy
     {
         // Gets the Rigid Body component
         rb = GetComponent<Rigidbody2D>();
+        // Gets the Agent component
+        agent = GetComponent<NavMeshAgent>();
     }
     // Called at a fixed interval (50 times / second)
     // Increments the timers if they're on a cooldown
@@ -49,6 +58,7 @@ public class GoblinGiant : Enemy
         // Check if unit has no health left
         if (health <= 0) {
             // SoundManagerScript.PlaySound("enemyDeath");
+            DeathExplosion(); // creates explosion
             Destroy(gameObject); // Destroy unit
         }
     }
@@ -71,8 +81,7 @@ public class GoblinGiant : Enemy
             }
             else if(other.GetComponent<IceBeam>()) { // Check if spell was IceBeam
                 //Debug.Log("Collided Ice Beam");
-                RecieveDamage(other.GetComponent<IceBeam>().getSpellDamage()); // Recieve damage 
-                rb.AddForce((other.transform.position - transform.position) * other.GetComponent<IceBeam>().getSpellKnockBack() * -1.0f, ForceMode2D.Impulse); // Apply Knockback;
+                ChangeMoveSpeed(other.GetComponent<IceBeam>().Freeze() * -1); // Recieve slow 
             }
             else if(other.GetComponent<AcidSpray>()) { // Check if spell was AcidSpray
                 //Debug.Log("Collided Acid Spray");
@@ -82,10 +91,31 @@ public class GoblinGiant : Enemy
         }
         else if(other.tag == "SummonProjectile") {
             if(other.GetComponent<Sword>()) {
-                Debug.Log("COLLIDED WITH SWORD");
+                //Debug.Log("COLLIDED WITH SWORD");
                 RecieveDamage(other.GetComponent<Sword>().getProjDamage()); // Recieve damage
-                rb.AddForce((other.transform.position - transform.position) * other.GetComponent<Sword>().getProjKnockback() * -1.0f, ForceMode2D.Impulse); // Apply Knockback;
+                //rb.AddForce((other.transform.position - transform.position) * other.GetComponent<Sword>().getProjKnockback() * -1.0f, ForceMode2D.Impulse); // Apply Knockback;
             }
+            /*else if(other.GetComponent<DragonProj>()) { // Check if collided with Dragon projectile
+                Debug.Log("COLLIDED Dragon");
+                RecieveDamage(other.GetComponent<DragonProj>().getProjDamage()); // Recieve damage
+            }
+            else if(other.GetComponent<CrossbowProj>()) { // Check if collided with Crossbow projectile
+                Debug.Log("COLLIDED Crosbow");
+                RecieveDamage(other.GetComponent<CrossbowProj>().getProjDamage()); // Recieve damage
+            }
+            else if(other.GetComponent<ShrubberyProj>()) { // Check if collided with Shrubbery projectile
+                Debug.Log("COLLIDED Shrubbery");
+                RecieveDamage(other.GetComponent<ShrubberyProj>().getProjDamage()); // Recieve damage
+            }
+            else if(other.GetComponent<SvenProj>()) { // Check if collided with Sven projectile
+                Debug.Log("COLLIDED Sven");
+                RecieveDamage(other.GetComponent<SvenProj>().getProjDamage()); // Recieve damage
+            }
+            else if(other.GetComponent<ChunkProj>()) { // Check if collided with Chunk projectile
+                Debug.Log("COLLIDED Chunk");
+                RecieveDamage(other.GetComponent<ChunkProj>().getProjDamage()); // Recieve damage
+            }
+            */
         }
     }
     void OnTriggerStay2D(Collider2D collision)
@@ -99,6 +129,18 @@ public class GoblinGiant : Enemy
                 //Debug.Log("Attack");
             }
         }
+    }
+
+    // Function instantiates an explosion when enemy giant dies
+    void DeathExplosion()
+    {
+        float radius = 1f;
+        GameObject explosion = Instantiate(deathExplosion, gameObject.transform.position, gameObject.transform.rotation);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
+        foreach(Collider nearbyObject in colliders)
+        {
+        }
+        Destroy(explosion,1);
     }
 
     // Keeps track of when enemy can attack
@@ -139,6 +181,17 @@ public class GoblinGiant : Enemy
     // Function to change the enemy's damage by a flat amount
     public void ChangeDamage(int damage_amount){
         damage += damage_amount; // can be positive or negative
+    }
+    // Function to change the enemy's movespeed by a flat amount
+    public void ChangeMoveSpeed(float speed_amount) {
+        if (agent.speed >= lowest_speed && speed_amount< 0) { 
+            agent.speed += speed_amount;
+            agent.acceleration += speed_amount;
+        }
+        else if (agent.speed <= highest_speed && speed_amount > 0) {
+            agent.speed += speed_amount;
+            agent.acceleration += speed_amount;
+        }
     }
 
     // Methods for retrieving stats

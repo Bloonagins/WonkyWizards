@@ -77,6 +77,11 @@ public class EnemyTargeting : MonoBehaviour
             dashDistance = gameObject.GetComponent<GoblinAssassin>().GetDashDistance();
             isDash = true;
         }
+        else if(gameObject.GetComponent<GoblinGiant>()) { // Set GoblinGiant speed
+            agent.speed = gameObject.GetComponent<GoblinGiant>().GetMoveSpeed(); 
+            agent.acceleration = gameObject.GetComponent<GoblinGiant>().GetMoveSpeed();
+            targetDistance = gameObject.GetComponent<GoblinGiant>().GetTargetDistance();
+        }
     }
     
     // Update is called once per frame
