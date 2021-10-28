@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEditor;
-using UnityEditor.AI;
+//using UnityEditor.AI;
 using UnityEngine.AI;
 using System.Collections;
 using System.Collections.Generic;
@@ -62,6 +62,7 @@ public class WaveSpawner : MonoBehaviour
                 if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0 && !canSpawn && currentWaveNumber + 1 != waves.Length)
                 {
                     GameManager.ChangeState(GameState.SETUP);
+
                     currentWaveNumber++;
                     canSpawn = true;
                     baked = false;
