@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEditor;
-//using UnityEditor.AI;
 using UnityEngine.AI;
 using System.Collections;
 using System.Collections.Generic;
@@ -16,19 +15,33 @@ public class Wave
 
 public class WaveSpawner : MonoBehaviour
 {
-    public Wave[] waves;
-    public Transform[] spawnPoints;
+    public Wave[] waves; // array of waves
+    public Transform[] spawnPoints; // array of spawn points 
 
-    public Wave currentWave;
-    private int currentWaveNumber = 1;
-    private bool canSpawn = true;
-    private float nextSpawnTime, currentSpawnTime;
-    private bool baked;
+    public Wave currentWave; // current wave info 
+    private int currentWaveNumber = 1; // current wave number variable that is incremented when a wave is finished
+    private bool canSpawn = true; 
+    private bool baked; // variable to check if nav mesh has been baked before each wave starts
+    private float nextSpawnTime, currentSpawnTime; // timer variables
 
-    public NavMeshSurface2d Surface2D;
+    public NavMeshSurface2d Surface2D; // navmesh component variable
 
-    //private float timer;
-    //private GameObject GoblinGrunt = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/src/david/Prefab/GoblinGrunt.prefab");
+    // --- Start of Singleton Pattern --- \\
+    public static WaveSpawner instance; // for singleton pattern
+    private void Awake()
+    {
+        MakeSingleton();
+    }
+    private WaveSpawner MakeSingleton()
+    {
+        if (instance == null) // if the instance is equal to null (has not been run yet)
+        {
+            instance = this; // change the instance to this instance 
+        }
+        return instance;
+    }
+    // --- End of Singleton Pattern --- \\
+    
 
     private void Start()
     {
@@ -39,12 +52,10 @@ public class WaveSpawner : MonoBehaviour
 
     private void FixedUpdate()
     {
-
-        currentWave = waves[currentWaveNumber];
+        currentWave = waves[currentWaveNumber]; // set the current wave
         // check gamestate
         if (GameManager.CheckState() == GameState.PLAY)
         {
-            //Debug.Log("check");
             if (currentSpawnTime > 0)
             {
                 currentSpawnTime -= Time.fixedDeltaTime; // decrement the timer
@@ -73,11 +84,9 @@ public class WaveSpawner : MonoBehaviour
                         baked = false; // reset baked variable to false to re-bake after player hits play and before the first enemy spawns
                     }
                 }
-                
                 currentSpawnTime += nextSpawnTime; // increment the time
             }
         }
-        
     }
 
     void SpawnWave()
@@ -85,7 +94,6 @@ public class WaveSpawner : MonoBehaviour
         if(canSpawn) 
         {
             Instantiate(currentWave.typeOfEnemies[0], spawnPoints[0].position, Quaternion.identity);
-            //spawnedEnemies++;
             nextSpawnTime = 3.0f;
             currentWave.numberOfEnemies--;
             if(currentWave.numberOfEnemies == 0)
@@ -95,58 +103,3 @@ public class WaveSpawner : MonoBehaviour
         }
     }
 }
-
-/*
-public class WaveSpawner : MonoBehaviour
-{
-    private int currentLevel;
-    private WaveSpawnerData waveData;
-    private WaveSpawnerData wave1;
-    private WaveSpawnerData wave2;
-    private WaveSpawnerData wave3;
-    private WaveSpawnerData wave4;
-    private WaveSpawnerData wave5;
-    private WaveSpawnerData wave6;
-    private WaveSpawnerData wave7;
-    private WaveSpawnerData wave8;
-    private WaveSpawnerData wave9;
-    private WaveSpawnerData wave10;
-
-
-    void Start()
-    {
-        currentLevel = GameManager.getCurrentLevel();
-        LoadLevelWaves(currentLevel);
-    }
-
-    void LoadLevelWaves(int currentLevel)
-    {
-        switch (currentLevel)
-        {
-            case 0:
-                LoadLevel1();
-                break;
-            case 1:
-                LoadLevel2();
-                break;
-            default:
-                Debug.Log("Current level invalid while loading current level enemy waves");
-                break;
-        }
-    }
-
-    void LoadLevel1()
-    {
-        this.wave1 = new WaveSpawnerData("Wave1", 3.0f, 3, 0, 0, 0, 0);
-        this.wave2 = new WaveSpawnerData("Wave2", 3.0f, 5, 0, 0, 0, 0);
-        this.wave3 = new WaveSpawnerData("Wave3", 3.0f, 10, 0, 0, 0, 0);
-        this.wave4 = new WaveSpawnerData("Wave4", 3.0f, 20, 0, 0, 0, 0);
-        this.wave5 = new WaveSpawnerData("Wave5", 3.0f, 20, 0, 0, 0, 0);        
-    }
-
-    void LoadLevel2()
-    {
-        
-    }
-}
-*/
