@@ -16,10 +16,8 @@ using UnityEngine.AI;
 
 public class GoblinGrunt : MonoBehaviour
 {
-    // Used to store RigidBody2d Component
-    private Rigidbody2D rb;
-    // Used to store NavMeshAgent Component
-    private NavMeshAgent agent;
+    private Rigidbody2D rb; // Used to store NavMeshAgent Component
+    private NavMeshAgent agent; // Used to store NavMeshAgent Component
 
     // Private Data Class Pattern 
     private GoblinGruntData goblinGruntData; // Stores all GoblinGrunts attributes privately
@@ -28,7 +26,8 @@ public class GoblinGrunt : MonoBehaviour
     public GoblinGrunt()
     {
         // Set initial values of goblinGruntData class
-        this.goblinGruntData = new GoblinGruntData(200, 200, 30, 18f, 6f, 24f, 1.5f, 1.5f, 300f, 20f, false);
+        this.goblinGruntData = new GoblinGruntData(200, 200, 30, 16f, 6f, 22f, 1.5f, 1.5f, 300f, 20f, false);
+        // 1200 damage per second
     }
     
     // Start is called before the first frame update

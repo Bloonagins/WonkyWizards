@@ -26,16 +26,16 @@ public class GoblinWarrior : Enemy
     // Constructor for GoblinWarrior
     public GoblinWarrior()
     {
-        max_health = health = 400;
-        damage = 50;
+        max_health = health = 285;
+        damage = 36;
         damageBoost = 2;
-        move_speed = 14f;
+        move_speed = 16f;
         lowest_speed = 6f;
-        highest_speed = 24f;
-        attack_speed = attackTimer = 1.75f; // 1714 damage per minute
+        highest_speed = 22f;
+        attack_speed = attackTimer = 1.5f; // 1600 damage per minute
         targetDistance = 25f;
         attackConnected = false;
-        knock_back = 400f;
+        knock_back = 350f;
     }
     
     // Start is called before the first frame update

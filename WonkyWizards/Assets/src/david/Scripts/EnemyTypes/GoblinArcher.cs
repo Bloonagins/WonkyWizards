@@ -1,50 +1,40 @@
 /**********************************************
-| GoblinAssasin V1.0.0                        |
+| GoblinBerserker V1.0.0                      |
 | Author: David Bush, T5                      |
-| Description: This is the GoblinAssasin      |
+| Description: This is the GoblinBerserker    |
 | class that inherits from the Enemy          |
 | superclass. This will contain all variables |
 | and methods associtiated with the           |
-| GoblinAssasin enemy type. Each GoblinAssasin| 
-| has the unique dash ability. When it is     | 
-| within a certain range from the player the  |
-| Assasain dashes forward towards the player. |
+| GoblinBerserker enemy type. Each            |
+| GoblinBerserker has the unique ability Rage |
+| Mode. When it is hit by a spell it's damage |
+| and speed increase by a flat ammount each   |
+| time.                                       |         
 | Bugs:                                       |
 **********************************************/
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class GoblinAssassin : Enemy
+public class GoblinArcher : Enemy
 {
     // Used to store RigidBody2d Component
     private Rigidbody2D rb;
     // Used to store Agent component
     private NavMeshAgent agent;
-    // The distance the GoblinAssasin needs to be in order to dash
-    private float dashDistance;
-    // The dash amount applied to the unit
-    private float dashAmount;
-    // The dash cool down
-    private float dashCD;
-    // The dash cool down timer
-    private float dashTimer;
 
-    // Constructor for GoblinAssasin
-    public GoblinAssassin()
+    // Constructor for GoblinBerserker
+    public GoblinArcher()
     {
-        max_health = health = 325;
-        damage = 60;
-        move_speed = 20f;
-        lowest_speed = 10f;
-        highest_speed = 22f;
-        attack_speed = attackTimer = 1.5f; // 2400 damage per minute
-        dashDistance = 8f;
-        dashAmount = 130f;
-        dashCD = dashTimer = 3f;
+        max_health = health = 300;
+        damage = 45;
+        move_speed = 16f;
+        lowest_speed = 6f; 
+        highest_speed = 24f; 
+        attack_speed = attackTimer = 1.75f; // 1714 damage per minute
         targetDistance = 25f;
         attackConnected = false;
-        knock_back = 350f;
+        knock_back = 400f;
     }
     
     // Start is called before the first frame update
@@ -59,13 +49,11 @@ public class GoblinAssassin : Enemy
     // Increments the timers if they're on a cooldown
     void FixedUpdate()
     {
-        // Check timers, and increment time
-        if (attackTimer <= attack_speed) { 
+        if (attackTimer <= attack_speed) {
             attackTimer += Time.fixedDeltaTime;
         }
-        if (dashTimer <= dashCD) {
-            dashTimer += Time.fixedDeltaTime;
-        }
+        //Debug.Log("Current Damage: "+GetDamage());
+        //Debug.Log("Current speed: "+agent.acceleration);
     }
     // Update is called once per frame
     void Update()
@@ -76,22 +64,20 @@ public class GoblinAssassin : Enemy
             Destroy(gameObject); // Destroy unit
         }
     }
-    
+
     // Function that checks for collisions
     void OnTriggerEnter2D(Collider2D collision)
     {        
         GameObject other = collision.gameObject;
-       
         if(other.tag == "Spell") { // Check if enemy collided with spell
-
             if(other.GetComponent<FireBall>()) { // Check if spell was Fireball
                 RecieveDamage(other.GetComponent<FireBall>().getSpellDamage()); // Recieve damage 
-                rb.AddForce((other.transform.position - transform.position) * other.GetComponent<FireBall>().getSpellKnockBack() * -1.0f, ForceMode2D.Impulse); // FireBall.getKnockback();
+                rb.AddForce((other.transform.position - transform.position) * other.GetComponent<FireBall>().getSpellKnockBack() * -1.0f, ForceMode2D.Impulse); // Apply Knockback;
             }
             else if(other.GetComponent<MagicMissle>()) { // Check if spell was MagicMissle
                 //Debug.Log("Collided Magic Missle");
                 RecieveDamage(other.GetComponent<MagicMissle>().getSpellDamage()); // Recieve damage 
-                rb.AddForce((other.transform.position - transform.position) * other.GetComponent<MagicMissle>().getSpellKnockBack() * -1.0f, ForceMode2D.Impulse); // FireBall.getKnockback();
+                rb.AddForce((other.transform.position - transform.position) * other.GetComponent<MagicMissle>().getSpellKnockBack() * -1.0f, ForceMode2D.Impulse); // Apply Knockback;
             }
             else if(other.GetComponent<IceBeam>()) { // Check if spell was IceBeam
                 //Debug.Log("Collided Ice Beam");
@@ -100,7 +86,7 @@ public class GoblinAssassin : Enemy
             else if(other.GetComponent<AcidSpray>()) { // Check if spell was AcidSpray
                 //Debug.Log("Collided Acid Spray");
                 RecieveDamage(other.GetComponent<AcidSpray>().getSpellDamage()); // Recieve damage 
-                rb.AddForce((other.transform.position - transform.position) * other.GetComponent<AcidSpray>().getSpellKnockBack() * -1.0f, ForceMode2D.Impulse); // FireBall.getKnockback();
+                rb.AddForce((other.transform.position - transform.position) * other.GetComponent<AcidSpray>().getSpellKnockBack() * -1.0f, ForceMode2D.Impulse); // Apply Knockback;
             }
         }
         else if(other.tag == "SummonProjectile") {
@@ -130,7 +116,6 @@ public class GoblinAssassin : Enemy
             }
             */
         }
-
     }
     void OnTriggerStay2D(Collider2D collision)
     {
@@ -145,16 +130,6 @@ public class GoblinAssassin : Enemy
         }
     }
 
-
-    //
-    public void ApplyDash(Vector3 player_position) {
-        dashTimer = 0f;
-        rb.AddForce((player_position - transform.position) * dashAmount , ForceMode2D.Impulse);
-    }
-    //
-    public bool canDash() {
-        return dashTimer >= dashCD;
-    }
     // Keeps track of when enemy can attack
     public bool canAttack()
     {
@@ -190,10 +165,7 @@ public class GoblinAssassin : Enemy
     {
         return gameObject.transform.position;
     }
-    // Function to change the enemy's damage by a flat amount
-    public void ChangeDamage(int damage_amount){
-        damage += damage_amount; // can be positive or negative
-    }
+
     // Function to change the enemy's movespeed by a flat amount
     public void ChangeMoveSpeed(float speed_amount) {
         if (agent.speed >= lowest_speed && speed_amount< 0) { 
@@ -205,6 +177,8 @@ public class GoblinAssassin : Enemy
             agent.acceleration += speed_amount;
         }
     }
+
+
     // Methods for retrieving stats
     public int GetMaxHealth()
     {
@@ -233,13 +207,6 @@ public class GoblinAssassin : Enemy
     public float GetAttackTimer()
     {
         return attackTimer;
-    }
-    public float GetDashTimer()
-    {
-        return dashTimer;
-    }
-    public float GetDashDistance() {
-        return dashDistance;
     }
     public float GetTargetDistance() 
     {

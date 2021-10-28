@@ -33,18 +33,18 @@ public class GoblinBerserker : Enemy
     // Constructor for GoblinBerserker
     public GoblinBerserker()
     {
-        max_health = health = 300;
+        max_health = health = 350;
         damage = 45;
         damage_boost = 5; 
         maxDamage = 65;
-        move_speed = 16f;
+        move_speed = 14f;
         lowest_speed = 6f; 
-        highest_speed = 24f; 
+        highest_speed = 22f; 
         speed_boost = 2f;
-        attack_speed = attackTimer = 1.75f; // 1714 damage per minute
+        attack_speed = attackTimer = 1.75f; // 1900 damage per minute
         targetDistance = 25f;
         attackConnected = false;
-        knock_back = 400f;
+        knock_back = 350f;
     }
     
     // Start is called before the first frame update

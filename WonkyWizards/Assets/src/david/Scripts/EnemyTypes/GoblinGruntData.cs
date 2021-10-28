@@ -1,6 +1,9 @@
 public class GoblinGruntData
 {
-    // Variables
+    // ADD NOTES FOR ORAL EXAM
+
+    
+    // Private Variables
     private int max_health; // Maximum ammount of health enemy has
     private int health; // Ammount of health enemy starts with
     private int damage; // Ammount of damage enemy starts with

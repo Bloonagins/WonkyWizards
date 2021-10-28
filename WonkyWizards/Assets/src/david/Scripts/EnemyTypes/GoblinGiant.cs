@@ -21,17 +21,20 @@ public class GoblinGiant : Enemy
     private NavMeshAgent agent;
     // Used to store deathExplosion object
     public GameObject deathExplosion;
+    // The amount of damage GoblinGiant deals on death
+    private int death_damage;
 
     // Constructor for GoblinGiant
     public GoblinGiant()
     {
-        max_health = health = 100;
-        damage = 100;
-        move_speed = 12f;
+        max_health = health = 600;
+        damage = 80;
+        death_damage = 100;
+        move_speed = 14f;
         attack_speed = attackTimer = 3f; // 2000 damage per minute
         targetDistance = 30f;
         attackConnected = false;
-        knock_back = 700f;
+        knock_back = 600f;
     }
     
     // Start is called before the first frame update
@@ -226,5 +229,9 @@ public class GoblinGiant : Enemy
     public float GetTargetDistance() 
     {
         return targetDistance;
+    }   
+    public float GetDeathDamage() 
+    {
+        return death_damage;
     }
 }
