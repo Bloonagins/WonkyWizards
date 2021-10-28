@@ -19,7 +19,7 @@ public class WaveSpawner : MonoBehaviour
     public Transform[] spawnPoints; // array of spawn points 
 
     public Wave currentWave; // current wave info 
-    private int currentWaveNumber = 1; // current wave number variable that is incremented when a wave is finished
+    private int currentWaveNumber; // current wave number variable that is incremented when a wave is finished
     private bool canSpawn = true; 
     private bool baked; // variable to check if nav mesh has been baked before each wave starts
     private float nextSpawnTime, currentSpawnTime; // timer variables
