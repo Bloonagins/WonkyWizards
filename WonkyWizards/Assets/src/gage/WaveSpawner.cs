@@ -20,7 +20,7 @@ public class WaveSpawner : MonoBehaviour
     public Transform[] spawnPoints;
 
     public Wave currentWave;
-    private int currentWaveNumber;
+    private int currentWaveNumber = 1;
     private bool canSpawn = true;
     private float nextSpawnTime, currentSpawnTime;
     private bool baked;
@@ -59,17 +59,25 @@ public class WaveSpawner : MonoBehaviour
 
                 }
                 SpawnWave();
-                if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0 && !canSpawn && currentWaveNumber + 1 != waves.Length)
+                if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0 && !canSpawn)
                 {
-                    // if the last enemy is killed in the wave
-                    GameManager.ChangeState(GameState.SETUP); // change the gamestate to setup
-                    currentWaveNumber++; // increment the current wave variable
-                    canSpawn = true; // set canSpawn to true to wait for player to begin next wave
-                    baked = false; // reset baked variable to false to re-bake after player hits play and before the first enemy spawns
+                    if (1 < currentWaveNumber)
+                    {
+                        GameManager.ChangeState(GameState.WIN);
+                    }
+                    else
+                    {
+                        GameManager.ChangeState(GameState.SETUP); // change the gamestate to setup
+                        currentWaveNumber++; // increment the current wave variable
+                        canSpawn = true; // set canSpawn to true to wait for player to begin next wave
+                        baked = false; // reset baked variable to false to re-bake after player hits play and before the first enemy spawns
+                    }
                 }
+                
                 currentSpawnTime += nextSpawnTime; // increment the time
             }
         }
+        
     }
 
     void SpawnWave()
