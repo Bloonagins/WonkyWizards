@@ -94,6 +94,7 @@ public class GameManager : MonoBehaviour
     {
         placementGrid = levelArray;
     }
+    
     public static int getCurrentLevel () {
         int level;
         switch (sceneName)

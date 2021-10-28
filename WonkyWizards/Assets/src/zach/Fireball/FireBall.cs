@@ -21,36 +21,13 @@ public class FireBall: Spells
         DAMAGE = 70;
         COOL_DOWN = 0.75f;
         KNOCK_BACK = 200.0f;
-
-        if(checkUpgrades() != 0)
-        {
-            applyUpgrades();
-        }
+        spell_number = 0;
     }
 
     //-----------Firing-------------
     void Awake()
     {
         Cast();
-    }
-    //-----------Upgrades-------------
-    public void applyUpgrades()
-    {
-        int current = checkUpgrades();
-        switch(current){
-            case 1:
-                DAMAGE += 10;
-                break;
-            case 2:
-                DAMAGE += 20;
-                break; 
-            case 3: 
-                DAMAGE += 30;
-                break;
-            default:
-                Debug.Log("Action cannot be performed");
-                break;
-        }
     }
 
     //-----------Behaviour-------------

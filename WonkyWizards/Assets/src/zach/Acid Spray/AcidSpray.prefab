@@ -24,13 +24,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1940620048911131703}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: -0, z: 0.7071068, w: -0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 6, y: 12, z: 6}
   m_Children: []
   m_Father: {fileID: 4771703550393546382}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 270}
 --- !u!212 &3925452385003679745
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -127,8 +127,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b66de1046a2a4834e8cc946e51635656, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  firePoint: {fileID: 0}
   projectile: {fileID: 2833809226435642789}
   projectileEffect: {fileID: 4332396437414737265, guid: 7c659654537be264aafb9ecd7d9e9a29, type: 3}
+  CastPoint: {fileID: 2975951270064643620, guid: 652b8fe3894a16140a50aca97a4d8b4a, type: 3}
   radius: 3
 --- !u!58 &-3442533717061922139
 CircleCollider2D:

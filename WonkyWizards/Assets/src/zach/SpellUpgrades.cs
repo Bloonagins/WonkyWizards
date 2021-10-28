@@ -2,17 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpellUpgrades : MonoBehaviour
+public class SpellUpgrades
 {
-    // Start is called before the first frame update
-    void Start()
+    public static SpellUpgrades instance;
+    public bool[,] Upgrades = {{true,false,false,false},
+                               {true,false,false,false},
+                               {true,false,false,false},
+                               {true,false,false,false}};
+    //---------SINGLETON PATTERN-------------
+    void Awake()
     {
-        
+        MakeSingleton();
     }
 
-    // Update is called once per frame
-    void Update()
+    private SpellUpgrades MakeSingleton()
     {
-        
+        if(instance == null)
+        {
+            instance = this;
+        }
+        return instance;
     }
 }
