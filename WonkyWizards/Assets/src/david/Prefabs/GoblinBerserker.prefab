@@ -51,6 +51,7 @@ GameObject:
   - component: {fileID: 8207521652277936902}
   - component: {fileID: 5008860596306881479}
   - component: {fileID: -185349339840678491}
+  - component: {fileID: 1506526630749056760}
   - component: {fileID: 1754326641315226142}
   m_Layer: 0
   m_Name: GoblinBerserker
@@ -199,6 +200,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ce0cdcd08ecbda409cfb3dad87b2eff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1506526630749056760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4153609958664768088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddabcd4452f50854082f4d592bb915de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HealthBarUI: {fileID: 8299817509450103057}
+  HPslider: {fileID: 2697041156219227546}
 --- !u!195 &1754326641315226142
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -215,7 +230,7 @@ NavMeshAgent:
   m_AngularSpeed: 120
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 0
+  m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 1
   m_BaseOffset: 0.5

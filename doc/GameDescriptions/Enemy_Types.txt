@@ -101,5 +101,5 @@ Enemy Types:
 		- Range: ranged
 		- Size: medium
 		- Knockback: none
-		- Abilities: this enemy can shoot hitscan spells at other enemies to heal them for a static amount
+		- Abilities: this enemy can shoot hitscan spells at other enemies to heal them for a static amount (healing other priests should be a low priority for them)
 		- Appearance Idea: this enemy can be dressed like a cultist

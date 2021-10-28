@@ -19,7 +19,6 @@ public class AcidSpray : Spells
         Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
         foreach(Collider nearbyObject in colliders)
         {
-            Debug.Log("object: " + nearbyObject);
         }
         Destroy(effect,1);
     }
@@ -27,8 +26,7 @@ public class AcidSpray : Spells
     //-----------Collisions-------------
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("collision: " + collision);
-        if(collision.gameObject.tag !="Player" && collision.gameObject.tag != "Spell")
+        if(Collision_behaviour(collision))
         {
             Acid();
         }

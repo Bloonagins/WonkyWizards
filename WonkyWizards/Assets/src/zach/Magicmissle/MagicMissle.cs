@@ -29,14 +29,13 @@ public class MagicMissle : Spells
     //-----------Collisions-------------
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("collision: " + collision);
         if(collision.gameObject.tag =="Enemy")
         {
             Explode();
         }
-        if(collision.gameObject.tag !="Player" && collision.gameObject.tag !="Spell")
+        if(Collision_behaviour(collision))
         {
-        Destroy(projectile);
+            Destroy(projectile);
         }
     }
 }

@@ -21,15 +21,12 @@ using UnityEngine;
 
 public class Portal : Summon
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+	protected static int cost = 50;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	public void FixedUpdate()
+	{
+
+	}
+
+	public override int getCost() { return cost; }
 }

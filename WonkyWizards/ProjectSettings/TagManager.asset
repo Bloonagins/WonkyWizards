@@ -19,6 +19,9 @@ TagManager:
   - Zone
   - LevelManager
   - GameManager
+  - SummonProjectile
+  - SummonNoPlace
+  - DemoPoint
   layers:
   - Default
   - TransparentFX

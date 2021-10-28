@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
     public GameManager()
     {
         state = GameState.SETUP;
+        placementGrid = new bool[12,12];
     }
 
     //---------SINGLETON PATTERN-------------

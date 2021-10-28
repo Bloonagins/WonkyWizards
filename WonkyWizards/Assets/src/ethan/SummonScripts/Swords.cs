@@ -17,18 +17,21 @@ using UnityEngine;
 
 public class Swords : Summon
 {
+	protected static int cost = 60;
+	private Transform rotAnchor;
+	private float rotAmount = -2.0f;
 
-    private Transform swords;
-
-    // Start is called before the first frame update
-    void Start()
+	public override void Start()
     {
-        swords = this.gameObject.transform.GetChild(0);
+
+		rotAnchor = gameObject.GetComponentInChildren<RotAnchor>().transform;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void FixedUpdate()
     {
-        
-    }
+		rotAnchor.transform.Rotate(0.0f, 0.0f, rotAmount);
+	}
+
+
+	public override int getCost() { return cost; }
 }

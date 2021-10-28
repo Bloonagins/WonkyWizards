@@ -75,5 +75,17 @@ public class Spells : MonoBehaviour
         rb.AddForce(firePoint.right * this.speed, ForceMode2D.Impulse);
     }
 
+    public bool Collision_behaviour(Collider2D collision)
+    {
+        if(collision.gameObject.tag !="Player" && collision.gameObject.tag != "Spell" && collision.gameObject.tag != "Zone" && collision.gameObject.tag != "SummonProjectile" && collision.gameObject.tag != "SummonNoPlace")
+        {
+            return true;
+        }
+        else 
+        {
+            return false;
+        }
+    }
+
 }
 

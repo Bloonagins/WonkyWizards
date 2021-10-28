@@ -17,15 +17,15 @@ using UnityEngine;
 
 public class Dragon : Summon
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+	protected static int cost = 50;
 
-    // Update is called once per frame
-    void Update()
+    public override void Start()
     {
-        
-    }
+        base.Start();
+
+		cooldown = 0.05f;
+	}
+
+
+    public override int getCost() { return cost; }
 }
