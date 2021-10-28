@@ -11,6 +11,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using System;
 
 public class EnemyTargeting : MonoBehaviour
 {
@@ -79,18 +80,40 @@ public class EnemyTargeting : MonoBehaviour
     }
     
     // Update is called once per frame
-    void Update(){
+    void FixedUpdate(){
         distanceFrom = Vector2.Distance(transform.position, player.position);
         // Check if enemy is within range of player
         if(distanceFrom < targetDistance) {
             agent.SetDestination(player.position);
+            transform.eulerAngles = Vector3.forward * calculateVectorAngle(transform.position, player.position);
         }
         else {
             agent.SetDestination(goal.position);
+            transform.eulerAngles = Vector3.forward * calculateVectorAngle(transform.position, goal.position);
         }
         // Check if GoblinAssasin and is in range
         if (isDash && gameObject.GetComponent<GoblinAssassin>().canDash() && distanceFrom < dashDistance) {
             gameObject.GetComponent<GoblinAssassin>().ApplyDash(player.position);
         }
+    }
+
+    public static float calculateVectorAngle(Vector3 origin, Vector3 away)
+    {
+        Vector3 difference = away - origin;
+        float angle = (float)(Math.Atan(difference.y / difference.x) * (180 / Math.PI));
+
+        if (difference.x < 0)
+        {
+            if (difference.y > 0)
+            {
+                angle += 180.0f;
+            }
+            else
+            {
+                angle -= 180.0f;
+            }
+        }
+
+        return angle;
     }
 }
