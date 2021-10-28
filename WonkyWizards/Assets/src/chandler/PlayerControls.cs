@@ -16,7 +16,7 @@
  *                                             Alpha Number keys on keyboard
  * Pause: Escape (Handled in one of Gabe's scripts)
  * Wave Info: Tab (Handled in one of Gabe's scripts)
- * Ready Up: F4 (Handled in one of Gabe's scripts)
+ * Ready Up: F4 / L (Handled in one of Gabe's scripts)
  */
 
 using System;
@@ -127,10 +127,7 @@ public class PlayerControls : MonoBehaviour
         // gets the coordinates of the cursor
         PlayerScript.setScreenCursorPoint(Mouse.current.position.ReadValue());
         // rotates the player towards the cursor
-        if (!GetComponent<DemoMode>().GetDemoActive())
-        {
-            transform.eulerAngles = Vector3.forward * PlayerScript.getCursorAngle();
-        }
+        transform.eulerAngles = Vector3.forward * PlayerScript.getCursorAngle();
 
         // when scroll wheel is inputted, change hotbar index
         if (Mouse.current.scroll.ReadValue().normalized.y > 0)
