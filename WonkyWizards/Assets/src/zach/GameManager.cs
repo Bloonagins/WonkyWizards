@@ -76,6 +76,7 @@ public class GameManager : MonoBehaviour
         if (state != newState){
             state = newState;
         }
+        Debug.Log(state);
     }
 
     //---------PLACEMENT GRID----------
