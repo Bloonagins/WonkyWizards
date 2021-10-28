@@ -6,24 +6,27 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/src/zach/TestingScrips/SpellTest.unity
-    guid: 468c492e11917fc4eaa68cfcbc15a4aa
-  - enabled: 1
-    path: Assets/Scenes/Test Scenes/Boss_StressTestScene.unity
-    guid: bf0b67a4d87780943b115a134ffc6b2b
-  - enabled: 1
-    path: Assets/Scenes/Test Scenes/PlayableAreaStressTest.unity
-    guid: f9e678edcd670f0488cb6233077b1a16
-  - enabled: 1
-    path: Assets/Scenes/Test Scenes/PlayerTestScene.unity
-    guid: b2db588167292c74190cfc6e82e4ca76
+    path: Assets/Scenes/MainMenuScene.unity
+    guid: dc4b7ae03784e374fa551c62b20aa5de
   - enabled: 1
     path: Assets/Scenes/FirstLevel.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
+  - enabled: 0
+    path: Assets/src/zach/TestingScrips/SpellTest.unity
+    guid: 468c492e11917fc4eaa68cfcbc15a4aa
+  - enabled: 0
+    path: Assets/Scenes/Test Scenes/Boss_StressTestScene.unity
+    guid: bf0b67a4d87780943b115a134ffc6b2b
+  - enabled: 0
+    path: Assets/Scenes/Test Scenes/PlayableAreaStressTest.unity
+    guid: f9e678edcd670f0488cb6233077b1a16
+  - enabled: 0
+    path: Assets/Scenes/Test Scenes/PlayerTestScene.unity
+    guid: b2db588167292c74190cfc6e82e4ca76
+  - enabled: 0
     path: Assets/Scenes/Test Scenes/SummonTestScene.unity
     guid: c6880510677362f4fbd66b5975ba53ab
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Test Scenes/SpellStress.unity
     guid: 62c72b059ad3e8844b6077889976558c
   m_configObjects: {}
