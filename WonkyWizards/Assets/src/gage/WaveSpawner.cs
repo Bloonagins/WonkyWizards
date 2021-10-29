@@ -93,7 +93,16 @@ public class WaveSpawner : MonoBehaviour
     {
         if(canSpawn) 
         {
-            Instantiate(currentWave.typeOfEnemies[0], spawnPoints[0].position, Quaternion.identity);
+            if(currentWave.typeOfEnemies.Length > 1 || spawnPoints.Length > 1)
+            {
+                GameObject randomEnemy = currentWave.typeOfEnemies[Random.Range(0, currentWave.typeOfEnemies.Length)];
+                Transform randomPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
+                Instantiate(randomEnemy, randomPoint.position, Quaternion.identity);
+            }
+            else
+            {
+                Instantiate(currentWave.typeOfEnemies[0], spawnPoints[0].position, Quaternion.identity);
+            }
             nextSpawnTime = 3.0f;
             currentWave.numberOfEnemies--;
             if(currentWave.numberOfEnemies == 0)

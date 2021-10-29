@@ -510,6 +510,36 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1218692919
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1218692920}
+  m_Layer: 0
+  m_Name: SpawnPoint 2
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1218692920
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1218692919}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -52, y: 97, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1312643961}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1228599455
 GameObject:
   m_ObjectHideFlags: 0
@@ -1440,9 +1470,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8478561904180289716, guid: 7e50e11543b1f924cbf09e4ab9b052ca, type: 3}
+      propertyPath: m_Name
+      value: SpawnPoint 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8478561904180289719, guid: 7e50e11543b1f924cbf09e4ab9b052ca, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -47.4
+      value: -43
       objectReference: {fileID: 0}
     - target: {fileID: 8478561904180289719, guid: 7e50e11543b1f924cbf09e4ab9b052ca, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1452,6 +1486,14 @@ PrefabInstance:
       propertyPath: waves.Array.size
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 8769914891301547175, guid: 7e50e11543b1f924cbf09e4ab9b052ca, type: 3}
+      propertyPath: spawnPoints.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8769914891301547175, guid: 7e50e11543b1f924cbf09e4ab9b052ca, type: 3}
+      propertyPath: spawnPoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 1218692920}
     - target: {fileID: 8769914891301547175, guid: 7e50e11543b1f924cbf09e4ab9b052ca, type: 3}
       propertyPath: waves.Array.data[2].waveName
       value: Wave 3
@@ -1485,6 +1527,10 @@ PrefabInstance:
       value: Final Wave
       objectReference: {fileID: 0}
     - target: {fileID: 8769914891301547175, guid: 7e50e11543b1f924cbf09e4ab9b052ca, type: 3}
+      propertyPath: waves.Array.data[0].spawnInterval
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8769914891301547175, guid: 7e50e11543b1f924cbf09e4ab9b052ca, type: 3}
       propertyPath: waves.Array.data[3].spawnInterval
       value: 2
       objectReference: {fileID: 0}
@@ -1511,6 +1557,10 @@ PrefabInstance:
     - target: {fileID: 8769914891301547175, guid: 7e50e11543b1f924cbf09e4ab9b052ca, type: 3}
       propertyPath: waves.Array.data[9].spawnInterval
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8769914891301547175, guid: 7e50e11543b1f924cbf09e4ab9b052ca, type: 3}
+      propertyPath: waves.Array.data[0].numberOfEnemies
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8769914891301547175, guid: 7e50e11543b1f924cbf09e4ab9b052ca, type: 3}
       propertyPath: waves.Array.data[3].numberOfEnemies
@@ -1598,6 +1648,11 @@ PrefabInstance:
       objectReference: {fileID: 5257803341221172471, guid: 248c5bd946233fa45b05ba204a4631db, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e50e11543b1f924cbf09e4ab9b052ca, type: 3}
+--- !u!4 &1312643961 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8478561902892536627, guid: 7e50e11543b1f924cbf09e4ab9b052ca, type: 3}
+  m_PrefabInstance: {fileID: 1312643960}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1508869961
 GameObject:
   m_ObjectHideFlags: 0
