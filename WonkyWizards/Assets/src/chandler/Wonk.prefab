@@ -167,7 +167,7 @@ MonoBehaviour:
   - {fileID: 6141101822864145280, guid: 177d493e34fdf7146b904ad209ff6554, type: 3}
   - {fileID: 4194089872092877631, guid: 7808cc19c1315ff4dbf3d7737c5d40d3, type: 3}
   - {fileID: 2833809226435642789, guid: 3e3a48db9873ad24d8bcf82bc1595b91, type: 3}
-  - {fileID: 0}
+  - {fileID: 6915187945269592825, guid: 99659275e771a4d479998a2a9c46bb3e, type: 3}
   summons:
   - {fileID: 2725990468511589311, guid: e9aad49c3fc09ae4f826f408d1209952, type: 3}
   - {fileID: 2725990468511589311, guid: c528b6ab0232e78449239de932b371c2, type: 3}
@@ -237,8 +237,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d09c75b5a083574caadfde5005a22cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyContact: 0
-  inRange: 0
 --- !u!50 &8538811343635464246
 Rigidbody2D:
   serializedVersion: 4

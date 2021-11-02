@@ -104,8 +104,8 @@ public class PlayerTimer : MonoBehaviour
                 return iceBeamTimer >= iceBeamReset;
             case 3:
                 return acidSplashTimer >= acidSplashReset;
-            /*case 4:
-                return slimeballTimer >= slimeballReset;*/
+            case 4:
+                return slimeballTimer >= slimeballReset;
             default:
                 return false;
         }
