@@ -28,6 +28,8 @@ public class PlayerScript : MonoBehaviour
     public static int summonIndex;
     // determines whether the player places summons or casts spells with click
     private static bool inBuildMode;
+    // determines whether the player is in Dr. BC mode or not
+    private static bool inBCMode;
 
     // called when the game loads up
     void Awake()
@@ -157,6 +159,12 @@ public class PlayerScript : MonoBehaviour
         return inBuildMode;
     }
 
+    // returns whether or not the player is currently in Dr. BC mode
+    public static bool isInBCMode()
+    {
+        return inBCMode;
+    }
+
     // Setter functions
 
     // sets the player's hp back to full
@@ -168,23 +176,26 @@ public class PlayerScript : MonoBehaviour
     // decreases the player's health when damaged
     public static void damagePlayer(int damage)
     {
-        hp -= damage;
-
-        if (hp < 0)
+        if (!inBCMode)
         {
-            hp = 0;
-        }
-        else if (hp > MAXHP)
-        {
-            hp = MAXHP;
-        }
+            hp -= damage;
 
-        if (hp <= 0)
-        {
-            GameManager.ChangeState(GameState.LOSE);
-        }
+            if (hp < 0)
+            {
+                hp = 0;
+            }
+            else if (hp > MAXHP)
+            {
+                hp = MAXHP;
+            }
 
-        PlayerTimer.activateDamageCooldown();
+            if (hp <= 0)
+            {
+                GameManager.ChangeState(GameState.LOSE);
+            }
+
+            PlayerTimer.activateDamageCooldown();
+        }
     }
 
     public static void setMana(int m)
@@ -257,5 +268,11 @@ public class PlayerScript : MonoBehaviour
     public static void flipBuildMode()
     {
         inBuildMode = !inBuildMode;
+    }
+
+    // makes the player toggle Dr. BC mode on / off
+    public static void flipBCMode()
+    {
+        inBCMode = !inBCMode;
     }
 }
