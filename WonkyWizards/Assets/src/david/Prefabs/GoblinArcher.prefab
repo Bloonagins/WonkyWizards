@@ -424,9 +424,8 @@ GameObject:
   - component: {fileID: 69122451307379639}
   - component: {fileID: 5260813553975258295}
   - component: {fileID: 2504436445576902329}
-  - component: {fileID: 1402961328712675388}
   - component: {fileID: 1631568551908155000}
-  - component: {fileID: 1036726951158404561}
+  - component: {fileID: 3412853318684977743}
   - component: {fileID: 5440326435143456673}
   m_Layer: 0
   m_Name: GoblinArcher
@@ -516,7 +515,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 1
 --- !u!50 &5260813553975258295
 Rigidbody2D:
   serializedVersion: 4
@@ -551,18 +550,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: {fileID: 7675229534387486695}
---- !u!114 &1402961328712675388
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7675229534387486695}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9f212c4cfba7ec4fab878d8e9569e4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1631568551908155000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -575,7 +562,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 699089187aa34894c9a3228f2c377e0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1036726951158404561
+--- !u!114 &3412853318684977743
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -584,11 +571,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 7675229534387486695}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b962388d6ce39bf43801c7c1a9eef8d2, type: 3}
+  m_Script: {fileID: 11500000, guid: 9dee88c6e464b394c93952e742248dda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HealthBarUI: {fileID: 2308537724982430894}
-  HPslider: {fileID: 8523803901876762661}
 --- !u!195 &5440326435143456673
 NavMeshAgent:
   m_ObjectHideFlags: 0
