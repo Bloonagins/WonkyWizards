@@ -44,6 +44,8 @@ public class PlayerScript : MonoBehaviour
         resetPlayerHP();
         spellIndex = 0;
         summonIndex = 0;
+        inBuildMode = true;
+        inBCMode = false;
     }
 
     // Updateis called once every frame
