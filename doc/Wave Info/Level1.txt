@@ -1,4 +1,4 @@
-Wave 1 (60 seconds) (+150 mana):
+Wave 1 (60 seconds) (+120 mana):
 	000
 		Goblin grunt: x5
 	005
@@ -19,7 +19,7 @@ Wave 1 (60 seconds) (+150 mana):
 	045
 		Goblin warrior: x8
 
-Wave 2 (60 seconds) (+150 mana):
+Wave 2 (60 seconds) (+130 mana):
 	000
 		Goblin grunt: x5
 	005
@@ -44,205 +44,32 @@ Wave 2 (60 seconds) (+150 mana):
 		Goblin warrior: x3
 		Goblin assassin: x3
 
-Wave 3 (120 seconds) (+150 mana):
+Wave 3 (60 seconds) (+140 mana):
 	000
-		Goblin grunt: x10
-	001
-		Goblin slimecaster: x5
-	015
-		Goblin warrior: x5
-	016
-		Goblin slimecaster: x5
-	030
 		Goblin grunt: x5
 		Goblin warrior: x5
-	031
-		Goblin archer: x5
-		Goblin slimecaster: x5
-	050
-		Goblin warrior: x5
-	051
-		Goblin alchemist: x5
-	065
-		Goblin assassin: x5
-	066
-		Goblin slimecaster: x5
-		Goblin alchemist: x5
-	085
-		Goblin grunt: x10
-	086
-		Goblin archer: x5
-		Goblin slimecaster: x5
-		Goblin alchemist: x5
-	100
-		Goblin warrior: x5
-		Goblin assassin: x5
-	101
-		Goblin slimecaster: x7
-		Goblin alchemist: x7
-
-Wave 4 (120 seconds) (+150 mana):
-	000
-		Goblin warrior: x5
-	001
-		Goblin priest: x3
 	010
-		Goblin grunt: x10
+		Goblin assassin: x5
 	011
-		Goblin priest: x5
-	025
-		Goblin warrior: x5
-	026
-		Goblin archer: x3
-		Goblin alchemist: x3
-	027
-		Goblin priest: x3
+		Goblin archer: x5
+	020
+		Goblin grunt: x5
+		Goblin warrior: x1
+		Goblin assassin: x1
+	021
+		Goblin archer: x2
+	030
+		Goblin archer: x10
 	040
-		Goblin assassin: x10
+		Goblin warrior: x3
 	041
-		Goblin priest: x5
+		Goblin archer: x2
+	045
+		Goblin grunt: x5
+		Goblin assassin: x5
 	055
 		Goblin grunt: x10
+		Goblin warrior: x5
+		Goblin assassin: x5
 	056
-		Goblin archer: x2
-		Goblin slimecaster: x2
-		Goblin alchemist: x2
-	057
-		Goblin priest: x3
-	070
-		Goblin warrior: x5
-	071
 		Goblin archer: x5
-		Goblin priest: x5
-	085
-		Goblin warrior: x1
-	086
-		Goblin priest: x10
-	095
-		Goblin alchemist: x6
-	105
-		Goblin grunt: x5
-		Goblin assassin: x3
-	110
-		Goblin priest: x10
-	115
-		Goblin warrior: x1
-
-Wave 5 (180 seconds) (+150 mana):
-	000
-		Goblin grunt: x15
-	015
-		Goblin warrior: x10
-	016
-		Goblin priest: x3
-	030
-		Goblin warrior: x5
-		Goblin assassin: x3
-	031
-		Goblin archer: x3
-		Goblin slimecaster: x3
-		Goblin priest: x2
-	045
-		Goblin grunt: x10
-	046
-		Goblin warrior: x5
-		Goblin priest: x2
-	060
-		Goblin grunt: x5
-		Goblin Giant: x1
-	070
-		Goblin giant: x1
-	071
-		Goblin priest: x2
-	080
-		Goblin giant: x3
-		Goblin warrior: x5
-	081
-		Goblin archer: x5
-	095
-		Goblin assassin: x10
-	110
-		Goblin giant: x6
-	125
-		Goblin giant: x1
-		Goblin grunt: x3
-		Goblin warrior: x1
-	135
-		Goblin giant: x1
-		Goblin grunt: x3
-		Goblin warrior: x1
-	145
-		Goblin giant: x1
-		Goblin grunt: x3
-		Goblin warrior: x1
-		Goblin assassin: x1
-	155
-		Goblin giant: x1
-		Goblin grunt: x3
-		Goblin warrior: x1
-		Goblin assassin: x1
-	156
-		Goblin archer: x1
-	165
-		Goblin giant: x1
-		Goblin warrior: x3
-		Goblin assassin: x1
-	166
-		Goblin alchemist: x3
-
-Wave 6 (180 seconds) (+150 mana):
-	000
-		Goblin giant: x5
-	001
-		Goblin priest: x5
-	015
-		Goblin giant: x2
-	016
-		Goblin archer: x5
-		Goblin slimecaster: x5
-		Goblin alchemist: x5
-	030
-		Goblin assassin: x5
-	031
-		Goblin archer: x5
-		Goblin slimecaster: x5
-		Goblin alchemist: x5
-	045
-		Goblin warrior: x5
-		Goblin grunt: x10
-		Goblin giant: x1
-	060
-		Goblin slimecaster: x10
-	061
-		Goblin priest: x3
-	075
-		Goblin giant: x1
-		Goblin assassin: x5
-	090
-		Goblin assassin: x7
-	091
-		Goblin archer: x4
-		Goblin priest: x3
-	105
-		Goblin giant: x2
-		Goblin grunt: x5
-	106
-		Goblin alchemist: x3
-	120
-		Goblin warrior: x10
-	121
-		Goblin archer: x5
-	135
-		Goblin giant: x1
-		Goblin grunt: x10
-	150
-		Goblin archer: x5
-		Goblin slimecaster: x5
-		Goblin alchemist: x5
-		Goblin priest: x5
-	165
-		Goblin giant: x10
-		Goblin grunt: x10
-	166
-		Goblin archer: x5
-		Goblin priest: x3

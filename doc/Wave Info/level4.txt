@@ -1,0 +1,14 @@
+Wave 1 (? seconds) (+180 mana)
+	000
+		The Zombified Great Gob
+	(spawn 2 goblin grunts every 5 seconds until the boss is defeated for the rest of the wave)
+
+Wave 2 (? seconds) (+190 mana)
+	000
+		The Beast of Caerbannog
+	(spawn 2 goblin grunts every 5 seconds until the boss is defeated for the rest of the wave)
+
+Wave 3 (? seconds) (+200 mana)
+	000
+		Tim the Enchanter
+	(spawn 2 goblin grunts every 5 seconds until the boss is defeated for the rest of the wave)

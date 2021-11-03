@@ -1,0 +1,126 @@
+Wave 1 (180 seconds) (+160 mana):
+	000
+		Goblin grunt: x15
+	015
+		Goblin warrior: x10
+	016
+		Goblin priest: x3
+	030
+		Goblin warrior: x5
+		Goblin assassin: x3
+	031
+		Goblin archer: x3
+		Goblin slimecaster: x3
+		Goblin priest: x2
+	045
+		Goblin grunt: x10
+	046
+		Goblin warrior: x5
+		Goblin priest: x2
+	060
+		Goblin grunt: x5
+		Goblin berserker: x3
+	070
+		Goblin berserker: x4
+	071
+		Goblin priest: x2
+	080
+		Goblin berserker: x3
+		Goblin warrior: x5
+	081
+		Goblin archer: x5
+	095
+		Goblin assassin: x10
+	110
+		Goblin berserker: x6
+	125
+		Goblin berserker: x2
+		Goblin grunt: x3
+		Goblin warrior: x1
+	135
+		Goblin berserker: x2
+		Goblin grunt: x3
+		Goblin warrior: x1
+	145
+		Goblin berserker: x2
+		Goblin grunt: x3
+		Goblin warrior: x1
+		Goblin assassin: x1
+	155
+		Goblin berserker: x2
+		Goblin grunt: x3
+		Goblin warrior: x1
+		Goblin assassin: x1
+	156
+		Goblin archer: x1
+	165
+		Goblin berserker: x2
+		Goblin warrior: x3
+		Goblin assassin: x1
+	166
+		Goblin alchemist: x3
+
+Wave 2 (180 seconds) (+170 mana):
+	000
+		Goblin giant: x5
+	001
+		Goblin priest: x5
+	015
+		Goblin giant: x2
+	016
+		Goblin archer: x5
+		Goblin slimecaster: x5
+		Goblin alchemist: x5
+	030
+		Goblin assassin: x3
+		Goblin berserker: x3
+	031
+		Goblin archer: x5
+		Goblin slimecaster: x5
+		Goblin alchemist: x5
+	045
+		Goblin warrior: x2
+		Goblin berserker: x2
+		Goblin grunt: x10
+		Goblin giant: x1
+	060
+		Goblin slimecaster: x10
+	061
+		Goblin priest: x3
+	075
+		Goblin giant: x1
+		Goblin assassin: x5
+	090
+		Goblin assassin: x7
+	091
+		Goblin archer: x4
+		Goblin priest: x3
+	105
+		Goblin giant: x2
+		Goblin grunt: x5
+	106
+		Goblin alchemist: x3
+	120
+		Goblin warrior: x10
+	121
+		Goblin archer: x5
+	135
+		Goblin giant: x1
+		Goblin grunt: x10
+	150
+		Goblin archer: x5
+		Goblin slimecaster: x5
+		Goblin alchemist: x5
+		Goblin priest: x5
+	165
+		Goblin giant: x10
+		Goblin grunt: x10
+		Goblin berserker: x1
+	166
+		Goblin archer: x5
+		Goblin priest: x3
+
+Wave 3 (? seconds) (+180 mana):
+	000
+		The Great Gob
+	(spawn 2 goblin grunts every 5 seconds until the boss is defeated for the rest of the wave)

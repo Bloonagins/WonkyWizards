@@ -1,0 +1,133 @@
+Wave 1 (120 seconds) (+140 mana):
+	000
+		Goblin grunt: x10
+	001
+		Goblin slimecaster: x5
+	015
+		Goblin warrior: x5
+	016
+		Goblin slimecaster: x5
+	030
+		Goblin grunt: x5
+		Goblin warrior: x5
+	031
+		Goblin archer: x5
+		Goblin slimecaster: x5
+	050
+		Goblin warrior: x5
+	051
+		Goblin alchemist: x5
+	065
+		Goblin assassin: x5
+	066
+		Goblin slimecaster: x5
+		Goblin alchemist: x5
+	085
+		Goblin grunt: x10
+	086
+		Goblin archer: x5
+		Goblin slimecaster: x5
+		Goblin alchemist: x5
+	100
+		Goblin warrior: x5
+		Goblin assassin: x5
+	101
+		Goblin slimecaster: x7
+		Goblin alchemist: x7
+
+Wave 2 (120 seconds) (+150 mana):
+	000
+		Goblin warrior: x5
+	001
+		Goblin priest: x3
+	010
+		Goblin grunt: x10
+	011
+		Goblin priest: x5
+	025
+		Goblin warrior: x5
+	026
+		Goblin archer: x3
+		Goblin alchemist: x3
+	027
+		Goblin priest: x3
+	040
+		Goblin assassin: x10
+	041
+		Goblin priest: x5
+	055
+		Goblin grunt: x10
+	056
+		Goblin archer: x2
+		Goblin slimecaster: x2
+		Goblin alchemist: x2
+	057
+		Goblin priest: x3
+	070
+		Goblin warrior: x5
+	071
+		Goblin archer: x5
+		Goblin priest: x5
+	085
+		Goblin warrior: x1
+	086
+		Goblin priest: x10
+	095
+		Goblin alchemist: x6
+	105
+		Goblin grunt: x5
+		Goblin assassin: x3
+	110
+		Goblin priest: x10
+	115
+		Goblin warrior: x1
+
+Wave 3 (120 seconds) (+160 mana):
+	000
+		Goblin slimecaster: x10
+	001
+		Goblin alchemist: x10
+	015
+		Goblin assassin: x5
+	016
+		Goblin priest: x3
+	030
+		Goblin grunt: x10
+	031
+		Goblin priest: x5
+		Goblin alchemist: x5
+	045
+		Goblin warrior: x3
+	046
+		Goblin archer: x7
+	055
+		Goblin assassin: x4
+	056
+		Goblin slimecasteer: x6
+	065
+		Goblin warrior: x2
+	066
+		Goblin priest: x4
+	070
+		Goblin warrior: x3
+	071
+		Goblin priest: x6
+	080
+		Goblin grunt: x5
+	081
+		Goblin assassin: x2
+	090
+		Goblin grunt: x5
+	091
+		Goblin archer: x5
+	095
+		Goblin slimecaster: x5
+		Goblin alchemist: x5
+	105
+		Goblin warrior: x2
+		Goblin priest: x2
+		Goblin archer: x2
+	115
+		Goblin assassin: x2
+		Goblin priest: x2
+		Goblin slimecaster: x2
