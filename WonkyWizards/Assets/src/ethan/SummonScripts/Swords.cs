@@ -27,7 +27,7 @@ public class Swords : Summon
 		rotAnchor = gameObject.GetComponentInChildren<RotAnchor>().transform;
     }
 
-    public override void FixedUpdate()
+    public void FixedUpdate()
     {
 		rotAnchor.transform.Rotate(0.0f, 0.0f, rotAmount);
 	}

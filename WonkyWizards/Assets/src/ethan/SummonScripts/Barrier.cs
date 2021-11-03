@@ -19,12 +19,6 @@ public class Barrier : Summon
 	protected static int cost = 10;
 	private const int maxHealth = int.MaxValue;
 
-	public override void Start()
-	{
-		health = this.getMaxHealth();
-		timer = 0.0f;
-	}
-
 	public override void FixedUpdate()
 	{
 	}

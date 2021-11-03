@@ -235,9 +235,6 @@ public class PlayerControls : MonoBehaviour
         {
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
 
-            if (hit.collider != null) Debug.Log("trying to delete (tag): " + hit.collider.tag);
-            else Debug.Log("trying to delete null collider.");
-
             // if that ray cast hit a Summon...
             if
             (hit.collider != null && hit.collider.tag == "Summon")

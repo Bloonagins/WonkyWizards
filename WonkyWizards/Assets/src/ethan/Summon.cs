@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using UnityEngine;
-using TargetModeNamespace;
 
 public class Summon : MonoBehaviour
 
@@ -12,46 +11,40 @@ public class Summon : MonoBehaviour
     protected float cooldown;
     protected float timer;
 
-    protected float radius = 1.0f;
-
     [SerializeField]
     protected GameObject projPrefab;
-    [SerializeField]
-    protected GameObject radarPrefab;
-    protected SummonRadar summonRadar;
 
 
     protected int health;
-
-    protected targetingMode mode = targetingMode.FIRST;
+    protected enum targetingMode {
+        WEAK,
+        STRONG,
+        FIRST,
+        LAST
+    }
+    protected targetingMode tm = targetingMode.FIRST;
 
     // init
     public virtual void Start()
     {
         health = this.getMaxHealth();
         timer = 0.0f;
-
-        summonRadar = Instantiate(radarPrefab, gameObject.transform).GetComponent<SummonRadar>();
     }
 
     public virtual void FixedUpdate()
     {
         timer += Time.deltaTime;
 
-        if (timer >= cooldown && summonRadar.getInRange())
+        if (timer >= cooldown)
         {
             // check that we have something to shoot at
-            GameObject target = summonRadar.GetEnemy(mode);
 
-            // summon a projectile with the apropriate target transform
-            SummonProj(target.transform);
-
-            // reset the cooldown timer
+            SummonProj();
             timer = 0.0f;
         }
     }
 
-    protected virtual void SummonProj(Transform target)
+    protected virtual void SummonProj()
     {
         Instantiate<GameObject>(projPrefab, transform);
     }
@@ -138,8 +131,8 @@ public class Summon : MonoBehaviour
 
     public void cycleTargetMode()
     {
-        if (mode == targetingMode.LAST) mode = targetingMode.WEAK;
-        else mode++;
+        if (tm == targetingMode.LAST) tm = targetingMode.WEAK;
+        else tm++;
     }
     public static bool isTraversable(bool[,] grid, int rows, int cols, Tuple<int, int> start, Tuple<int, int> goal)
     {
