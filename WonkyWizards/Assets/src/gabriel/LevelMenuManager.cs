@@ -57,19 +57,19 @@ public class LevelMenuManager : MonoBehaviour
     }
     private void DisplayWaveInfo(InputAction.CallbackContext obj)
     {
-        Debug.Log("attempting to display wave info\n");
+        //Debug.Log("attempting to display wave info\n");
 
     }
 
     private void ReadyUpState(InputAction.CallbackContext obj)
     {
-        Debug.Log("attempting to ready up...\n");
+        //Debug.Log("attempting to ready up...\n");
         ReadyUpGame();
     }
 
     private void POrResGame(InputAction.CallbackContext obj)
     {
-        Debug.Log("attempting to pause/unpause game...\n");
+        //Debug.Log("attempting to pause/unpause game...\n");
         PauseOrResumeGame();
     }
 
@@ -92,7 +92,7 @@ public class LevelMenuManager : MonoBehaviour
     /// </summary>
     public void PauseOrResumeGame()
     {
-        Debug.Log("trying to switch pause state\n");
+        //Debug.Log("trying to switch pause state\n");
 
         if (GameManager.CheckState() == GameState.SETUP)
         {
@@ -162,7 +162,7 @@ public class LevelMenuManager : MonoBehaviour
     /// </summary>
     public void ExitGame()
     {
-        Debug.Log("Exiting Game\n");
+        //Debug.Log("Exiting Game\n");
         Application.Quit();
     }
 
