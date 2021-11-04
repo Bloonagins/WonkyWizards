@@ -136,6 +136,17 @@ public class Summon : MonoBehaviour
         }
     }
 
+    public void deleteSummon (int x, int y)
+    {
+        // get singleton copy
+        GameManager gm = GameManager.GetSingleton();
+
+        gm.setSpaceAvailable(x, y);
+
+        // delete this object
+        Destroy(gameObject);
+    }
+
     public void cycleTargetMode()
     {
         if (mode == targetingMode.LAST) mode = targetingMode.WEAK;
@@ -212,4 +223,3 @@ public class Summon : MonoBehaviour
         }
     }
 }
-
