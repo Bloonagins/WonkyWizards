@@ -44,7 +44,7 @@ public class Enemy : MonoBehaviour
         knock_back = 200f;
         targetDistance = 20f;
     }
-    
+
     // Method to update health when enemy is dealt damage
     public void RecieveDamage(int damage_recieved)
     {
@@ -63,16 +63,44 @@ public class Enemy : MonoBehaviour
             health = max_health; // set to max
         }
     }
-
-    // Methods
-    virtual public float GetMoveSpeed() 
+    // Function to confirm attack was sucessful
+    public void SetAttack(bool success)
     {
-        return move_speed;
+        attackConnected = success;
     }
-
+    
+    // Methods for Getting Stats
     public int GetHealth() 
     {
         return health;
+    }
+    public int GetMaxHealth()
+    {
+        return max_health;
+    }
+    public int GetDamage()
+    {
+        return damage;
+    }
+    public float GetMoveSpeed()
+    {
+        return move_speed;
+    }
+    public float GetAttackSpeed()
+    {
+        return attack_speed;
+    }
+    public float GetKnockBack()
+    {
+        return knock_back;
+    }
+    public float GetAttackTimer()
+    {
+        return attackTimer;
+    }
+    public float GetTargetDistance() 
+    {
+        return targetDistance;
     }
 
 }

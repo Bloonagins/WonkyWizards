@@ -118,18 +118,6 @@ public class GoblinBerserker : Enemy
             }
         }
     }
-
-    // Keeps track of when enemy can attack
-    public bool canAttack()
-    {
-        return attackTimer >= attack_speed;
-    }
-
-    // Function to confirm attack was sucessful
-    public void SetAttack(bool success)
-    {
-        attackConnected = success;
-    }
     // Function to return current position of GoblinGrunt unit
     public Vector3 GetPosition()
     {
@@ -153,43 +141,9 @@ public class GoblinBerserker : Enemy
         }
     }
 
-
-    // Methods for retrieving stats
-    public int GetMaxHealth()
-    {
-        return max_health;
-    }
-    /*
-    //public int GetHealth()
-    {
-        return health;
-    } */
-    public int GetDamage()
-    {
-        return damage;
-    }
     public int GetDamageBoost()
     {
         return damage_boost;
     }
-    public override float GetMoveSpeed()
-    {
-        return move_speed;
-    }
-    public float GetAttackSpeed()
-    {
-        return attack_speed;
-    }
-    public float GetKnockBack()
-    {
-        return knock_back;
-    }
-    public float GetAttackTimer()
-    {
-        return attackTimer;
-    }
-    public float GetTargetDistance() 
-    {
-        return targetDistance;
-    }
+
 }
