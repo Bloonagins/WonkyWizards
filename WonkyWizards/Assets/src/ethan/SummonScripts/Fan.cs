@@ -20,7 +20,7 @@ public class Fan : Summon
 {
 	protected static int cost = 90;
 
-	public void FixedUpdate()
+	public override void FixedUpdate()
 	{
 
 	}

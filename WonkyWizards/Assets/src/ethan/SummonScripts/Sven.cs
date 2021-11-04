@@ -19,7 +19,7 @@ public class Sven : Summon
 {
 	protected static int cost = 50;
 
-	public void FixedUpdate()
+	public override void FixedUpdate()
 	{
 
 	}

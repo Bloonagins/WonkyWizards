@@ -1,15 +1,8 @@
 /**********************************************
-| GoblinBerserker V1.0.0                      |
+| GoblinArcher V1.0.0                         |
 | Author: David Bush, T5                      |
-| Description: This is the GoblinBerserker    |
-| class that inherits from the Enemy          |
-| superclass. This will contain all variables |
-| and methods associtiated with the           |
-| GoblinBerserker enemy type. Each            |
-| GoblinBerserker has the unique ability Rage |
-| Mode. When it is hit by a spell it's damage |
-| and speed increase by a flat ammount each   |
-| time.                                       |         
+| This is the GoblinArcher subclass that      |
+| inherits from the Enemy superclass.         |
 | Bugs:                                       |
 **********************************************/
 using System.Collections;
@@ -89,33 +82,6 @@ public class GoblinArcher : Enemy
                 rb.AddForce((other.transform.position - transform.position) * other.GetComponent<AcidSpray>().getSpellKnockBack() * -1.0f, ForceMode2D.Impulse); // Apply Knockback;
             }
         }
-        else if(other.tag == "SummonProjectile") {
-            if(other.GetComponent<Sword>()) { // Check if collided with Sword
-                RecieveDamage(other.GetComponent<Sword>().getProjDamage()); // Recieve damage
-                //rb.AddForce((other.transform.position - transform.position) * other.GetComponent<Sword>().getProjKnockback() * -1.0f, ForceMode2D.Impulse); // Apply Knockback;
-            }
-            /*else if(other.GetComponent<DragonProj>()) { // Check if collided with Dragon projectile
-                Debug.Log("COLLIDED Dragon");
-                RecieveDamage(other.GetComponent<DragonProj>().getProjDamage()); // Recieve damage
-            }
-            else if(other.GetComponent<CrossbowProj>()) { // Check if collided with Crossbow projectile
-                Debug.Log("COLLIDED Crosbow");
-                RecieveDamage(other.GetComponent<CrossbowProj>().getProjDamage()); // Recieve damage
-            }
-            else if(other.GetComponent<ShrubberyProj>()) { // Check if collided with Shrubbery projectile
-                Debug.Log("COLLIDED Shrubbery");
-                RecieveDamage(other.GetComponent<ShrubberyProj>().getProjDamage()); // Recieve damage
-            }
-            else if(other.GetComponent<SvenProj>()) { // Check if collided with Sven projectile
-                Debug.Log("COLLIDED Sven");
-                RecieveDamage(other.GetComponent<SvenProj>().getProjDamage()); // Recieve damage
-            }
-            else if(other.GetComponent<ChunkProj>()) { // Check if collided with Chunk projectile
-                Debug.Log("COLLIDED Chunk");
-                RecieveDamage(other.GetComponent<ChunkProj>().getProjDamage()); // Recieve damage
-            }
-            */
-        }
     }
     void OnTriggerStay2D(Collider2D collision)
     {
@@ -136,30 +102,6 @@ public class GoblinArcher : Enemy
         return attackTimer >= attack_speed;
     }
 
-    // Method to update health when enemy is dealt damage
-    public void RecieveDamage(int damage_recieved)
-    {
-        health -= damage_recieved; // take away health from eneny
-
-        if(health < 0) { // Check if health is below 0
-            health = 0; // set to 0
-        }
-
-    }
-    // Method that gives health to enemy
-    public void AddHealth(int health_recieved)
-    {
-        health += health_recieved; // add health to enemy
-
-        if(health > max_health) { // Check if health is above max
-            health = max_health; // set to max
-        }
-    }
-    // Function to confirm attack was sucessful
-    public void SetAttack(bool success)
-    {
-        attackConnected = success;
-    }
     // Function to return current position of GoblinGrunt unit
     public Vector3 GetPosition()
     {
@@ -178,38 +120,4 @@ public class GoblinArcher : Enemy
         }
     }
 
-
-    // Methods for retrieving stats
-    public int GetMaxHealth()
-    {
-        return max_health;
-    }
-    public int GetHealth()
-    {
-        return health;
-    }
-    public int GetDamage()
-    {
-        return damage;
-    }
-    public override float GetMoveSpeed()
-    {
-        return move_speed;
-    }
-    public float GetAttackSpeed()
-    {
-        return attack_speed;
-    }
-    public float GetKnockBack()
-    {
-        return knock_back;
-    }
-    public float GetAttackTimer()
-    {
-        return attackTimer;
-    }
-    public float GetTargetDistance() 
-    {
-        return targetDistance;
-    }
 }

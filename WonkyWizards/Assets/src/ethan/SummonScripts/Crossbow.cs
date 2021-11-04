@@ -19,7 +19,7 @@ public class Crossbow : Summon
 {
 	protected static int cost = 80;
 
-	public void FixedUpdate()
+	public override void FixedUpdate()
 	{
 
 	}

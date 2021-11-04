@@ -19,7 +19,7 @@ public class Shrubbery : Summon
 {
 	protected static int cost = 60;
 
-	public void FixedUpdate()
+	public override void FixedUpdate()
 	{
 
 	}

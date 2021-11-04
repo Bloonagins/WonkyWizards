@@ -19,7 +19,7 @@ public class Chunk : Summon
 {
 	protected static int cost = 100;
 
-	public void FixedUpdate()
+	public override void FixedUpdate()
 	{
 
 	}

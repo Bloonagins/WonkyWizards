@@ -45,14 +45,62 @@ public class Enemy : MonoBehaviour
         targetDistance = 20f;
     }
 
-    // Methods
-    virtual public float GetMoveSpeed() 
+    // Method to update health when enemy is dealt damage
+    public void RecieveDamage(int damage_recieved)
+    {
+        health -= damage_recieved; // take away health from eneny
+
+        if(health < 0) { // Check if health is below 0
+            health = 0; // set to 0
+        }
+    }
+    // Method that gives health to enemy
+    public void AddHealth(int health_recieved)
+    {
+        health += health_recieved; // add health to enemy
+
+        if(health > max_health) { // Check if health is above max
+            health = max_health; // set to max
+        }
+    }
+    // Function to confirm attack was sucessful
+    public void SetAttack(bool success)
+    {
+        attackConnected = success;
+    }
+    
+    // Methods for Getting Stats
+    public int GetHealth() 
+    {
+        return health;
+    }
+    public int GetMaxHealth()
+    {
+        return max_health;
+    }
+    public int GetDamage()
+    {
+        return damage;
+    }
+    public float GetMoveSpeed()
     {
         return move_speed;
     }
-
-    void Start() {
-        //Debug.Log("Health:"+GetHealth());
+    public float GetAttackSpeed()
+    {
+        return attack_speed;
+    }
+    public float GetKnockBack()
+    {
+        return knock_back;
+    }
+    public float GetAttackTimer()
+    {
+        return attackTimer;
+    }
+    public float GetTargetDistance() 
+    {
+        return targetDistance;
     }
 
 }
