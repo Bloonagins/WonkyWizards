@@ -65,8 +65,7 @@ public class LevelManager : MonoBehaviour
                 // set positions certain to non-traversable tiles
                 if ((i == 1 && j == 2) || (i == 1 && j == 9) || 
                     (i == 4 && j == 2) || (i == 4 && j == 9) || 
-                    (i == 7 && j == 2) || (i == 7 && j == 9) || 
-                    (i == 11 && j == 5))
+                    (i == 7 && j == 2) || (i == 7 && j == 9))
                 {
                     level1Arr[i, j] = false; // set tile to not traversable
                 }

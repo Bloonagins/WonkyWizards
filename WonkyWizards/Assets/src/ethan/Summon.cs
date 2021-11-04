@@ -193,16 +193,17 @@ public class Summon : MonoBehaviour
         // Goal position was never found
         return false;
     }
-    private static void print2DArray (bool[,] array)
+    public static void print2DArray (bool[,] array)
     {
-        Debug.Log("Array:\n");
-        String s = "";
+        //Debug.Log("Array:\n");
+        String s;
         for (int i = 0; i < array.GetLength(0); i++)
         {
+            s = "";
             s += "[";
             for (int j = 0; j < array.GetLength(1); j++)
             {
-                s +=  array[i, j] ? "O" : "X";
+                s += array[i, j] ? "O" : "X";
                 s += " ";
                 //Console.Write((array[i, j] ? "1" : "X") + ", ");
             }
