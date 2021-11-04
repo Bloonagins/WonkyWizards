@@ -163,6 +163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projPrefab: {fileID: 8010062707606284907, guid: 7d3c7d54d7f16c34a80bae1cbd2cc2c6, type: 3}
+  radarPrefab: {fileID: 7566402004754320085, guid: 245b24c24c85bfa4c89f208340740bd2, type: 3}
 --- !u!1001 &5102354834740188827
 PrefabInstance:
   m_ObjectHideFlags: 0
