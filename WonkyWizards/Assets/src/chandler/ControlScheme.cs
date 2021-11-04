@@ -20,7 +20,7 @@ public class @ControlScheme : IInputActionCollection, IDisposable
             ""actions"": [
                 {
                     ""name"": ""Move"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""b7cb41a3-a531-474b-b923-f1c39d77a496"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
@@ -177,6 +177,22 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""CycleRight"",
+                    ""type"": ""Button"",
+                    ""id"": ""abd5b7da-35f9-4791-adc0-1bbb434b0b64"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""CycleLeft"",
+                    ""type"": ""Button"",
+                    ""id"": ""d0b3feec-0053-4182-81a6-59fec5b6f5ad"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -197,7 +213,7 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -208,7 +224,7 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -219,7 +235,7 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -230,7 +246,7 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -241,7 +257,7 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": ""Press(behavior=2)"",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Cast"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -252,7 +268,7 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/r"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""SwitchMagicMode"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -263,7 +279,7 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/1"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Hotbar1"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -274,7 +290,7 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/2"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Hotbar2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -285,7 +301,7 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/3"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Hotbar3"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -296,7 +312,7 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/4"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Hotbar4"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -307,7 +323,7 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/5"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Hotbar5"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -318,7 +334,7 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/6"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Hotbar6"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -329,7 +345,7 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/7"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Hotbar7"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -340,7 +356,7 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/8"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Hotbar8"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -351,7 +367,7 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/9"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Hotbar9"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -362,7 +378,7 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/0"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Hotbar0"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -373,7 +389,7 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -384,7 +400,7 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Summon"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -395,7 +411,7 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""SwitchTargetMode"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -406,7 +422,7 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -417,7 +433,7 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/tab"",
                     ""interactions"": ""Press(behavior=2)"",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""WaveInfo"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -428,7 +444,7 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/f4"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""ReadyUp"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -439,7 +455,7 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/l"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""ReadyUp"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -450,15 +466,60 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                     ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""DeleteSummon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7e56b68e-311e-4575-8700-b56f3a5da95f"",
+                    ""path"": ""<Keyboard>/period"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""CycleRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c461503b-2c70-43de-b0e8-e7b4da25c170"",
+                    ""path"": ""<Keyboard>/comma"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""CycleLeft"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
             ]
         }
     ],
-    ""controlSchemes"": []
+    ""controlSchemes"": [
+        {
+            ""name"": ""Keyboard"",
+            ""bindingGroup"": ""Keyboard"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<Keyboard>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Controller"",
+            ""bindingGroup"": ""Controller"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<Gamepad>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                }
+            ]
+        }
+    ]
 }");
         // PlayerDefault
         m_PlayerDefault = asset.FindActionMap("PlayerDefault", throwIfNotFound: true);
@@ -482,6 +543,8 @@ public class @ControlScheme : IInputActionCollection, IDisposable
         m_PlayerDefault_Pause = m_PlayerDefault.FindAction("Pause", throwIfNotFound: true);
         m_PlayerDefault_WaveInfo = m_PlayerDefault.FindAction("WaveInfo", throwIfNotFound: true);
         m_PlayerDefault_ReadyUp = m_PlayerDefault.FindAction("ReadyUp", throwIfNotFound: true);
+        m_PlayerDefault_CycleRight = m_PlayerDefault.FindAction("CycleRight", throwIfNotFound: true);
+        m_PlayerDefault_CycleLeft = m_PlayerDefault.FindAction("CycleLeft", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -551,6 +614,8 @@ public class @ControlScheme : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerDefault_Pause;
     private readonly InputAction m_PlayerDefault_WaveInfo;
     private readonly InputAction m_PlayerDefault_ReadyUp;
+    private readonly InputAction m_PlayerDefault_CycleRight;
+    private readonly InputAction m_PlayerDefault_CycleLeft;
     public struct PlayerDefaultActions
     {
         private @ControlScheme m_Wrapper;
@@ -575,6 +640,8 @@ public class @ControlScheme : IInputActionCollection, IDisposable
         public InputAction @Pause => m_Wrapper.m_PlayerDefault_Pause;
         public InputAction @WaveInfo => m_Wrapper.m_PlayerDefault_WaveInfo;
         public InputAction @ReadyUp => m_Wrapper.m_PlayerDefault_ReadyUp;
+        public InputAction @CycleRight => m_Wrapper.m_PlayerDefault_CycleRight;
+        public InputAction @CycleLeft => m_Wrapper.m_PlayerDefault_CycleLeft;
         public InputActionMap Get() { return m_Wrapper.m_PlayerDefault; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -644,6 +711,12 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                 @ReadyUp.started -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnReadyUp;
                 @ReadyUp.performed -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnReadyUp;
                 @ReadyUp.canceled -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnReadyUp;
+                @CycleRight.started -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnCycleRight;
+                @CycleRight.performed -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnCycleRight;
+                @CycleRight.canceled -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnCycleRight;
+                @CycleLeft.started -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnCycleLeft;
+                @CycleLeft.performed -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnCycleLeft;
+                @CycleLeft.canceled -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnCycleLeft;
             }
             m_Wrapper.m_PlayerDefaultActionsCallbackInterface = instance;
             if (instance != null)
@@ -708,10 +781,34 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                 @ReadyUp.started += instance.OnReadyUp;
                 @ReadyUp.performed += instance.OnReadyUp;
                 @ReadyUp.canceled += instance.OnReadyUp;
+                @CycleRight.started += instance.OnCycleRight;
+                @CycleRight.performed += instance.OnCycleRight;
+                @CycleRight.canceled += instance.OnCycleRight;
+                @CycleLeft.started += instance.OnCycleLeft;
+                @CycleLeft.performed += instance.OnCycleLeft;
+                @CycleLeft.canceled += instance.OnCycleLeft;
             }
         }
     }
     public PlayerDefaultActions @PlayerDefault => new PlayerDefaultActions(this);
+    private int m_KeyboardSchemeIndex = -1;
+    public InputControlScheme KeyboardScheme
+    {
+        get
+        {
+            if (m_KeyboardSchemeIndex == -1) m_KeyboardSchemeIndex = asset.FindControlSchemeIndex("Keyboard");
+            return asset.controlSchemes[m_KeyboardSchemeIndex];
+        }
+    }
+    private int m_ControllerSchemeIndex = -1;
+    public InputControlScheme ControllerScheme
+    {
+        get
+        {
+            if (m_ControllerSchemeIndex == -1) m_ControllerSchemeIndex = asset.FindControlSchemeIndex("Controller");
+            return asset.controlSchemes[m_ControllerSchemeIndex];
+        }
+    }
     public interface IPlayerDefaultActions
     {
         void OnMove(InputAction.CallbackContext context);
@@ -734,5 +831,7 @@ public class @ControlScheme : IInputActionCollection, IDisposable
         void OnPause(InputAction.CallbackContext context);
         void OnWaveInfo(InputAction.CallbackContext context);
         void OnReadyUp(InputAction.CallbackContext context);
+        void OnCycleRight(InputAction.CallbackContext context);
+        void OnCycleLeft(InputAction.CallbackContext context);
     }
 }

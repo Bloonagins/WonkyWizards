@@ -23,13 +23,11 @@ public class LevelManager : MonoBehaviour
         currentLevel = GameManager.getCurrentLevel(); // gets the current level from zach's GameManager script
         Initiate_Level(currentLevel);
         
-        
         GameManager.setLevelArray(currentLevelArr);
     }
 
     void Initiate_Level(int currentLevel)
     {
-
         switch (currentLevel)
         {
             case 0:
