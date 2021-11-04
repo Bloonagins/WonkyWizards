@@ -7,7 +7,7 @@ public class LevelManager : MonoBehaviour
 {
     private static bool[,] level1Arr = new bool[12, 12]; // static array of level 1
     private static bool[,] level2Arr = new bool[12, 12]; // static array of level 2
-    private static List<bool[,]> levelMasterArray = new List<bool[,]>();
+    private static bool[,] currentLevelArr;
     
     private static Tuple<int, int> spawnPoint; // list of enemy spawn points (x, y)
     private static Tuple<int, int> goal;  // list of the 
@@ -22,20 +22,21 @@ public class LevelManager : MonoBehaviour
     {
         currentLevel = GameManager.getCurrentLevel(); // gets the current level from zach's GameManager script
         Initiate_Level(currentLevel);
-        levelMasterArray.Add(level1Arr);
-        levelMasterArray.Add(level2Arr);
         
-        GameManager.setLevelArray(levelMasterArray[currentLevel]);
+        
+        GameManager.setLevelArray(currentLevelArr);
     }
 
     void Initiate_Level(int currentLevel)
     {
+
         switch (currentLevel)
         {
             case 0:
                 rows = 12;
                 cols = 12;
                 Initialize_Level_1();
+                currentLevelArr = level1Arr;
                 spawnPoint = new Tuple<int, int>(0, 5);
                 goal = new Tuple<int, int>(11, 5);
 
@@ -44,6 +45,7 @@ public class LevelManager : MonoBehaviour
                 rows = 12;
                 cols = 12;
                 Initialize_Level_2();
+                currentLevelArr = level2Arr;
                 spawnPoint = new Tuple<int, int>(0, 5);
                 goal = new Tuple<int, int>(11, 5);
 
@@ -106,7 +108,7 @@ public class LevelManager : MonoBehaviour
     /// <returns> current static array for the level </returns>
     public static bool [,] getLevelArray()
     {
-        return levelMasterArray.ToArray()[GameManager.getCurrentLevel()];
+        return currentLevelArr;
     }
     /// <returns> get the current level's row size </returns>
     public static int getLevelRows()
