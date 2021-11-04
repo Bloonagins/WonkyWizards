@@ -92,7 +92,7 @@ public class GoblinGiant : Enemy
                 //rb.AddForce((other.transform.position - transform.position) * other.GetComponent<AcidSpray>().getSpellKnockBack() * -1.0f, ForceMode2D.Impulse); // Apply Knockback;
             }
         }
-        else if(other.tag == "SummonProjectile") {
+        /*else if(other.tag == "SummonProjectile") {
             if(other.GetComponent<Sword>()) {
                 //Debug.Log("COLLIDED WITH SWORD");
                 RecieveDamage(other.GetComponent<Sword>().getProjDamage()); // Recieve damage
@@ -118,8 +118,7 @@ public class GoblinGiant : Enemy
                 Debug.Log("COLLIDED Chunk");
                 RecieveDamage(other.GetComponent<ChunkProj>().getProjDamage()); // Recieve damage
             }
-            */
-        }
+        }*/
     }
     void OnTriggerStay2D(Collider2D collision)
     {

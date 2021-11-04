@@ -89,12 +89,12 @@ public class GoblinArcher : Enemy
                 rb.AddForce((other.transform.position - transform.position) * other.GetComponent<AcidSpray>().getSpellKnockBack() * -1.0f, ForceMode2D.Impulse); // Apply Knockback;
             }
         }
-        else if(other.tag == "SummonProjectile") {
+        /*else if(other.tag == "SummonProjectile") {
             if(other.GetComponent<Sword>()) { // Check if collided with Sword
                 RecieveDamage(other.GetComponent<Sword>().getProjDamage()); // Recieve damage
                 //rb.AddForce((other.transform.position - transform.position) * other.GetComponent<Sword>().getProjKnockback() * -1.0f, ForceMode2D.Impulse); // Apply Knockback;
             }
-            /*else if(other.GetComponent<DragonProj>()) { // Check if collided with Dragon projectile
+            else if(other.GetComponent<DragonProj>()) { // Check if collided with Dragon projectile
                 Debug.Log("COLLIDED Dragon");
                 RecieveDamage(other.GetComponent<DragonProj>().getProjDamage()); // Recieve damage
             }
@@ -114,8 +114,7 @@ public class GoblinArcher : Enemy
                 Debug.Log("COLLIDED Chunk");
                 RecieveDamage(other.GetComponent<ChunkProj>().getProjDamage()); // Recieve damage
             }
-            */
-        }
+        }*/
     }
     void OnTriggerStay2D(Collider2D collision)
     {
