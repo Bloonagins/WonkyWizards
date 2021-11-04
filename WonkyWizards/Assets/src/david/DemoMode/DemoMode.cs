@@ -1,17 +1,46 @@
+/**********************************************
+| DemoMode V1.0.0                             |
+| Author: David Bush, T5                      |
+| Description: This contains the script for   |
+| to active the Demo Mode and keep track of   |
+| it's interactions. It also contains the     |
+| singleton pattern.                          |
+| Bugs:                                       |
+**********************************************/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class DemoMode : MonoBehaviour
 {
-    // bool to keep track if game is in demo mode
-    private bool demoActive;
-    // Keeps track of time since last input
-    private float inputTimer;
-    // Amount of time for input delay
-    public float inputDelay;
-    // 
-    public bool Fail;
+    private bool demoActive; // bool to keep track if game is in demo mode
+    private float inputTimer; // Keeps track of time since last input
+    public float inputDelay; // Amount of time for input delay
+    public bool Fail; // Turn on Fail Case
+
+
+    // ------------------Singleton Pattern------------------
+    // Step 1: Define a private static attribute of the single instance
+    private static DemoMode single_instance; 
+    // Awake is called first and even if the script is disabled
+    private void Awake() 
+    {
+        CreateSingleton(); // create the singlton instance
+    }
+    // Step 2: Define a public accessor function to return instance
+    public DemoMode CreateSingleton() 
+    {
+        // HOW TO PREVENT FOR MULTIPLE THREADS?
+        // Step 3: "Lazy initialization" 
+        if(single_instance == null) // check to see if its the first instance
+        {
+            single_instance = this;
+        }
+        return single_instance; // return the singleton instance
+    }
+    // Step 4: Clients may only use the accessor function to manipulate the Singleton.
+    //------------------End of Singleton Pattern------------------
 
     // Start is called before the first frame update
     void Start()
@@ -51,20 +80,17 @@ public class DemoMode : MonoBehaviour
 
     }
 
+    // Function to check if timer is greater than the delay
     public bool NoInput10Seconds() 
     {
         return inputTimer >= inputDelay;
     }
-
-    public void SetDemoActive(bool d) {
-        demoActive = d;
-    }
-
+    // Function to check if demo mode is active
     public bool GetDemoActive() 
     {
         return demoActive;
     }
-
+    // Function to check if Fail is on
     public bool GetFail() 
     {
         return Fail;
