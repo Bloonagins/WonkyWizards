@@ -24,7 +24,7 @@ public class PlayerTimer : MonoBehaviour
     private static float acidSplashReset = 0.75f;
     private static float acidSplashTimer;
     // slimeball cooldown
-    private static float slimeballReset = 0.5f;
+    private static float slimeballReset = 0.65f;
     private static float slimeballTimer;
 
     // Start is called before the first frame update
