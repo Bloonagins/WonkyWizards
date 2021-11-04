@@ -20,7 +20,7 @@ public class Crystal : Summon
 {
 	protected static int cost = 70;
 
-	public void FixedUpdate()
+	public override void FixedUpdate()
 	{
 
 	}

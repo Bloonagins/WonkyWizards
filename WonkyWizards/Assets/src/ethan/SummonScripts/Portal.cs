@@ -23,7 +23,7 @@ public class Portal : Summon
 {
 	protected static int cost = 0;
 
-	public void FixedUpdate()
+	public override void FixedUpdate()
 	{
 
 	}
