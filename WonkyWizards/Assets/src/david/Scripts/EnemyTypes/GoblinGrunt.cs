@@ -61,6 +61,7 @@ public class GoblinGrunt : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         GameObject other = collision.gameObject;
+        //Debug.Log("Collided");
         if(other.tag == "Spell") { // Check if enemy collided with spell
             //Debug.Log("Collided with spell");
             if(other.GetComponent<FireBall>()) { // Check if spell was Fireball
@@ -80,6 +81,11 @@ public class GoblinGrunt : MonoBehaviour
                 //Debug.Log("Collided Acid Spray");
                 RecieveDamage(other.GetComponent<AcidSpray>().getSpellDamage()); // Recieve damage 
                 rb.AddForce((other.transform.position - transform.position) * other.GetComponent<AcidSpray>().getSpellKnockBack() * -1.0f, ForceMode2D.Impulse); // FireBall.getKnockback();
+            }
+            else if(other.GetComponent<Slimeball>()) { // Check if spell was SlimeBall
+                //Debug.Log("Collided SlimeBall");
+                RecieveDamage(other.GetComponent<Slimeball>().getSpellDamage()); //Recieve damage
+                rb.AddForce((other.transform.position - transform.position) * other.GetComponent<Slimeball>().getSpellKnockBack() * -1.0f, ForceMode2D.Impulse);
             }
         }
     }
