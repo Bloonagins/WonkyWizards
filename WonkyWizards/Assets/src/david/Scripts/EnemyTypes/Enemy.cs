@@ -44,6 +44,25 @@ public class Enemy : MonoBehaviour
         knock_back = 200f;
         targetDistance = 20f;
     }
+    
+    // Method to update health when enemy is dealt damage
+    public void RecieveDamage(int damage_recieved)
+    {
+        health -= damage_recieved; // take away health from eneny
+
+        if(health < 0) { // Check if health is below 0
+            health = 0; // set to 0
+        }
+    }
+    // Method that gives health to enemy
+    public void AddHealth(int health_recieved)
+    {
+        health += health_recieved; // add health to enemy
+
+        if(health > max_health) { // Check if health is above max
+            health = max_health; // set to max
+        }
+    }
 
     // Methods
     virtual public float GetMoveSpeed() 
@@ -51,8 +70,9 @@ public class Enemy : MonoBehaviour
         return move_speed;
     }
 
-    void Start() {
-        //Debug.Log("Health:"+GetHealth());
+    public int GetHealth() 
+    {
+        return health;
     }
 
 }
