@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
+    private GameManager gm;
     private static bool[,] level1Arr = new bool[12, 12]; // static array of level 1
     private static bool[,] level2Arr = new bool[12, 12]; // static array of level 2
     private static bool[,] currentLevelArr;
@@ -20,10 +21,12 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentLevel = GameManager.getCurrentLevel(); // gets the current level from zach's GameManager script
+        gm = GameManager.getSingleton();
+        currentLevel = gm.getCurrentLevel(); // gets the current level from zach's GameManager script
         Initiate_Level(currentLevel);
-        
-        GameManager.setLevelArray(currentLevelArr);
+
+        gm.setLevelArray(currentLevelArr);
+        gm.setLevelArray(currentLevelArr);
     }
 
     void Initiate_Level(int currentLevel)
@@ -59,22 +62,9 @@ public class LevelManager : MonoBehaviour
         ///     - true  = is traversable
         ///     - false = not traversable
         for (int i = 0; i < rows; i++)
-        {
             for (int j = 0; j < cols; j++)
-            {
-                // set positions certain to non-traversable tiles
-                if ((i == 1 && j == 2) || (i == 1 && j == 9) || 
-                    (i == 4 && j == 2) || (i == 4 && j == 9) || 
-                    (i == 7 && j == 2) || (i == 7 && j == 9))
-                {
-                    level1Arr[i, j] = false; // set tile to not traversable
-                }
-                else
-                {
-                    level1Arr[i, j] = true; // set tile to traversable
-                }
-            }
-        }
+                // set tile to traversable
+                level1Arr[i, j] = true; 
     }
 
     void Initialize_Level_2()
@@ -83,23 +73,9 @@ public class LevelManager : MonoBehaviour
         ///     - true  = is traversable
         ///     - false = not traversable
         for (int i = 0; i < rows; i++)
-        {
             for (int j = 0; j < cols; j++)
-            {
-                // set positions certain to non-traversable tiles
-                if ((i == 1 && j == 2) || (i == 1 && j == 9) ||
-                    (i == 4 && j == 2) || (i == 4 && j == 9) ||
-                    (i == 7 && j == 2) || (i == 7 && j == 9) ||
-                    (i == 11 && j == 5))
-                {
-                    level2Arr[i, j] = false; // set tile to not traversable
-                }
-                else
-                {
-                    level2Arr[i, j] = true; // set tile to traversable
-                }
-            }
-        }
+                // set tile to traversable
+                level2Arr[i, j] = true; 
     }
 
     /// <returns> current static array for the level </returns>
