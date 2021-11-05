@@ -110,7 +110,7 @@ public class GameManager : MonoBehaviour
         placementGrid = levelArray.Clone() as bool[,];
     }
     
-    public static int getCurrentLevel () {
+    public int getCurrentLevel () {
         int level;
         switch (sceneName)
         {
