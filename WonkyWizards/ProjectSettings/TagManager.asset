@@ -22,6 +22,7 @@ TagManager:
   - SummonProjectile
   - SummonNoPlace
   - DemoPoint
+  - Explosion
   layers:
   - Default
   - TransparentFX

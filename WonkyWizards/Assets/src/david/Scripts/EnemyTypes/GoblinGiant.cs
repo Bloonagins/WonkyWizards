@@ -22,12 +22,12 @@ public class GoblinGiant : Enemy
     // Used to store deathExplosion object
     public GameObject deathExplosion;
     // The amount of damage GoblinGiant deals on death
-    private int death_damage;
+    private static int death_damage;
 
     // Constructor for GoblinGiant
     public GoblinGiant()
     {
-        max_health = health = 600;
+        max_health = health = 50;
         damage = 80;
         death_damage = 100;
         move_speed = 14f;
@@ -134,7 +134,7 @@ public class GoblinGiant : Enemy
             agent.acceleration += speed_amount;
         }
     }
-    public float GetDeathDamage() 
+    public static float GetDeathDamage() 
     {
         return death_damage;
     }
