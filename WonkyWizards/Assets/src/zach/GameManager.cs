@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameState state;
     public static GameManager instance;
-    private static bool[,] placementGrid; 
+    private bool[,] placementGrid; 
     public static int rows;
     public static int cols; 
     public static string sceneName; // reference to the scene's name
@@ -85,7 +85,7 @@ public class GameManager : MonoBehaviour
 
     //---------PLACEMENT GRID----------
 
-    public static bool[,] getPlacementGrid()
+    public bool[,] getPlacementGrid()
     {
         return placementGrid;
     }
