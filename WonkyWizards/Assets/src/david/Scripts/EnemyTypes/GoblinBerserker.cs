@@ -104,6 +104,11 @@ public class GoblinBerserker : Enemy
                 RecieveDamage(other.GetComponent<AcidSpray>().getSpellDamage()); // Recieve damage 
                 rb.AddForce((other.transform.position - transform.position) * other.GetComponent<AcidSpray>().getSpellKnockBack() * -1.0f, ForceMode2D.Impulse); // Apply Knockback;
             }
+            else if(other.GetComponent<Slimeball>()) { // Check if spell was SlimeBall
+                //Debug.Log("Collided SlimeBall");
+                RecieveDamage(other.GetComponent<Slimeball>().getSpellDamage()); //Recieve damage
+                rb.AddForce((other.transform.position - transform.position) * other.GetComponent<Slimeball>().getSpellKnockBack() * -1.0f, ForceMode2D.Impulse);
+            }
         }
     }
     void OnTriggerStay2D(Collider2D collision)
@@ -117,16 +122,6 @@ public class GoblinBerserker : Enemy
                 //Debug.Log("Attack");
             }
         }
-    }
-    // Function to return current position of GoblinGrunt unit
-    public Vector3 GetPosition()
-    {
-        return gameObject.transform.position;
-    }
-    // Function to change the enemy's damage by a flat amount
-    public void ChangeDamage(int damage_amount){
-        if (damage < maxDamage)
-            damage += damage_amount; // can be positive or negative
     }
 
     // Function to change the enemy's movespeed by a flat amount

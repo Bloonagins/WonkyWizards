@@ -54,6 +54,12 @@ public class Enemy : MonoBehaviour
             health = 0; // set to 0
         }
     }
+
+    // Function to change the enemy's damage by a flat amount
+    public void ChangeDamage(int damage_amount){
+        damage += damage_amount; // can be positive or negative
+    }
+    
     // Method that gives health to enemy
     public void AddHealth(int health_recieved)
     {
@@ -97,6 +103,10 @@ public class Enemy : MonoBehaviour
     public float GetAttackTimer()
     {
         return attackTimer;
+    }
+    public bool canAttack()
+    {
+        return attackTimer >= attack_speed;
     }
     public float GetTargetDistance() 
     {

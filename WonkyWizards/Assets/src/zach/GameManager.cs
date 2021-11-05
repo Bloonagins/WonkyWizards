@@ -64,6 +64,10 @@ public class GameManager : MonoBehaviour
         return instance;
     }
 
+    public static GameManager getSingleton()
+    {
+        return instance;
+    }
     //--------STATE HANDLING-----------------
     public static GameState CheckState()
     {
@@ -86,14 +90,24 @@ public class GameManager : MonoBehaviour
         return placementGrid;
     }
 
-    public static void occupySpace (Tuple<int, int> space)
+    public void occupySpace (int x, int y)
     {
-        placementGrid[space.Item1, space.Item1] = false;
+        placementGrid[x, y] = false;
     }
 
-    public static void setLevelArray (bool[,] levelArray)
+    public void setSpaceAvailable (int x, int y)
     {
-        placementGrid = levelArray;
+        placementGrid[x, y] = true;
+    }
+
+    public bool checkSpace (int x, int y)
+    {
+        return placementGrid[x, y];
+    }
+
+    public void setLevelArray (bool[,] levelArray)
+    {
+        placementGrid = levelArray.Clone() as bool[,];
     }
     
     public static int getCurrentLevel () {
