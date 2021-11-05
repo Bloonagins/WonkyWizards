@@ -59,6 +59,9 @@ public class PlayerControls : MonoBehaviour
     // link to boss prefab
     public GameObject boss;
 
+    private PlayerControls()
+    { }
+
     void Awake()
     {
         // gets a link to the control scheme
@@ -197,7 +200,7 @@ public class PlayerControls : MonoBehaviour
                             );
 
                             // if the square is a valid location, then attempt to place the summon, and if that succeeds, spend mana
-                            if (Summon.attemptPlacement(summon, PlayerScript.getGridCursorPoint(), summonPosition))
+                            if (Summon.attemptPlacement(summon, PlayerScript.getGridCursorPoint(), summonPosition.Item1, summonPosition.Item2))
                             {
                                 PlayerScript.spendMana(summon.GetComponent<Summon>().getCost());
                             }
@@ -245,6 +248,14 @@ public class PlayerControls : MonoBehaviour
                 // if it is then give the player their mana back and delete it
                 PlayerScript.giveMana(hit.transform.gameObject.GetComponent<Summon>().getCost());
                 Destroy(hit.transform.gameObject);
+
+                // find the position being removed
+                int x = (int)PlayerScript.getArrayCursorPoint().y;
+                int y = (int)PlayerScript.getArrayCursorPoint().x;
+
+                // delete the summon
+                Debug.Log("[PlayerControls] trying to delete " + hit.transform.name);
+                hit.transform.gameObject.GetComponent<Summon>().deleteSummon(x, y);
             }
         }
     }
