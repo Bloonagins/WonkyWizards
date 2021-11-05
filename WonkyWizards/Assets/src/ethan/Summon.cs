@@ -6,6 +6,8 @@ using TargetModeNamespace;
 public class Summon : MonoBehaviour
 
 {
+    protected GameManager gm;
+
     //public static LevelManager lm;
     public static Vector3 gridCursorPoint;
 
@@ -20,6 +22,7 @@ public class Summon : MonoBehaviour
     protected GameObject radarPrefab;
     protected SummonRadar summonRadar;
 
+    protected int j, i;
 
     protected int health;
 
@@ -28,10 +31,15 @@ public class Summon : MonoBehaviour
     // init
     public virtual void Start()
     {
-        health = this.getMaxHealth();
+        // get singleton instance
+        gm = GameManager.getSingleton();
+
+        cooldown = 300f;
         timer = 0.0f;
 
         summonRadar = Instantiate(radarPrefab, gameObject.transform).GetComponent<SummonRadar>();
+
+        health = this.getMaxHealth();
     }
 
     public virtual void FixedUpdate()
@@ -99,24 +107,33 @@ public class Summon : MonoBehaviour
     }
 
     // Returns whether or not the current grid plus one more spot is be placeable
-    public static bool attemptPlacement(GameObject summon, Vector3 worldPos, Tuple<int, int> pos)
+    public static bool attemptPlacement(GameObject summon, Vector3 worldPos, int x, int y)
     {
-        // check that the position isn't null
-        if (pos == null)
+        // get singleton copy
+        GameManager gm = GameManager.getSingleton();
+        if (gm == null)
         {
+            Debug.Log("Singleton is null! Placement failed.");
             return false;
         }
 
-        // now test array with new pos added:
+        // check that the tile isn't unplaceable
+        if (gm.getPlacementGrid()[x, y] == false)
+        {
+            Debug.Log("Position (" + x + "," + y + ") is not placeable.");
+            return false;
+        }
+
+        // now test array with new pos added...
+
         // copy array to test on
-        bool[,] newArray = GameManager.getPlacementGrid().Clone() as bool[,];
+        bool[,] newArray = gm.getPlacementGrid().Clone() as bool[,];
         //print2DArray(GameManager.getPlacementGrid());
 
         // add the proposed new position to the new array
-        newArray[pos.Item1, pos.Item2] = false;
+        newArray[x, y] = false;
 
         // then test that the new grid is traversable
-        //print2DArray(newArray);
         if (isTraversable(newArray,
                             LevelManager.getLevelRows(),
                             LevelManager.getLevelCols(),
@@ -124,16 +141,37 @@ public class Summon : MonoBehaviour
                             LevelManager.getLevelGoal()
         ))
         {
-            GameManager.occupySpace(pos);
+            //Debug.Log("Traversability found.");
+
+            // update the array in the GameManager
+            gm.occupySpace(x, y);
+
+            // instantiate the summon
             GameObject newSummon = Instantiate(summon, worldPos, Quaternion.identity);
 
+            // set the new summon to be a child of the NavMesh (for David's pathfinding)
             newSummon.transform.parent = GameObject.FindGameObjectsWithTag("NavMesh")[0].transform;
-            return true;
+
+            return true; // successfully placed tower
         }
         else
         {
+            //Debug.Log("Intraversability error!");
             return false;
         }
+    }
+
+    public void deleteSummon (int x, int y)
+    {
+        Debug.Log("[summon] trying to delete " + transform.name);
+
+        // get singleton copy
+        GameManager gm = GameManager.getSingleton();
+
+        gm.setSpaceAvailable(x, y);
+
+        // delete this object
+        Destroy(gameObject);
     }
 
     public void cycleTargetMode()
@@ -193,16 +231,17 @@ public class Summon : MonoBehaviour
         // Goal position was never found
         return false;
     }
-    private static void print2DArray (bool[,] array)
+    public static void print2DArray (bool[,] array)
     {
-        Debug.Log("Array:\n");
-        String s = "";
+        //Debug.Log("Array:\n");
+        String s;
         for (int i = 0; i < array.GetLength(0); i++)
         {
+            s = "";
             s += "[";
             for (int j = 0; j < array.GetLength(1); j++)
             {
-                s +=  array[i, j] ? "O" : "X";
+                s += array[i, j] ? "O" : "X";
                 s += " ";
                 //Console.Write((array[i, j] ? "1" : "X") + ", ");
             }
@@ -211,4 +250,3 @@ public class Summon : MonoBehaviour
         }
     }
 }
-

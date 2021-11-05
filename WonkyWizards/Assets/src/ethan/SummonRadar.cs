@@ -77,16 +77,26 @@ public class SummonRadar : MonoBehaviour
         GameObject weakest = null;
         int lowestHealth = int.MaxValue;
 
-        /*foreach (GameObject enemy in enemies)
+        foreach (GameObject enemy in enemies)
         {
             if (weakest == null) weakest = enemy;
 
-            if (enemy.GetComponent<Enemy>.getHealth() < lowestHealth)
+            if (enemy.GetComponent<Enemy>())
             {
-                weakest = enemy;
-                lowestHealth = enemy.GetComponent<Enemy>.getHealth();
+                if (enemy.GetComponent<Enemy>().GetHealth() < lowestHealth)
+                {
+                    weakest = enemy;
+                    lowestHealth = enemy.GetComponent<Enemy>().GetHealth();
+                }
+            } else if (enemy.GetComponent<GoblinGrunt>())
+            {
+                if (enemy.GetComponent<GoblinGrunt>().GetHealth() < lowestHealth)
+                {
+                    weakest = enemy;
+                    lowestHealth = enemy.GetComponent<GoblinGrunt>().GetHealth();
+                }
             }
-        }*/
+        }
 
         return weakest;
     }

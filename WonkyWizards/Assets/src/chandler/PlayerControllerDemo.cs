@@ -200,7 +200,7 @@ public class PlayerControllerDemo : MonoBehaviour
                             );
 
                             // if the square is a valid location, then attempt to place the summon, and if that succeeds, spend mana
-                            if (Summon.attemptPlacement(summon, PlayerScript.getGridCursorPoint(), summonPosition))
+                            if (Summon.attemptPlacement(summon, PlayerScript.getGridCursorPoint(), summonPosition/*.Item1, summonPosition.item2*/))
                             {
                                 PlayerScript.spendMana(summon.GetComponent<Summon>().getCost());
                             }

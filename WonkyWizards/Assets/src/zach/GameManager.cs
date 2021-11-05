@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameState state;
     public static GameManager instance;
-    private static bool[,] placementGrid; 
+    private bool[,] placementGrid; 
     public static int rows;
     public static int cols; 
     public static string sceneName; // reference to the scene's name
@@ -64,6 +64,10 @@ public class GameManager : MonoBehaviour
         return instance;
     }
 
+    public static GameManager getSingleton()
+    {
+        return instance;
+    }
     //--------STATE HANDLING-----------------
     public static GameState CheckState()
     {
@@ -81,22 +85,32 @@ public class GameManager : MonoBehaviour
 
     //---------PLACEMENT GRID----------
 
-    public static bool[,] getPlacementGrid()
+    public bool[,] getPlacementGrid()
     {
         return placementGrid;
     }
 
-    public static void occupySpace (Tuple<int, int> space)
+    public void occupySpace (int x, int y)
     {
-        placementGrid[space.Item1, space.Item1] = false;
+        placementGrid[x, y] = false;
     }
 
-    public static void setLevelArray (bool[,] levelArray)
+    public void setSpaceAvailable (int x, int y)
     {
-        placementGrid = levelArray;
+        placementGrid[x, y] = true;
+    }
+
+    public bool checkSpace (int x, int y)
+    {
+        return placementGrid[x, y];
+    }
+
+    public void setLevelArray (bool[,] levelArray)
+    {
+        placementGrid = levelArray.Clone() as bool[,];
     }
     
-    public static int getCurrentLevel () {
+    public int getCurrentLevel () {
         int level;
         switch (sceneName)
         {
