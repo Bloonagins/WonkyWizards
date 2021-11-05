@@ -26,6 +26,10 @@ public class Dragon : Summon
 		cooldown = 0.05f;
 	}
 
+	public override void FixedUpdate()
+	{
+	}
 
-    public override int getCost() { return cost; }
+
+	public override int getCost() { return cost; }
 }
