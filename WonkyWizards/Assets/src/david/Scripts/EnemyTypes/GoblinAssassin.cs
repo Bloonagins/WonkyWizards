@@ -43,6 +43,7 @@ public class GoblinAssassin : Enemy
         dashAmount = 130f;
         dashCD = dashTimer = 3f;
         targetDistance = 25f;
+        stoppingDistance = 1f;
         attackConnected = false;
         knock_back = 350f;
     }

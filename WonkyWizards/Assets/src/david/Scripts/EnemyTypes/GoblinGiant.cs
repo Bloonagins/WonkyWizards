@@ -27,12 +27,15 @@ public class GoblinGiant : Enemy
     // Constructor for GoblinGiant
     public GoblinGiant()
     {
-        max_health = health = 50;
+        max_health = health = 600;
         damage = 80;
         death_damage = 100;
         move_speed = 14f;
+        lowest_speed = 14f;
+        highest_speed = 17f;
         attack_speed = attackTimer = 3f; // 2000 damage per minute
         targetDistance = 30f;
+        stoppingDistance = 1f;
         attackConnected = false;
         knock_back = 600f;
     }
@@ -84,7 +87,8 @@ public class GoblinGiant : Enemy
             }
             else if(other.GetComponent<IceBeam>()) { // Check if spell was IceBeam
                 //Debug.Log("Collided Ice Beam");
-                ChangeMoveSpeed(other.GetComponent<IceBeam>().Freeze() * -1); // Recieve slow 
+                // CANT SLOW GIANT
+                //ChangeMoveSpeed(other.GetComponent<IceBeam>().Freeze() * -1); // Recieve slow 
             }
             else if(other.GetComponent<AcidSpray>()) { // Check if spell was AcidSpray
                 //Debug.Log("Collided Acid Spray");

@@ -25,7 +25,9 @@ public class EnemyTargeting : MonoBehaviour
     NavMeshAgent agent;
     
     // Distance enemy is from the player 
-    private float distanceFrom;
+    private float distanceFromPlayer;
+    // Distance enemy is from the goal
+    private float distanceFromGoal;
     // Distance where enemy switches to targeting player
     private float targetDistance;
     // The minimum distance reached before stopping
@@ -36,13 +38,22 @@ public class EnemyTargeting : MonoBehaviour
     private float timer;
     // Keep track if GoblinAssasin
     private bool isDash;
+    // If the enemy is a ranged type
+    private bool isRanged;
+    //
+    private bool isGoal;
+    //
+    private bool isPlayer;
 
     // Start is called before the first frame update
     void Start()
     {
-        distanceFrom = 0f;
-        stoppingDistance = 1f;
+        distanceFromPlayer = 0f;
+        stoppingDistance = 0f;
         isDash = false;
+        isRanged = false;
+        isPlayer = false;
+        isGoal = false;
 
         // Get the target players component
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
@@ -59,45 +70,83 @@ public class EnemyTargeting : MonoBehaviour
             agent.speed = gameObject.GetComponent<GoblinGrunt>().GetMoveSpeed(); 
             agent.acceleration = gameObject.GetComponent<GoblinGrunt>().GetMoveSpeed();
             targetDistance = gameObject.GetComponent<GoblinGrunt>().GetTargetDistance();
+            stoppingDistance = gameObject.GetComponent<GoblinGrunt>().GetStoppingDistance();
         }
         else if(gameObject.GetComponent<GoblinWarrior>()) { // Set GoblinWarrior speed
             agent.speed = gameObject.GetComponent<GoblinWarrior>().GetMoveSpeed(); 
             agent.acceleration = gameObject.GetComponent<GoblinWarrior>().GetMoveSpeed();
             targetDistance = gameObject.GetComponent<GoblinWarrior>().GetTargetDistance();
+            stoppingDistance = gameObject.GetComponent<GoblinWarrior>().GetStoppingDistance();
         }        
-        else if(gameObject.GetComponent<GoblinBerserker>()) { // Set GoblinBerserkers speed
+        else if(gameObject.GetComponent<GoblinBerserker>()) { // Set GoblinBerserkers stats
             agent.speed = gameObject.GetComponent<GoblinBerserker>().GetMoveSpeed(); 
             agent.acceleration = gameObject.GetComponent<GoblinBerserker>().GetMoveSpeed();
             targetDistance = gameObject.GetComponent<GoblinBerserker>().GetTargetDistance();
+            stoppingDistance = gameObject.GetComponent<GoblinBerserker>().GetStoppingDistance();
         }
-        else if(gameObject.GetComponent<GoblinAssassin>()) { // Set GoblinAssasin speed
+        else if(gameObject.GetComponent<GoblinAssassin>()) { // Set GoblinAssasin stats
             agent.speed = gameObject.GetComponent<GoblinAssassin>().GetMoveSpeed(); 
             agent.acceleration = gameObject.GetComponent<GoblinAssassin>().GetMoveSpeed();
             targetDistance = gameObject.GetComponent<GoblinAssassin>().GetTargetDistance();
             dashDistance = gameObject.GetComponent<GoblinAssassin>().GetDashDistance();
+            stoppingDistance = gameObject.GetComponent<GoblinAssassin>().GetStoppingDistance();
             isDash = true;
         }
-        else if(gameObject.GetComponent<GoblinGiant>()) { // Set GoblinGiant speed
+        else if(gameObject.GetComponent<GoblinGiant>()) { // Set GoblinGiant stats
             agent.speed = gameObject.GetComponent<GoblinGiant>().GetMoveSpeed(); 
             agent.acceleration = gameObject.GetComponent<GoblinGiant>().GetMoveSpeed();
             targetDistance = gameObject.GetComponent<GoblinGiant>().GetTargetDistance();
+            stoppingDistance = gameObject.GetComponent<GoblinGiant>().GetStoppingDistance();
+        }
+        else if(gameObject.GetComponent<GoblinArcher>()) { // Set GoblinArcher stats
+            agent.speed = gameObject.GetComponent<GoblinArcher>().GetMoveSpeed(); 
+            agent.acceleration = gameObject.GetComponent<GoblinArcher>().GetMoveSpeed();
+            targetDistance = gameObject.GetComponent<GoblinArcher>().GetTargetDistance();
+            stoppingDistance = gameObject.GetComponent<GoblinArcher>().GetStoppingDistance();
+            isRanged = true;
         }
     }
     
     // Update is called once per frame
     void FixedUpdate(){
-        distanceFrom = Vector2.Distance(transform.position, player.position);
+        distanceFromPlayer = Vector2.Distance(transform.position, player.position);
+        if(isRanged) {
+            distanceFromGoal = Vector2.Distance(transform.position, goal.position);
+        }
         // Check if enemy is within range of player
-        if(distanceFrom < targetDistance) {
+        if(distanceFromPlayer < targetDistance && distanceFromPlayer > stoppingDistance) {
+            agent.isStopped = false;
+            isPlayer = false;
+            isGoal = false;
             agent.SetDestination(player.position);
             transform.eulerAngles = Vector3.forward * calculateVectorAngle(transform.position, player.position);
+            //isAttacking = true;
+        }
+        else if(isRanged && distanceFromPlayer < stoppingDistance) { // target player
+            agent.isStopped = true;
+            isPlayer = true;
+            transform.eulerAngles = Vector3.forward * calculateVectorAngle(transform.position, player.position);
+            if(gameObject.GetComponent<GoblinArcher>().canAttack() && gameObject.GetComponent<GoblinArcher>()){
+                gameObject.GetComponent<GoblinArcher>().fireAttack(player);
+            }
+        }
+        else if(isRanged && distanceFromGoal < stoppingDistance+5) { // target goal
+            agent.isStopped = true;
+            isGoal = true;
+            transform.eulerAngles = Vector3.forward * calculateVectorAngle(transform.position, player.position);
+            if(gameObject.GetComponent<GoblinArcher>().canAttack() && gameObject.GetComponent<GoblinArcher>()){
+                gameObject.GetComponent<GoblinArcher>().fireAttack(goal);
+            }
         }
         else {
+            agent.isStopped = false;
+            isPlayer = false;
+            isGoal = false;
             agent.SetDestination(goal.position);
             transform.eulerAngles = Vector3.forward * calculateVectorAngle(transform.position, goal.position);
         }
         // Check if GoblinAssasin and is in range
-        if (isDash && gameObject.GetComponent<GoblinAssassin>().canDash() && distanceFrom < dashDistance) {
+        if (isDash && gameObject.GetComponent<GoblinAssassin>().canDash() && distanceFromPlayer < dashDistance) {
             gameObject.GetComponent<GoblinAssassin>().ApplyDash(player.position);
         }
     }
@@ -120,5 +169,14 @@ public class EnemyTargeting : MonoBehaviour
         }
 
         return angle;
+    }
+
+    public bool GetPlayer()
+    {
+        return isPlayer;
+    }
+    public bool GetGoal()
+    {
+        return isGoal;
     }
 }

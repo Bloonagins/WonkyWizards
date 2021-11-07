@@ -26,7 +26,7 @@ public class GoblinGrunt : MonoBehaviour
     public GoblinGrunt()
     {
         // Set initial values of goblinGruntData class
-        this.goblinGruntData = new GoblinGruntData(200, 200, 30, 16f, 6f, 22f, 1.5f, 1.5f, 300f, 20f, false);
+        this.goblinGruntData = new GoblinGruntData(200, 200, 30, 16f, 6f, 22f, 1.5f, 1.5f, 300f, 20f, 1f, false);
         // 1200 damage per second
     }
     
@@ -184,5 +184,9 @@ public class GoblinGrunt : MonoBehaviour
     public float GetTargetDistance() 
     {
         return this.goblinGruntData.GetTargetDistance();
+    }
+    public float GetStoppingDistance()
+    {
+        return this.goblinGruntData.GetStoppingDistance();
     }
 }

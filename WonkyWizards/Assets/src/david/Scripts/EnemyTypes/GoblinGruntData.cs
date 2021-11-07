@@ -14,10 +14,12 @@ public class GoblinGruntData
     private float attackTimer; // Keeps track of when enemy can attack
     private float knock_back; // Ammount of knockback applied
     private float targetDistance; // The distance the enemy starts targeting the player
+    protected float stoppingDistance; // The distance the enemy stops moving towards the player
+
     private bool attackConnected; // Keeps attack if attack was successful
 
     // Constructor for GoblinGruntData
-    public GoblinGruntData(int max_health, int health, int damage, float move_speed, float lowest_speed, float highest_speed, float attack_speed, float attackTimer, float knock_back, float targetDistance, bool attackConnected)
+    public GoblinGruntData(int max_health, int health, int damage, float move_speed, float lowest_speed, float highest_speed, float attack_speed, float attackTimer, float knock_back, float targetDistance, float stoppingDistance, bool attackConnected)
     {
         this.max_health = max_health;
         this.health = health;
@@ -29,6 +31,7 @@ public class GoblinGruntData
         this.attackTimer = attackTimer;
         this.knock_back = knock_back;
         this.targetDistance = targetDistance;
+        this.stoppingDistance = stoppingDistance;
         this.attackConnected = attackConnected;
     }
 
@@ -85,6 +88,10 @@ public class GoblinGruntData
     public float GetTargetDistance() 
     {
         return this.targetDistance;
+    }
+    public float GetStoppingDistance() 
+    {
+        return this.stoppingDistance;
     }
     public bool GetAttackConnected()
     {

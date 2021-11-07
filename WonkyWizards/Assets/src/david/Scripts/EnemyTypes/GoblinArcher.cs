@@ -16,16 +16,19 @@ public class GoblinArcher : Enemy
     // Used to store Agent component
     private NavMeshAgent agent;
 
+    public GameObject arrow;
+
     // Constructor for GoblinArcher
     public GoblinArcher()
     {
         max_health = health = 300;
-        damage = 45;
+        damage = 30;
         move_speed = 16f;
         lowest_speed = 6f; 
         highest_speed = 24f; 
-        attack_speed = attackTimer = 1.75f; // 1714 damage per minute
+        attack_speed = attackTimer = 1.75f; // 1028 damage per minute
         targetDistance = 25f;
+        stoppingDistance = 15f;
         attackConnected = false;
         knock_back = 400f;
     }
@@ -100,6 +103,16 @@ public class GoblinArcher : Enemy
             }
         }
     }
+
+    //
+    public void fireAttack(Transform target)
+    {   
+        GameObject arrowGO = (GameObject)Instantiate(arrow, this.transform.position, this.transform.rotation);
+        Arrow ar = arrowGO.GetComponent<Arrow>();
+        ar.SetTarget(target);
+        attackTimer = 0.0f;
+    }
+
     // Function to change the enemy's movespeed by a flat amount
     public void ChangeMoveSpeed(float speed_amount) {
         if (agent.speed >= lowest_speed && speed_amount< 0) { 

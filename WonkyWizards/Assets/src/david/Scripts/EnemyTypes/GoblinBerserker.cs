@@ -43,6 +43,7 @@ public class GoblinBerserker : Enemy
         speed_boost = 2f;
         attack_speed = attackTimer = 1.75f; // 1900 damage per minute
         targetDistance = 25f;
+        stoppingDistance = 1f;
         attackConnected = false;
         knock_back = 350f;
     }

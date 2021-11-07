@@ -34,6 +34,7 @@ public class GoblinWarrior : Enemy
         highest_speed = 22f;
         attack_speed = attackTimer = 1.5f; // 1600 damage per minute
         targetDistance = 25f;
+        stoppingDistance = 1f;
         attackConnected = false;
         knock_back = 350f;
     }
