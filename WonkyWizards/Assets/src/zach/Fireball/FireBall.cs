@@ -31,7 +31,7 @@ public class FireBall: Spells
     }
 
     //-----------Behaviour-------------
-    void Explode()
+    public virtual void Explode()
     {
         GameObject effect = Instantiate(projectileEffect, projectile.transform.position, projectile.transform.rotation);
         Collider[] colliders = Physics.OverlapSphere(transform.position, radius);

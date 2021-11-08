@@ -14,7 +14,7 @@ public class Spells : MonoBehaviour
 {
     //spell vars
     protected float speed; //travel speed
-    protected int DAMAGE; //damage the spells do
+    public int DAMAGE; //damage the spells do
     protected float RANGE; //how far it can travel
     protected float CHARGE_TIME; //pause before actual cast
     protected float COOL_DOWN; //cooldown until next cast
@@ -49,7 +49,7 @@ public class Spells : MonoBehaviour
         rb.AddForce(firePoint.right * this.speed, ForceMode2D.Impulse);
     }
 
-    public bool Collision_behaviour(Collider2D collision)
+    public virtual bool Collision_behaviour(Collider2D collision)
     {
         if(collision.gameObject.tag !="Player" && collision.gameObject.tag != "Spell" && collision.gameObject.tag != "Zone" && collision.gameObject.tag != "SummonProjectile" && collision.gameObject.tag != "SummonNoPlace")
         {
