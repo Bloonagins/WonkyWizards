@@ -24,7 +24,7 @@ public class WaveSpawner : MonoBehaviour
     private bool canSpawn = true; 
     private bool baked; // variable to check if nav mesh has been baked before each wave starts
     private float nextSpawnTime, currentSpawnTime; // timer variables
-
+    private bool givenMana;
     public NavMeshSurface2d Surface2D; // navmesh component variable
 
     // --- Start of Singleton Pattern --- \\
@@ -57,6 +57,7 @@ public class WaveSpawner : MonoBehaviour
         // check gamestate
         if (GameManager.CheckState() == GameState.PLAY)
         {
+            givenMana = true;
             if (currentSpawnTime > 0)
             {
                 currentSpawnTime -= Time.fixedDeltaTime; // decrement the timer
@@ -80,6 +81,7 @@ public class WaveSpawner : MonoBehaviour
                     else
                     {
                         GameManager.ChangeState(GameState.SETUP); // change the gamestate to setup
+                        givenMana = false;
                         currentWaveNumber++; // increment the current wave variable
                         canSpawn = true; // set canSpawn to true to wait for player to begin next wave
                         baked = false; // reset baked variable to false to re-bake after player hits play and before the first enemy spawns
@@ -88,6 +90,12 @@ public class WaveSpawner : MonoBehaviour
                 currentSpawnTime += nextSpawnTime; // increment the time
             }
         }
+        
+    }
+
+    public bool checkMana()
+    {
+        return givenMana;
     }
 
     void SpawnWave()
