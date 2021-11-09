@@ -76,8 +76,10 @@ public class PlayerScript : MonoBehaviour
         GameObject other = collision.gameObject;
         if (other.tag == "Enemy")
         {
+            // if the player's damage cooldown isn't in effect
             if (PlayerTimer.canDamage())
             {
+                // if the player collided with something that can cause damage, then damage and knockback the player
                 if (other.GetComponent<GoblinGrunt>())
                 {
                     GoblinGrunt enemy = other.GetComponent<GoblinGrunt>();
@@ -93,6 +95,24 @@ public class PlayerScript : MonoBehaviour
                 else if (other.GetComponent<GoblinAssassin>())
                 {
                     GoblinAssassin enemy = other.GetComponent<GoblinAssassin>();
+                    damagePlayer(enemy.GetDamage());
+                    rb.AddForce(Vector3.Normalize(other.transform.position - transform.position) * enemy.GetKnockBack() * -1.0f, ForceMode2D.Impulse);
+                }
+                else if (other.GetComponent<GoblinGiant>())
+                {
+                    GoblinGiant enemy = other.GetComponent<GoblinGiant>();
+                    damagePlayer(enemy.GetDamage());
+                    rb.AddForce(Vector3.Normalize(other.transform.position - transform.position) * enemy.GetKnockBack() * -1.0f, ForceMode2D.Impulse);
+                }
+                else if (other.GetComponent<GoblinWarrior>())
+                {
+                    GoblinWarrior enemy = other.GetComponent<GoblinWarrior>();
+                    damagePlayer(enemy.GetDamage());
+                    rb.AddForce(Vector3.Normalize(other.transform.position - transform.position) * enemy.GetKnockBack() * -1.0f, ForceMode2D.Impulse);
+                }
+                else if (other.GetComponent<GoblinArcher>())
+                {
+                    GoblinArcher enemy = other.GetComponent<GoblinArcher>();
                     damagePlayer(enemy.GetDamage());
                     rb.AddForce(Vector3.Normalize(other.transform.position - transform.position) * enemy.GetKnockBack() * -1.0f, ForceMode2D.Impulse);
                 }
