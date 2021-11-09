@@ -22,7 +22,7 @@ public class PlayerScript : MonoBehaviour
     // player's health and mana point values
     private static int MAXHP = 1000;
     private static int hp = 1000;
-    private static int mana = 100;
+    private static int mana = 0;
     // index number of which item is currently selected in the hotbar
     private static int spellIndex;
     private static int summonIndex;

@@ -49,21 +49,24 @@ public class ManaSupplier : MonoBehaviour
 
     protected static void checkToGiveMana()
     {
-        if (singleton.ws.checkMana())
+        if (!singleton.ws.checkMana())
         {
             if (singleton.wave == 1)
             {
                 PlayerScript.giveMana(singleton.getWave1Mana());
+                singleton.ws.addedMana(true);
                 singleton.wave++;
             }
             else if (singleton.wave == 2)
             {
                 PlayerScript.giveMana(singleton.getWave2Mana());
+                singleton.ws.addedMana(true);
                 singleton.wave++;
             }
             else if (singleton.wave == 3)
             {
                 PlayerScript.giveMana(singleton.getWave3Mana());
+                singleton.ws.addedMana(true);
                 singleton.wave++;
             }
         }
