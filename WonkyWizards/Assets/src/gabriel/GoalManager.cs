@@ -1,30 +1,42 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GoalManager : MonoBehaviour
 {
-    private int iGoalHp;
+
+    public GameObject GoalHealthBarCanvasUI;
+    public Slider HPslider;
+    private GoalManager SelfPrefab;
+
+    protected int iGoalHp;
     private int iGoalMaxHp = 10000;
     
     private bool isGoalDead;
 
 
-    /*
+    
     public void Awake()
     {
+        SelfPrefab = GetComponent<GoalManager>();
+
+        /*
         //iGoalMaxHp = 10000;
         iGoalHp = iGoalMaxHp;
         isGoalDead = false;
+        */
     }
-    */
+    
 
     private void FixedUpdate()
     {
-        if(iGoalHp < 0)
+        if(iGoalHp <= 0)
         {
             iGoalHp = 0;
             isGoalDead = true;
+            
             //Debug.Log("hp lower bound check\n");
         }
 
@@ -33,8 +45,30 @@ public class GoalManager : MonoBehaviour
             iGoalHp = iGoalMaxHp;
             //Debug.Log("hp upper bound check\n");
         }
+
+        UpdateGoalHPSlider();
+
+        if(isGoalDead)
+        {
+            GameManager.ChangeState(GameState.LOSE);
+        }
+
+        
+
     }
 
+    private void UpdateGoalHPSlider()
+    {
+        HPslider.value = CalcGoalHealthDecimal();
+        if (SelfPrefab.GetGoalHp() < SelfPrefab.GetGoalMaxHp() && SelfPrefab.GetGoalHp() > 0)
+        {
+            GoalHealthBarCanvasUI.SetActive(true);
+        }
+        else
+        {
+            GoalHealthBarCanvasUI.SetActive(false);
+        }
+    }
 
     public int GetGoalHp()
     {
@@ -110,7 +144,7 @@ public class GoalManager : MonoBehaviour
     {
         iGoalHp = iGoalMaxHp;
     }
-    public void GoalTakeDamage(int damage)
+    public virtual void GoalTakeDamage(int damage)
     {
         iGoalHp -= damage;
     }
@@ -118,11 +152,20 @@ public class GoalManager : MonoBehaviour
     {
         iGoalHp += HpToAdd;
     }
+   
 
-
-    public void GoalTakeDamageAnimation()
+    /// <summary>
+    /// Calling this function will return float of goal remaining hp / total hp
+    /// </summary>
+    float CalcGoalHealthDecimal()
     {
-        //play goal taking damage animation
+        return ((float)SelfPrefab.GetGoalHp() / (float)SelfPrefab.GetGoalMaxHp());
+    }
+
+
+    public virtual void GoalTakeDamageAnimation()
+    {
+        //play general goal taking damage animation
     }
 
 }
