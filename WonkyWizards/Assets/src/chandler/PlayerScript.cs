@@ -24,8 +24,8 @@ public class PlayerScript : MonoBehaviour
     private static int hp = 1000;
     private static int mana = 100;
     // index number of which item is currently selected in the hotbar
-    public static int spellIndex;
-    public static int summonIndex;
+    private static int spellIndex;
+    private static int summonIndex;
     // determines whether the player places summons or casts spells with click
     private static bool inBuildMode;
     // determines whether the player is in Dr. BC mode or not
@@ -179,6 +179,18 @@ public class PlayerScript : MonoBehaviour
         return cursorAngle;
     }
 
+    // returns the currently selected summon
+    public static int getSummonIndex()
+    {
+        return summonIndex;
+    }
+
+    // returns the currently selected spell
+    public static int getSpellIndex()
+    {
+        return spellIndex;
+    }
+
     // returns whether or not the player is currently in build mode
     public static bool isInBuildMode()
     {
@@ -224,6 +236,7 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
+    // sets the mana to a specific value
     public static void setMana(int m)
     {
         if (m >= 0)
@@ -282,6 +295,83 @@ public class PlayerScript : MonoBehaviour
         }
 
         return angle;
+    }
+
+    // selects a specific summon
+    public static void setSummonIndex(int index)
+    {
+        if (index >=0 && index <= 9)
+        {
+            summonIndex = index;
+        }
+    }
+
+    // selects a spcific spell
+    public static void setSpellIndex(int index)
+    {
+        if (index >= 0 && index <= 4)
+        {
+            spellIndex = index;
+        }
+    }
+
+    // changes the spell / summon index on the hotbar when a scroll is inputted
+    public static void updateHotbarIndex(int change)
+    {
+        if (change > 0)
+        {
+            if (isInBuildMode())
+            {
+                if (summonIndex >= 9)
+                {
+                    summonIndex = 0;
+                }
+                else
+                {
+                    summonIndex++;
+                }
+            }
+            else
+            {
+                if (spellIndex >= 4)
+                {
+                    spellIndex = 0;
+                }
+                else
+                {
+                    spellIndex++;
+                }
+            }
+        }
+        else if (change < 0)
+        {
+            if (isInBuildMode())
+            {
+                if (summonIndex <= 0)
+                {
+                    summonIndex = 9;
+                }
+                else
+                {
+                    summonIndex--;
+                }
+            }
+            else
+            {
+                if (spellIndex <= 0)
+                {
+                    spellIndex = 4;
+                }
+                else
+                {
+                    spellIndex--;
+                }
+            }
+        }
+        else
+        {
+            Debug.Log("Error: Misuse of updateHotbarIndex() function from PlayerScript.cs");
+        }
     }
 
     // sets the inBuildMode bool to a certain value
