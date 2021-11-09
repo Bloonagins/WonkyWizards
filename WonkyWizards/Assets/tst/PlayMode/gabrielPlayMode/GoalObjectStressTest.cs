@@ -28,16 +28,14 @@ public class GoalObjectStressTest
 
 
         do {
+            fpsCounter = 100;
             GameObject.Instantiate(TestGoalPrefab, new Vector3(Random.Range(1, 100), Random.Range(0, -100)), Quaternion.identity);
-            GameObject.Instantiate(TestGoalPrefab, new Vector3(Random.Range(1, 100), Random.Range(0, -100)), Quaternion.identity);
-            GameObject.Instantiate(TestGoalPrefab, new Vector3(Random.Range(1, 100), Random.Range(0, -100)), Quaternion.identity);            
             
-
-            goalCounter += 3;
+            goalCounter += 1;
 
             yield return new WaitForSeconds(0.25f);
             Debug.Log("Current # of Goals: " + goalCounter);
-            fpsCounter = (float)(1.0f / Time.unscaledDeltaTime );
+            fpsCounter = (float)(1.0f / Time.unscaledDeltaTime);
             Debug.Log("Current FPS: " + fpsCounter);
         }
         while (fpsCounter > 15.0f);
