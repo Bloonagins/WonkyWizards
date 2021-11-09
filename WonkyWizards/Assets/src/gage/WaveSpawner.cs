@@ -4,6 +4,9 @@ using UnityEngine.AI;
 using System.Collections;
 using System.Collections.Generic;
 
+// Patterns used:
+// Decorator Design 
+
 [System.Serializable]
 public class Wave
 {
@@ -13,6 +16,11 @@ public class Wave
     public float spawnInterval;
     public int spawnTimePeriod;
 }
+//public class BossWave : Wave
+//{
+//    public int numberOfBosses;
+//   public GameObject[] typeOfBoss;
+//}
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -66,10 +74,8 @@ public class WaveSpawner : MonoBehaviour
             {
                 if(!baked)
                 {
-                    //Debug.Log(baked);
-                    baked = true;
                     Surface2D.BuildNavMeshAsync();
-
+                    baked = true;
                 }
                 SpawnWave();
                 if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0 && !canSpawn)
@@ -96,6 +102,11 @@ public class WaveSpawner : MonoBehaviour
     public bool checkMana()
     {
         return givenMana;
+    }
+
+    public void addedMana(bool val)
+    {
+        givenMana = val;
     }
 
     void SpawnWave()
