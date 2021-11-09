@@ -127,6 +127,26 @@ public class PlayerTimer : MonoBehaviour
         return fireballTimer;
     }
 
+    public static float getMagicMissileTimer()
+    {
+        return magicMissileTimer;
+    }
+
+    public static float getIceBeamTimer()
+    {
+        return iceBeamTimer;
+    }
+
+    public static float getAcidSplashTimer()
+    {
+        return acidSplashTimer;
+    }
+
+    public static float getSlimeballTimer()
+    {
+        return slimeballTimer;
+    }
+
     // functions that return the cooldown time of each action
     public static float getDashCooldown()
     {
