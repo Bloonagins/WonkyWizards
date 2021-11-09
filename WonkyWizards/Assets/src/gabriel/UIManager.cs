@@ -9,6 +9,9 @@ public class UIManager : MonoBehaviour
 {
     public GameObject PlayerRef;
 
+    public GameObject CanvasForCooldownAbilitiesUI;
+    public GameObject CanvasForSummonsUI;
+
     //HUD element object reference list follows:
 
     public TextMeshProUGUI PlayerMode;
@@ -151,6 +154,10 @@ public class UIManager : MonoBehaviour
 
             PlayerMode.text = "Build Mode";
             PlayerMode.color = new Color32(52, 209, 30, 255);
+
+            CanvasForCooldownAbilitiesUI.SetActive(false);
+            CanvasForSummonsUI.SetActive(true);
+
             //Debug.Log("changed to build mode");
             //34D11E
         }
@@ -158,6 +165,10 @@ public class UIManager : MonoBehaviour
 
             PlayerMode.text = "Cast Mode";
             PlayerMode.color = new Color32(209, 73, 30, 255);
+            
+            CanvasForSummonsUI.SetActive(false);
+            CanvasForCooldownAbilitiesUI.SetActive(true);
+            
             //Debug.Log("changed to cast mode");
             //D1491E
         }
