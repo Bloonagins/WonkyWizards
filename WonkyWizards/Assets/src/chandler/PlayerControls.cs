@@ -56,8 +56,6 @@ public class PlayerControls : MonoBehaviour
     public GameObject[] spells = new GameObject[5];
     // links to summon prefabs
     public GameObject[] summons = new GameObject[10];
-    // link to boss prefab
-    public GameObject boss;
 
     private PlayerControls()
     { }
