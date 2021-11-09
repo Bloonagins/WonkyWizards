@@ -23,6 +23,10 @@ public class UIManager : MonoBehaviour
 
     public Image DashAbilityIcon;
     public Image FireballAbilityIcon;
+    public Image SlimeAbilityIcon;
+    public Image MissileAbilityIcon;
+    public Image AcidAbilityIcon;
+
 
 
 
@@ -32,7 +36,7 @@ public class UIManager : MonoBehaviour
     public Image DashIcon;
     public Image DashIcon;
     */
-    
+
     //For accessing Current Build Mode use PlayerScript.isInBuildMode()
 
     public float fLerpSpeed;
@@ -73,6 +77,9 @@ public class UIManager : MonoBehaviour
     {
         DashAbilityIcon.fillAmount = ((float)PlayerTimer.getDashTimer() / (float)PlayerTimer.getDashCooldown());
         FireballAbilityIcon.fillAmount = ((float)PlayerTimer.getFireballTimer() / (float)PlayerTimer.getFireballCooldown());
+        SlimeAbilityIcon.fillAmount = ((float)PlayerTimer.getDashTimer() / (float)PlayerTimer.getDashCooldown());
+        MissileAbilityIcon.fillAmount = ((float)PlayerTimer.getDashTimer() / (float)PlayerTimer.getDashCooldown());
+        AcidAbilityIcon.fillAmount = ((float)PlayerTimer.getDashTimer() / (float)PlayerTimer.getDashCooldown());
 
     }
     
