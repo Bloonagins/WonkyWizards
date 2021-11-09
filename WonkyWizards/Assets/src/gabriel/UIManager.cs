@@ -26,6 +26,7 @@ public class UIManager : MonoBehaviour
     public Image SlimeAbilityIcon;
     public Image MissileAbilityIcon;
     public Image AcidAbilityIcon;
+    public Image IceBeamAbilityIcon;
 
 
 
@@ -80,6 +81,7 @@ public class UIManager : MonoBehaviour
         SlimeAbilityIcon.fillAmount = ((float)PlayerTimer.getSlimeballTimer() / (float)PlayerTimer.getSlimeballCooldown());
         MissileAbilityIcon.fillAmount = ((float)PlayerTimer.getMagicMissileTimer() / (float)PlayerTimer.getMagicMissileCooldown());
         AcidAbilityIcon.fillAmount = ((float)PlayerTimer.getAcidSplashTimer() / (float)PlayerTimer.getAcidSplashCooldown());
+        IceBeamAbilityIcon.fillAmount = ((float)PlayerTimer.getIceBeamTimer() / (float)PlayerTimer.getIceBeamCooldown());
 
     }
     
