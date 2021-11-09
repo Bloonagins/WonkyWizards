@@ -65,7 +65,7 @@ public class WaveSpawner : MonoBehaviour
         // check gamestate
         if (GameManager.CheckState() == GameState.PLAY)
         {
-            givenMana = true;
+            //givenMana = true;
             if (currentSpawnTime > 0)
             {
                 currentSpawnTime -= Time.fixedDeltaTime; // decrement the timer
