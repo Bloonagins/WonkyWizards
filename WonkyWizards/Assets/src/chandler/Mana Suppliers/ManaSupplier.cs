@@ -9,6 +9,8 @@ public class ManaSupplier : MonoBehaviour
     protected int wave2Mana;
     protected int wave3Mana;
     protected int wave;
+    public GameObject waveSpawner;
+    protected WaveSpawner ws;
 
     // Start is called before the first frame update
     void Start()
@@ -26,9 +28,10 @@ public class ManaSupplier : MonoBehaviour
     {
         if (singleton == null)
         {
-            singleton = new ManaSupplier();
+            singleton = this;
         }
         setWaveMana(120, 130, 140);
+        setWaveSpawner();
     }
 
     protected static void setWaveMana(int wave1, int wave2, int wave3)
@@ -39,9 +42,14 @@ public class ManaSupplier : MonoBehaviour
         singleton.wave = 1;
     }
 
+    protected void setWaveSpawner()
+    {
+        singleton.ws = waveSpawner.GetComponent<WaveSpawner>();
+    }
+
     protected static void checkToGiveMana()
     {
-        if (/*WaveSpawner.checkMana()*/false)
+        if (singleton.ws.checkMana())
         {
             if (singleton.wave == 1)
             {

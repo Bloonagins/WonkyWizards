@@ -20,8 +20,9 @@ public class ManaSupplier4 : ManaSupplier
     {
         if (singleton == null)
         {
-            singleton = new ManaSupplier2();
+            singleton = this;
         }
         setWaveMana(180, 190, 200);
+        setWaveSpawner();
     }
 }
