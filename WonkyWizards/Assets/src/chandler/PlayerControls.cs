@@ -133,22 +133,22 @@ public class PlayerControls : MonoBehaviour
         // when scroll wheel is inputted, change hotbar index
         if (Mouse.current.scroll.ReadValue().normalized.y > 0)
         {
-            updateHotbarIndex(1);
+            PlayerScript.updateHotbarIndex(1);
         }
         else if (Mouse.current.scroll.ReadValue().normalized.y < 0)
         {
-            updateHotbarIndex(-1);
+            PlayerScript.updateHotbarIndex(-1);
         }
 
         // if click is pressed, the player is in casting mode, and the game isn't paused, then see if a spell can be casted
         if (shoot.ReadValue<float>() > 0.0f && !PlayerScript.isInBuildMode() && GameManager.CheckState() != GameState.PAUSE)
         {
             // if the spell isn't on a cooldown, then cast it
-            if (PlayerTimer.canCast(PlayerScript.spellIndex))
+            if (PlayerTimer.canCast(PlayerScript.getSpellIndex()))
             {
-                GameObject spell = spells[PlayerScript.spellIndex];
+                GameObject spell = spells[PlayerScript.getSpellIndex()];
                 Instantiate(spell, transform.position, Quaternion.Euler(Vector3.Normalize(PlayerScript.getWorldCursorPoint() - transform.position)));
-                PlayerTimer.activateSpellCooldown(PlayerScript.spellIndex);
+                PlayerTimer.activateSpellCooldown(PlayerScript.getSpellIndex());
             }
         }
     }
@@ -177,7 +177,7 @@ public class PlayerControls : MonoBehaviour
         if (PlayerScript.isInBuildMode() && GameManager.CheckState() != GameState.PAUSE)
         {
             // makes sure current spell in the array exists
-            GameObject summon = summons[PlayerScript.summonIndex];
+            GameObject summon = summons[PlayerScript.getSummonIndex()];
             if (summon != null)
             {
                 RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
@@ -224,7 +224,7 @@ public class PlayerControls : MonoBehaviour
             }
             else
             {
-                Debug.Log("Cannot spawn summon number " + PlayerScript.summonIndex);
+                Debug.Log("Cannot spawn summon number " + PlayerScript.getSummonIndex());
             }
         }
     }
@@ -290,11 +290,11 @@ public class PlayerControls : MonoBehaviour
     {
         if (PlayerScript.isInBuildMode())
         {
-            PlayerScript.summonIndex = 0;
+            PlayerScript.setSummonIndex(0);
         }
         else
         {
-            PlayerScript.spellIndex = 0;
+            PlayerScript.setSpellIndex(0);
         }
     }
     // when 2 is pressed
@@ -302,11 +302,11 @@ public class PlayerControls : MonoBehaviour
     {
         if (PlayerScript.isInBuildMode())
         {
-            PlayerScript.summonIndex = 1;
+            PlayerScript.setSummonIndex(1);
         }
         else
         {
-            PlayerScript.spellIndex = 1;
+            PlayerScript.setSpellIndex(1);
         }
     }
     // when 3 is pressed
@@ -314,11 +314,11 @@ public class PlayerControls : MonoBehaviour
     {
         if (PlayerScript.isInBuildMode())
         {
-            PlayerScript.summonIndex = 2;
+            PlayerScript.setSummonIndex(2);
         }
         else
         {
-            PlayerScript.spellIndex = 2;
+            PlayerScript.setSpellIndex(2);
         }
     }
     // when 4 is pressed
@@ -326,11 +326,11 @@ public class PlayerControls : MonoBehaviour
     {
         if (PlayerScript.isInBuildMode())
         {
-            PlayerScript.summonIndex = 3;
+            PlayerScript.setSummonIndex(3);
         }
         else
         {
-            PlayerScript.spellIndex = 3;
+            PlayerScript.setSpellIndex(3);
         }
     }
     // when 5 is pressed
@@ -338,11 +338,11 @@ public class PlayerControls : MonoBehaviour
     {
         if (PlayerScript.isInBuildMode())
         {
-            PlayerScript.summonIndex = 4;
+            PlayerScript.setSummonIndex(4);
         }
         else
         {
-            PlayerScript.spellIndex = 4;
+            PlayerScript.setSpellIndex(4);
         }
     }
     // when 6 is pressed
@@ -350,7 +350,7 @@ public class PlayerControls : MonoBehaviour
     {
         if (PlayerScript.isInBuildMode())
         {
-            PlayerScript.summonIndex = 5;
+            PlayerScript.setSummonIndex(5);
         }
     }
     // when 7 is pressed
@@ -358,7 +358,7 @@ public class PlayerControls : MonoBehaviour
     {
         if (PlayerScript.isInBuildMode())
         {
-            PlayerScript.summonIndex = 6;
+            PlayerScript.setSummonIndex(6);
         }
     }
     // when 8 is pressed
@@ -366,7 +366,7 @@ public class PlayerControls : MonoBehaviour
     {
         if (PlayerScript.isInBuildMode())
         {
-            PlayerScript.summonIndex = 7;
+            PlayerScript.setSummonIndex(7);
         }
     }
     // when 9 is pressed
@@ -374,7 +374,7 @@ public class PlayerControls : MonoBehaviour
     {
         if (PlayerScript.isInBuildMode())
         {
-            PlayerScript.summonIndex = 8;
+            PlayerScript.setSummonIndex(8);
         }
     }
     // when 0 is pressed
@@ -382,7 +382,7 @@ public class PlayerControls : MonoBehaviour
     {
         if (PlayerScript.isInBuildMode())
         {
-            PlayerScript.summonIndex = 9;
+            PlayerScript.setSummonIndex(9);
         }
     }
 
@@ -408,64 +408,5 @@ public class PlayerControls : MonoBehaviour
         controls.PlayerDefault.Hotbar8.Disable();
         controls.PlayerDefault.Hotbar9.Disable();
         controls.PlayerDefault.Hotbar0.Disable();
-    }
-
-    // changes the spell / summon index on the hotbar when a scroll is inputted
-    private void updateHotbarIndex(int change)
-    {
-        if (change > 0)
-        {
-            if (PlayerScript.isInBuildMode())
-            {
-                if (PlayerScript.summonIndex >= 9)
-                {
-                    PlayerScript.summonIndex = 0;
-                }
-                else
-                {
-                    PlayerScript.summonIndex++;
-                }
-            }
-            else
-            {
-                if (PlayerScript.spellIndex >= 4)
-                {
-                    PlayerScript.spellIndex = 0;
-                }
-                else
-                {
-                    PlayerScript.spellIndex++;
-                }
-            }
-        }
-        else if (change < 0)
-        {
-            if (PlayerScript.isInBuildMode())
-            {
-                if (PlayerScript.summonIndex <= 0)
-                {
-                    PlayerScript.summonIndex = 9;
-                }
-                else
-                {
-                    PlayerScript.summonIndex--;
-                }
-            }
-            else
-            {
-                if (PlayerScript.spellIndex <= 0)
-                {
-                    PlayerScript.spellIndex = 4;
-                }
-                else
-                {
-                    PlayerScript.spellIndex--;
-                }
-            }
-        }
-        else
-        {
-            Debug.Log("Error: Misuse of updateHotbarIndex() function from PlayerScript.cs");
-        }
     }
 }
