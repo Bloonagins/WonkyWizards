@@ -77,9 +77,9 @@ public class UIManager : MonoBehaviour
     {
         DashAbilityIcon.fillAmount = ((float)PlayerTimer.getDashTimer() / (float)PlayerTimer.getDashCooldown());
         FireballAbilityIcon.fillAmount = ((float)PlayerTimer.getFireballTimer() / (float)PlayerTimer.getFireballCooldown());
-        SlimeAbilityIcon.fillAmount = ((float)PlayerTimer.getDashTimer() / (float)PlayerTimer.getDashCooldown());
-        MissileAbilityIcon.fillAmount = ((float)PlayerTimer.getDashTimer() / (float)PlayerTimer.getDashCooldown());
-        AcidAbilityIcon.fillAmount = ((float)PlayerTimer.getDashTimer() / (float)PlayerTimer.getDashCooldown());
+        SlimeAbilityIcon.fillAmount = ((float)PlayerTimer.getSlimeballTimer() / (float)PlayerTimer.getSlimeballCooldown());
+        MissileAbilityIcon.fillAmount = ((float)PlayerTimer.getMagicMissileTimer() / (float)PlayerTimer.getMagicMissileCooldown());
+        AcidAbilityIcon.fillAmount = ((float)PlayerTimer.getAcidSplashTimer() / (float)PlayerTimer.getAcidSplashCooldown());
 
     }
     
