@@ -8,6 +8,7 @@ public class AcidSpray : Spells
     {
         DAMAGE = 70;
         COOL_DOWN = 8f;
+        speed = 20.0f;
     }
 
     //-----------Firing-------------
@@ -29,6 +30,6 @@ public class AcidSpray : Spells
         {
             Acid();
         }
-        Destroy(projectile, 3);
+        Destroy(projectile, 0.3f);
     }
 }

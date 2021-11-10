@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: 4771703550393546382}
   - component: {fileID: -3815154723463603336}
   - component: {fileID: -3442533717061922139}
+  - component: {fileID: 6189570456952397873}
   m_Layer: 0
   m_Name: AcidSpray
   m_TagString: Spell
@@ -127,11 +128,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b66de1046a2a4834e8cc946e51635656, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firePoint: {fileID: 0}
+  DAMAGE: 70
   projectile: {fileID: 2833809226435642789}
   projectileEffect: {fileID: 4332396437414737265, guid: 7c659654537be264aafb9ecd7d9e9a29, type: 3}
-  CastPoint: {fileID: 2975951270064643620, guid: 652b8fe3894a16140a50aca97a4d8b4a, type: 3}
-  radius: 3
 --- !u!58 &-3442533717061922139
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -148,3 +147,24 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!50 &6189570456952397873
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2833809226435642789}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
