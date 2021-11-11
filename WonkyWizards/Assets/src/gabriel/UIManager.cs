@@ -152,7 +152,7 @@ public class UIManager : MonoBehaviour
         if(PlayerScript.isInBuildMode())
         {
 
-            PlayerMode.text = "Build Mode";
+            PlayerMode.text = "Build Mode 'R'";
             PlayerMode.color = new Color32(52, 209, 30, 255);
 
             CanvasForCooldownAbilitiesUI.SetActive(false);
@@ -163,7 +163,7 @@ public class UIManager : MonoBehaviour
         }
         else {
 
-            PlayerMode.text = "Cast Mode";
+            PlayerMode.text = "Cast Mode 'R'";
             PlayerMode.color = new Color32(209, 73, 30, 255);
             
             CanvasForSummonsUI.SetActive(false);
