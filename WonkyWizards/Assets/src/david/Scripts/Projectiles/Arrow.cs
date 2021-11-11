@@ -9,6 +9,7 @@ public class Arrow : MonoBehaviour
     private Transform target;
     private float speed = 40.0f;
 
+    private int damage = 40;
 
     // Start is called before the first frame update
     void Start()
@@ -41,5 +42,9 @@ public class Arrow : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+    public int GetDamage()
+    {
+        return damage;
     }
 }
