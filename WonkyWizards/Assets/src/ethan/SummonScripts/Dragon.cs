@@ -23,13 +23,11 @@ public class Dragon : Summon
     {
         base.Start();
 
-		cooldown = 0.05f;
-	}
+		cooldown = 0.5f;
+		radius = 2.0f;
 
-	public override void FixedUpdate()
-	{
+		summonRadar.setRadius(radius);
 	}
-
 
 	public override int getCost() { return cost; }
 }
