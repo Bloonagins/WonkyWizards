@@ -11,6 +11,8 @@ public class Arrow : MonoBehaviour
 
     private int damage = 40;
 
+    private float knock_back = 150f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,5 +48,9 @@ public class Arrow : MonoBehaviour
     public int GetDamage()
     {
         return damage;
+    }
+    public float GetKnockBack()
+    {
+        return knock_back;
     }
 }
