@@ -24,9 +24,7 @@ public class Crossbow : Summon
 		base.Start();
 
 		cooldown = 0.5f;
-		radius = 5.0f;
-
-		summonRadar.setRadius(radius);
+		summonRadar.setRadius(5.0f);
 	}
 
 	public override int getCost() { return cost; }

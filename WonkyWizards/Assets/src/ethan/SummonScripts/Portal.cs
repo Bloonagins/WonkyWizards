@@ -88,8 +88,15 @@ public class Portal : Summon
     {
 		if (linked)
         {
-			// if the portal is linked and being deleted, tell the other that it's being deleted
+			// tell the other portal that we aren't linked now
 			otherPortal.GetComponent<Portal>().setLinked(false);
+
+			// if the other portal wasn't the first portal
+			if (otherPortal.transform.name == "Portal(Clone)")
+            {
+				// ... then it now should be (it's the only portal)
+				otherPortal.transform.name = "First Portal";
+            }
         }
 
         base.deleteSummon(x, y);

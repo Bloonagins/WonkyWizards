@@ -14,8 +14,6 @@ public class Summon : MonoBehaviour
 	protected float cooldown;
 	protected float timer;
 
-	protected float radius = 1.0f;
-
 	[SerializeField]
 	protected GameObject projPrefab;
 	[SerializeField]
@@ -47,6 +45,8 @@ public class Summon : MonoBehaviour
 		// tick up the timer
 		timer += Time.deltaTime;
 
+		Debug.Log(timer + ", " + summonRadar.getInRange());
+
 		// check that cooldown is ready and that there is an enemy in range
 		if (timer >= cooldown && summonRadar.getInRange())
 		{
@@ -63,14 +63,11 @@ public class Summon : MonoBehaviour
 
 	protected virtual void SummonProj(Transform target)
 	{
-		Instantiate<GameObject>(projPrefab, transform.position, transform.rotation).GetComponent<SummonProj>().setTarget(target);
+		if (!target) Debug.Log("error, target set is null!");
+		else Instantiate<GameObject>(projPrefab, transform.position, transform.rotation).GetComponent<SummonProj>().setTarget(target);
 	}
 
-
-	// constants
-	public virtual string getDisplayName() { return "Summon"; }
-
-	public virtual int getCost() { return 10; }
+	public virtual int getCost() { return 0; }
 
 	public virtual int getMaxHealth() { return 0; }
 

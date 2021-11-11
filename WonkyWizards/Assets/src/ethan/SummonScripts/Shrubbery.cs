@@ -19,9 +19,12 @@ public class Shrubbery : Summon
 {
 	protected static int cost = 60;
 
-	public override void FixedUpdate()
+	public override void Start()
 	{
+		base.Start();
 
+		cooldown = 1.25f;
+		summonRadar.setRadius(2.0f);
 	}
 
 	public override int getCost() { return cost; }

@@ -131,7 +131,6 @@ public class SummonProj : MonoBehaviour
             // move toward target
             transform.position = Vector3.MoveTowards(transform.position, target.position, speed);
         }
-        else Debug.LogError("[" + transform.name + "] says: no target found! (in fixedUpdate).");
     }
 
     protected void lookAt2D(Transform target)

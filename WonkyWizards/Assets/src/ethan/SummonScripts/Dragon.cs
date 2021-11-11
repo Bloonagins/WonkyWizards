@@ -24,9 +24,7 @@ public class Dragon : Summon
         base.Start();
 
 		cooldown = 0.1f;
-		radius = 2.0f;
-
-		summonRadar.setRadius(radius);
+		summonRadar.setRadius(2.0f);
 	}
 
 	public override int getCost() { return cost; }

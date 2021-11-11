@@ -6,8 +6,8 @@ public class CrossbowArrow : SummonProj
 {
     public CrossbowArrow()
     {
-        speed = 0.75f;
-        damage = 5;
+        speed = 0.5f;
+        damage = 10;
         kockback = 10f;
     }
 

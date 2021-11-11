@@ -55,6 +55,11 @@ public class SummonRadar : MonoBehaviour
 
     public bool getInRange()
     {
+        if (enemies.Count == 0)
+        {
+            inRange = false;
+        }
+
         return inRange;
     }
 

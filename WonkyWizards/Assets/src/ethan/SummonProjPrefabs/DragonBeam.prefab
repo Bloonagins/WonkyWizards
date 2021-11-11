@@ -91,12 +91,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1202563790748340313}
-  - component: {fileID: 3809623103378400670}
   - component: {fileID: 1322870707829423290}
   - component: {fileID: 5253197846316867606}
+  - component: {fileID: 3809623103378400670}
   m_Layer: 0
   m_Name: DragonBeam
-  m_TagString: Untagged
+  m_TagString: SummonProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -116,18 +116,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3809623103378400670
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7559664302088371337}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32560938ef498b54d91f37a0cdd6e112, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &1322870707829423290
 Rigidbody2D:
   serializedVersion: 4
@@ -175,3 +163,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.25, y: 100}
   m_EdgeRadius: 0
+--- !u!114 &3809623103378400670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7559664302088371337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32560938ef498b54d91f37a0cdd6e112, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

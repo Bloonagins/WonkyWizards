@@ -161,5 +161,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3023a34d8a15f974cb6364ffa323821f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projPrefab: {fileID: 0}
+  projPrefab: {fileID: 5377693057452450039, guid: 0affe4d8486d25e4f8d30b6d06e9fca6, type: 3}
   radarPrefab: {fileID: 7566402004754320085, guid: 245b24c24c85bfa4c89f208340740bd2, type: 3}
