@@ -29,10 +29,6 @@ public class ZoneDetection : MonoBehaviour
             goblinWarrior.ChangeDamage(goblinWarrior.GetDamageBoost()); // Add damage
             //Debug.Log("Added damage");
         }
-        else {
-            //Physics.IgnoreCollision(other.GetComponent<Collider>(), GetComponent<Collider>());
-        }
-
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -44,5 +40,4 @@ public class ZoneDetection : MonoBehaviour
             //Debug.Log("Removed damage");
         }
     }
-
 }
