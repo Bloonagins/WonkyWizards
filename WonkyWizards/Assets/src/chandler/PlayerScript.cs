@@ -120,7 +120,7 @@ public class PlayerScript : MonoBehaviour
                 {
                     Arrow arrow = other.GetComponent<Arrow>();
                     damagePlayer(arrow.GetDamage());
-                    //rb.AddForce(Vector3.Normalize(other.transform.position - transform.position) * arrow.GetKnockBack() * -1.0f, ForceMode2D.Impulse);
+                    rb.AddForce(Vector3.Normalize(other.transform.position - transform.position) * arrow.GetKnockBack() * -1.0f, ForceMode2D.Impulse);
                 }
                 else if (other.transform.tag == "explosion")
                 {

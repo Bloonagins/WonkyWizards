@@ -12,13 +12,13 @@ public class GoalManager : MonoBehaviour
     private GoalManager SelfPrefab;
 
     protected int iGoalHp;
-    private int iGoalMaxHp = 10000;
+    protected int iGoalMaxHp;
     
     private bool isGoalDead;
 
 
     
-    public void Awake()
+    public virtual void Awake()
     {
         SelfPrefab = GetComponent<GoalManager>();
 
@@ -46,14 +46,7 @@ public class GoalManager : MonoBehaviour
             //Debug.Log("hp upper bound check\n");
         }
 
-        UpdateGoalHPSlider();
-
-        if(isGoalDead)
-        {
-            GameManager.ChangeState(GameState.LOSE);
-        }
-
-        
+        UpdateGoalHPSlider();        
 
     }
 
@@ -125,16 +118,38 @@ public class GoalManager : MonoBehaviour
                 other.GetComponent<GoblinGrunt>().SetAttack(true);
 
             }
-            //else if(other.GetComponent<GoblinWarrior>() && other.GetComponent<GoblinWarrior>().canAttack())
+            else if(other.GetComponent<GoblinBerserker>() && other.GetComponent<GoblinBerserker>().canAttack())
             {
+                iDamageNum = other.GetComponent<GoblinBerserker>().GetDamage();
 
+                GoalTakeDamage(iDamageNum);
+
+                other.GetComponent<GoblinBerserker>().SetAttack(true);
             }
-            //else if(other.GetComponent<GoblinWarrior>() && other.GetComponent<GoblinWarrior>().canAttack())
+            else if(other.GetComponent<GoblinAssassin>() && other.GetComponent<GoblinAssassin>().canAttack())
             {
+                iDamageNum = other.GetComponent<GoblinAssassin>().GetDamage();
 
+                GoalTakeDamage(iDamageNum);
+
+                other.GetComponent<GoblinAssassin>().SetAttack(true);
+            }
+            else if (other.GetComponent<GoblinGiant>() && other.GetComponent<GoblinGiant>().canAttack())
+            {
+                iDamageNum = other.GetComponent<GoblinGiant>().GetDamage();
+
+                GoalTakeDamage(iDamageNum);
+
+                other.GetComponent<GoblinGiant>().SetAttack(true);
+            }
+            else if (other.GetComponent<Arrow>())
+            {
+                iDamageNum = other.GetComponent<Arrow>().GetDamage();
+
+                GoalTakeDamage(iDamageNum);
             }
 
-          
+
 
         }
         

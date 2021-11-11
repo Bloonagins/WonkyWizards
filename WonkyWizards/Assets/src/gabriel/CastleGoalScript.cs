@@ -3,10 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CastleGoalScript : GoalManager
-{
-
-    
+{    
     double dDamageReductionPercent = 0.25;
+
+
+    public override void Awake()
+    {
+        base.Awake();
+
+        iGoalHp = 5000;
+        iGoalMaxHp = 5000;
+    }
 
     // Start is called before the first frame update
     void Start()
