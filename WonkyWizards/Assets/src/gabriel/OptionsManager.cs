@@ -73,6 +73,6 @@ public sealed class OptionsManager : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        Debug.Log("hi!");
+        //Debug.Log("hi!");
     }
 }
