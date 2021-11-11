@@ -63,9 +63,7 @@ public class Summon : MonoBehaviour
 
 	protected virtual void SummonProj(Transform target)
 	{
-		SummonProj proj = Instantiate<GameObject>(projPrefab, transform).GetComponent<SummonProj>();
-
-		proj.setTarget(target);
+		Instantiate<GameObject>(projPrefab, transform.position, transform.rotation).GetComponent<SummonProj>().setTarget(target);
 	}
 
 
@@ -165,10 +163,8 @@ public class Summon : MonoBehaviour
 		}
 	}
 
-	public void deleteSummon (int x, int y)
+	public virtual void deleteSummon (int x, int y)
 	{
-		//Debug.Log("[summon] trying to delete " + transform.name);
-
 		// get singleton copy
 		GameManager gm = GameManager.getSingleton();
 
@@ -235,7 +231,7 @@ public class Summon : MonoBehaviour
 		// Goal position was never found
 		return false;
 	}
-	public static void print2DArray (bool[,] array)
+	protected static void print2DArray (bool[,] array)
 	{
 		//Debug.Log("Array:\n");
 		String s;

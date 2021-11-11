@@ -19,9 +19,14 @@ public class Crossbow : Summon
 {
 	protected static int cost = 80;
 
-	public override void FixedUpdate()
+	public override void Start()
 	{
+		base.Start();
 
+		cooldown = 0.5f;
+		radius = 5.0f;
+
+		summonRadar.setRadius(radius);
 	}
 
 	public override int getCost() { return cost; }

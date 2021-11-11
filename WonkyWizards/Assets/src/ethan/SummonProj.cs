@@ -15,6 +15,11 @@ public class SummonProj : MonoBehaviour
 
     protected Vector3 velocity;
 
+    public virtual void Start()
+    {
+
+    }    
+
     public void setTarget(Transform t)
     {
         target = t;
@@ -36,7 +41,7 @@ public class SummonProj : MonoBehaviour
     }
 
     // when an enemy enters the collider, we should damage it
-    void OnTriggerEnter2D(Collider2D col)
+    public virtual void OnTriggerEnter2D(Collider2D col)
     {
         // store the gameObject of the found collision
         GameObject other = col.gameObject;
@@ -111,8 +116,30 @@ public class SummonProj : MonoBehaviour
                 // make that enemy take damage
                 enemy.RecieveDamage(damage);
             }
-
-            killSelf();
         }
+    }
+
+    // by defualt, a projectile advances towards it's target with fixed update
+    public virtual void FixedUpdate()
+    {
+        // check that a target exsists
+        if (target)
+        {
+            // rotate toward target
+            lookAt2D(target.transform);
+
+            // move toward target
+            transform.position = Vector3.MoveTowards(transform.position, target.position, speed);
+        }
+        else Debug.LogError("[" + transform.name + "] says: no target found! (in fixedUpdate).");
+    }
+
+    protected void lookAt2D(Transform target)
+    {
+        Vector3 vectorToTarget = target.position - transform.position;
+        float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
+        Quaternion q = Quaternion.AngleAxis(angle - 90, Vector3.forward);
+
+        transform.rotation = q;
     }
 }

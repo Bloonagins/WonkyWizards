@@ -23,7 +23,7 @@ public class Dragon : Summon
     {
         base.Start();
 
-		cooldown = 0.5f;
+		cooldown = 0.1f;
 		radius = 2.0f;
 
 		summonRadar.setRadius(radius);

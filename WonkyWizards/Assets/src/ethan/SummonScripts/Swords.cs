@@ -23,12 +23,13 @@ public class Swords : Summon
 
 	public override void Start()
     {
-
+		// find the rotation anchor child object
 		rotAnchor = gameObject.GetComponentInChildren<RotAnchor>().transform;
     }
 
     public override void FixedUpdate()
     {
+		// rotate the rotation anchor by the appropriate amount
 		rotAnchor.transform.Rotate(0.0f, 0.0f, rotAmount);
 	}
 

@@ -21,11 +21,97 @@ using UnityEngine;
 
 public class Portal : Summon
 {
-	protected static int cost = 0;
+	protected static int cost = 50;
 
-	public override void FixedUpdate()
+	private bool linked;
+	private GameObject otherPortal;
+
+	private bool noTele;
+
+    public override void Start()
+    {
+		// not teleporting by default
+		noTele = false;
+
+		// assume that no "first" portal exists
+		linked = false;
+
+		// attempt to find first portal
+		otherPortal = GameObject.Find("First Portal");
+
+		if (otherPortal)
+        {
+			// if found, mark that we are now linked
+			linked = true;
+			otherPortal.GetComponent<Portal>().setLinked(true);
+
+			// and give the other portal a reference to this one
+			otherPortal.GetComponent<Portal>().link(this.gameObject);
+		}
+		else
+        {
+			// no first portal found, so this must be the first portal
+			transform.name = "First Portal";
+        }
+    }
+
+    public override void FixedUpdate()
 	{
 
+	}
+
+    public void OnCollisionEnter2D(Collision2D col)
+    {
+		// check for player tag, and that the portal is linked
+        if (col.transform.tag == "Player" && linked && !noTele)
+        {
+			// set noTele for other portal
+			otherPortal.GetComponent<Portal>().setNoTele(true);
+
+			// teleport player
+			col.transform.position = otherPortal.transform.position;
+        }
+    }
+
+    public void OnCollisionExit2D(Collision2D col)
+	{
+		// check for player tag
+		if (col.transform.tag == "Player")
+        {
+			// player just left, reactivate tele
+			noTele = false;
+        }
+
+	}
+
+    public override void deleteSummon(int x, int y)
+    {
+		if (linked)
+        {
+			// if the portal is linked and being deleted, tell the other that it's being deleted
+			otherPortal.GetComponent<Portal>().setLinked(false);
+        }
+
+        base.deleteSummon(x, y);
+    }
+
+    public void setLinked(bool l)
+    {
+		linked = l;
+    }
+
+	public void link(GameObject other)
+    {
+		otherPortal = other;
+    }
+
+	public void setNoTele(bool t)
+	{
+		noTele = t;
+	}
+	public bool getNoTele()
+	{
+		return noTele;
 	}
 
 	public override int getCost() { return cost; }

@@ -90,7 +90,7 @@ Summon Types (tower types):
 					good for even higher dps but even shorter range
 	Astral Crossbow
 		- Cost: 80
-		- Travel time: hitscan
+		- Travel time: fast
 		- Damage per hit: high
 		- Firing speed: slow
 		- Range: Very long
