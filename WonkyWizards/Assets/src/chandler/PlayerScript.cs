@@ -116,6 +116,12 @@ public class PlayerScript : MonoBehaviour
                     damagePlayer(enemy.GetDamage());
                     rb.AddForce(Vector3.Normalize(other.transform.position - transform.position) * enemy.GetKnockBack() * -1.0f, ForceMode2D.Impulse);
                 }
+                else if (other.GetComponent<Arrow>())
+                {
+                    Arrow arrow = other.GetComponent<Arrow>();
+                    damagePlayer(arrow.GetDamage());
+                    rb.AddForce(Vector3.Normalize(other.transform.position - transform.position) * arrow.GetKnockBack() * -1.0f, ForceMode2D.Impulse);
+                }
                 else if (other.transform.tag == "explosion")
                 {
                     GoblinGiant.GetDeathDamage();
