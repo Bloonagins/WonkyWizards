@@ -6,247 +6,251 @@ using TargetModeNamespace;
 public class Summon : MonoBehaviour
 
 {
-    protected GameManager gm;
+	protected GameManager gm;
 
-    //public static LevelManager lm;
-    public static Vector3 gridCursorPoint;
+	//public static LevelManager lm;
+	public static Vector3 gridCursorPoint;
 
-    protected float cooldown;
-    protected float timer;
+	protected float cooldown;
+	protected float timer;
 
-    protected float radius = 1.0f;
+	protected float radius = 1.0f;
 
-    [SerializeField]
-    protected GameObject projPrefab;
-    [SerializeField]
-    protected GameObject radarPrefab;
-    protected SummonRadar summonRadar;
+	[SerializeField]
+	protected GameObject projPrefab;
+	[SerializeField]
+	protected GameObject radarPrefab;
+	protected SummonRadar summonRadar;
 
-    protected int j, i;
+	protected int j, i;
 
-    protected int health;
+	protected int health;
 
-    protected targetingMode mode = targetingMode.FIRST;
+	protected targetingMode mode = targetingMode.WEAK;
 
-    // init
-    public virtual void Start()
-    {
-        // get singleton instance
-        gm = GameManager.getSingleton();
+	// init
+	public virtual void Start()
+	{
+		// get singleton instance
+		gm = GameManager.getSingleton();
 
-        cooldown = 300f;
-        timer = 0.0f;
+		cooldown = 300f;
+		timer = 0.0f;
 
-        summonRadar = Instantiate(radarPrefab, gameObject.transform).GetComponent<SummonRadar>();
+		summonRadar = Instantiate(radarPrefab, gameObject.transform).GetComponent<SummonRadar>();
 
-        health = this.getMaxHealth();
-    }
+		health = this.getMaxHealth();
+	}
 
-    public virtual void FixedUpdate()
-    {
-        timer += Time.deltaTime;
+	public virtual void FixedUpdate()
+	{
+		// tick up the timer
+		timer += Time.deltaTime;
 
-        if (timer >= cooldown && summonRadar.getInRange())
-        {
-            // check that we have something to shoot at
-            GameObject target = summonRadar.GetEnemy(mode);
+		// check that cooldown is ready and that there is an enemy in range
+		if (timer >= cooldown && summonRadar.getInRange())
+		{
+			// we have someting to target, so get it
+			GameObject target = summonRadar.GetEnemy(mode);
 
-            // summon a projectile with the apropriate target transform
-            SummonProj(target.transform);
+			// summon a projectile with the apropriate target transform
+			SummonProj(target.transform);
 
-            // reset the cooldown timer
-            timer = 0.0f;
-        }
-    }
+			// reset the cooldown timer
+			timer = 0.0f;
+		}
+	}
 
-    protected virtual void SummonProj(Transform target)
-    {
-        Instantiate<GameObject>(projPrefab, transform);
-    }
+	protected virtual void SummonProj(Transform target)
+	{
+		SummonProj proj = Instantiate<GameObject>(projPrefab, transform).GetComponent<SummonProj>();
 
-
-    // constants
-    public virtual string getDisplayName() { return "Summon"; }
-
-    public virtual int getCost() { return 10; }
-
-    public virtual int getMaxHealth() { return 0; }
-
-    public virtual GameObject getProjectilePrefab() { return projPrefab; }
+		proj.setTarget(target);
+	}
 
 
-    public int getHealth ()
-    {
-        return this.health;
-    }
+	// constants
+	public virtual string getDisplayName() { return "Summon"; }
 
-    public void resetSummonHP () { this.health = getMaxHealth(); }
+	public virtual int getCost() { return 10; }
 
-    public void takeDamage(int damage)
-    {
-        this.health -= damage;
-        this.health = Math.Max(0, Math.Min(100, this.health));
-    }
+	public virtual int getMaxHealth() { return 0; }
 
-    public void takeHealing(int healing)
-    {
-        this.health += healing;
-        this.health = Math.Max(0, Math.Min(100, this.health));
-    }
+	public virtual GameObject getProjectilePrefab() { return projPrefab; }
 
 
-    // Snaps a Vector3 to a grid
-    public static Vector3 SnapOffset(Vector3 vec, Vector3 offset, float gridSize = 1.0f)
-    {
-        Vector3 snapped = vec + offset;
-        snapped = new Vector3(
-            Mathf.Round(snapped.x / gridSize) * gridSize,
-            Mathf.Round(snapped.y / gridSize) * gridSize,
-            Mathf.Round(snapped.z / gridSize) * gridSize);
-        return snapped - offset;
-    }
+	public int getHealth ()
+	{
+		return this.health;
+	}
 
-    // Returns whether or not the current grid plus one more spot is be placeable
-    public static bool attemptPlacement(GameObject summon, Vector3 worldPos, int x, int y)
-    {
-        // get singleton copy
-        GameManager gm = GameManager.getSingleton();
-        if (gm == null)
-        {
-            Debug.Log("Singleton is null! Placement failed.");
-            return false;
-        }
+	public void resetSummonHP () { this.health = getMaxHealth(); }
 
-        // check that the tile isn't unplaceable
-        if (gm.getPlacementGrid()[x, y] == false)
-        {
-            Debug.Log("Position (" + x + "," + y + ") is not placeable.");
-            return false;
-        }
+	public void takeDamage(int damage)
+	{
+		this.health -= damage;
+		this.health = Math.Max(0, Math.Min(100, this.health));
+	}
 
-        // now test array with new pos added...
+	public void takeHealing(int healing)
+	{
+		this.health += healing;
+		this.health = Math.Max(0, Math.Min(100, this.health));
+	}
 
-        // copy array to test on
-        bool[,] newArray = gm.getPlacementGrid().Clone() as bool[,];
-        //print2DArray(GameManager.getPlacementGrid());
 
-        // add the proposed new position to the new array
-        newArray[x, y] = false;
+	// Snaps a Vector3 to a grid
+	public static Vector3 SnapOffset(Vector3 vec, Vector3 offset, float gridSize = 1.0f)
+	{
+		Vector3 snapped = vec + offset;
+		snapped = new Vector3(
+			Mathf.Round(snapped.x / gridSize) * gridSize,
+			Mathf.Round(snapped.y / gridSize) * gridSize,
+			Mathf.Round(snapped.z / gridSize) * gridSize);
+		return snapped - offset;
+	}
 
-        // then test that the new grid is traversable
-        if (isTraversable(newArray,
-                            LevelManager.getLevelRows(),
-                            LevelManager.getLevelCols(),
-                            LevelManager.getEnemySpawnPoint(),
-                            LevelManager.getLevelGoal()
-        ))
-        {
-            //Debug.Log("Traversability found.");
+	// Returns whether or not the current grid plus one more spot is be placeable
+	public static bool attemptPlacement(GameObject summon, Vector3 worldPos, int x, int y)
+	{
+		// get singleton copy
+		GameManager gm = GameManager.getSingleton();
+		if (gm == null)
+		{
+			Debug.Log("Singleton is null! Placement failed.");
+			return false;
+		}
 
-            // update the array in the GameManager
-            gm.occupySpace(x, y);
+		// check that the tile isn't unplaceable
+		if (gm.getPlacementGrid()[x, y] == false)
+		{
+			Debug.Log("Position (" + x + "," + y + ") is not placeable.");
+			return false;
+		}
 
-            // instantiate the summon
-            GameObject newSummon = Instantiate(summon, worldPos, Quaternion.identity);
+		// now test array with new pos added...
 
-            // set the new summon to be a child of the NavMesh (for David's pathfinding)
-            newSummon.transform.parent = GameObject.FindGameObjectsWithTag("NavMesh")[0].transform;
+		// copy array to test on
+		bool[,] newArray = gm.getPlacementGrid().Clone() as bool[,];
+		//print2DArray(GameManager.getPlacementGrid());
 
-            return true; // successfully placed tower
-        }
-        else
-        {
-            //Debug.Log("Intraversability error!");
-            return false;
-        }
-    }
+		// add the proposed new position to the new array
+		newArray[x, y] = false;
 
-    public void deleteSummon (int x, int y)
-    {
-        Debug.Log("[summon] trying to delete " + transform.name);
+		// then test that the new grid is traversable
+		if (isTraversable(newArray,
+							LevelManager.getLevelRows(),
+							LevelManager.getLevelCols(),
+							LevelManager.getEnemySpawnPoint(),
+							LevelManager.getLevelGoal()
+		))
+		{
+			//Debug.Log("Traversability found.");
 
-        // get singleton copy
-        GameManager gm = GameManager.getSingleton();
+			// update the array in the GameManager
+			gm.occupySpace(x, y);
 
-        gm.setSpaceAvailable(x, y);
+			// instantiate the summon
+			GameObject newSummon = Instantiate(summon, worldPos, Quaternion.identity);
 
-        // delete this object
-        Destroy(gameObject);
-    }
+			// set the new summon to be a child of the NavMesh (for David's pathfinding)
+			newSummon.transform.parent = GameObject.FindGameObjectsWithTag("NavMesh")[0].transform;
 
-    public void cycleTargetMode()
-    {
-        if (mode == targetingMode.LAST) mode = targetingMode.WEAK;
-        else mode++;
-    }
-    public static bool isTraversable(bool[,] grid, int rows, int cols, Tuple<int, int> start, Tuple<int, int> goal)
-    {
-        //Debug.Log("rows: " + rows + ", cols: " + cols + ", start: " + start + ", goal: " + goal);
+			return true; // successfully placed tower
+		}
+		else
+		{
+			//Debug.Log("Intraversability error!");
+			return false;
+		}
+	}
 
-        // List of possible directions
-        int[,] dir = { { 1, 0 }, { 0, 1 }, { -1, 0 }, { 0, -1 } };
+	public void deleteSummon (int x, int y)
+	{
+		//Debug.Log("[summon] trying to delete " + transform.name);
 
-        // Queue of spots to check
-        Queue q = new Queue();
+		// get singleton copy
+		GameManager gm = GameManager.getSingleton();
 
-        // Add the spawn point to the queue first
-        q.Enqueue(start);
+		gm.setSpaceAvailable(x, y);
 
-        // Operate on the queue until it's empty
-        while (q.Count > 0)
-        {
-            // Pull position from next queued item
-            Tuple<int, int> p = (Tuple<int, int>)(q.Peek());
-            // Then removes that item
-            q.Dequeue();
+		// delete this object
+		Destroy(gameObject);
+	}
 
-            // Mark the position "traversed" (not traversable)
-            grid[p.Item1, p.Item2] = false;
+	public void cycleTargetMode()
+	{
+		if (mode == targetingMode.LAST) mode = targetingMode.WEAK;
+		else mode++;
+	}
+	public static bool isTraversable(bool[,] grid, int rows, int cols, Tuple<int, int> start, Tuple<int, int> goal)
+	{
+		//Debug.Log("rows: " + rows + ", cols: " + cols + ", start: " + start + ", goal: " + goal);
 
-            // Check if the destination has been reached
-            //Debug.Log(p);
-            if (p.Equals(goal))
-                return true;
+		// List of possible directions
+		int[,] dir = { { 1, 0 }, { 0, 1 }, { -1, 0 }, { 0, -1 } };
 
-            // Add neighboring locations to the queue
-            for (int i = 0; i < 4; i++)
-            {
-                // Get position to check
-                int a = p.Item1 + dir[i, 0];
-                int b = p.Item2 + dir[i, 1];
+		// Queue of spots to check
+		Queue q = new Queue();
 
-                // Check that a,b is in bounds
-                if (a >= 0 && b >= 0 &&
-                    a < rows && b < cols)
-                {
-                    // create tuple for the spot we're considering
-                    Tuple<int, int> spot = new Tuple<int, int>(a, b);
-                    // check if the spot is the goal
-                    if (spot.Equals(goal)) return true;
-                    else if (grid[a, b] == true) q.Enqueue(new Tuple<int, int>(a, b));
-                }
-            }
-        }
+		// Add the spawn point to the queue first
+		q.Enqueue(start);
 
-        // Goal position was never found
-        return false;
-    }
-    public static void print2DArray (bool[,] array)
-    {
-        //Debug.Log("Array:\n");
-        String s;
-        for (int i = 0; i < array.GetLength(0); i++)
-        {
-            s = "";
-            s += "[";
-            for (int j = 0; j < array.GetLength(1); j++)
-            {
-                s += array[i, j] ? "O" : "X";
-                s += " ";
-                //Console.Write((array[i, j] ? "1" : "X") + ", ");
-            }
-            s += "]\n";
-            Debug.Log(s);
-        }
-    }
+		// Operate on the queue until it's empty
+		while (q.Count > 0)
+		{
+			// Pull position from next queued item
+			Tuple<int, int> p = (Tuple<int, int>)(q.Peek());
+			// Then removes that item
+			q.Dequeue();
+
+			// Mark the position "traversed" (not traversable)
+			grid[p.Item1, p.Item2] = false;
+
+			// Check if the destination has been reached
+			//Debug.Log(p);
+			if (p.Equals(goal))
+				return true;
+
+			// Add neighboring locations to the queue
+			for (int i = 0; i < 4; i++)
+			{
+				// Get position to check
+				int a = p.Item1 + dir[i, 0];
+				int b = p.Item2 + dir[i, 1];
+
+				// Check that a,b is in bounds
+				if (a >= 0 && b >= 0 &&
+					a < rows && b < cols)
+				{
+					// create tuple for the spot we're considering
+					Tuple<int, int> spot = new Tuple<int, int>(a, b);
+					// check if the spot is the goal
+					if (spot.Equals(goal)) return true;
+					else if (grid[a, b] == true) q.Enqueue(new Tuple<int, int>(a, b));
+				}
+			}
+		}
+
+		// Goal position was never found
+		return false;
+	}
+	public static void print2DArray (bool[,] array)
+	{
+		//Debug.Log("Array:\n");
+		String s;
+		for (int i = 0; i < array.GetLength(0); i++)
+		{
+			s = "";
+			s += "[";
+			for (int j = 0; j < array.GetLength(1); j++)
+			{
+				s += array[i, j] ? "O" : "X";
+				s += " ";
+				//Console.Write((array[i, j] ? "1" : "X") + ", ");
+			}
+			s += "]\n";
+			Debug.Log(s);
+		}
+	}
 }

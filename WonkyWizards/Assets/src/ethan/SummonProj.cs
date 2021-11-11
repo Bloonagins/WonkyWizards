@@ -8,10 +8,17 @@ public class SummonProj : MonoBehaviour
     protected int damage;
     protected float kockback;
 
+    protected Transform target;
+
     protected GameObject prefab;
     protected GameObject effectPrefab;
 
     protected Vector3 velocity;
+
+    public void setTarget(Transform t)
+    {
+        target = t;
+    }
 
     public int getProjDamage()
     {
@@ -37,27 +44,75 @@ public class SummonProj : MonoBehaviour
         // check that the gameObject is an Enemy
         if (other.tag == "Enemy")
         {
-            // see if the object inherents Enemy
-            // (or if it is a special case)
-            if (other.GetComponent<Enemy>())
+
+            if (other.GetComponent<GoblinGrunt>())
             {
                 // enemy is normal. assign a local var for it
-                Enemy enemy = other.GetComponent<Enemy>();
+                GoblinGrunt enemy = other.GetComponent<GoblinGrunt>();
                 
                 // apply knockback to enemy
                 enemy.GetComponent<Rigidbody2D>().AddForce((transform.position - other.transform.position) * kockback * -1.0f, ForceMode2D.Impulse);
 
                 // make that enemy take damage
                 enemy.RecieveDamage(damage);
-                //Debug.Log("applying " + damage + "damage");
             }
-
-            // special case: enemy is a GoblinGrunt
-            // type (doesn't inherent Enemy)
-            else if (other.GetComponent<GoblinGrunt>())
+            else if (other.GetComponent<GoblinWarrior>())
             {
+                // enemy is normal. assign a local var for it
+                Enemy enemy = other.GetComponent<GoblinWarrior>();
 
+                // apply knockback to enemy
+                enemy.GetComponent<Rigidbody2D>().AddForce((transform.position - other.transform.position) * kockback * -1.0f, ForceMode2D.Impulse);
+
+                // make that enemy take damage
+                enemy.RecieveDamage(damage);
             }
+            else if (other.GetComponent<GoblinBerserker>())
+            {
+                // enemy is normal. assign a local var for it
+                Enemy enemy = other.GetComponent<GoblinBerserker>();
+
+                // apply knockback to enemy
+                enemy.GetComponent<Rigidbody2D>().AddForce((transform.position - other.transform.position) * kockback * -1.0f, ForceMode2D.Impulse);
+
+                // make that enemy take damage
+                enemy.RecieveDamage(damage);
+            }
+            else if (other.GetComponent<GoblinAssassin>())
+            {
+                // enemy is normal. assign a local var for it
+                Enemy enemy = other.GetComponent<GoblinAssassin>();
+
+                // apply knockback to enemy
+                enemy.GetComponent<Rigidbody2D>().AddForce((transform.position - other.transform.position) * kockback * -1.0f, ForceMode2D.Impulse);
+
+                // make that enemy take damage
+                enemy.RecieveDamage(damage);
+            }
+            else if (other.GetComponent<GoblinGiant>())
+            {
+                // enemy is normal. assign a local var for it
+                Enemy enemy = other.GetComponent<GoblinGiant>();
+
+                // apply knockback to enemy
+                enemy.GetComponent<Rigidbody2D>().AddForce((transform.position - other.transform.position) * kockback * -1.0f, ForceMode2D.Impulse);
+
+                // make that enemy take damage
+                enemy.RecieveDamage(damage);
+            }
+            else if (other.GetComponent<GoblinArcher>())
+            {
+                // enemy is normal. assign a local var for it
+                Enemy enemy = other.GetComponent<GoblinArcher>();
+
+                // apply knockback to enemy
+                enemy.GetComponent<Rigidbody2D>().AddForce((transform.position - other.transform.position) * kockback * -1.0f, ForceMode2D.Impulse);
+
+                // make that enemy take damage
+                enemy.RecieveDamage(damage);
+            }
+
+            killSelf();
         }
     }
 }
