@@ -142,6 +142,12 @@ public class GoalManager : MonoBehaviour
 
                 other.GetComponent<GoblinGiant>().SetAttack(true);
             }
+            else if (other.GetComponent<Arrow>())
+            {
+                iDamageNum = other.GetComponent<Arrow>().GetDamage();
+
+                GoalTakeDamage(iDamageNum);
+            }
 
 
 
