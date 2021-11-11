@@ -10,7 +10,7 @@ public class SummonRadar : MonoBehaviour
     private bool inRange;
 
     private CircleCollider2D radarCollider;
-    private List<GameObject> enemies;
+    private HashSet<Collider2D> enemies;
 
 
     // Start is called before the first frame update
@@ -19,32 +19,37 @@ public class SummonRadar : MonoBehaviour
         radarCollider = GetComponent<CircleCollider2D>();
         radarCollider.radius = radius;
 
+        enemies = new HashSet<Collider2D>();
+
         inRange = false;
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D col)
     {
-        if (collision.isTrigger != true && collision.CompareTag("Enemy"))
+        if (col.isTrigger != true && col.CompareTag("Enemy"))
         {
             inRange = true;
 
-            enemies.Add(collision.gameObject);
-        }
+            enemies.Add(col);
+
+        } //printList();
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D col)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (col.gameObject.tag == "Enemy")
         {
-            enemies.Remove(collision.gameObject);
+            enemies.Remove(col);
 
             if (enemies.Count == 0) inRange = false;
-        }
+        } //printList();
     }
 
     public void setRadius(float r)
     {
         radius = r;
+
+        radarCollider = GetComponent<CircleCollider2D>();
         radarCollider.radius = radius;
     }
 
@@ -55,29 +60,34 @@ public class SummonRadar : MonoBehaviour
 
     public List<GameObject> getEnemies()
     {
-        return enemies;
+        List<GameObject> list = new List<GameObject>();
+
+        foreach (Collider2D enemy in enemies)
+        {
+            list.Add(enemy.gameObject);
+        }
+        return list;
     }
 
     public GameObject GetEnemy(targetingMode mode)
     {
-        if (enemies.Count == 0)
-            return null;
+        if (!inRange) return null;
 
         switch (mode)
         {
-            case targetingMode.WEAK: default:    return findWeakest();
+            case targetingMode.WEAK: default:    return findWeakest().gameObject;
             //case targetingMode.STRONG:  return findStrongest();
             //case targetingMode.FIRST:   return findFirst();
             //case targetingMode.LAST:    return findLast();
         }
     }
 
-    private GameObject findWeakest()
+    private Collider2D findWeakest()
     {
-        GameObject weakest = null;
+        Collider2D weakest = null;
         int lowestHealth = int.MaxValue;
 
-        foreach (GameObject enemy in enemies)
+        foreach (Collider2D enemy in enemies)
         {
             if (weakest == null) weakest = enemy;
 
@@ -116,4 +126,13 @@ public class SummonRadar : MonoBehaviour
 
     }
     */
+
+    private void printList()
+    {
+        Debug.Log("Updated list:");
+        foreach (GameObject enemy in getEnemies())
+        {
+            Debug.Log(enemy.name);
+        }
+    }
 }

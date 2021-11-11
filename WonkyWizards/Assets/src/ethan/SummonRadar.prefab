@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 594298570246051258}
   - component: {fileID: 6389924510314103884}
   - component: {fileID: 5810464321005743131}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: SummonRadar
   m_TagString: Summon
   m_Icon: {fileID: 0}
