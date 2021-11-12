@@ -131,6 +131,10 @@ public class SummonProj : MonoBehaviour
             // move toward target
             transform.position = Vector3.MoveTowards(transform.position, target.position, speed);
         }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     protected void lookAt2D(Transform target)
