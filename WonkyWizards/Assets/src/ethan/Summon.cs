@@ -45,8 +45,6 @@ public class Summon : MonoBehaviour
 		// tick up the timer
 		timer += Time.deltaTime;
 
-		Debug.Log(timer + ", " + summonRadar.getInRange());
-
 		// check that cooldown is ready and that there is an enemy in range
 		if (timer >= cooldown && summonRadar.getInRange())
 		{
