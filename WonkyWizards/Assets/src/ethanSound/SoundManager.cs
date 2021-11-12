@@ -52,7 +52,7 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    void Start()
+    static void Start()
     {
         click1 = Resources.Load<AudioClip>("click1");
         click2 = Resources.Load<AudioClip>("click2");
@@ -62,13 +62,13 @@ public class SoundManager : MonoBehaviour
         enemy_death4 = Resources.Load<AudioClip>("enemy_death4");
         fire_spell = Resources.Load<AudioClip>("fire_spell");
 
-        audioSrc = GetComponent<AudioSource>();
+        audioSrc = instance.gameObject.GetComponent<AudioSource>();
         if (!audioSrc) Debug.Log("audioSrc is null!");
 
         enemyDeath = 0;
     }
 
-    void Update()
+    static void FixedUpdate()
     {
         
     }
