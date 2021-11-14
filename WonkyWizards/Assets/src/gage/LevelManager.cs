@@ -10,7 +10,6 @@ public class LevelManager : MonoBehaviour
 {
     private GameManager gm;
 
-
     // Private Class Data Pattern
     private LevelManagerData lmd;
 
@@ -18,7 +17,8 @@ public class LevelManager : MonoBehaviour
     
     private int currentLevel;
   
-    public LevelManager()
+    // Start is called before the first frame update
+    void Start()
     {
         gm = GameManager.getSingleton();
         currentLevel = gm.getCurrentLevel(); // gets the current level from zach's GameManager script
