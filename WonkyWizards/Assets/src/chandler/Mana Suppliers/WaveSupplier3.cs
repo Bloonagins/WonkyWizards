@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ManaSupplier2 : ManaSupplier
+public class WaveSupplier3 : WaveSupplier
 {
     // Start is called before the first frame update
     void Start()
@@ -13,16 +13,17 @@ public class ManaSupplier2 : ManaSupplier
     // Update is called once per frame
     void Update()
     {
-        checkToGiveMana();
+        checkToResupply();
     }
 
+    // initializes values for the wave supplier
     public override void initializeMana()
     {
         if (singleton == null)
         {
             singleton = this;
         }
-        setWaveMana(140, 150, 160);
+        setWaveMana(160, 170, 180);
         setWaveSpawner();
     }
 }
