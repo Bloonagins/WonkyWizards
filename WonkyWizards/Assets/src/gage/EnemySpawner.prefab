@@ -44,29 +44,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c3adaf84c1922e4eaa2ca9a8cf25f4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waves:
-  - waveName: Wave 1
-    numberOfEnemies: 3
-    typeOfEnemies:
-    - {fileID: 5257803341221172471, guid: 248c5bd946233fa45b05ba204a4631db, type: 3}
-    spawnInterval: 3
-  - waveName: Wave 2
-    numberOfEnemies: 5
-    typeOfEnemies:
-    - {fileID: 5257803341221172471, guid: 248c5bd946233fa45b05ba204a4631db, type: 3}
-    spawnInterval: 3
-  - waveName: Final Wave
-    numberOfEnemies: 10
-    typeOfEnemies:
-    - {fileID: 5257803341221172471, guid: 248c5bd946233fa45b05ba204a4631db, type: 3}
-    spawnInterval: 2
-  spawnPoints:
-  - {fileID: 8478561904180289719}
+  waves: []
+  spawnPoints: []
   currentWave:
     waveName: 
     numberOfEnemies: 0
     typeOfEnemies: []
     spawnInterval: 0
+    spawnTimePeriod: 0
   Surface2D: {fileID: 0}
 --- !u!1 &8478561904180289716
 GameObject:
