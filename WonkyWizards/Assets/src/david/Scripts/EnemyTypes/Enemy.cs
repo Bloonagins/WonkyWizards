@@ -41,7 +41,7 @@ public class Enemy : MonoBehaviour
         attackConnected = false;
         knock_back = 200f;
     }
-
+    
     // Method to update health when enemy is dealt damage
     public void RecieveDamage(int damage_recieved)
     {

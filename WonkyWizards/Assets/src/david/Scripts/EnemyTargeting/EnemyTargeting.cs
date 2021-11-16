@@ -65,7 +65,6 @@ public class EnemyTargeting : MonoBehaviour
         agent.updateRotation = false;
         agent.updateUpAxis = false;
         agent.SetDestination(goal.position);
-        
         if(gameObject.GetComponent<GoblinGrunt>()) { // Set GoblinGrunts speed
             agent.speed = gameObject.GetComponent<GoblinGrunt>().GetMoveSpeed(); 
             agent.acceleration = gameObject.GetComponent<GoblinGrunt>().GetMoveSpeed();

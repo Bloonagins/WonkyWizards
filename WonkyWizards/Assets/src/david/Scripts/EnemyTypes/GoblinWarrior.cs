@@ -59,7 +59,6 @@ public class GoblinWarrior : Enemy
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Damage: "+damage);
         // Check if unit has no health left
         if (health <= 0) {
             // SoundManagerScript.PlaySound("enemyDeath");
