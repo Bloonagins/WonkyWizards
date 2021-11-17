@@ -17,6 +17,7 @@
  * Pause: Escape (Handled in one of Gabe's scripts)
  * Wave Info: Tab (Handled in one of Gabe's scripts)
  * Ready Up: F4 / L (Handled in one of Gabe's scripts)
+ * Toggle displaying the entire Bee Movie Script: \ (backslash)
  */
 
 using System;
@@ -24,6 +25,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerControls : MonoBehaviour
 {
@@ -46,6 +48,7 @@ public class PlayerControls : MonoBehaviour
     private InputAction hotbar8;
     private InputAction hotbar9;
     private InputAction hotbar0;
+    private InputAction beeMovie;
     // player's rigidbody component
     private Rigidbody2D rb;
     // speed of the player (30)
@@ -56,9 +59,11 @@ public class PlayerControls : MonoBehaviour
     public GameObject[] spells = new GameObject[5];
     // links to summon prefabs
     public GameObject[] summons = new GameObject[10];
+    public GameObject beeMovieScript;
+    private bool scrollBM;
 
-    private PlayerControls()
-    { }
+    /*private PlayerControls()
+    { }*/
 
     void Awake()
     {
@@ -79,6 +84,7 @@ public class PlayerControls : MonoBehaviour
         delete = controls.PlayerDefault.DeleteSummon;
         target = controls.PlayerDefault.SwitchTargetMode;
         mode = controls.PlayerDefault.SwitchMagicMode;
+        beeMovie = controls.PlayerDefault.BeeMovie;
 
         // binds certain inputs to a function to be called when that input is activated
         dash.performed += OnDash;
@@ -96,6 +102,7 @@ public class PlayerControls : MonoBehaviour
         controls.PlayerDefault.Hotbar8.performed += OnHotbar8;
         controls.PlayerDefault.Hotbar9.performed += OnHotbar9;
         controls.PlayerDefault.Hotbar0.performed += OnHotbar0;
+        beeMovie.performed += OnBeeMovie;
 
         movement.Enable();
         dash.Enable();
@@ -114,12 +121,21 @@ public class PlayerControls : MonoBehaviour
         controls.PlayerDefault.Hotbar8.Enable();
         controls.PlayerDefault.Hotbar9.Enable();
         controls.PlayerDefault.Hotbar0.Enable();
+        beeMovie.Enable();
+    }
+
+    private void OnBeeMovie(InputAction.CallbackContext obj)
+    {
+        scrollBM = !scrollBM;
+        beeMovieScript.transform.position = new Vector3(beeMovieScript.transform.position.x, 0, 0);
+        beeMovieScript.SetActive(scrollBM);
     }
 
     // Start is called before the first frame update
     void Start()
     {
         PlayerScript.setBuildMode(true);
+        scrollBM = false;
     }
 
     // Update is called once per frame
@@ -158,6 +174,11 @@ public class PlayerControls : MonoBehaviour
     {
         // reads WASD input from the player, multiplies that input by the movement speed, and moves the player that direction
         rb.AddForce(movement.ReadValue<Vector2>() * movementSpeed, ForceMode2D.Impulse);
+
+        if (scrollBM)
+        {
+            scrollBeeMovieText();
+        }
     }
 
     // when space is pressed, add a big force to the player to make them dash
@@ -386,10 +407,30 @@ public class PlayerControls : MonoBehaviour
         }
     }
 
+    private void scrollBeeMovieText()
+    {
+        beeMovieScript.transform.Translate(new Vector3(0, 2, 0));
+    }
+
     // handles disabling unity input package scheme
     void OnDisable()
     {
+        dash.performed -= OnDash;
+        summon.performed -= OnSummon;
+        delete.performed -= OnDelete;
+        target.performed -= OnSwitchTarget;
         mode.performed -= OnSwitchMagicMode;
+        controls.PlayerDefault.Hotbar1.performed -= OnHotbar1;
+        controls.PlayerDefault.Hotbar2.performed -= OnHotbar2;
+        controls.PlayerDefault.Hotbar3.performed -= OnHotbar3;
+        controls.PlayerDefault.Hotbar4.performed -= OnHotbar4;
+        controls.PlayerDefault.Hotbar5.performed -= OnHotbar5;
+        controls.PlayerDefault.Hotbar6.performed -= OnHotbar6;
+        controls.PlayerDefault.Hotbar7.performed -= OnHotbar7;
+        controls.PlayerDefault.Hotbar8.performed -= OnHotbar8;
+        controls.PlayerDefault.Hotbar9.performed -= OnHotbar9;
+        controls.PlayerDefault.Hotbar0.performed -= OnHotbar0;
+        beeMovie.performed -= OnBeeMovie;
 
         movement.Disable();
         dash.Disable();
@@ -408,5 +449,6 @@ public class PlayerControls : MonoBehaviour
         controls.PlayerDefault.Hotbar8.Disable();
         controls.PlayerDefault.Hotbar9.Disable();
         controls.PlayerDefault.Hotbar0.Disable();
+        beeMovie.Disable();
     }
 }

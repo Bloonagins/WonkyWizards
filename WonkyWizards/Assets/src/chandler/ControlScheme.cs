@@ -193,6 +193,14 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""BeeMovie"",
+                    ""type"": ""Button"",
+                    ""id"": ""b04f597a-acc5-45fd-aa09-ea91ce39de9c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -492,6 +500,17 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                     ""action"": ""CycleLeft"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7e500079-d3f4-4c47-8f76-92f76c055622"",
+                    ""path"": ""<Keyboard>/backslash"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""BeeMovie"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -545,6 +564,7 @@ public class @ControlScheme : IInputActionCollection, IDisposable
         m_PlayerDefault_ReadyUp = m_PlayerDefault.FindAction("ReadyUp", throwIfNotFound: true);
         m_PlayerDefault_CycleRight = m_PlayerDefault.FindAction("CycleRight", throwIfNotFound: true);
         m_PlayerDefault_CycleLeft = m_PlayerDefault.FindAction("CycleLeft", throwIfNotFound: true);
+        m_PlayerDefault_BeeMovie = m_PlayerDefault.FindAction("BeeMovie", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -616,6 +636,7 @@ public class @ControlScheme : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerDefault_ReadyUp;
     private readonly InputAction m_PlayerDefault_CycleRight;
     private readonly InputAction m_PlayerDefault_CycleLeft;
+    private readonly InputAction m_PlayerDefault_BeeMovie;
     public struct PlayerDefaultActions
     {
         private @ControlScheme m_Wrapper;
@@ -642,6 +663,7 @@ public class @ControlScheme : IInputActionCollection, IDisposable
         public InputAction @ReadyUp => m_Wrapper.m_PlayerDefault_ReadyUp;
         public InputAction @CycleRight => m_Wrapper.m_PlayerDefault_CycleRight;
         public InputAction @CycleLeft => m_Wrapper.m_PlayerDefault_CycleLeft;
+        public InputAction @BeeMovie => m_Wrapper.m_PlayerDefault_BeeMovie;
         public InputActionMap Get() { return m_Wrapper.m_PlayerDefault; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -717,6 +739,9 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                 @CycleLeft.started -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnCycleLeft;
                 @CycleLeft.performed -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnCycleLeft;
                 @CycleLeft.canceled -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnCycleLeft;
+                @BeeMovie.started -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnBeeMovie;
+                @BeeMovie.performed -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnBeeMovie;
+                @BeeMovie.canceled -= m_Wrapper.m_PlayerDefaultActionsCallbackInterface.OnBeeMovie;
             }
             m_Wrapper.m_PlayerDefaultActionsCallbackInterface = instance;
             if (instance != null)
@@ -787,6 +812,9 @@ public class @ControlScheme : IInputActionCollection, IDisposable
                 @CycleLeft.started += instance.OnCycleLeft;
                 @CycleLeft.performed += instance.OnCycleLeft;
                 @CycleLeft.canceled += instance.OnCycleLeft;
+                @BeeMovie.started += instance.OnBeeMovie;
+                @BeeMovie.performed += instance.OnBeeMovie;
+                @BeeMovie.canceled += instance.OnBeeMovie;
             }
         }
     }
@@ -833,5 +861,6 @@ public class @ControlScheme : IInputActionCollection, IDisposable
         void OnReadyUp(InputAction.CallbackContext context);
         void OnCycleRight(InputAction.CallbackContext context);
         void OnCycleLeft(InputAction.CallbackContext context);
+        void OnBeeMovie(InputAction.CallbackContext context);
     }
 }

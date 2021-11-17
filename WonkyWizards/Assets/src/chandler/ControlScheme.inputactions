@@ -180,6 +180,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "BeeMovie",
+                    "type": "Button",
+                    "id": "b04f597a-acc5-45fd-aa09-ea91ce39de9c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -477,6 +485,17 @@
                     "processors": "",
                     "groups": "Keyboard",
                     "action": "CycleLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7e500079-d3f4-4c47-8f76-92f76c055622",
+                    "path": "<Keyboard>/backslash",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "BeeMovie",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
