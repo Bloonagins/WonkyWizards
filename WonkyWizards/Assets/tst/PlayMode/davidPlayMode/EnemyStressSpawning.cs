@@ -8,7 +8,6 @@ using UnityEditor;
 
 public class EnemyStressTest
 {
-    ///*
     private GameObject GoblinGruntPrefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/src/david/Prefabs/GoblinGrunt.prefab");
     private GameObject GoblinAssassinPrefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/src/david/Prefabs/GoblinAssassin.prefab");
     private GameObject GoblinGiantPrefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/src/david/Prefabs/GoblinGiant.prefab");

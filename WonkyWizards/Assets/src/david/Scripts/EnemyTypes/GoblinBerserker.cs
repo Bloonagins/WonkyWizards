@@ -31,15 +31,18 @@ public class GoblinBerserker : Enemy
     */
     public GoblinBerserker()
     {
-        max_health = health = 350;
-        damage = minDamage = 45;
+        health = 350;
+        max_health = 350;
+        damage = 45;
+        minDamage = 45;
         damageBoost = 5; 
         maxDamage = 65;
         move_speed = 14f;
         lowest_speed = 6f; 
         highest_speed = 22f; 
         speedBoost = 2f;
-        attack_speed = attackTimer = 1.75f; // 1900 damage per minute
+        attack_speed = 1.75f; // 1900 damage per minute
+        attackTimer = 1.75f; 
         targetDistance = 25f;
         stoppingDistance = 1f;
         attackConnected = false;
@@ -83,11 +86,13 @@ public class GoblinBerserker : Enemy
     {        
         GameObject other = collision.gameObject;
         if(other.tag == "Spell") { // Check if enemy collided with spell
+        
             // Add damage and speed each time its hit by spell
             if(!other.GetComponent<IceBeam>()) {
                 ChangeDamage(damageBoost);
                 ChangeMoveSpeed(speedBoost);
             }
+
             if(other.GetComponent<FireBall>()) { // Check if spell was Fireball
                 RecieveDamage(other.GetComponent<FireBall>().getSpellDamage()); // Recieve damage 
                 rb.AddForce((other.transform.position - transform.position) * other.GetComponent<FireBall>().getSpellKnockBack() * -1.0f, ForceMode2D.Impulse); // Apply Knockback;

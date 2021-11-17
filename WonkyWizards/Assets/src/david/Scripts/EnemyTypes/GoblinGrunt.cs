@@ -16,8 +16,7 @@ using UnityEngine.AI;
 
 public class GoblinGrunt : MonoBehaviour
 {
-    private Rigidbody2D rb; // Used to store NavMeshAgent Component
-    private NavMeshAgent agent; // Used to store NavMeshAgent Component
+
 
     //----------------------- Private Data Class Pattern -----------------------
     /* How?
@@ -36,14 +35,7 @@ public class GoblinGrunt : MonoBehaviour
         this.goblinGruntData = new GoblinGruntData(200, 200, 30, 16f, 6f, 22f, 1.5f, 1.5f, 300f, 20f, 1f, false);
     }
     
-    // Start is called before the first frame update
-    void Start()
-    {
-        // Gets the Rigid Body component
-        rb = GetComponent<Rigidbody2D>();
-        // Gets the Agent component
-        agent = GetComponent<NavMeshAgent>();
-    }
+
     // Called at a fixed interval (50 times / second)
     // Increments the timers if they're on a cooldown
     void FixedUpdate()
@@ -63,6 +55,17 @@ public class GoblinGrunt : MonoBehaviour
             Destroy(gameObject); // Destroy unit
         }
     }
+    private Rigidbody2D rb; // Used to store NavMeshAgent Component
+    private NavMeshAgent agent; // Used to store NavMeshAgent Component
+    // Start is called before the first frame update
+    void Start()
+    {
+        // Gets the Rigid Body component
+        rb = GetComponent<Rigidbody2D>();
+        // Gets the Agent component
+        agent = GetComponent<NavMeshAgent>();
+    }
+
     // Function that checks for collisions
     void OnTriggerEnter2D(Collider2D collision)
     {
