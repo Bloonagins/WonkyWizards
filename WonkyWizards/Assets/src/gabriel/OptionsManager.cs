@@ -7,24 +7,26 @@ public sealed class OptionsManager : MonoBehaviour
     private static readonly object obj = new object();
 
 
-    private double dEffectsVolume, dMusicVolume = 0.5;
+    private static float fEffectsVolume, fMusicVolume = 0.5f;
 
 
-    public double GetEffectsVolume()
+    public static float GetEffectsVolume()
     {
-        return dEffectsVolume;
+        return fEffectsVolume;
     }
-    public double GetMusicVolume()
+    public static float GetMusicVolume()
     {
-        return dMusicVolume;
+        return fMusicVolume;
     }
-    public void SetEffectsVolume(double i)
+    public static void SetEffectsVolume(float i)
     {
-        dEffectsVolume = i;
+        fEffectsVolume = i;
+        //Debug.Log(fEffectsVolume);
     }
-    public void SetMusicVolume(double i)
+    public static void SetMusicVolume(float i)
     {
-        dMusicVolume = i;
+        fMusicVolume = i;
+        //Debug.Log(fMusicVolume);
     }
     private OptionsManager()
     {

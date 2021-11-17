@@ -36,6 +36,24 @@ public class MenuManager : MonoBehaviour
     {
         SceneManager.LoadScene("FourthLevel");
     }
+    public void SetFullscreen(bool isFull)
+    {
+        Screen.fullScreen = isFull;
+    }
+    public void SetQuality (int i)
+    {
+        QualitySettings.SetQualityLevel(i);
+    }
+    public void SetEffectsVolume(float i)
+    {
+        OptionsManager.SetEffectsVolume(i);
+    }
+    public static void SetMusicVolume(float i)
+    {
+        OptionsManager.SetMusicVolume(i);
+    }
+
+
 
     /// <summary>
     /// Calling this func will return the mouse to the center of screen width and height
