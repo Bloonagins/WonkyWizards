@@ -17,6 +17,8 @@ public class Enemy : MonoBehaviour
     protected int max_health; // Maximum ammount of health enemy has
     protected int health; // Ammount of health enemy starts with
     protected int damage; // Ammount of damage enemy starts with
+    protected int maxDamage; // Max amount of damage an enemy can have
+    protected int minDamage; // Min amount of damage an enemy can have
     protected float move_speed; // The movement speed the enemy starts with
     protected float lowest_speed; // The lowest movement speed the enemy has
     protected float highest_speed; // The highest movement speed the enemy has
@@ -31,7 +33,8 @@ public class Enemy : MonoBehaviour
     public Enemy()
     {
         max_health = health = 100;
-        damage = 10;
+        damage = minDamage = 10;
+        maxDamage = 15;
         move_speed = 1f;
         lowest_speed = 6f;
         highest_speed = 20f;
@@ -45,7 +48,9 @@ public class Enemy : MonoBehaviour
     // Method to update health when enemy is dealt damage
     public void RecieveDamage(int damage_recieved)
     {
-        health -= damage_recieved; // take away health from eneny
+        if(damage_recieved > 0) {
+            health -= damage_recieved; // take away health from enemy
+        }
 
         if(health < 0) { // Check if health is below 0
             health = 0; // set to 0
@@ -55,15 +60,25 @@ public class Enemy : MonoBehaviour
     // Function to change the enemy's damage by a flat amount
     public void ChangeDamage(int damage_amount){
         damage += damage_amount; // can be positive or negative
+        if(damage > maxDamage) {
+            damage = maxDamage;
+        }
+        if(damage < minDamage) {
+            damage = minDamage;
+        }
     }
     
     // Method that gives health to enemy
     public void AddHealth(int health_recieved)
     {
-        health += health_recieved; // add health to enemy
-
-        if(health > max_health) { // Check if health is above max
-            health = max_health; // set to max
+        if(health_recieved > 0) {
+            health += health_recieved; // add health to enemy
+        }
+        if(health < 0) {
+            health = 0;
+        }
+        if(health > GetMaxHealth()) { // Check if health is above max
+            health = GetMaxHealth(); // set to max
         }
     }
     // Function to confirm attack was sucessful
@@ -84,6 +99,14 @@ public class Enemy : MonoBehaviour
     public int GetDamage()
     {
         return damage;
+    }
+    public int GetMaxDamage() 
+    {
+        return maxDamage;
+    }
+    public int GetMinDamage() 
+    {
+        return minDamage;
     }
     public float GetMoveSpeed()
     {

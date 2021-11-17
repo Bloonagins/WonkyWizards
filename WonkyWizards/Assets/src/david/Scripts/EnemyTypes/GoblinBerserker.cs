@@ -22,7 +22,6 @@ public class GoblinBerserker : Enemy
     private Rigidbody2D rb; // Used to store RigidBody2d Component
     private NavMeshAgent agent; // Used to store NavMeshAgent component
     private int damageBoost; // The flat amount the damage increases
-    private int maxDamage; // The max damage the unit can have
     private float speedBoost; // The flat amount the speed increases 
 
     //----------------------- Constructor -----------------------
@@ -32,7 +31,7 @@ public class GoblinBerserker : Enemy
     public GoblinBerserker()
     {
         max_health = health = 350;
-        damage = 45;
+        damage = minDamage = 45;
         damageBoost = 5; 
         maxDamage = 65;
         move_speed = 14f;
