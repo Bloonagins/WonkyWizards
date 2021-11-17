@@ -425,6 +425,7 @@ GameObject:
   - component: {fileID: 5260813553975258295}
   - component: {fileID: 2504436445576902329}
   - component: {fileID: 3412853318684977743}
+  - component: {fileID: 808135083914793960}
   - component: {fileID: 5440326435143456673}
   m_Layer: 0
   m_Name: GoblinArcher
@@ -562,6 +563,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrow: {fileID: 4177699244423120946, guid: 0f7fc178652fa2f44838e0c71c7143e6, type: 3}
+--- !u!114 &808135083914793960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7675229534387486695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 638414edb5f922f47aaaf9c159542aa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HealthBarUI: {fileID: 2308537724982430894}
+  HPslider: {fileID: 8523803901876762661}
 --- !u!195 &5440326435143456673
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -575,7 +590,7 @@ NavMeshAgent:
   m_Speed: 5
   m_Acceleration: 5
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 1000
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1

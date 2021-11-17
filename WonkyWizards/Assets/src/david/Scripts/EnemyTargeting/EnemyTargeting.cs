@@ -15,56 +15,45 @@ using System;
 
 public class EnemyTargeting : MonoBehaviour
 {
-    // Game object associated with type
-    public GameObject type;
-    // The Player target the enemy is trying to follow
-    private Transform player;
-    // The goal object the enemy is trying to reach
-    private Transform goal;
-    // enemy agent component
-    NavMeshAgent agent;
-    
-    // Distance enemy is from the player 
-    private float distanceFromPlayer;
-    // Distance enemy is from the goal
-    private float distanceFromGoal;
-    // Distance where enemy switches to targeting player
-    private float targetDistance;
-    // The minimum distance reached before stopping
-    private float stoppingDistance;
-    // The distance the GoblinAssasin needs to be in order to dash
-    private float dashDistance;
-    // The timer for when enemy can be knocked back
-    private float timer;
-    // Keep track if GoblinAssasin
-    private bool isDash;
-    // If the enemy is a ranged type
-    private bool isRanged;
-    //
-    private bool isGoal;
-    //
-    private bool isPlayer;
+    //----------------------- Variables -----------------------
+    public GameObject type; // Game object associated with type
+    private Transform player; // The Player target the enemy is trying to follo
+    private Transform goal; // The goal object the enemy is trying to reach
+    NavMeshAgent agent; // enemy agent component
+    private float distanceFromPlayer; // Distance enemy is from the player 
+    private float distanceFromGoal; // Distance enemy is from the goal
+    private float targetDistance; // Distance where enemy switches to targeting player
+    private float stoppingDistance; // The minimum distance reached before stopping
+    private float dashDistance; // The distance the GoblinAssasin needs to be in order to dash
+    private float timer; // The timer for when enemy can be knocked back
+    private bool isDash; // Keep track if GoblinAssasin
+    private bool isRanged; // If the enemy is a ranged type
+    private bool isGoal; // If enemy is targeting goal
+    private bool isPlayer; // If enemy is targeting player
 
-    // Start is called before the first frame update
+    //----------------------- Start -----------------------
+    /* Called before first frame
+    */    
     void Start()
     {
+        // Initialize values
         distanceFromPlayer = 0f;
         stoppingDistance = 0f;
         isDash = false;
         isRanged = false;
         isPlayer = false;
         isGoal = false;
+        
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>(); // Get the player's component
+        goal = GameObject.FindGameObjectWithTag("Goal").GetComponent<Transform>(); // Get goal's component
+        agent = GetComponent<NavMeshAgent>(); // Retrieving NavMeshAgent component
 
-        // Get the target players component
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        // Get goal's component
-        goal = GameObject.FindGameObjectWithTag("Goal").GetComponent<Transform>();
-        // Retrieving NavMeshAgent component
-        agent = GetComponent<NavMeshAgent>();
         // Initializing values and setting goal position
         agent.updateRotation = false;
         agent.updateUpAxis = false;
         agent.SetDestination(goal.position);
+
+        // Intializing Enemy speed and targetDistance + stoppingDistance
         if(gameObject.GetComponent<GoblinGrunt>()) { // Set GoblinGrunts speed
             agent.speed = gameObject.GetComponent<GoblinGrunt>().GetMoveSpeed(); 
             agent.acceleration = gameObject.GetComponent<GoblinGrunt>().GetMoveSpeed();
@@ -106,8 +95,10 @@ public class EnemyTargeting : MonoBehaviour
         }
     }
     
-    // Update is called once per frame
-    void FixedUpdate(){
+    //----------------------- Update -----------------------
+    /* Update is called once per frame.
+    */
+        void Update(){
         distanceFromPlayer = Vector2.Distance(transform.position, player.position);
         if(isRanged) {
             distanceFromGoal = Vector2.Distance(transform.position, goal.position);
@@ -119,7 +110,6 @@ public class EnemyTargeting : MonoBehaviour
             isGoal = false;
             agent.SetDestination(player.position);
             transform.eulerAngles = Vector3.forward * calculateVectorAngle(transform.position, player.position);
-            //isAttacking = true;
         }
         else if(isRanged && distanceFromPlayer < stoppingDistance) { // target player
             agent.isStopped = true;

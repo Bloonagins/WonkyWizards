@@ -18,75 +18,76 @@ using UnityEngine.AI;
 
 public class GoblinBerserker : Enemy
 {
-    // Used to store RigidBody2d Component
-    private Rigidbody2D rb;
-    // Used to store Agent component
-    private NavMeshAgent agent;
+    //----------------------- Variables -----------------------
+    private Rigidbody2D rb; // Used to store RigidBody2d Component
+    private NavMeshAgent agent; // Used to store NavMeshAgent component
+    private int damageBoost; // The flat amount the damage increases
+    private int maxDamage; // The max damage the unit can have
+    private float speedBoost; // The flat amount the speed increases 
 
-    // Variable used for flat damage boost
-    private int damage_boost;
-    //
-    private int maxDamage;
-    // Variable used for flat speed increase
-    private float speed_boost;
-
-    // Constructor for GoblinBerserker
+    //----------------------- Constructor -----------------------
+    /* This is where all the attributes are set for the GoblinBeserker
+       type. 
+    */
     public GoblinBerserker()
     {
         max_health = health = 350;
         damage = 45;
-        damage_boost = 5; 
+        damageBoost = 5; 
         maxDamage = 65;
         move_speed = 14f;
         lowest_speed = 6f; 
         highest_speed = 22f; 
-        speed_boost = 2f;
+        speedBoost = 2f;
         attack_speed = attackTimer = 1.75f; // 1900 damage per minute
         targetDistance = 25f;
         stoppingDistance = 1f;
         attackConnected = false;
         knock_back = 350f;
     }
-    
-    // Start is called before the first frame update
+
+    //----------------------- Start -----------------------
+    /* Called before first frame
+    */
     void Start()
     {
-        // Gets the Rigid Body component
-        rb = GetComponent<Rigidbody2D>();
-        // Gets the Agent component
-        agent = GetComponent<NavMeshAgent>();
+        rb = GetComponent<Rigidbody2D>(); // Gets the Rigid Body component
+        agent = GetComponent<NavMeshAgent>(); // Gets the Agent component
     }
-    // Called at a fixed interval (50 times / second)
-    // Increments the timers if they're on a cooldown
+
+    //----------------------- FixedUpdate -----------------------
+    /* Called at a fixed interval (50 times / second).
+       Increments the timers if they're on a cooldown.
+    */
     void FixedUpdate()
     {
         if (attackTimer <= attack_speed) {
             attackTimer += Time.fixedDeltaTime;
         }
-        //Debug.Log("Current Damage: "+GetDamage());
-        //Debug.Log("Current speed: "+agent.acceleration);
     }
-    // Update is called once per frame
+
+    //----------------------- Update -----------------------
+    /* Update is called once per frame.
+    */
     void Update()
     {
-        // Check if unit has no health left
-        if (health <= 0) {
-            // SoundManagerScript.PlaySound("enemyDeath");
+        if (health <= 0) { // Check if unit has no health left
             Destroy(gameObject); // Destroy unit
         }
     }
 
-    // Function that checks for collisions
+    //----------------------- OnTriggerEnter2D -----------------------
+    /* Function that checks for when an object collides.
+    */
     void OnTriggerEnter2D(Collider2D collision)
     {        
         GameObject other = collision.gameObject;
         if(other.tag == "Spell") { // Check if enemy collided with spell
             // Add damage and speed each time its hit by spell
             if(!other.GetComponent<IceBeam>()) {
-                ChangeDamage(damage_boost);
-                ChangeMoveSpeed(speed_boost);
+                ChangeDamage(damageBoost);
+                ChangeMoveSpeed(speedBoost);
             }
-
             if(other.GetComponent<FireBall>()) { // Check if spell was Fireball
                 RecieveDamage(other.GetComponent<FireBall>().getSpellDamage()); // Recieve damage 
                 rb.AddForce((other.transform.position - transform.position) * other.GetComponent<FireBall>().getSpellKnockBack() * -1.0f, ForceMode2D.Impulse); // Apply Knockback;
@@ -112,34 +113,41 @@ public class GoblinBerserker : Enemy
             }
         }
     }
+
+    //----------------------- OnTriggerStay2D -----------------------
+    /* Function that checks for if collision is constant
+    */
     void OnTriggerStay2D(Collider2D collision)
     {
         GameObject other = collision.gameObject;
         if(other.tag == "Goal") { // Checks if collided with Goal
-            //rb.AddForce((other.transform.position - transform.position) * 50f * -1.0f, ForceMode2D.Impulse);
             if (attackConnected) { // Make sure attack is available and attack is successful
                 attackTimer = 0.0f; // Reset timer
                 attackConnected = false; // Reset attack 
-                //Debug.Log("Attack");
             }
         }
     }
 
-    // Function to change the enemy's movespeed by a flat amount
+    //----------------------- ChangeMoveSpeed -----------------------
+    /* Function to change the enemy's movespeed by a flat amount
+    */
     public void ChangeMoveSpeed(float speed_amount) {
-        if (agent.speed >= lowest_speed && speed_amount< 0) { 
+        if (agent.speed >= lowest_speed && speed_amount < 0) { // Check that its in bounds
             agent.speed += speed_amount;
             agent.acceleration += speed_amount;
         }
-        else if (agent.speed <= highest_speed && speed_amount > 0) {
+        else if (agent.speed <= highest_speed && speed_amount > 0) { // Check that its in bounds
             agent.speed += speed_amount;
             agent.acceleration += speed_amount;
         }
     }
 
+    //----------------------- GetDamageBoost -----------------------
+    /*  Function to return the damageBoost amount
+    */
     public int GetDamageBoost()
     {
-        return damage_boost;
+        return damageBoost;
     }
 
 }

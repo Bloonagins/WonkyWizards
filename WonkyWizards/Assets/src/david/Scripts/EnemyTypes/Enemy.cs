@@ -13,7 +13,7 @@ using UnityEngine;
 // This is the superclass for the Enemies
 public class Enemy : MonoBehaviour
 {
-    // Variables
+    //----------------------- Variables -----------------------
     protected int max_health; // Maximum ammount of health enemy has
     protected int health; // Ammount of health enemy starts with
     protected int damage; // Ammount of damage enemy starts with
@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour
     protected bool attackConnected; // Keeps attack if attack was successful
     protected float knock_back; // Ammount of knockback applied
 
-    // Basic constructor for Enemy class
+    //----------------------- Constructor -----------------------
     public Enemy()
     {
         max_health = health = 100;

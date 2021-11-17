@@ -138,7 +138,7 @@ public class GoblinGiant : Enemy
             agent.acceleration += speed_amount;
         }
     }
-    public static float GetDeathDamage() 
+    public static int GetDeathDamage() 
     {
         return death_damage;
     }
