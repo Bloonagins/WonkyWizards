@@ -45,9 +45,9 @@ public class PlayerControls : MonoBehaviour
     private InputAction hotbar5;
     private InputAction hotbar6;
     private InputAction hotbar7;
-    private InputAction hotbar8;
-    private InputAction hotbar9;
-    private InputAction hotbar0;
+    //private InputAction hotbar8;
+    //private InputAction hotbar9;
+    //private InputAction hotbar0;
     private InputAction beeMovie;
     // player's rigidbody component
     private Rigidbody2D rb;
@@ -58,12 +58,9 @@ public class PlayerControls : MonoBehaviour
     // links to spell prefabs
     public GameObject[] spells = new GameObject[5];
     // links to summon prefabs
-    public GameObject[] summons = new GameObject[10];
+    public GameObject[] summons = new GameObject[7];
     public GameObject beeMovieScript;
     private bool scrollBM;
-
-    /*private PlayerControls()
-    { }*/
 
     void Awake()
     {
@@ -99,9 +96,9 @@ public class PlayerControls : MonoBehaviour
         controls.PlayerDefault.Hotbar5.performed += OnHotbar5;
         controls.PlayerDefault.Hotbar6.performed += OnHotbar6;
         controls.PlayerDefault.Hotbar7.performed += OnHotbar7;
-        controls.PlayerDefault.Hotbar8.performed += OnHotbar8;
-        controls.PlayerDefault.Hotbar9.performed += OnHotbar9;
-        controls.PlayerDefault.Hotbar0.performed += OnHotbar0;
+        //controls.PlayerDefault.Hotbar8.performed += OnHotbar8;
+        //controls.PlayerDefault.Hotbar9.performed += OnHotbar9;
+        //controls.PlayerDefault.Hotbar0.performed += OnHotbar0;
         beeMovie.performed += OnBeeMovie;
 
         movement.Enable();
@@ -118,17 +115,10 @@ public class PlayerControls : MonoBehaviour
         controls.PlayerDefault.Hotbar5.Enable();
         controls.PlayerDefault.Hotbar6.Enable();
         controls.PlayerDefault.Hotbar7.Enable();
-        controls.PlayerDefault.Hotbar8.Enable();
-        controls.PlayerDefault.Hotbar9.Enable();
-        controls.PlayerDefault.Hotbar0.Enable();
+        //controls.PlayerDefault.Hotbar8.Enable();
+        //controls.PlayerDefault.Hotbar9.Enable();
+        //controls.PlayerDefault.Hotbar0.Enable();
         beeMovie.Enable();
-    }
-
-    private void OnBeeMovie(InputAction.CallbackContext obj)
-    {
-        scrollBM = !scrollBM;
-        beeMovieScript.transform.position = new Vector3(beeMovieScript.transform.position.x, 0, 0);
-        beeMovieScript.SetActive(scrollBM);
     }
 
     // Start is called before the first frame update
@@ -383,7 +373,7 @@ public class PlayerControls : MonoBehaviour
         }
     }
     // when 8 is pressed
-    private void OnHotbar8(InputAction.CallbackContext obj)
+    /*private void OnHotbar8(InputAction.CallbackContext obj)
     {
         if (PlayerScript.isInBuildMode())
         {
@@ -405,6 +395,14 @@ public class PlayerControls : MonoBehaviour
         {
             PlayerScript.setSummonIndex(9);
         }
+    }*/
+
+    // displays the entire text of the bee movie when \ is pressed
+    private void OnBeeMovie(InputAction.CallbackContext obj)
+    {
+        scrollBM = !scrollBM;
+        beeMovieScript.transform.position = new Vector3(beeMovieScript.transform.position.x, 0, 0);
+        beeMovieScript.SetActive(scrollBM);
     }
 
     private void scrollBeeMovieText()
@@ -427,9 +425,9 @@ public class PlayerControls : MonoBehaviour
         controls.PlayerDefault.Hotbar5.performed -= OnHotbar5;
         controls.PlayerDefault.Hotbar6.performed -= OnHotbar6;
         controls.PlayerDefault.Hotbar7.performed -= OnHotbar7;
-        controls.PlayerDefault.Hotbar8.performed -= OnHotbar8;
-        controls.PlayerDefault.Hotbar9.performed -= OnHotbar9;
-        controls.PlayerDefault.Hotbar0.performed -= OnHotbar0;
+        //controls.PlayerDefault.Hotbar8.performed -= OnHotbar8;
+        //controls.PlayerDefault.Hotbar9.performed -= OnHotbar9;
+        //controls.PlayerDefault.Hotbar0.performed -= OnHotbar0;
         beeMovie.performed -= OnBeeMovie;
 
         movement.Disable();
@@ -446,9 +444,9 @@ public class PlayerControls : MonoBehaviour
         controls.PlayerDefault.Hotbar5.Disable();
         controls.PlayerDefault.Hotbar6.Disable();
         controls.PlayerDefault.Hotbar7.Disable();
-        controls.PlayerDefault.Hotbar8.Disable();
-        controls.PlayerDefault.Hotbar9.Disable();
-        controls.PlayerDefault.Hotbar0.Disable();
+        //controls.PlayerDefault.Hotbar8.Disable();
+        //controls.PlayerDefault.Hotbar9.Disable();
+        //controls.PlayerDefault.Hotbar0.Disable();
         beeMovie.Disable();
     }
 }
