@@ -1,5 +1,8 @@
 # GoblinBeserker Prefab
 
+## Keywords
+AI, enemy, unit, npc, targeting, pathfinding, movement
+
 ## Introduction
 This ReadMe contains all necessary information on the GoblinBeserker prefab, explaining each component and how to replicate it.
 
