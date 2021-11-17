@@ -9,13 +9,11 @@ public class PlayerSpeedStress
 {
     private GameObject playerPrefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/tst/PlayMode/chandlerPlayMode/TestPlayer.prefab");
     private GameObject player;
-    private TestPlayer testPlayer;
 
     [SetUp]
     public void TestSetup()
     {
         SceneManager.LoadScene("PlayerTestScene");
-
     }
 
     [UnityTest]
