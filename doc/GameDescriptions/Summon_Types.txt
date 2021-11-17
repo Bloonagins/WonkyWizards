@@ -112,7 +112,7 @@ Summon Types (tower types):
 						Otherwise, enemies could lock onto a player sitting inside a portal block as they pass by, making them press up against the wall forever until they die.
 						Or, a player that is overwhelmed with enemies near the target could get all of the enemies to lock onto them, and then take a portal back to the start, drawing them all back.
 					Portals can look like a small room with magic force fields as walls and a bright, spiraling pit in the center
-	Empowering Crystal
+	Empowering Crystal [NOT IMPLIMENTED]
 		- Cost: 70
 		- Travel time: none
 		- Damage per hit: none
@@ -143,7 +143,7 @@ Summon Types (tower types):
 		- HP: 
 		- Effect: A snowman that shoots giant snowballs at enemies. When a snowball collides with something, it explodes into ice shards. Enemies within the snowball's explosion radius take damage.
 					the amount of damage enemies take from the snowball is determined by their distance from the center of the explosion.
-	Mysterious Futuristic Wind Manipulation Device
+	Mysterious Futuristic Wind Manipulation Device [NOT IMPLIMENTED]
 		- Cost: 90
 		- Travel time: none
 		- Damage per hit: none
@@ -154,7 +154,7 @@ Summon Types (tower types):
 		- Effect: A fan that blows in 1 direction, slowing down enemies and players that walk upwind, speeding up enemies and players that walk downwind
 					Player can rotate the fan when placing it down
 					Useful for holding enemies in a certain area for a longer period of time
-	Big Chunk
+	Big Chunk [NOT IMPLIMENTED]
 		- Cost: 100
 		- Travel time: Very fast
 		- Damage per hit: high
