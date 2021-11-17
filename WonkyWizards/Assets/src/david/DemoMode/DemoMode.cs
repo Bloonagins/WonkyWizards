@@ -23,15 +23,16 @@ public class DemoMode : MonoBehaviour
     // ------------------Singleton Pattern------------------
     // Step 1: Define a private static attribute of the single instance
     private static DemoMode single_instance; 
+
     // Awake is called first and even if the script is disabled
     private void Awake() 
     {
         CreateSingleton(); // create the singlton instance
     }
+
     // Step 2: Define a public accessor function to return instance
     public DemoMode CreateSingleton() 
     {
-        // HOW TO PREVENT FOR MULTIPLE THREADS?
         // Step 3: "Lazy initialization" 
         if(single_instance == null) // check to see if its the first instance
         {
@@ -39,6 +40,7 @@ public class DemoMode : MonoBehaviour
         }
         return single_instance; // return the singleton instance
     }
+    
     // Step 4: Clients may only use the accessor function to manipulate the Singleton.
     //------------------End of Singleton Pattern------------------
 

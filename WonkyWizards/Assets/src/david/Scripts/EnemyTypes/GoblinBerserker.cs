@@ -16,6 +16,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
+//-------------------------- GoblinBeserker --------------------------
 public class GoblinBerserker : Enemy
 {
     //----------------------- Variables -----------------------
@@ -148,5 +149,20 @@ public class GoblinBerserker : Enemy
     {
         return damageBoost;
     }
+
+    // Overrides the Superclass declaration
+    public override void Message() 
+    {
+        Debug.Log("This is the GoblinBeserker");
+    }
+
+    //------------------------ Dynamic/Static Binding ------------------------
+    //  Enemy enemy = new Enemy();
+    // <static>          <dynamic> 
+    // enemy.Message() == "This is the Enemy"
+
+    //  Enemy enemy = new GoblinBeserker();
+    // <static>          <dynamic>
+    // enemy.Message() == "This is the GoblinBeserker"
 
 }

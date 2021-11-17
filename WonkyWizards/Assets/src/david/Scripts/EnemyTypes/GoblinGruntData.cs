@@ -1,9 +1,15 @@
+//----------------------- Private Data Class -----------------------
 public class GoblinGruntData
 {
-    // ADD NOTES FOR ORAL EXAM
+    /*  Why?
+        - Controls access to class atributes
+        - Prevents undesirable manipulation of data
+        - Separate data from methods that use it
+        - Encapsulate class data initialization
+        - Protects the class state by minimizing visibility of attributes
+    */
 
-    
-    // Private Variables
+    //----------------------- Private Variables -----------------------
     private int max_health; // Maximum ammount of health enemy has
     private int health; // Ammount of health enemy starts with
     private int damage; // Ammount of damage enemy starts with
@@ -15,10 +21,9 @@ public class GoblinGruntData
     private float knock_back; // Ammount of knockback applied
     private float targetDistance; // The distance the enemy starts targeting the player
     protected float stoppingDistance; // The distance the enemy stops moving towards the player
-
     private bool attackConnected; // Keeps attack if attack was successful
 
-    // Constructor for GoblinGruntData
+    //----------------------- Constructor -----------------------
     public GoblinGruntData(int max_health, int health, int damage, float move_speed, float lowest_speed, float highest_speed, float attack_speed, float attackTimer, float knock_back, float targetDistance, float stoppingDistance, bool attackConnected)
     {
         this.max_health = max_health;
@@ -35,7 +40,10 @@ public class GoblinGruntData
         this.attackConnected = attackConnected;
     }
 
-    // Methods for setting stats (Setters)
+    //----------------------- Setters -----------------------
+    /*  Methods for setting the attributes.
+        Only want to have for attributes that need to be changed.
+    */
     public void SetHealth(int health)
     {
         this.health = health;
@@ -49,7 +57,9 @@ public class GoblinGruntData
         this.attackConnected = attackConnected;
     }
 
-    // Methods for retrieving stats (Getters)
+    //----------------------- Getters -----------------------
+    /*  Methods used to retrieve the attributes.
+    */
     public int GetMaxHealth()
     {
         return this.max_health;

@@ -19,15 +19,21 @@ public class GoblinGrunt : MonoBehaviour
     private Rigidbody2D rb; // Used to store NavMeshAgent Component
     private NavMeshAgent agent; // Used to store NavMeshAgent Component
 
-    // Private Data Class Pattern 
-    private GoblinGruntData goblinGruntData; // Stores all GoblinGrunts attributes privately
+    //----------------------- Private Data Class Pattern -----------------------
+    /* How?
+        Step 1: Create data class. Move to data class all atributes that need hiding.
+        Step 2: Create in main class instance of data class.
+        Step 3: Main class must initialize data class through the data class's contstructor.
+        Step 4: Expose each attribute of data class using a getter.
+        Step 5: Expose each attribute that will change in further through a setter.
+    */
+    private GoblinGruntData goblinGruntData; // Private instance of data class
 
     // Constructor for GoblinGrunt
     public GoblinGrunt()
     {
         // Set initial values of goblinGruntData class
         this.goblinGruntData = new GoblinGruntData(200, 200, 30, 16f, 6f, 22f, 1.5f, 1.5f, 300f, 20f, 1f, false);
-        // 1200 damage per second
     }
     
     // Start is called before the first frame update

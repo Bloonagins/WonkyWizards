@@ -45,6 +45,12 @@ public class Enemy : MonoBehaviour
         knock_back = 200f;
     }
     
+    // Virtual method can be overridden by subclass
+    public virtual void Message() 
+    {
+        Debug.Log("This is the Enemy");
+    }
+
     // Method to update health when enemy is dealt damage
     public void RecieveDamage(int damage_recieved)
     {
