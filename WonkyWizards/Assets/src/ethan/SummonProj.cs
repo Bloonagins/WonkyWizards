@@ -133,6 +133,7 @@ public class SummonProj : MonoBehaviour
         }
         else
         {
+            // no target exists, so delete this projectile
             Destroy(gameObject);
         }
     }

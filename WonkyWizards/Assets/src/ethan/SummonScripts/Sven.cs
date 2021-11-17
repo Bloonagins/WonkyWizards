@@ -11,17 +11,16 @@
 					the amount of damage enemies take from the snowball is determined by their distance from the center of the explosion.
  */
 
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class Sven : Summon
 {
 	protected static int cost = 50;
 
-	public override void FixedUpdate()
+	public override void Start()
 	{
+		base.Start();
 
+		cooldown = 0.65f;
+		summonRadar.setRadius(2.0f);
 	}
 
 	public override int getCost() { return cost; }

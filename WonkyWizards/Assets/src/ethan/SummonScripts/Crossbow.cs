@@ -11,10 +11,6 @@
 					good for long range
  */
 
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class Crossbow : Summon
 {
 	protected static int cost = 80;
