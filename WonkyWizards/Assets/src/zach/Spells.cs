@@ -51,7 +51,7 @@ public class Spells : MonoBehaviour
 
     public virtual bool Collision_behaviour(Collider2D collision)
     {
-        if(collision.gameObject.tag !="Player" && collision.gameObject.tag != "Spell" && collision.gameObject.tag != "Zone" && collision.gameObject.tag != "SummonProjectile" && collision.gameObject.tag != "SummonNoPlace")
+        if(collision.gameObject.tag !="Player" && collision.gameObject.tag != "Spell" && collision.gameObject.tag != "Zone" && collision.gameObject.tag != "SummonProjectile" && collision.gameObject.tag != "SummonNoPlace"  && collision.gameObject.tag != "Summon")
         {
             return true;
         }
