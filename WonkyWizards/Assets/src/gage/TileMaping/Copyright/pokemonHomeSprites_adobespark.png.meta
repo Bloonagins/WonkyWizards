@@ -1,0 +1,3540 @@
+fileFormatVersion: 2
+guid: c91c112372fdecf4ea6d35ac7a801025
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3771077599774255155
+    second: pokemonHomeSprites_adobespark_0
+  - first:
+      213: 957885822728841318
+    second: pokemonHomeSprites_adobespark_1
+  - first:
+      213: 3018832881371313940
+    second: pokemonHomeSprites_adobespark_2
+  - first:
+      213: -8095138628075326202
+    second: pokemonHomeSprites_adobespark_3
+  - first:
+      213: 32385136472743079
+    second: pokemonHomeSprites_adobespark_4
+  - first:
+      213: -2503816133106694700
+    second: pokemonHomeSprites_adobespark_5
+  - first:
+      213: -7877039991622487033
+    second: pokemonHomeSprites_adobespark_6
+  - first:
+      213: 5422408880664440578
+    second: pokemonHomeSprites_adobespark_7
+  - first:
+      213: -8982938657875277419
+    second: pokemonHomeSprites_adobespark_8
+  - first:
+      213: -6140764206818466350
+    second: pokemonHomeSprites_adobespark_9
+  - first:
+      213: -286907432390426553
+    second: pokemonHomeSprites_adobespark_10
+  - first:
+      213: 7063827985165678496
+    second: pokemonHomeSprites_adobespark_11
+  - first:
+      213: 6898594807430518582
+    second: pokemonHomeSprites_adobespark_12
+  - first:
+      213: -3648400923105696973
+    second: pokemonHomeSprites_adobespark_13
+  - first:
+      213: -8750450293288818413
+    second: pokemonHomeSprites_adobespark_14
+  - first:
+      213: -6947139145409413497
+    second: pokemonHomeSprites_adobespark_15
+  - first:
+      213: 4207278720222026159
+    second: pokemonHomeSprites_adobespark_16
+  - first:
+      213: 5957380940470457637
+    second: pokemonHomeSprites_adobespark_17
+  - first:
+      213: -7037712148135301620
+    second: pokemonHomeSprites_adobespark_18
+  - first:
+      213: 6867844446221031045
+    second: pokemonHomeSprites_adobespark_19
+  - first:
+      213: -2166099681331124816
+    second: pokemonHomeSprites_adobespark_20
+  - first:
+      213: -5756406521122944975
+    second: pokemonHomeSprites_adobespark_21
+  - first:
+      213: 7954774708331817620
+    second: pokemonHomeSprites_adobespark_22
+  - first:
+      213: -4685409918817857866
+    second: pokemonHomeSprites_adobespark_23
+  - first:
+      213: -7275411629273746913
+    second: pokemonHomeSprites_adobespark_24
+  - first:
+      213: -4339389366325415983
+    second: pokemonHomeSprites_adobespark_25
+  - first:
+      213: 2912913783623003715
+    second: pokemonHomeSprites_adobespark_26
+  - first:
+      213: 5498035203218764980
+    second: pokemonHomeSprites_adobespark_27
+  - first:
+      213: 7861713920854988014
+    second: pokemonHomeSprites_adobespark_28
+  - first:
+      213: 6860505296497586271
+    second: pokemonHomeSprites_adobespark_29
+  - first:
+      213: 8142483559048733649
+    second: pokemonHomeSprites_adobespark_30
+  - first:
+      213: 4514090165757522023
+    second: pokemonHomeSprites_adobespark_31
+  - first:
+      213: 6789068017479750580
+    second: pokemonHomeSprites_adobespark_32
+  - first:
+      213: -6589694549072168785
+    second: pokemonHomeSprites_adobespark_33
+  - first:
+      213: -5359466010013233236
+    second: pokemonHomeSprites_adobespark_34
+  - first:
+      213: 1585805884408244486
+    second: pokemonHomeSprites_adobespark_35
+  - first:
+      213: -2430674981884925592
+    second: pokemonHomeSprites_adobespark_36
+  - first:
+      213: -3458446749454612536
+    second: pokemonHomeSprites_adobespark_37
+  - first:
+      213: 6769482902868799218
+    second: pokemonHomeSprites_adobespark_38
+  - first:
+      213: -8211654986820317789
+    second: pokemonHomeSprites_adobespark_39
+  - first:
+      213: 4098684169973760165
+    second: pokemonHomeSprites_adobespark_40
+  - first:
+      213: -2046719231430069881
+    second: pokemonHomeSprites_adobespark_41
+  - first:
+      213: -2306329574721881627
+    second: pokemonHomeSprites_adobespark_42
+  - first:
+      213: 7215511939820431006
+    second: pokemonHomeSprites_adobespark_43
+  - first:
+      213: -5745840419716361285
+    second: pokemonHomeSprites_adobespark_44
+  - first:
+      213: 2020153873032178369
+    second: pokemonHomeSprites_adobespark_45
+  - first:
+      213: -2511336471690197501
+    second: pokemonHomeSprites_adobespark_46
+  - first:
+      213: 6088690996398111047
+    second: pokemonHomeSprites_adobespark_47
+  - first:
+      213: -3328662811827577543
+    second: pokemonHomeSprites_adobespark_48
+  - first:
+      213: 2544981227731400448
+    second: pokemonHomeSprites_adobespark_49
+  - first:
+      213: -6900268671809389066
+    second: pokemonHomeSprites_adobespark_50
+  - first:
+      213: 3083585765639125498
+    second: pokemonHomeSprites_adobespark_51
+  - first:
+      213: -4549257548202512572
+    second: pokemonHomeSprites_adobespark_52
+  - first:
+      213: -5008923566921173116
+    second: pokemonHomeSprites_adobespark_53
+  - first:
+      213: 3616570399878776523
+    second: pokemonHomeSprites_adobespark_54
+  - first:
+      213: -8592575419373845930
+    second: pokemonHomeSprites_adobespark_55
+  - first:
+      213: -4123594945350450371
+    second: pokemonHomeSprites_adobespark_56
+  - first:
+      213: -516974063811367629
+    second: pokemonHomeSprites_adobespark_57
+  - first:
+      213: -4995728821115174891
+    second: pokemonHomeSprites_adobespark_58
+  - first:
+      213: 6099080730890437320
+    second: pokemonHomeSprites_adobespark_59
+  - first:
+      213: 4437120235036919914
+    second: pokemonHomeSprites_adobespark_60
+  - first:
+      213: -7661282393077339507
+    second: pokemonHomeSprites_adobespark_61
+  - first:
+      213: -1871683774493172901
+    second: pokemonHomeSprites_adobespark_62
+  - first:
+      213: 8037173260291305790
+    second: pokemonHomeSprites_adobespark_63
+  - first:
+      213: 7146803497895474797
+    second: pokemonHomeSprites_adobespark_64
+  - first:
+      213: 2731846732960098221
+    second: pokemonHomeSprites_adobespark_65
+  - first:
+      213: -6508920449759243488
+    second: pokemonHomeSprites_adobespark_66
+  - first:
+      213: 7864365293038618020
+    second: pokemonHomeSprites_adobespark_67
+  - first:
+      213: -3163100378989381518
+    second: pokemonHomeSprites_adobespark_68
+  - first:
+      213: -4558509421899374970
+    second: pokemonHomeSprites_adobespark_69
+  - first:
+      213: 2698625871342150507
+    second: pokemonHomeSprites_adobespark_70
+  - first:
+      213: 2904208975567556243
+    second: pokemonHomeSprites_adobespark_71
+  - first:
+      213: -2552150295352545607
+    second: pokemonHomeSprites_adobespark_72
+  - first:
+      213: 1268891463560980777
+    second: pokemonHomeSprites_adobespark_73
+  - first:
+      213: -7494414328529081733
+    second: pokemonHomeSprites_adobespark_74
+  - first:
+      213: -7013395995539658416
+    second: pokemonHomeSprites_adobespark_75
+  - first:
+      213: -5449811888713192477
+    second: pokemonHomeSprites_adobespark_76
+  - first:
+      213: -410498289042448721
+    second: pokemonHomeSprites_adobespark_77
+  - first:
+      213: -56493441447253771
+    second: pokemonHomeSprites_adobespark_78
+  - first:
+      213: -6319297836097947674
+    second: pokemonHomeSprites_adobespark_79
+  - first:
+      213: 8903226969145304316
+    second: pokemonHomeSprites_adobespark_80
+  - first:
+      213: 2220246211680113385
+    second: pokemonHomeSprites_adobespark_81
+  - first:
+      213: -4097722339556035108
+    second: pokemonHomeSprites_adobespark_82
+  - first:
+      213: 1540961812340215502
+    second: pokemonHomeSprites_adobespark_83
+  - first:
+      213: 8576552195179765552
+    second: pokemonHomeSprites_adobespark_84
+  - first:
+      213: 5254194529898912236
+    second: pokemonHomeSprites_adobespark_85
+  - first:
+      213: -2020533593680028317
+    second: pokemonHomeSprites_adobespark_86
+  - first:
+      213: -5248988664600404644
+    second: pokemonHomeSprites_adobespark_87
+  - first:
+      213: 206443090721939621
+    second: pokemonHomeSprites_adobespark_88
+  - first:
+      213: -9050692925478075380
+    second: pokemonHomeSprites_adobespark_89
+  - first:
+      213: -5916519072030809947
+    second: pokemonHomeSprites_adobespark_90
+  - first:
+      213: 6353673962323182511
+    second: pokemonHomeSprites_adobespark_91
+  - first:
+      213: 4115004779895058774
+    second: pokemonHomeSprites_adobespark_92
+  - first:
+      213: -2612460367096384490
+    second: pokemonHomeSprites_adobespark_93
+  - first:
+      213: -6315848615471285843
+    second: pokemonHomeSprites_adobespark_94
+  - first:
+      213: 4560253060473548167
+    second: pokemonHomeSprites_adobespark_95
+  - first:
+      213: -1222717332442041599
+    second: pokemonHomeSprites_adobespark_96
+  - first:
+      213: -2470788128110864050
+    second: pokemonHomeSprites_adobespark_97
+  - first:
+      213: 3213556237019759910
+    second: pokemonHomeSprites_adobespark_98
+  - first:
+      213: -1305149478376703801
+    second: pokemonHomeSprites_adobespark_99
+  - first:
+      213: -9197885903583289809
+    second: pokemonHomeSprites_adobespark_100
+  - first:
+      213: 1446252334182034989
+    second: pokemonHomeSprites_adobespark_101
+  - first:
+      213: -6020015397109323341
+    second: pokemonHomeSprites_adobespark_102
+  - first:
+      213: -50546487386573107
+    second: pokemonHomeSprites_adobespark_103
+  - first:
+      213: 2073755541855725653
+    second: pokemonHomeSprites_adobespark_104
+  - first:
+      213: 5549076955591786217
+    second: pokemonHomeSprites_adobespark_105
+  - first:
+      213: -7777484774601978868
+    second: pokemonHomeSprites_adobespark_106
+  - first:
+      213: -6922761753221895931
+    second: pokemonHomeSprites_adobespark_107
+  - first:
+      213: -1300512976854261212
+    second: pokemonHomeSprites_adobespark_108
+  - first:
+      213: 8958882589862848172
+    second: pokemonHomeSprites_adobespark_109
+  - first:
+      213: -7204614620559535496
+    second: pokemonHomeSprites_adobespark_110
+  - first:
+      213: 5711479087851227563
+    second: pokemonHomeSprites_adobespark_111
+  - first:
+      213: 3224473867426657454
+    second: pokemonHomeSprites_adobespark_112
+  - first:
+      213: -7663703145950623857
+    second: pokemonHomeSprites_adobespark_113
+  - first:
+      213: 3378458047205162321
+    second: pokemonHomeSprites_adobespark_114
+  - first:
+      213: -1711185499091508818
+    second: pokemonHomeSprites_adobespark_115
+  - first:
+      213: 2909407404508443065
+    second: pokemonHomeSprites_adobespark_116
+  - first:
+      213: 7212387722986607948
+    second: pokemonHomeSprites_adobespark_117
+  - first:
+      213: -5325770887751221840
+    second: pokemonHomeSprites_adobespark_118
+  - first:
+      213: 8735824450117375842
+    second: pokemonHomeSprites_adobespark_119
+  - first:
+      213: -2521003113196254272
+    second: pokemonHomeSprites_adobespark_120
+  - first:
+      213: 4452440093108862375
+    second: pokemonHomeSprites_adobespark_121
+  - first:
+      213: 582115157730241415
+    second: pokemonHomeSprites_adobespark_122
+  - first:
+      213: -6114705130910476832
+    second: pokemonHomeSprites_adobespark_123
+  - first:
+      213: 8649104801692648473
+    second: pokemonHomeSprites_adobespark_124
+  - first:
+      213: -7922638058855257580
+    second: pokemonHomeSprites_adobespark_125
+  - first:
+      213: 7112454981584165159
+    second: pokemonHomeSprites_adobespark_126
+  - first:
+      213: 791031644499946650
+    second: pokemonHomeSprites_adobespark_127
+  - first:
+      213: -4590277513972376667
+    second: pokemonHomeSprites_adobespark_128
+  - first:
+      213: -6059964508318409552
+    second: pokemonHomeSprites_adobespark_129
+  - first:
+      213: 7628475574046454458
+    second: pokemonHomeSprites_adobespark_130
+  - first:
+      213: -7954357984994938105
+    second: pokemonHomeSprites_adobespark_131
+  - first:
+      213: 2500609280584728142
+    second: pokemonHomeSprites_adobespark_132
+  - first:
+      213: 6879228273700742974
+    second: pokemonHomeSprites_adobespark_133
+  - first:
+      213: -347438517131510328
+    second: pokemonHomeSprites_adobespark_134
+  - first:
+      213: -6654870471715571061
+    second: pokemonHomeSprites_adobespark_135
+  - first:
+      213: 5324225899344563302
+    second: pokemonHomeSprites_adobespark_136
+  - first:
+      213: -2779018765901967552
+    second: pokemonHomeSprites_adobespark_137
+  - first:
+      213: 7829716537100428570
+    second: pokemonHomeSprites_adobespark_138
+  - first:
+      213: -5856761260435618190
+    second: pokemonHomeSprites_adobespark_139
+  - first:
+      213: -3274048903413208608
+    second: pokemonHomeSprites_adobespark_140
+  - first:
+      213: -4454454296866925093
+    second: pokemonHomeSprites_adobespark_141
+  - first:
+      213: 4848740991797802819
+    second: pokemonHomeSprites_adobespark_142
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 339
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3382af2d81f855430800000000000000
+      internalID: 3771077599774255155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 339
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 668a227a4181b4d00800000000000000
+      internalID: 957885822728841318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 339
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 417f76ad28c05e920800000000000000
+      internalID: 3018832881371313940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 339
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 605f602ce4a48af80800000000000000
+      internalID: -8095138628075326202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 339
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7acd57b2c1e037000800000000000000
+      internalID: 32385136472743079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 339
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d588432e78a04dd0800000000000000
+      internalID: -2503816133106694700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_6
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 339
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 704bbc9acd12fa290800000000000000
+      internalID: -7877039991622487033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_7
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 339
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20f6de6d524404b40800000000000000
+      internalID: 5422408880664440578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_8
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 339
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 599483262e0365380800000000000000
+      internalID: -8982938657875277419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_9
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 339
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d5e6233d7f97caa0800000000000000
+      internalID: -6140764206818466350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_10
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 339
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74003f8d533b40cf0800000000000000
+      internalID: -286907432390426553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_11
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 339
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a773427022c70260800000000000000
+      internalID: 7063827985165678496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_12
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 339
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63710425d6bbcbf50800000000000000
+      internalID: 6898594807430518582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 307
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 333e314c0b64e5dc0800000000000000
+      internalID: -3648400923105696973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_14
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 307
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 319aec3f1d7209680800000000000000
+      internalID: -8750450293288818413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_15
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 307
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78e39a831cdc69f90800000000000000
+      internalID: -6947139145409413497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_16
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 307
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa9d4e574b1436a30800000000000000
+      internalID: 4207278720222026159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_17
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 307
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5259c6cd66edca250800000000000000
+      internalID: 5957380940470457637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_18
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 307
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0ea1f2b616055e90800000000000000
+      internalID: -7037712148135301620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_19
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 307
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 586d4ade22c7f4f50800000000000000
+      internalID: 6867844446221031045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_20
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 307
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b5eb2af0d770f1e0800000000000000
+      internalID: -2166099681331124816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_21
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 307
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13889bd84c22d10b0800000000000000
+      internalID: -5756406521122944975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_22
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 307
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49a21667379056e60800000000000000
+      internalID: 7954774708331817620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_23
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 307
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6be05c1d0841afeb0800000000000000
+      internalID: -4685409918817857866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_24
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 307
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1274628bab880b90800000000000000
+      internalID: -7275411629273746913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_25
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 307
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dfe016cc5467c3c0800000000000000
+      internalID: -4339389366325415983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_26
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 275
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34e203627afbc6820800000000000000
+      internalID: 2912913783623003715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_27
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 275
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b4727233e1fc4c40800000000000000
+      internalID: 5498035203218764980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_28
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 275
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee41e4a682b6a1d60800000000000000
+      internalID: 7861713920854988014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_29
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 275
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f50bc69f739653f50800000000000000
+      internalID: 6860505296497586271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_30
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 275
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d3ee8ef7a9eff070800000000000000
+      internalID: 8142483559048733649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_31
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 275
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 760bf0ec61545ae30800000000000000
+      internalID: 4514090165757522023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_32
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 275
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b398d1546d973e50800000000000000
+      internalID: 6789068017479750580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_33
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 275
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa8b938a8b3bc84a0800000000000000
+      internalID: -6589694549072168785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_34
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 275
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: caf816f3f0a5f95b0800000000000000
+      internalID: -5359466010013233236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_35
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 275
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 609a0e6cc0ae10610800000000000000
+      internalID: 1585805884408244486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_36
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 275
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 869e1547bf1844ed0800000000000000
+      internalID: -2430674981884925592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_37
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 275
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c7472841012100d0800000000000000
+      internalID: -3458446749454612536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_38
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 275
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fe239a75d802fd50800000000000000
+      internalID: 6769482902868799218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_39
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 243
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ad8284fb475a0e80800000000000000
+      internalID: -8211654986820317789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_40
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 243
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a08dcd698371e830800000000000000
+      internalID: 4098684169973760165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_41
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 243
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78176a7f3b79893e0800000000000000
+      internalID: -2046719231430069881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_42
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 243
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e979b3a8754effd0800000000000000
+      internalID: -2306329574721881627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_43
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 243
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e96269d31e5a22460800000000000000
+      internalID: 7215511939820431006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_44
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 243
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb399beb49ca240b0800000000000000
+      internalID: -5745840419716361285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_45
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 243
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ca66b98e37090c10800000000000000
+      internalID: 2020153873032178369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_46
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 243
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3064c6dd8c0f52dd0800000000000000
+      internalID: -2511336471690197501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_47
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 243
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 749bd63b3306f7450800000000000000
+      internalID: 6088690996398111047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_48
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 243
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93dd6f30fc63ec1d0800000000000000
+      internalID: -3328662811827577543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_49
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 243
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 007b7f651f6915320800000000000000
+      internalID: 2544981227731400448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_50
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 243
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fd7b02c3325d30a0800000000000000
+      internalID: -6900268671809389066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_51
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 243
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af9fe539ae81bca20800000000000000
+      internalID: 3083585765639125498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_52
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 211
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44fef97ec5acdd0c0800000000000000
+      internalID: -4549257548202512572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_53
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 211
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 487b496ed8abc7ab0800000000000000
+      internalID: -5008923566921173116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_54
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 211
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc687f50e93a03230800000000000000
+      internalID: 3616570399878776523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_55
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 211
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65208767e2a01c880800000000000000
+      internalID: -8592575419373845930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_56
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 211
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d334ac4be3c06c6c0800000000000000
+      internalID: -4123594945350450371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_57
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 211
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33dee68f3d653d8f0800000000000000
+      internalID: -516974063811367629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_58
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 211
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 510cf3f0b1b9baab0800000000000000
+      internalID: -4995728821115174891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_59
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 211
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c287254c9944a450800000000000000
+      internalID: 6099080730890437320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_60
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 211
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a68c21b4851d39d30800000000000000
+      internalID: 4437120235036919914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_61
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 211
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8aaba43148ada590800000000000000
+      internalID: -7661282393077339507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_62
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 211
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5bd87116817606e0800000000000000
+      internalID: -1871683774493172901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_63
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 211
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e317ee95f76c98f60800000000000000
+      internalID: 8037173260291305790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_64
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 211
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d66349b7aeb8e2360800000000000000
+      internalID: 7146803497895474797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_65
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 179
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da7e5e2312879e520800000000000000
+      internalID: 2731846732960098221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_66
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 179
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02313d0365baba5a0800000000000000
+      internalID: -6508920449759243488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_67
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 179
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a54a7b1196d32d60800000000000000
+      internalID: 7864365293038618020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_68
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 179
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2783f61d6f86a14d0800000000000000
+      internalID: -3163100378989381518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_69
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 179
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68e9a6235dbecb0c0800000000000000
+      internalID: -4558509421899374970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_70
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 179
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b63270b9ee1737520800000000000000
+      internalID: 2698625871342150507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_71
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 179
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39e84361da2dd4820800000000000000
+      internalID: 2904208975567556243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_72
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 179
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9be6a1804d0f49cd0800000000000000
+      internalID: -2552150295352545607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_73
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 179
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 929e31030120c9110800000000000000
+      internalID: 1268891463560980777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_74
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 179
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7a2d6410ed7ef790800000000000000
+      internalID: -7494414328529081733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_75
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 179
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05926b820896bae90800000000000000
+      internalID: -7013395995539658416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_76
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 179
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ebac8826f06e54b0800000000000000
+      internalID: -5449811888713192477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_77
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 179
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fae18b42bfd9d4af0800000000000000
+      internalID: -410498289042448721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_78
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 147
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f8a56aa38b473ff0800000000000000
+      internalID: -56493441447253771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_79
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 147
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e7bc7169185d48a0800000000000000
+      internalID: -6319297836097947674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_80
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 147
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf46592d1cd9e8b70800000000000000
+      internalID: 8903226969145304316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_81
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 147
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e299198a26efce10800000000000000
+      internalID: 2220246211680113385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_82
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 147
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd5749a2e37f127c0800000000000000
+      internalID: -4097722339556035108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_83
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 147
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ece0bfc9a98926510800000000000000
+      internalID: 1540961812340215502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_84
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 147
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03f594fe7c8060770800000000000000
+      internalID: 8576552195179765552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_85
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 147
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce9dc674616aae840800000000000000
+      internalID: 5254194529898912236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_86
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 147
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36d55fbd66f95f3e0800000000000000
+      internalID: -2020533593680028317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_87
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 147
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5dd070be98d727b0800000000000000
+      internalID: -5248988664600404644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_88
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 147
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a0a0d0b5ee6dd200800000000000000
+      internalID: 206443090721939621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_89
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 147
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c040db5acba756280800000000000000
+      internalID: -9050692925478075380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_90
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 147
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a0a7c4404d44eda0800000000000000
+      internalID: -5916519072030809947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_91
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 115
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa30ce63ec8cc2850800000000000000
+      internalID: 6353673962323182511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_92
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 115
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 651fdaa8b0f6b1930800000000000000
+      internalID: 4115004779895058774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_93
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 115
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 614fe65332daebbd0800000000000000
+      internalID: -2612460367096384490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_94
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 115
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da9f0b3a5299958a0800000000000000
+      internalID: -6315848615471285843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_95
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 115
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78de96b4ff5494f30800000000000000
+      internalID: 4560253060473548167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_96
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 115
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 103341b7019080fe0800000000000000
+      internalID: -1222717332442041599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_97
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 115
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4913bcc94ff5bdd0800000000000000
+      internalID: -2470788128110864050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_98
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 115
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 625cd451f58d89c20800000000000000
+      internalID: 3213556237019759910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_99
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 115
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c8f192e67d23ede0800000000000000
+      internalID: -1305149478376703801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_100
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 115
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2e5850d08b8a5080800000000000000
+      internalID: -9197885903583289809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_101
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 115
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2eef7ad5de121410800000000000000
+      internalID: 1446252334182034989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_102
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 115
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b9aae844eb947ca0800000000000000
+      internalID: -6020015397109323341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_103
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 115
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc6fdaecc3c6c4ff0800000000000000
+      internalID: -50546487386573107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_104
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 83
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 558ee479da577cc10800000000000000
+      internalID: 2073755541855725653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_105
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 83
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9eeba514718420d40800000000000000
+      internalID: 5549076955591786217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_106
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 83
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0c07dbedc2d01490800000000000000
+      internalID: -7777484774601978868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_107
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 83
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5096c822dd86def90800000000000000
+      internalID: -6922761753221895931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_108
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 83
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 422e0d48656a3fde0800000000000000
+      internalID: -1300512976854261212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_109
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 83
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca6e431df38545c70800000000000000
+      internalID: 8958882589862848172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_110
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 83
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87296fd9c21140c90800000000000000
+      internalID: -7204614620559535496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_111
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 83
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba9c17d38ff334f40800000000000000
+      internalID: 5711479087851227563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_112
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 83
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea4fe7ff5e1afbc20800000000000000
+      internalID: 3224473867426657454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_113
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 83
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f87c191c79e05a590800000000000000
+      internalID: -7663703145950623857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_114
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 83
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15d3930b1b1b2ee20800000000000000
+      internalID: 3378458047205162321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_115
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 83
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea1e9d5dad5a048e0800000000000000
+      internalID: -1711185499091508818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_116
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 83
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b1fd94ae9a406820800000000000000
+      internalID: 2909407404508443065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_117
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 51
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c455103db6c871460800000000000000
+      internalID: 7212387722986607948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_118
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 51
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bdb870489f0716b0800000000000000
+      internalID: -5325770887751221840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_119
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 51
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2671b619d02eb3970800000000000000
+      internalID: 8735824450117375842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_120
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 51
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cb88408609930dd0800000000000000
+      internalID: -2521003113196254272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_121
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 51
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7adf575bcae3acd30800000000000000
+      internalID: 4452440093108862375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_122
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 51
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78ba1ead6a6141800800000000000000
+      internalID: 582115157730241415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_123
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 51
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e592dd9414342ba0800000000000000
+      internalID: -6114705130910476832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_124
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 51
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91404020efac70870800000000000000
+      internalID: 8649104801692648473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_125
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 51
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41a21f159a22d0290800000000000000
+      internalID: -7922638058855257580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_126
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 51
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72918425f1484b260800000000000000
+      internalID: 7112454981584165159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_127
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 51
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9c2380f61f4afa00800000000000000
+      internalID: 791031644499946650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_128
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 51
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ab963fdbee0c40c0800000000000000
+      internalID: -4590277513972376667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_129
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 51
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bcd432036ea6eba0800000000000000
+      internalID: -6059964508318409552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_130
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 19
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab278c00e1acdd960800000000000000
+      internalID: 7628475574046454458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_131
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 19
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 703b5108e817c9190800000000000000
+      internalID: -7954357984994938105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_132
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 19
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4e3c4354e2f3b220800000000000000
+      internalID: 2500609280584728142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_133
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 19
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e37a1cecaade77f50800000000000000
+      internalID: 6879228273700742974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_134
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 19
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cd761d6286ad2bf0800000000000000
+      internalID: -347438517131510328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_135
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 19
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8a3823a09625a3a0800000000000000
+      internalID: -6654870471715571061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_136
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 19
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66c0e5a1f3373e940800000000000000
+      internalID: 5324225899344563302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_137
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 19
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04fc4420821fe69d0800000000000000
+      internalID: -2779018765901967552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_138
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 19
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a156fd5f4bdb8ac60800000000000000
+      internalID: 7829716537100428570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_139
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 19
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27647710aaa98bea0800000000000000
+      internalID: -5856761260435618190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_140
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 19
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e96cc67edd3092d0800000000000000
+      internalID: -3274048903413208608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_141
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 19
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd5d80fea699e22c0800000000000000
+      internalID: -4454454296866925093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemonHomeSprites_adobespark_142
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 19
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 347bbf70e303a4340800000000000000
+      internalID: 4848740991797802819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
