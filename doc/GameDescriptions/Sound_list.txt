@@ -17,6 +17,7 @@
 	- Placement sounds	"place_summon"
 	- Attacking sounds	
 		- When a projectile shoots + when it hits an enemy
+				"shoot_projectile"
 	- Destroy sound		"delete_summon"
 
 - Enemies
