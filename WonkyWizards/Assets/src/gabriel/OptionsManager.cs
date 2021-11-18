@@ -9,7 +9,6 @@ public sealed class OptionsManager : MonoBehaviour
 
     private static float fEffectsVolume, fMusicVolume = 0.5f;
 
-
     public static float GetEffectsVolume()
     {
         return fEffectsVolume;

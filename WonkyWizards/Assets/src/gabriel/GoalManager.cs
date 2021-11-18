@@ -184,7 +184,7 @@ public class GoalManager : MonoBehaviour
     }
     public virtual void GoalTakeDamageSound()
     {
-        SoundManager.Instance.playSound("goal_hit");
+        SoundManager.playSound("goal_hit");
     }
 
 }
