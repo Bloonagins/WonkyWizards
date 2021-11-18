@@ -1,34 +1,34 @@
 - Wonk
-	- Hurt sounds
-	- Death sounds
-	- Potion drinking sounds
+	- Hurt sounds			"wonk_hurt"
+	- Death sounds			"wonk_death"
+	- Potion drinking sounds	"wonk_potion"
 
 - Notifications
-	- Goal tower being hit sounds
-	- Game over sounds
-	- Wave start sounds
-	- Wave completed sounds
+	- Goal tower being hit sounds	"goal_hit"
+	- Game over sounds		"lost"
+	- Wave start sounds		"wave_start"
+	- Wave completed sounds		"wave_complete"
 
 - Spells
-	- Casting sounds
-	- Termination sounds (when a spell disipates / explodes / ends)
+	- Casting sounds		"cast_[spell_name]"
+	- Termination sounds (when a spell disipates / explodes / ends)		"end_[spell_name]"
 
 - Summons
-	- Placement sounds
-	- Attacking sounds
+	- Placement sounds	"place_summon"
+	- Attacking sounds	
 		- When a projectile shoots + when it hits an enemy
-	- Destroy sound
+	- Destroy sound		"delete_summon"
 
 - Enemies
-	- Occasional random grunt or something
-	- Attack sounds
+	- Occasional random grunt or something	"enemy_grunt"
+	- Attack sounds				"enemy_attack"
 		- Include making sounds for enemy projectiles
-	- Hurt sounds
-	- Death sounds
+	- Hurt sounds				"enemy_hurt"
+	- Death sounds				"enemy_death"
 
 - HUD
-	- Menu click sounds
-	- Hotbar selction sounds
+	- Menu click sounds		"click1", "click2" (there are two, and they are different, use one or both, idc)
+	- Hotbar selction sounds	"hotbar"
 
 - Cutscenes
 	- Text scrolling / appearing sound (kind of like in pokemon or undertale)
