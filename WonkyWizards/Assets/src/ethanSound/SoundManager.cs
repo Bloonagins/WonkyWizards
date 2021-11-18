@@ -12,10 +12,11 @@ public class SoundManager : MonoBehaviour
     private static readonly object obj = new object();
 
     // sound mixer
-    private AudioMixer mixer;
+    private static AudioMixer mixer;
 
     // volumes for sfx and music (from -80 to 0)
-    private static float SFXVol, musicVol;
+    private static float SFXVol;
+    private static float musicVol;
 
     // declare audio clip objects
     private static AudioClip
@@ -37,9 +38,7 @@ public class SoundManager : MonoBehaviour
 
     // declare audio source
     [SerializeField]
-    private static AudioSource SFXAudioSrc;
-    [SerializeField]
-    private static AudioSource musicAudioSrc;
+    private static AudioSource audioSrc;
 
     // int used for cycleing enemyDeath sound
     private static int enemyGrunt, enemyAttack, enemyHurt, enemyDeath;
@@ -93,6 +92,10 @@ public class SoundManager : MonoBehaviour
 
     static void Start()
     {
+        // mixer setup
+        mixer = Resources.Load<AudioMixer>("ethanSound/main_mixer");
+        if (!mixer) Debug.Log("mixer is null!");
+
         // wonk sounds
         wonk_hurt = Resources.Load<AudioClip>("wonk_hurt");
         wonk_death = Resources.Load<AudioClip>("wonk_death");
@@ -132,8 +135,7 @@ public class SoundManager : MonoBehaviour
         click2 = Resources.Load<AudioClip>("click2");
         hotbar = Resources.Load<AudioClip>("hotbar");
 
-        if (!SFXAudioSrc) Debug.Log("SFXAudioSrc is null!");
-        if (!musicAudioSrc) Debug.Log("musicAudioSrc is null!");
+        if (!audioSrc) Debug.Log("audioSrc is null!");
 
         SFXVol = 0f;
         musicVol = 0f;
@@ -143,7 +145,7 @@ public class SoundManager : MonoBehaviour
 
     static void FixedUpdate()
     {
-        
+        setSFXVol();
     }
 
     public static void playSound(string clip)
@@ -152,52 +154,52 @@ public class SoundManager : MonoBehaviour
         switch (clip)
         {
             /*
-            case "wonk_hurt": SFXAudioSrc.PlayOneShot(wonk_hurt); break;
-            case "wonk_death": SFXAudioSrc.PlayOneShot(wonk_death); break;
-            case "wonk_potion": SFXAudioSrc.PlayOneShot(wonk_potion); break;
+            case "wonk_hurt": audioSrc.PlayOneShot(wonk_hurt); break;
+            case "wonk_death": audioSrc.PlayOneShot(wonk_death); break;
+            case "wonk_potion": audioSrc.PlayOneShot(wonk_potion); break;
 
-            case "goal_hit": SFXAudioSrc.PlayOneShot(goal_hit); break;
-            case "lost": SFXAudioSrc.PlayOneShot(lost); break;
-            case "wave_start": SFXAudioSrc.PlayOneShot(wave_start); break;
-            case "wave_complete": SFXAudioSrc.PlayOneShot(wave_complete); break;
+            case "goal_hit": audioSrc.PlayOneShot(goal_hit); break;
+            case "lost": audioSrc.PlayOneShot(lost); break;
+            case "wave_start": audioSrc.PlayOneShot(wave_start); break;
+            case "wave_complete": audioSrc.PlayOneShot(wave_complete); break;
 
-            case "cast_spells": SFXAudioSrc.PlayOneShot(cast_spells); break;
-            case "end_spells": SFXAudioSrc.PlayOneShot(end_spells); break;
+            case "cast_spells": audioSrc.PlayOneShot(cast_spells); break;
+            case "end_spells": audioSrc.PlayOneShot(end_spells); break;
 
-            case "place_summon": SFXAudioSrc.PlayOneShot(place_summon); break;
-            case "delete_summon": SFXAudioSrc.PlayOneShot(delete_summon); break;
+            case "place_summon": audioSrc.PlayOneShot(place_summon); break;
+            case "delete_summon": audioSrc.PlayOneShot(delete_summon); break;
 
             case "enemy_grunt":
                 playSound("enemy_grunt" + (enemyGrunt++ % 4) + 1);
                 break;
-            case "enemy_grunt1": SFXAudioSrc.PlayOneShot(enemy_grunt1); break;
-            case "enemy_grunt2": SFXAudioSrc.PlayOneShot(enemy_grunt2); break;
-            case "enemy_grunt3": SFXAudioSrc.PlayOneShot(enemy_grunt3); break;
+            case "enemy_grunt1": audioSrc.PlayOneShot(enemy_grunt1); break;
+            case "enemy_grunt2": audioSrc.PlayOneShot(enemy_grunt2); break;
+            case "enemy_grunt3": audioSrc.PlayOneShot(enemy_grunt3); break;
 
             case "enemy_attack":
                 playSound("enemy_attack" + (enemyAttack++ % 4) + 1);
                 break;
-            case "enemy_attack1": SFXAudioSrc.PlayOneShot(enemy_attack1); break;
-            case "enemy_attack2": SFXAudioSrc.PlayOneShot(enemy_attack2); break;
-            case "enemy_attack3": SFXAudioSrc.PlayOneShot(enemy_attack3); break;
+            case "enemy_attack1": audioSrc.PlayOneShot(enemy_attack1); break;
+            case "enemy_attack2": audioSrc.PlayOneShot(enemy_attack2); break;
+            case "enemy_attack3": audioSrc.PlayOneShot(enemy_attack3); break;
 
             case "enemy_hurt":
                 playSound("enemy_hurt" + (enemyHurt++ % 4) + 1);
                 break;
-            case "enemy_hurt1": SFXAudioSrc.PlayOneShot(enemy_hurt1); break;
-            case "enemy_hurt2": SFXAudioSrc.PlayOneShot(enemy_hurt2); break;
-            case "enemy_hurt3": SFXAudioSrc.PlayOneShot(enemy_hurt3); break;
+            case "enemy_hurt1": audioSrc.PlayOneShot(enemy_hurt1); break;
+            case "enemy_hurt2": audioSrc.PlayOneShot(enemy_hurt2); break;
+            case "enemy_hurt3": audioSrc.PlayOneShot(enemy_hurt3); break;
 
             case "enemy_death":
                 playSound("enemy_death" + (enemyDeath++ % 4) + 1);
                 break;
-            case "enemy_death1": SFXAudioSrc.PlayOneShot(enemy_death1); break;
-            case "enemy_death2": SFXAudioSrc.PlayOneShot(enemy_death2); break;
-            case "enemy_death3": SFXAudioSrc.PlayOneShot(enemy_death3); break;
+            case "enemy_death1": audioSrc.PlayOneShot(enemy_death1); break;
+            case "enemy_death2": audioSrc.PlayOneShot(enemy_death2); break;
+            case "enemy_death3": audioSrc.PlayOneShot(enemy_death3); break;
 
-            case "click1": SFXAudioSrc.PlayOneShot(click1); break;
-            case "click2": SFXAudioSrc.PlayOneShot(click2); break;
-            case "hotbar": SFXAudioSrc.PlayOneShot(hotbar); break; */
+            case "click1": audioSrc.PlayOneShot(click1); break;
+            case "click2": audioSrc.PlayOneShot(click2); break;
+            case "hotbar": audioSrc.PlayOneShot(hotbar); break; */
 
             // if no sound matched the requested string, then print an error message.
             default:
@@ -207,21 +209,25 @@ public class SoundManager : MonoBehaviour
 
     private static void setSFXVol()
     {
-        instance.mixer.SetFloat("volume", SFXVol);
+        mixer.SetFloat("volume", SFXVol);
     }
 
     private static void setMusicVol()
     {
-        instance.mixer.SetFloat("volume", musicVol);
+        mixer.SetFloat("volume", musicVol);
     }
 
     public static void updateSFXVol(float v)
     {
         SFXVol = v;
+        Debug.Log(SFXVol);
+        setSFXVol();
     }
 
     public static void updateMusicVol(float v)
     {
         musicVol = v;
+        Debug.Log(musicVol);
+        setMusicVol();
     }
 }
