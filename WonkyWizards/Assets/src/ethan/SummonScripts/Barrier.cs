@@ -17,7 +17,7 @@ public class Barrier : Summon
 {
 	//static string displayName = "Barrier";
 	protected static int cost = 10;
-	private const int maxHealth = int.MaxValue;
+	private const int maxHealth = 100;
 
 	public override void Start()
 	{
