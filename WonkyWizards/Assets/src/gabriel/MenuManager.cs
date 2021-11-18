@@ -19,7 +19,10 @@ public class MenuManager : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenuScene");
     }
-
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene("MainMenuScene");
+    }
     public void LoadLevel1()
     {
         SceneManager.LoadScene("FirstLevel");
@@ -44,13 +47,17 @@ public class MenuManager : MonoBehaviour
     {
         QualitySettings.SetQualityLevel(i);
     }
-    public void SetEffectsVolume(float i)
+    public static void SetEffectsVolume(float i)
     {
         OptionsManager.SetEffectsVolume(i);
     }
     public static void SetMusicVolume(float i)
     {
         OptionsManager.SetMusicVolume(i);
+    }
+    public void SetDrBCMode()
+    {
+            PlayerScript.flipBCMode();
     }
 
 

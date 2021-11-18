@@ -19,8 +19,24 @@ public class LevelMenuManager : MonoBehaviour
     public GameObject PauseMenuObject;
     public GameObject ConfirmMenuObject;
     public GameObject OptionsMenuObject;
+    public GameObject WinMenuObject;
+    public GameObject LoseMenuObject;
 
     public bool bGameWasInSetup;
+
+    private void FixedUpdate()
+    {
+        if(GameManager.CheckState() == GameState.LOSE)
+        {
+            LoseMenuObject.SetActive(true);
+            PlayerHUDObject.SetActive(false);
+        }
+        else if (GameManager.CheckState() == GameState.WIN)
+        {
+            WinMenuObject.SetActive(true);
+            PlayerHUDObject.SetActive(false);
+        }
+    }
 
     private void Awake()
     {
