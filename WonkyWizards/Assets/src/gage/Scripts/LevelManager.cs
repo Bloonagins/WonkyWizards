@@ -1,3 +1,11 @@
+/* Name: Gage Nardi
+ * LevelManager.cs
+ * Wonky Wizards -- Bloonagins
+ * Description: 
+ * The script first gets the current level, then loads the correct array size. 
+ * The script also stores a Tuple of the enemy spawnpoint and a tuple for the goal tower coordinates.
+ */
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
