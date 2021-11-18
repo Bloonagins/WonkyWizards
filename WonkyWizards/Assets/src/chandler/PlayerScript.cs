@@ -30,15 +30,12 @@ public class PlayerScript : MonoBehaviour
     private static bool inBuildMode;
     // determines whether the player is in Dr. BC mode or not
     private static bool inBCMode;
-    // sound manager object
-    private static SoundManager sm;
 
     // called when the game loads up
     void Awake()
     {
         // gets a link to this game object's rigid body component
         rb = GetComponent<Rigidbody2D>();
-        sm = SoundManager.getInstance();
     }
 
     // Start is called before the first frame update
@@ -88,56 +85,56 @@ public class PlayerScript : MonoBehaviour
                     GoblinGrunt enemy = other.GetComponent<GoblinGrunt>();
                     damagePlayer(enemy.GetDamage());
                     rb.AddForce(Vector3.Normalize(other.transform.position - transform.position) * enemy.GetKnockBack() * -1.0f, ForceMode2D.Impulse);
-                    sm.playSound("wonk_hurt");
+                    SoundManager.playSound("wonk_hurt");
                 }
                 else if (other.GetComponent<GoblinBerserker>())
                 {
                     GoblinBerserker enemy = other.GetComponent<GoblinBerserker>();
                     damagePlayer(enemy.GetDamage());
                     rb.AddForce(Vector3.Normalize(other.transform.position - transform.position) * enemy.GetKnockBack() * -1.0f, ForceMode2D.Impulse);
-                    sm.playSound("wonk_hurt");
+                    SoundManager.playSound("wonk_hurt");
                 }
                 else if (other.GetComponent<GoblinAssassin>())
                 {
                     GoblinAssassin enemy = other.GetComponent<GoblinAssassin>();
                     damagePlayer(enemy.GetDamage());
                     rb.AddForce(Vector3.Normalize(other.transform.position - transform.position) * enemy.GetKnockBack() * -1.0f, ForceMode2D.Impulse);
-                    sm.playSound("wonk_hurt");
+                    SoundManager.playSound("wonk_hurt");
                 }
                 else if (other.GetComponent<GoblinGiant>())
                 {
                     GoblinGiant enemy = other.GetComponent<GoblinGiant>();
                     damagePlayer(enemy.GetDamage());
                     rb.AddForce(Vector3.Normalize(other.transform.position - transform.position) * enemy.GetKnockBack() * -1.0f, ForceMode2D.Impulse);
-                    sm.playSound("wonk_hurt");
+                    SoundManager.playSound("wonk_hurt");
                 }
                 else if (other.GetComponent<GoblinWarrior>())
                 {
                     GoblinWarrior enemy = other.GetComponent<GoblinWarrior>();
                     damagePlayer(enemy.GetDamage());
                     rb.AddForce(Vector3.Normalize(other.transform.position - transform.position) * enemy.GetKnockBack() * -1.0f, ForceMode2D.Impulse);
-                    sm.playSound("wonk_hurt");
+                    SoundManager.playSound("wonk_hurt");
                 }
                 else if (other.GetComponent<GoblinArcher>())
                 {
                     GoblinArcher enemy = other.GetComponent<GoblinArcher>();
                     damagePlayer(enemy.GetDamage());
                     rb.AddForce(Vector3.Normalize(other.transform.position - transform.position) * enemy.GetKnockBack() * -1.0f, ForceMode2D.Impulse);
-                    sm.playSound("wonk_hurt");
+                    SoundManager.playSound("wonk_hurt");
                 }
                 else if (other.GetComponent<Arrow>())
                 {
                     Arrow arrow = other.GetComponent<Arrow>();
                     damagePlayer(arrow.GetDamage());
                     rb.AddForce(Vector3.Normalize(other.transform.position - transform.position) * arrow.GetKnockBack() * -1.0f, ForceMode2D.Impulse);
-                    sm.playSound("wonk_hurt");
+                    SoundManager.playSound("wonk_hurt");
                 }
             }
         }
         else if (other.transform.tag == "explosion")
         {
             damagePlayer(GoblinGiant.GetDeathDamage());
-            sm.playSound("wonk_hurt");
+            SoundManager.playSound("wonk_hurt");
         }
     }
 
@@ -226,7 +223,7 @@ public class PlayerScript : MonoBehaviour
     public static void resetPlayerHP()
     {
         hp = MAXHP;
-        sm.playSound("wonk_potion");
+        SoundManager.playSound("wonk_potion");
     }
 
     // decreases the player's health when damaged
@@ -248,7 +245,7 @@ public class PlayerScript : MonoBehaviour
             if (hp <= 0)
             {
                 GameManager.ChangeState(GameState.LOSE);
-                sm.playSound("wonk_death");
+                SoundManager.playSound("wonk_death");
             }
 
             PlayerTimer.activateDamageCooldown();
