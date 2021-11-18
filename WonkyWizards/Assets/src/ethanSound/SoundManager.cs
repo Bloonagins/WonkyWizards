@@ -14,6 +14,9 @@ public class SoundManager : MonoBehaviour
     // sound mixer
     private AudioMixer mixer;
 
+    // volumes for sfx and music (from -80 to 0)
+    private static float SFXVol, musicVol;
+
     // declare audio clip objects
     private static AudioClip
         // wonk sounds
@@ -132,6 +135,9 @@ public class SoundManager : MonoBehaviour
         if (!SFXAudioSrc) Debug.Log("SFXAudioSrc is null!");
         if (!musicAudioSrc) Debug.Log("musicAudioSrc is null!");
 
+        SFXVol = 0f;
+        musicVol = 0f;
+
         enemyDeath = 0;
     }
 
@@ -199,13 +205,23 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    public static void setSFXVol()
+    private static void setSFXVol()
     {
-
+        instance.mixer.SetFloat("volume", SFXVol);
     }
 
     private static void setMusicVol()
     {
+        instance.mixer.SetFloat("volume", musicVol);
+    }
 
+    public static void updateSFXVol(float v)
+    {
+        SFXVol = v;
+    }
+
+    public static void updateMusicVol(float v)
+    {
+        musicVol = v;
     }
 }
