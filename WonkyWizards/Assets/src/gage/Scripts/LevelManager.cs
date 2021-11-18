@@ -13,10 +13,10 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    private GameManager gm;
+    private GameManager gm; // instance of the GameManager
     private static bool[,] level1Arr = new bool[12, 12]; // static array of level 1
     private static bool[,] level2Arr = new bool[12, 12]; // static array of level 2
-    private static bool[,] currentLevelArr;
+    private static bool[,] currentLevelArr; // array variable to point to the current level
     
     private static Tuple<int, int> spawnPoint; // list of enemy spawn points (x, y)
     private static Tuple<int, int> goal;  // list of the 
@@ -29,19 +29,18 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gm = GameManager.getSingleton();
+        gm = GameManager.getSingleton(); // get the current instance of the singleton from the GameManager script
         currentLevel = gm.getCurrentLevel(); // gets the current level from zach's GameManager script
-        Initiate_Level(currentLevel);
+        Initiate_Level(currentLevel); // Initialize the level array based on the current level
 
-        gm.setLevelArray(currentLevelArr);
-        gm.setLevelArray(currentLevelArr);
+        gm.setLevelArray(currentLevelArr); // sets the array in the GameManager script to the current level array
     }
 
     void Initiate_Level(int currentLevel)
     {
         switch (currentLevel)
         {
-            case 0:
+            case 0: // first level
                 rows = 12;
                 cols = 12;
                 Initialize_Level_1();
@@ -50,7 +49,7 @@ public class LevelManager : MonoBehaviour
                 goal = new Tuple<int, int>(11, 5);
 
                 break;
-            case 1:
+            case 1: // second level
                 rows = 12;
                 cols = 12;
                 Initialize_Level_2();
@@ -60,7 +59,7 @@ public class LevelManager : MonoBehaviour
 
                 break;
             default:
-                Debug.Log("Current level invalide while initializing array");
+                Debug.Log("Current level invalide while initializing array [LevelManager.cs]");
                 break;
         }
     }

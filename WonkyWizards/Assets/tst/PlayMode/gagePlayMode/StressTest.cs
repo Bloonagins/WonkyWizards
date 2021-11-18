@@ -7,10 +7,10 @@ using UnityEditor;
 using UnityEngine.SceneManagement;
 
 
-// enemy punch's player out of the map lol
+// enemy punch's player out of the map
 public class StressTest
 {
-    private GameObject Player = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/src/chandler/Player.prefab");
+    private GameObject Player = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/src/gage/Player.prefab");
     private int count = 0;
     private float minFPS = 10f;
 

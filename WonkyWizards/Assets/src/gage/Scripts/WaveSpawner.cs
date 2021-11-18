@@ -139,7 +139,7 @@ public class WaveSpawner : MonoBehaviour
                     Surface2D.BuildNavMeshAsync();
                     baked = true;
                 }
-                // spawn enemy
+                // spawn the next enemy
                 SpawnWave();
 
                 // check if the last enemy of the wave has been killed
