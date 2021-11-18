@@ -182,10 +182,5 @@ public class GoalManager : MonoBehaviour
     {
         //play general goal taking damage animation
     }
-    public virtual void GoalTakeDamageSound()
-    {
-        SoundManager sm = SoundManager.getInstance();
-        sm.playSound("goal_hit");
-    }
 
 }

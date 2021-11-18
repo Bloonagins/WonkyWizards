@@ -38,11 +38,6 @@ public class CastleGoalScript : GoalManager
     public override void GoalTakeDamageAnimation()
     {
         //Play this goal's specific taking damage animation
-    }
-    public override void GoalTakeDamageSound()
-    {
-        SoundManager sm = SoundManager.getInstance();
-        sm.playSound("goal_hit_castle");
-    }
+    } 
 
 }
