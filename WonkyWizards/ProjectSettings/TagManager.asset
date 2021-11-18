@@ -23,6 +23,7 @@ TagManager:
   - SummonNoPlace
   - DemoPoint
   - Explosion
+  - SoundObject
   layers:
   - Default
   - TransparentFX
