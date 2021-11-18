@@ -328,7 +328,7 @@ public class PlayerScript : MonoBehaviour
         {
             if (isInBuildMode())
             {
-                if (summonIndex >= 9)
+                if (summonIndex >= 6)
                 {
                     summonIndex = 0;
                 }
@@ -355,7 +355,7 @@ public class PlayerScript : MonoBehaviour
             {
                 if (summonIndex <= 0)
                 {
-                    summonIndex = 9;
+                    summonIndex = 6;
                 }
                 else
                 {
