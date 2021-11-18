@@ -9,6 +9,7 @@ public class WaveSupplier : MonoBehaviour
     protected int wave2Mana;
     protected int wave3Mana;
     protected int wave;
+    protected static readonly Object obj = new Object();
     public GameObject waveSpawner;
     protected WaveSpawner ws;
 
@@ -38,7 +39,7 @@ public class WaveSupplier : MonoBehaviour
     // sets the amount of mana that the player gets for each wave
     protected static void setWaveMana(int wave1, int wave2, int wave3)
     {
-        lock (singleton)
+        lock (obj)
         {
             singleton.wave1Mana = wave1;
             singleton.wave2Mana = wave2;
@@ -50,7 +51,7 @@ public class WaveSupplier : MonoBehaviour
     // initializes the link to the wave spawner so the player can check to see if it has been given mana yet or not
     protected void setWaveSpawner()
     {
-        lock (singleton)
+        lock (obj)
         {
             singleton.ws = waveSpawner.GetComponent<WaveSpawner>();
         }
@@ -59,7 +60,7 @@ public class WaveSupplier : MonoBehaviour
     // called every frame update so see if the player should be given mana and hp due to the level entering a new wave
     protected static void checkToResupply()
     {
-        lock (singleton)
+        lock (obj)
         {
             if (!singleton.ws.checkMana())
             {

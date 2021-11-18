@@ -31,13 +31,14 @@ public class PlayerScript : MonoBehaviour
     // determines whether the player is in Dr. BC mode or not
     private static bool inBCMode;
     // sound manager object
-    private static SoundManager sm = SoundManager.getInstance();
+    private static SoundManager sm;
 
     // called when the game loads up
     void Awake()
     {
         // gets a link to this game object's rigid body component
         rb = GetComponent<Rigidbody2D>();
+        sm = SoundManager.getInstance();
     }
 
     // Start is called before the first frame update

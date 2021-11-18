@@ -408,6 +408,13 @@ public class PlayerControls : MonoBehaviour
     private void scrollBeeMovieText()
     {
         beeMovieScript.transform.Translate(new Vector3(0, 2, 0));
+        
+        if (beeMovieScript.transform.position.y >= 1700.0f)
+        {
+            scrollBM = !scrollBM;
+            beeMovieScript.transform.position = new Vector3(beeMovieScript.transform.position.x, 0, 0);
+            beeMovieScript.SetActive(scrollBM);
+        }
     }
 
     // handles disabling unity input package scheme
