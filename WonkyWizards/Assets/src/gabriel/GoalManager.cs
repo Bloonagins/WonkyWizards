@@ -36,7 +36,8 @@ public class GoalManager : MonoBehaviour
         {
             iGoalHp = 0;
             isGoalDead = true;
-            
+
+            GameManager.ChangeState(GameState.LOSE);            
             //Debug.Log("hp lower bound check\n");
         }
 
