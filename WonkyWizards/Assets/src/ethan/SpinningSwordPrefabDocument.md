@@ -29,11 +29,11 @@ Tower Defence, Tower, Sumon, Sword, Spinning Swords, Sword Tower, Spinning Sword
 			[3]: Sword3
 			[4]: Sword4
 
-			- Where each *Sword* has the components…
-				[1]: Transform
-				[2]: Sprite Rendere
-				[3]: Box Collider 2D
-				[4]: Rigidbody 2D
-				[5]: Sword (Script);
+- Where each *Sword* has the components…
+	[1]: Transform
+	[2]: Sprite Rendere
+	[3]: Box Collider 2D
+	[4]: Rigidbody 2D
+	[5]: Sword (Script);
 
-##
+##F
