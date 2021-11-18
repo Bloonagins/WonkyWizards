@@ -1,0 +1,12 @@
+-----GOAL PREFAB DOCUMENTATION-----
+
+-----Features-----
+1) Hp/Damage system
+2) Collision system
+3) Prepped for sound/animation calls
+4) Dynamic Binding implementation for differences between parent/child goals
+
+STEPS
+1) In Prefab script - set interaction types(audio/enemy collision/animation)
+2) Don't forget special variants
+3) Place in scene/instantiate via script

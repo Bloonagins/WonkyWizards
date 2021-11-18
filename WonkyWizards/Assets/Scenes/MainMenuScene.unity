@@ -1564,7 +1564,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -8}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 137.6, y: 150.1}
+  m_AnchoredPosition: {x: -187, y: 111}
   m_SizeDelta: {x: 531.2973, y: 76.5711}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &360310173
@@ -6748,7 +6748,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 186293037}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
@@ -6772,7 +6772,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1519969827
 MonoBehaviour:
@@ -8969,8 +8969,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 35, y: 0}
-  m_SizeDelta: {x: 559.8286, y: 245.1613}
+  m_AnchoredPosition: {x: 331.4, y: 47.1}
+  m_SizeDelta: {x: 600.2642, y: 331.3962}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2110240851
 MonoBehaviour:
@@ -8992,8 +8992,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Ethan --------Sound Design\n\t\tSummon Creation\n\nChandler --- Player
-    Input Handling\n\t\tdd\n\n\nGabriel --\n\nZach\n\nChase\n\nDavid\n\nGage"
+  m_text: "Ethan --------Sound Design\n\t\tSummon Creation\n\t\tCrossbow Creator
+    (it FOLLOWS them!)\n\nChandler----Player Input Handling\n\t\tCode Integration
+    Manager\n\t\tLead Organizer\n\t\tStretchy Camera Maker\n\nGabriel-------Menuing
+    Design\n\t\tCode Integration Manager\n\t\tGoal Implementation\n\t\tUI/HUD Specialist\n\nZach----------Spell
+    Design/Implementation\n\t\tGameManager Creator\n\t\tUnderstander of Singletons\n\nChase--------Boss
+    Design\n\t\tArtistic DIrector\n\t\tSprite Specialist\n\nDavid---------Enemy Specialist\n\t\tKnower
+    of Collisions\n\t\tPathfinding Specialist\n\t\tlike what even is a navmesh\n\nGage---------Level
+    Designer\n\t\tWave Creation Overseer\n\t\tTilemap God\n\t\tPermutation Specialist"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -9020,8 +9026,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 12
+  m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
