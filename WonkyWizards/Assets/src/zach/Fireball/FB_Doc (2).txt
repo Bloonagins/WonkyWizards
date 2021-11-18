@@ -1,0 +1,21 @@
+FireBall Prefab (mystical, 2D, Physics included): 
+
+This fireball prefab has 3 main components: 
+-Rigidbody2D: for the physics of casting 
+-Circle Collider2D, for enemy hit detection 
+-FireBall Script, to handle the physics and behaviour of the spell 
+
+This prefab has several attributes that can be modified: 
+DAMAGE: how much damage it does on hit 
+speed: how fast it travels across the screen 
+COOL_DOWN: how long until you can use it again 
+KNOCK_BACK: how far an enemy will be shot back 
+
+This prefab inherits from a larger script named spells, it contains the following methods: 
+cast() 
+collision behaviour()
+These are both utilized by the spell^ 
+
+This prefab also has the ability to be modified by typing: 
+RegisterSpellModifier(new BonusDamage(this, multiplier));
+(multiplier is the amount of damage you would like the spell to be multiplied by

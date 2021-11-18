@@ -22,7 +22,6 @@ public class FireBall: Spells, IDamage
         DAMAGE = 70;
         COOL_DOWN = 0.75f;
         KNOCK_BACK = 200.0f;
-        spell_number = 0;
         RegisterSpellModifier(new BonusDamage(this, 3));
     }
 
