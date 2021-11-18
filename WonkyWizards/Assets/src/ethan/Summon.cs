@@ -149,6 +149,9 @@ public class Summon : MonoBehaviour
 			// set the new summon to be a child of the NavMesh (for David's pathfinding)
 			newSummon.transform.parent = GameObject.FindGameObjectsWithTag("NavMesh")[0].transform;
 
+			// make new summon sound
+			SoundManager.playSound("place_summon");
+
 			return true; // successfully placed tower
 		}
 		else
@@ -164,6 +167,9 @@ public class Summon : MonoBehaviour
 		GameManager gm = GameManager.getSingleton();
 
 		gm.setSpaceAvailable(x, y);
+
+		// make delete summon sound
+		SoundManager.playSound("delete_summon");
 
 		// delete this object
 		Destroy(gameObject);
