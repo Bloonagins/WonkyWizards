@@ -5,11 +5,19 @@ using UnityEngine;
 public class TestEnemy : MonoBehaviour
 {
     public bool propercollision = false;
-    void FixedUpdate()
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        if(GameObject.Find("BlastRadius(Clone)") != null)
+        if(collision.gameObject.tag =="Spell")
         {
-            propercollision = true;
+            if(collision.GetComponent<FireBall>()){
+                propercollision = true;
+            }else if(collision.GetComponent<MagicMissle>()){
+                propercollision = true;
+            }else if(collision.GetComponent<AcidSpray>()){
+                propercollision = true;
+            }else if(collision.GetComponent<IceBeam>()){
+                propercollision = true;
+            }
         }
     }
 }

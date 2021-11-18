@@ -9,7 +9,7 @@ using UnityEditor;
 public class NewTestScript
 {
 
-    private GameObject Spell = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/src/zach/Projectile.prefab");
+    private GameObject Spell = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/src/zach/Fireball/FireBall.prefab");
     private int count = 0;
     private float minFPS = 10f;
     
