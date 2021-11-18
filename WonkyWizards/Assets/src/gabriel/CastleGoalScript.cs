@@ -41,8 +41,7 @@ public class CastleGoalScript : GoalManager
     }
     public override void GoalTakeDamageSound()
     {
-        SoundManager sm = SoundManager.getInstance();
-        sm.playSound("goal_hit_castle");
+        SoundManager.Instance.playSound("goal_hit_castle");
     }
 
 }
