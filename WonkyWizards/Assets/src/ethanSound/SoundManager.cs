@@ -48,28 +48,25 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    // a public method for the shortform "get {}" of SoundManager's Instance (above)
-    public static SoundManager getInstance()
+    private void Awake()
     {
-        lock (obj)
+        if (instance != null && instance != this)
         {
-            if (instance == null)
-            {
-                instance = new SoundManager();
-            }
-            return instance;
+            Destroy(this.gameObject);
+            return;
         }
+
+        instance = this;
+        DontDestroyOnLoad(this.gameObject);
     }
 
+
     // the SoundManager constructor
-    public SoundManager()
+    private SoundManager()
     {
         // make it thread-safe
         lock (obj)
         {
-            // attempt generation
-            getInstance();
-
             // if there's a duplicate, we need to remove it.
             // if there is an instance, and it's not this...
             if (instance && instance != this)
