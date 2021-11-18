@@ -26,15 +26,25 @@ public class MagicMissle : Spells
         Destroy(Effect,1);
     }
 
+    //can now pass through enemies
+    public override bool Collision_behaviour(Collider2D collision)
+    {
+        if(collision.gameObject.tag !="Player" && collision.gameObject.tag != "Spell" && collision.gameObject.tag != "Zone" && collision.gameObject.tag != "SummonProjectile" && collision.gameObject.tag != "SummonNoPlace"  && collision.gameObject.tag != "Summon" && collision.gameObject.tag != "Enemy")
+        {
+            return true;
+        }
+        else 
+        {
+            return false;
+        }
+    }
+
     //-----------Collisions-------------
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag =="Enemy")
-        {
-            Explode();
-        }
         if(Collision_behaviour(collision))
         {
+            Explode();
             Destroy(projectile);
         }
     }

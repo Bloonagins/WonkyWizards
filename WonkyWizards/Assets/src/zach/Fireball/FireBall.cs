@@ -11,9 +11,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireBall: Spells
+public class FireBall: Spells, IDamage
 {   
     public float radius = 3f;
+    private List<SpellModifier> myModifiers = new List<SpellModifier>(); 
 
     public FireBall()
     {
@@ -22,6 +23,7 @@ public class FireBall: Spells
         COOL_DOWN = 0.75f;
         KNOCK_BACK = 200.0f;
         spell_number = 0;
+        RegisterSpellModifier(new BonusDamage(this, 3));
     }
 
     //-----------Firing-------------
@@ -48,6 +50,20 @@ public class FireBall: Spells
         {
             Explode();
             Destroy(projectile);
+        }
+    }
+
+    public void RegisterSpellModifier(SpellModifier newModifier){
+        myModifiers.Add(newModifier);
+    }
+
+    public void setDamage(int multiplier){
+        DAMAGE *= multiplier;
+    }
+
+    public void apply(IDamageMaker source){
+        for(int i=0; i < myModifiers.Count; i++){
+            myModifiers[i].apply(source);
         }
     }
 }
