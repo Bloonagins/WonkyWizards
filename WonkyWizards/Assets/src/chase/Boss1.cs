@@ -1,12 +1,14 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Boss1 : Boss
 {
     public Boss1()
     {
-        maxHealth = 400;
+        maxHealth = 800;
         health = maxHealth;
         moveSpeed = 4f;
     }

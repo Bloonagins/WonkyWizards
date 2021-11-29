@@ -93,11 +93,11 @@ public class EnemyTargeting : MonoBehaviour
             stoppingDistance = gameObject.GetComponent<GoblinArcher>().GetStoppingDistance();
             isRanged = true;
         }
-        else if(gameObject.GetComponent<Boss>()) { // Set Boss stats 
-            //agent.speed = gameObject.GetComponent<Boss>().GetMoveSpeed(); 
-            //agent.acceleration = gameObject.GetComponent<Boss>().GetMoveSpeed();
-            //targetDistance = gameObject.GetComponent<Boss>().GetTargetDistance();
-            //stoppingDistance = gameObject.GetComponent<Boss>().GetStoppingDistance();
+        else if(gameObject.GetComponent<TheGreatGob>()) { // Set Boss stats 
+            agent.speed = gameObject.GetComponent<TheGreatGob>().GetMoveSpeed(); 
+            agent.acceleration = gameObject.GetComponent<TheGreatGob>().GetMoveSpeed();
+            targetDistance = gameObject.GetComponent<TheGreatGob>().GetTargetDistance();
+            stoppingDistance = gameObject.GetComponent<TheGreatGob>().GetStoppingDistance();
         }
         
     }
