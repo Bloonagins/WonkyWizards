@@ -1,5 +1,8 @@
 # TheGreatGob Prefab
 
+##Keywords
+Goblin,Enemy,Magic
+
 ## Introduction
 This ReadMe file contains all of the necessary information about TheGreatGob Pre Fab.
 
