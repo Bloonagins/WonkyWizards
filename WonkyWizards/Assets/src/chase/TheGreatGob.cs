@@ -19,16 +19,16 @@ public class TheGreatGob : BossSuperClass
     private static readonly object obj = new object();
     private TheGreatGob()
     {
-        maxHealth = health = 800;
-        damage = 85;
-        moveSpeed = 18f;
-        minimumSpeed = 18f;
-        maximumSpeed = 20f;
+        maxHealth = health = 1200;
+        damage = 90;
+        moveSpeed = 8f;
+        minimumSpeed = 8f;
+        maximumSpeed = 10f;
         attackSpeed = attackTimer = 2f;
-        targetDistance = 35f;
+        targetDistance = 50f;
         stoppingDistance = 1f;
         attackConnected = false;
-        knockBack = 500f;
+        knockBack = 1f;
     } // The Great Gob Constructor
     private static TheGreatGob instance = null; // set the instance variable to null
     public static TheGreatGob GetInstance

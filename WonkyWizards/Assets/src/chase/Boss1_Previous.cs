@@ -4,13 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Boss1 : Boss
+public class Boss1_Previous : Boss_Previous
 {
-    public Boss1()
+    public Boss1_Previous()
     {
-        maxHealth = 800;
+        maxHealth = 1200;
         health = maxHealth;
-        moveSpeed = 4f;
+        moveSpeed = 1f;
     }
 
 

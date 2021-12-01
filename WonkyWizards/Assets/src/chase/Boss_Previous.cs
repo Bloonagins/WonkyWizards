@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Boss : MonoBehaviour
+public class Boss_Previous : MonoBehaviour
 {
     public int health;
     public float moveSpeed;

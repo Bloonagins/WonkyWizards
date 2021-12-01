@@ -6,7 +6,7 @@ using UnityEngine.TestTools;
 
 public class HealthTest
 {
-    private Boss1 Terry = new Boss1();
+    private Boss1_Previous Terry = new Boss1_Previous();
 
     [UnityTest]
     public IEnumerator overHeal()

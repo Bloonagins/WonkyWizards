@@ -30,7 +30,7 @@ public class BossSuperClass : MonoBehaviour
     //----------------------- Constructor -----------------------
     public BossSuperClass()
     {
-        maxHealth = health = 100;
+        maxHealth = health = 1200;
         damage = minimumDamage = 10;
         maximumDamage = 15;
         moveSpeed = 1f;
