@@ -22,30 +22,6 @@ public class Wave
     public GameObject[] typeOfEnemies;
     public float spawnInterval;
     public bool bossWave;
-
-    public Wave()
-    {
-
-    }
-
-    public virtual void SpawnBoss(GameObject typeOfBoss, Transform spwnPoint)
-    {
-        //Debug.Log("Wave class");
-    }
-}
-public class BossWave : Wave
-{
-    public float BossST; // the time during the round the boss spawns
-
-    public BossWave(float BossSPWNTime)
-    {
-        BossST = BossSPWNTime;
-    }
-    public override void SpawnBoss(GameObject typeOfBoss, Transform spwnPoint)
-    {
-        //Debug.Log("Spawning Boss");
-        //GameObject.Instantiate(typeOfBoss, spwnPoint.position, Quaternion.identity);
-    }
 }
 
 public class WaveSpawner : MonoBehaviour
@@ -111,19 +87,13 @@ public class WaveSpawner : MonoBehaviour
     {
         //mainTimer += Time.fixedDeltaTime;
         currentWave = waves[currentWaveNumber]; // set the current wave
-        if (currentWave.bossWave)
-        {
-            //Debug.Log("Binding dynamically");
-            currentWave = new BossWave(0); // dynamic binding
-            //currentWave.SpawnBoss(typeOfBoss, spawnPoints[0]);
-        }
+        
         // check gamestate if its in play mode
         if (GameManager.CheckState() == GameState.PLAY)
         {
             if (!spawnedBoss & currentWave.bossWave) // no passing for some reason
             {
-                //Debug.Log("Calling spawn Boss");
-                currentWave.SpawnBoss(typeOfBoss, spawnPoints[0]);
+                // spawn the boss
                 spawnedBoss = true;
             }
 
