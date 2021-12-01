@@ -94,6 +94,7 @@ public class WaveSpawner : MonoBehaviour
             if (!spawnedBoss & currentWave.bossWave) // no passing for some reason
             {
                 // spawn the boss
+                Instantiate(typeOfBoss, spawnPoints[0].position, Quaternion.identity);
                 spawnedBoss = true;
             }
 
