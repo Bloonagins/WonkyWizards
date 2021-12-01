@@ -123,6 +123,7 @@ public class TheGreatGob : BossSuperClass
             }
         }
     }
+
     void OnTriggerStay2D(Collider2D collision)
     {
         GameObject other = collision.gameObject;
