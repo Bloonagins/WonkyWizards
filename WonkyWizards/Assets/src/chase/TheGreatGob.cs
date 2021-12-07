@@ -55,6 +55,7 @@ public class TheGreatGob : BossSuperClass
         }
 
         instance = this;
+        DontDestroyOnLoad(this.gameObject);
     }
     // --- End of Singleton Pattern --- \\
     // Used to store RigidBody2d Component
