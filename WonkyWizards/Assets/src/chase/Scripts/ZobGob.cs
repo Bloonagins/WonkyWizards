@@ -13,25 +13,25 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class TheGreatGob : BossSuperClass
+public class ZobGob : BossSuperClass
 {
     // --- Start of Singleton Pattern --- \\
     private static readonly object obj = new object();
-    private TheGreatGob()
+    private ZobGob()
     {
         maxHealth = health = 1200;
         damage = 90;
         moveSpeed = 8f;
-        minimumSpeed = 8f;
-        maximumSpeed = 10f;
+        minimumSpeed = 0.5f;
+        maximumSpeed = 1f;
         attackSpeed = attackTimer = 2f;
         targetDistance = 50f;
         stoppingDistance = 1f;
         attackConnected = false;
         knockBack = 1f;
-    } // The Great Gob Constructor
-    private static TheGreatGob instance = null; // set the instance variable to null
-    public static TheGreatGob GetInstance
+    }
+    private static ZobGob instance = null; // set the instance variable to null
+    public static ZobGob GetInstance
     {
         get
         {
@@ -40,7 +40,7 @@ public class TheGreatGob : BossSuperClass
                 lock (obj)
                 {
                     if (instance == null)
-                        instance = new TheGreatGob();
+                        instance = new ZobGob();
                 }
             }
             return instance;
@@ -62,8 +62,6 @@ public class TheGreatGob : BossSuperClass
     // Used to store Agent component
     private NavMeshAgent agent;
 
-    // Constructor for TheGreatGob
-
     void Start()
     {
         //Rigid body component is grabbed
@@ -81,14 +79,14 @@ public class TheGreatGob : BossSuperClass
     }
     void Update()
     {
-        //Checks if the great gob has any health left if not it destroys the game object
+        //Checks if the zob gob has any health left if not it destroys the game object
         if (health <= 0)
         {
             Destroy(gameObject); // Game Object gets destroyed
         }
     }
 
-    // Checks to see if the Great Gob is hit by anything
+    // Checks to see if the zob Gob is hit by anything
     void OnTriggerEnter2D(Collider2D collision)
     {
         GameObject other = collision.gameObject;
@@ -127,7 +125,7 @@ public class TheGreatGob : BossSuperClass
     {
         GameObject other = collision.gameObject;
         if (other.tag == "Goal")
-        { // Sees if the great gob hit the goal
+        { // Sees if the zob gob hit the goal
             if (attackConnected)
             { // Make sure attack is available and attack is successful
                 attackTimer = 0.0f; // Reset timer
@@ -149,3 +147,4 @@ public class TheGreatGob : BossSuperClass
         }
     }
 }
+
