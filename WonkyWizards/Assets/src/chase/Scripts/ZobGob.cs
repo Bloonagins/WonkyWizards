@@ -1,14 +1,3 @@
-/**********************************************
-* TheGreatGob V1.0.0                          *
-* Author: Chase Gornick, T4                   *
-* Description: TheGreatGob Class will inherit *
-* from the BossSuperClass ceratin stats.      *
-* This will specify all of the specific values*
-* for the boss The Great Gob. The Great Gob as* 
-* of Right now is very basic but will be      *
-* improved with in the week as well as have a *
-* sprite associated with it                   *
-**********************************************/
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
