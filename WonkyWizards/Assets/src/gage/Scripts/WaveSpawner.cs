@@ -33,7 +33,7 @@ public class WaveSpawner : MonoBehaviour
 
     private int currentWaveNumber; // current wave number variable that is incremented when a wave is finished
     
-    private float nextSpawnTime, currentSpawnTime;//, mainTimer; // timer variables
+    private float nextSpawnTime, currentSpawnTime; // timer variables
     
     private bool canSpawn = true;
     private bool baked; // variable to check if nav mesh has been baked before each wave starts
@@ -95,7 +95,7 @@ public class WaveSpawner : MonoBehaviour
             {
                 // spawn the boss
                 Instantiate(typeOfBoss, spawnPoints[0].position, Quaternion.identity);
-                spawnedBoss = true;
+                spawnedBoss = true; // set spawned boss to true
             }
 
             if (currentSpawnTime > 0)
