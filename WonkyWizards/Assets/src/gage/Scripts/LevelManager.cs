@@ -63,7 +63,7 @@ public class LevelManager : MonoBehaviour
                 rows = 12;
                 cols = 12;
                 Initialize_Level_3();
-                currentLevelArr = level2Arr;
+                currentLevelArr = level3Arr;
                 spawnPoint = new Tuple<int, int>(0, 5);
                 goal = new Tuple<int, int>(11, 5);
 
