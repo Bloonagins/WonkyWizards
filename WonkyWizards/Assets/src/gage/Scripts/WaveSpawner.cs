@@ -119,7 +119,7 @@ public class WaveSpawner : MonoBehaviour
                 // check if the last enemy of the wave has been killed
                 if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0 && !canSpawn)
                 {
-                    if (1 < currentWaveNumber || waves.Length == currentWaveNumber) // If completed the last wave
+                    if (1 < currentWaveNumber) // If completed the last wave
                     {
                         //if (currentLevel == 2)
                         //{
