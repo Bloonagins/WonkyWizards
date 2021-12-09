@@ -25,6 +25,7 @@ public enum GameState{
     PLAY,
     LOSE,
     WIN,
+    WIN_SWITCH,
     PAUSE
 }
 
