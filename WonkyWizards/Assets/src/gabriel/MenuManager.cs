@@ -39,6 +39,10 @@ public class MenuManager : MonoBehaviour
     {
         SceneManager.LoadScene("FourthLevel");
     }
+    public void LoadDemoMode()
+    {
+        SceneManager.LoadScene("DemoMode");
+    }
     public void SetFullscreen(bool isFull)
     {
         Screen.fullScreen = isFull;

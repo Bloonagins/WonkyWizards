@@ -4268,7 +4268,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1752859199}
-        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: MenuManager, gabrielSrc
         m_MethodName: LoadLevel1
         m_Mode: 1
         m_Arguments:
