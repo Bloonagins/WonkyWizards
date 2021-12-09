@@ -11,7 +11,7 @@ public class CastleGoalScript : GoalManager
     {
         base.Awake();
 
-        iGoalHp = 500;
+        iGoalHp = 5000;
         iGoalMaxHp = 5000;
     }
 
